@@ -1,0 +1,1780 @@
+{
+ "files": {
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2024Q1.csv": {
+   "rows": 89645,
+   "events": {
+    "DECISION": 89645
+   },
+   "decision_ts_range": [
+    "2023-12-29 23:25:00",
+    "2024-03-29 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 89645,
+    "lag_not_positive": 1183,
+    "lag_exactly_one_bar": 87623,
+    "lag_over_one_bar": 838,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 61447,
+    "NO_TRADE_SPREAD_TAX": 25050,
+    "NO_TRADE_FOMC_WINDOW": 1184,
+    "NO_TRADE_INSUFFICIENT_TARGET": 793,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 599,
+    "NO_TRADE_STOP_ON": 415,
+    "NO_TRADE_ADV_FAIL": 157
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2024Q2.csv": {
+   "rows": 91047,
+   "events": {
+    "DECISION": 91047
+   },
+   "decision_ts_range": [
+    "2024-03-29 22:55:00",
+    "2024-06-28 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 91047,
+    "lag_not_positive": 1191,
+    "lag_exactly_one_bar": 89238,
+    "lag_over_one_bar": 614,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 57263,
+    "NO_TRADE_SPREAD_TAX": 30490,
+    "NO_TRADE_FOMC_WINDOW": 1195,
+    "NO_TRADE_INSUFFICIENT_TARGET": 884,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 643,
+    "NO_TRADE_STOP_ON": 411,
+    "NO_TRADE_ADV_FAIL": 161
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2024Q3.csv": {
+   "rows": 92315,
+   "events": {
+    "DECISION": 92315
+   },
+   "decision_ts_range": [
+    "2024-06-28 23:54:00",
+    "2024-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 92315,
+    "lag_not_positive": 1187,
+    "lag_exactly_one_bar": 90428,
+    "lag_over_one_bar": 689,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 55283,
+    "NO_TRADE_SPREAD_TAX": 34154,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 700,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 504,
+    "NO_TRADE_STOP_ON": 355,
+    "NO_TRADE_ADV_FAIL": 121
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2024Q4.csv": {
+   "rows": 90885,
+   "events": {
+    "DECISION": 90885
+   },
+   "decision_ts_range": [
+    "2024-09-30 23:58:00",
+    "2024-12-31 21:54:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90885,
+    "lag_not_positive": 1198,
+    "lag_exactly_one_bar": 89233,
+    "lag_over_one_bar": 454,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 45014,
+    "NO_TRADE_SPREAD_TAX": 42880,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 801,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 569,
+    "NO_TRADE_STOP_ON": 294,
+    "NO_TRADE_ADV_FAIL": 129
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2025Q1.csv": {
+   "rows": 88248,
+   "events": {
+    "DECISION": 88248
+   },
+   "decision_ts_range": [
+    "2024-12-31 21:55:00",
+    "2025-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88248,
+    "lag_not_positive": 1183,
+    "lag_exactly_one_bar": 86620,
+    "lag_over_one_bar": 432,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 58961,
+    "NO_TRADE_SPREAD_TAX": 26356,
+    "NO_TRADE_FOMC_WINDOW": 1196,
+    "NO_TRADE_INSUFFICIENT_TARGET": 768,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 440,
+    "NO_TRADE_STOP_ON": 404,
+    "NO_TRADE_ADV_FAIL": 123
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2025Q2.csv": {
+   "rows": 91136,
+   "events": {
+    "DECISION": 91136
+   },
+   "decision_ts_range": [
+    "2025-03-31 23:58:00",
+    "2025-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 91136,
+    "lag_not_positive": 1193,
+    "lag_exactly_one_bar": 89430,
+    "lag_over_one_bar": 508,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 78087,
+    "NO_TRADE_SPREAD_TAX": 10141,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 775,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 552,
+    "NO_TRADE_STOP_ON": 281,
+    "NO_TRADE_ADV_FAIL": 102
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2025Q3.csv": {
+   "rows": 92513,
+   "events": {
+    "DECISION": 92513
+   },
+   "decision_ts_range": [
+    "2025-06-30 23:58:00",
+    "2025-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 92513,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 90983,
+    "lag_over_one_bar": 332,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 62712,
+    "NO_TRADE_SPREAD_TAX": 27180,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 681,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 379,
+    "NO_TRADE_STOP_ON": 268,
+    "NO_TRADE_ADV_FAIL": 95
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2025Q4.csv": {
+   "rows": 90890,
+   "events": {
+    "DECISION": 90890
+   },
+   "decision_ts_range": [
+    "2025-09-30 23:58:00",
+    "2025-12-31 21:53:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90890,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 89480,
+    "lag_over_one_bar": 212,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 50244,
+    "NO_TRADE_NO_QUALIFIED": 38268,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 581,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 255,
+    "NO_TRADE_STOP_ON": 244,
+    "NO_TRADE_ADV_FAIL": 100
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2026Q1.csv": {
+   "rows": 88245,
+   "events": {
+    "DECISION": 88245
+   },
+   "decision_ts_range": [
+    "2025-12-31 21:54:00",
+    "2026-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88245,
+    "lag_not_positive": 1198,
+    "lag_exactly_one_bar": 86774,
+    "lag_over_one_bar": 273,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 46879,
+    "NO_TRADE_NO_QUALIFIED": 39152,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 509,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 253,
+    "NO_TRADE_STOP_ON": 169,
+    "NO_TRADE_ADV_FAIL": 85
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2026Q2.csv": {
+   "rows": 91117,
+   "events": {
+    "DECISION": 91117
+   },
+   "decision_ts_range": [
+    "2026-03-31 23:58:00",
+    "2026-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 91117,
+    "lag_not_positive": 1193,
+    "lag_exactly_one_bar": 89635,
+    "lag_over_one_bar": 284,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 53964,
+    "NO_TRADE_NO_QUALIFIED": 34926,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 472,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 258,
+    "NO_TRADE_STOP_ON": 201,
+    "NO_TRADE_ADV_FAIL": 98
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_A2026Q3.csv": {
+   "rows": 58956,
+   "events": {
+    "DECISION": 58956
+   },
+   "decision_ts_range": [
+    "2026-06-30 23:58:00",
+    "2026-08-27 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 58956,
+    "lag_not_positive": 479,
+    "lag_exactly_one_bar": 58235,
+    "lag_over_one_bar": 242,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 42554,
+    "NO_TRADE_NO_QUALIFIED": 15220,
+    "NO_TRADE_FOMC_WINDOW": 479,
+    "NO_TRADE_INSUFFICIENT_TARGET": 365,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 153,
+    "NO_TRADE_STOP_ON": 95,
+    "NO_TRADE_ADV_FAIL": 90
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_EURUSD_B.csv": {
+   "rows": 29282,
+   "events": {
+    "DECISION": 29282
+   },
+   "decision_ts_range": [
+    "2026-08-27 23:58:00",
+    "2026-09-25 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 29282,
+    "lag_not_positive": 676,
+    "lag_exactly_one_bar": 26109,
+    "lag_over_one_bar": 2454,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 23464,
+    "NO_TRADE_SPREAD_TAX": 4425,
+    "NO_TRADE_FOMC_WINDOW": 719,
+    "NO_TRADE_INSUFFICIENT_TARGET": 248,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 236,
+    "NO_TRADE_STOP_ON": 126,
+    "NO_TRADE_ADV_FAIL": 50,
+    "NO_TRADE_MARGIN_USAGE": 14
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2024Q1.csv": {
+   "rows": 89639,
+   "events": {
+    "DECISION": 89639
+   },
+   "decision_ts_range": [
+    "2023-12-29 23:25:00",
+    "2024-03-29 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 89639,
+    "lag_not_positive": 1174,
+    "lag_exactly_one_bar": 87542,
+    "lag_over_one_bar": 913,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 56399,
+    "NO_TRADE_SPREAD_TAX": 29947,
+    "NO_TRADE_FOMC_WINDOW": 1184,
+    "NO_TRADE_INSUFFICIENT_TARGET": 980,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 602,
+    "NO_TRADE_STOP_ON": 389,
+    "NO_TRADE_ADV_FAIL": 138
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2024Q2.csv": {
+   "rows": 91073,
+   "events": {
+    "DECISION": 91073
+   },
+   "decision_ts_range": [
+    "2024-03-29 22:55:00",
+    "2024-06-28 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 91073,
+    "lag_not_positive": 1196,
+    "lag_exactly_one_bar": 89276,
+    "lag_over_one_bar": 599,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 55106,
+    "NO_TRADE_SPREAD_TAX": 32528,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 1049,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 583,
+    "NO_TRADE_STOP_ON": 439,
+    "NO_TRADE_ADV_FAIL": 170
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2024Q3.csv": {
+   "rows": 92318,
+   "events": {
+    "DECISION": 92318
+   },
+   "decision_ts_range": [
+    "2024-06-28 23:54:00",
+    "2024-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 92318,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 90635,
+    "lag_over_one_bar": 485,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 67599,
+    "NO_TRADE_SPREAD_TAX": 21410,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 943,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 686,
+    "NO_TRADE_STOP_ON": 334,
+    "NO_TRADE_ADV_FAIL": 148
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2024Q4.csv": {
+   "rows": 90878,
+   "events": {
+    "DECISION": 90878
+   },
+   "decision_ts_range": [
+    "2024-09-30 23:58:00",
+    "2024-12-31 21:54:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90878,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 89346,
+    "lag_over_one_bar": 334,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 71648,
+    "NO_TRADE_SPREAD_TAX": 16191,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 867,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 490,
+    "NO_TRADE_STOP_ON": 362,
+    "NO_TRADE_ADV_FAIL": 122
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2025Q1.csv": {
+   "rows": 88253,
+   "events": {
+    "DECISION": 88253
+   },
+   "decision_ts_range": [
+    "2024-12-31 21:55:00",
+    "2025-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88253,
+    "lag_not_positive": 1196,
+    "lag_exactly_one_bar": 86746,
+    "lag_over_one_bar": 309,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 70602,
+    "NO_TRADE_SPREAD_TAX": 14500,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 836,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 530,
+    "NO_TRADE_STOP_ON": 423,
+    "NO_TRADE_ADV_FAIL": 164
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2025Q2.csv": {
+   "rows": 91138,
+   "events": {
+    "DECISION": 91138
+   },
+   "decision_ts_range": [
+    "2025-03-31 23:58:00",
+    "2025-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 91138,
+    "lag_not_positive": 1194,
+    "lag_exactly_one_bar": 89401,
+    "lag_over_one_bar": 539,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 74058,
+    "NO_TRADE_SPREAD_TAX": 14175,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 818,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 563,
+    "NO_TRADE_STOP_ON": 239,
+    "NO_TRADE_ADV_FAIL": 86,
+    "NO_TRADE_MARGIN_USAGE": 1
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2025Q3.csv": {
+   "rows": 92506,
+   "events": {
+    "DECISION": 92506
+   },
+   "decision_ts_range": [
+    "2025-06-30 23:58:00",
+    "2025-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 92506,
+    "lag_not_positive": 1192,
+    "lag_exactly_one_bar": 90912,
+    "lag_over_one_bar": 396,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 73637,
+    "NO_TRADE_SPREAD_TAX": 15742,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 929,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 547,
+    "NO_TRADE_STOP_ON": 316,
+    "NO_TRADE_ADV_FAIL": 136,
+    "NO_TRADE_MARGIN_USAGE": 1
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2025Q4.csv": {
+   "rows": 90895,
+   "events": {
+    "DECISION": 90895
+   },
+   "decision_ts_range": [
+    "2025-09-30 23:58:00",
+    "2025-12-31 21:53:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90895,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 89535,
+    "lag_over_one_bar": 162,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 76398,
+    "NO_TRADE_SPREAD_TAX": 11036,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 950,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 705,
+    "NO_TRADE_STOP_ON": 456,
+    "NO_TRADE_ADV_FAIL": 151,
+    "NO_TRADE_MARGIN_USAGE": 1
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2026Q1.csv": {
+   "rows": 88210,
+   "events": {
+    "DECISION": 88210
+   },
+   "decision_ts_range": [
+    "2025-12-31 21:54:00",
+    "2026-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88210,
+    "lag_not_positive": 1198,
+    "lag_exactly_one_bar": 86845,
+    "lag_over_one_bar": 167,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 74925,
+    "NO_TRADE_SPREAD_TAX": 9981,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 947,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 582,
+    "NO_TRADE_STOP_ON": 436,
+    "NO_TRADE_ADV_FAIL": 140,
+    "NO_TRADE_MARGIN_USAGE": 1
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2026Q2.csv": {
+   "rows": 90954,
+   "events": {
+    "DECISION": 90954
+   },
+   "decision_ts_range": [
+    "2026-03-31 23:58:00",
+    "2026-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90954,
+    "lag_not_positive": 1193,
+    "lag_exactly_one_bar": 89572,
+    "lag_over_one_bar": 188,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 75706,
+    "NO_TRADE_SPREAD_TAX": 11947,
+    "NO_TRADE_FOMC_WINDOW": 1194,
+    "NO_TRADE_INSUFFICIENT_TARGET": 994,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 717,
+    "NO_TRADE_STOP_ON": 296,
+    "NO_TRADE_ADV_FAIL": 100
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_A2026Q3.csv": {
+   "rows": 58745,
+   "events": {
+    "DECISION": 58745
+   },
+   "decision_ts_range": [
+    "2026-06-30 23:58:00",
+    "2026-08-27 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 58745,
+    "lag_not_positive": 479,
+    "lag_exactly_one_bar": 58148,
+    "lag_over_one_bar": 118,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 47444,
+    "NO_TRADE_SPREAD_TAX": 9541,
+    "NO_TRADE_INSUFFICIENT_TARGET": 657,
+    "NO_TRADE_FOMC_WINDOW": 479,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 289,
+    "NO_TRADE_STOP_ON": 228,
+    "NO_TRADE_ADV_FAIL": 100,
+    "NO_TRADE_MARGIN_USAGE": 7
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_GBPUSD_B.csv": {
+   "rows": 29246,
+   "events": {
+    "DECISION": 29246
+   },
+   "decision_ts_range": [
+    "2026-08-27 23:58:00",
+    "2026-09-25 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 29246,
+    "lag_not_positive": 677,
+    "lag_exactly_one_bar": 26915,
+    "lag_over_one_bar": 1612,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 19326,
+    "NO_TRADE_SPREAD_TAX": 8574,
+    "NO_TRADE_FOMC_WINDOW": 719,
+    "NO_TRADE_INSUFFICIENT_TARGET": 287,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 173,
+    "NO_TRADE_STOP_ON": 118,
+    "NO_TRADE_ADV_FAIL": 47,
+    "NO_TRADE_MARGIN_USAGE": 2
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2024Q1.csv": {
+   "rows": 89641,
+   "events": {
+    "DECISION": 89641
+   },
+   "decision_ts_range": [
+    "2023-12-29 23:25:00",
+    "2024-03-29 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 89641,
+    "lag_not_positive": 1181,
+    "lag_exactly_one_bar": 87335,
+    "lag_over_one_bar": 1122,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 70949,
+    "NO_TRADE_SPREAD_TAX": 15836,
+    "NO_TRADE_FOMC_WINDOW": 1184,
+    "NO_TRADE_INSUFFICIENT_TARGET": 723,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 543,
+    "NO_TRADE_STOP_ON": 322,
+    "NO_TRADE_ADV_FAIL": 83,
+    "NO_TRADE_MARGIN_USAGE": 1
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2024Q2.csv": {
+   "rows": 91036,
+   "events": {
+    "DECISION": 91036
+   },
+   "decision_ts_range": [
+    "2024-03-29 22:55:00",
+    "2024-06-28 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 91036,
+    "lag_not_positive": 1192,
+    "lag_exactly_one_bar": 89322,
+    "lag_over_one_bar": 520,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 65950,
+    "NO_TRADE_SPREAD_TAX": 22283,
+    "NO_TRADE_FOMC_WINDOW": 1194,
+    "NO_TRADE_INSUFFICIENT_TARGET": 721,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 467,
+    "NO_TRADE_STOP_ON": 288,
+    "NO_TRADE_ADV_FAIL": 130,
+    "NO_TRADE_MARGIN_USAGE": 3
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2024Q3.csv": {
+   "rows": 92317,
+   "events": {
+    "DECISION": 92317
+   },
+   "decision_ts_range": [
+    "2024-06-28 23:54:00",
+    "2024-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 92317,
+    "lag_not_positive": 1195,
+    "lag_exactly_one_bar": 90613,
+    "lag_over_one_bar": 506,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 81075,
+    "NO_TRADE_SPREAD_TAX": 8234,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 865,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 499,
+    "NO_TRADE_STOP_ON": 334,
+    "NO_TRADE_ADV_FAIL": 112
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2024Q4.csv": {
+   "rows": 90884,
+   "events": {
+    "DECISION": 90884
+   },
+   "decision_ts_range": [
+    "2024-09-30 23:58:00",
+    "2024-12-31 21:54:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90884,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 89210,
+    "lag_over_one_bar": 476,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 80118,
+    "NO_TRADE_SPREAD_TAX": 7776,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 836,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 506,
+    "NO_TRADE_STOP_ON": 349,
+    "NO_TRADE_ADV_FAIL": 101
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2025Q1.csv": {
+   "rows": 88253,
+   "events": {
+    "DECISION": 88253
+   },
+   "decision_ts_range": [
+    "2024-12-31 21:55:00",
+    "2025-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88253,
+    "lag_not_positive": 1192,
+    "lag_exactly_one_bar": 86683,
+    "lag_over_one_bar": 372,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 78870,
+    "NO_TRADE_SPREAD_TAX": 6353,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 817,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 555,
+    "NO_TRADE_STOP_ON": 360,
+    "NO_TRADE_ADV_FAIL": 100
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2025Q2.csv": {
+   "rows": 91123,
+   "events": {
+    "DECISION": 91123
+   },
+   "decision_ts_range": [
+    "2025-03-31 23:58:00",
+    "2025-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 91123,
+    "lag_not_positive": 1190,
+    "lag_exactly_one_bar": 89410,
+    "lag_over_one_bar": 515,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 81168,
+    "NO_TRADE_SPREAD_TAX": 7016,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 787,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 509,
+    "NO_TRADE_STOP_ON": 298,
+    "NO_TRADE_ADV_FAIL": 147
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2025Q3.csv": {
+   "rows": 92513,
+   "events": {
+    "DECISION": 92513
+   },
+   "decision_ts_range": [
+    "2025-06-30 23:58:00",
+    "2025-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 92513,
+    "lag_not_positive": 1198,
+    "lag_exactly_one_bar": 90867,
+    "lag_over_one_bar": 448,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 82293,
+    "NO_TRADE_SPREAD_TAX": 7298,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 877,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 454,
+    "NO_TRADE_STOP_ON": 297,
+    "NO_TRADE_ADV_FAIL": 95,
+    "NO_TRADE_MARGIN_USAGE": 1
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2025Q4.csv": {
+   "rows": 90882,
+   "events": {
+    "DECISION": 90882
+   },
+   "decision_ts_range": [
+    "2025-09-30 23:58:00",
+    "2025-12-31 21:53:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90882,
+    "lag_not_positive": 1198,
+    "lag_exactly_one_bar": 89530,
+    "lag_over_one_bar": 154,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 80406,
+    "NO_TRADE_SPREAD_TAX": 7544,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 827,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 492,
+    "NO_TRADE_STOP_ON": 314,
+    "NO_TRADE_ADV_FAIL": 98,
+    "NO_TRADE_MARGIN_USAGE": 3
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2026Q1.csv": {
+   "rows": 88096,
+   "events": {
+    "DECISION": 88096
+   },
+   "decision_ts_range": [
+    "2025-12-31 21:54:00",
+    "2026-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88096,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 86646,
+    "lag_over_one_bar": 252,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 77961,
+    "NO_TRADE_SPREAD_TAX": 7134,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 718,
+    "NO_TRADE_INSUFFICIENT_TARGET": 682,
+    "NO_TRADE_STOP_ON": 272,
+    "NO_TRADE_ADV_FAIL": 131
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2026Q2.csv": {
+   "rows": 90670,
+   "events": {
+    "DECISION": 90670
+   },
+   "decision_ts_range": [
+    "2026-03-31 23:58:00",
+    "2026-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 90670,
+    "lag_not_positive": 1197,
+    "lag_exactly_one_bar": 89200,
+    "lag_over_one_bar": 272,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 78417,
+    "NO_TRADE_SPREAD_TAX": 9323,
+    "NO_TRADE_FOMC_WINDOW": 1198,
+    "NO_TRADE_INSUFFICIENT_TARGET": 681,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 539,
+    "NO_TRADE_STOP_ON": 387,
+    "NO_TRADE_ADV_FAIL": 121,
+    "NO_TRADE_MARGIN_USAGE": 4
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_A2026Q3.csv": {
+   "rows": 58837,
+   "events": {
+    "DECISION": 58837
+   },
+   "decision_ts_range": [
+    "2026-06-30 23:58:00",
+    "2026-08-27 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 58837,
+    "lag_not_positive": 479,
+    "lag_exactly_one_bar": 58136,
+    "lag_over_one_bar": 222,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 51757,
+    "NO_TRADE_SPREAD_TAX": 5559,
+    "NO_TRADE_FOMC_WINDOW": 479,
+    "NO_TRADE_INSUFFICIENT_TARGET": 457,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 318,
+    "NO_TRADE_STOP_ON": 193,
+    "NO_TRADE_ADV_FAIL": 66,
+    "NO_TRADE_MARGIN_USAGE": 8
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_USDJPY_B.csv": {
+   "rows": 29082,
+   "events": {
+    "DECISION": 29082
+   },
+   "decision_ts_range": [
+    "2026-08-27 23:58:00",
+    "2026-09-25 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 29082,
+    "lag_not_positive": 693,
+    "lag_exactly_one_bar": 27596,
+    "lag_over_one_bar": 767,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 22142,
+    "NO_TRADE_SPREAD_TAX": 5814,
+    "NO_TRADE_FOMC_WINDOW": 719,
+    "NO_TRADE_INSUFFICIENT_TARGET": 163,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 116,
+    "NO_TRADE_STOP_ON": 74,
+    "NO_TRADE_ADV_FAIL": 52,
+    "NO_TRADE_MARGIN_USAGE": 2
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2024Q1.csv": {
+   "rows": 84358,
+   "events": {
+    "DECISION": 84358
+   },
+   "decision_ts_range": [
+    "2023-12-29 23:25:00",
+    "2024-03-28 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 84358,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 83111,
+    "lag_over_one_bar": 109,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 58909,
+    "NO_TRADE_NO_QUALIFIED": 23352,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 516,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 208,
+    "NO_TRADE_STOP_ON": 153,
+    "NO_TRADE_ADV_FAIL": 82
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2024Q2.csv": {
+   "rows": 86945,
+   "events": {
+    "DECISION": 86945
+   },
+   "decision_ts_range": [
+    "2024-03-28 23:58:00",
+    "2024-06-28 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 86945,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 85736,
+    "lag_over_one_bar": 71,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 45052,
+    "NO_TRADE_NO_QUALIFIED": 39157,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 761,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 429,
+    "NO_TRADE_STOP_ON": 279,
+    "NO_TRADE_ADV_FAIL": 129
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2024Q3.csv": {
+   "rows": 88186,
+   "events": {
+    "DECISION": 88186
+   },
+   "decision_ts_range": [
+    "2024-06-28 23:54:00",
+    "2024-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88186,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 86971,
+    "lag_over_one_bar": 77,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 53252,
+    "NO_TRADE_NO_QUALIFIED": 32407,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 636,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 321,
+    "NO_TRADE_STOP_ON": 282,
+    "NO_TRADE_ADV_FAIL": 150
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2024Q4.csv": {
+   "rows": 86779,
+   "events": {
+    "DECISION": 86779
+   },
+   "decision_ts_range": [
+    "2024-09-30 23:58:00",
+    "2024-12-31 21:54:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 86779,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 85574,
+    "lag_over_one_bar": 67,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 43527,
+    "NO_TRADE_NO_QUALIFIED": 40965,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 530,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 289,
+    "NO_TRADE_STOP_ON": 215,
+    "NO_TRADE_ADV_FAIL": 115
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2025Q1.csv": {
+   "rows": 84191,
+   "events": {
+    "DECISION": 84191
+   },
+   "decision_ts_range": [
+    "2024-12-31 21:55:00",
+    "2025-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 84191,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 82990,
+    "lag_over_one_bar": 63,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_SPREAD_TAX": 42427,
+    "NO_TRADE_NO_QUALIFIED": 39506,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 563,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 257,
+    "NO_TRADE_STOP_ON": 204,
+    "NO_TRADE_ADV_FAIL": 96
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2025Q2.csv": {
+   "rows": 85737,
+   "events": {
+    "DECISION": 85737
+   },
+   "decision_ts_range": [
+    "2025-03-31 23:58:00",
+    "2025-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 85737,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 84533,
+    "lag_over_one_bar": 66,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 76738,
+    "NO_TRADE_SPREAD_TAX": 6316,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 745,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 410,
+    "NO_TRADE_STOP_ON": 288,
+    "NO_TRADE_ADV_FAIL": 102
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2025Q3.csv": {
+   "rows": 88406,
+   "events": {
+    "DECISION": 88406
+   },
+   "decision_ts_range": [
+    "2025-06-30 23:58:00",
+    "2025-09-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 88406,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 87202,
+    "lag_over_one_bar": 66,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 68347,
+    "NO_TRADE_SPREAD_TAX": 17306,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 717,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 488,
+    "NO_TRADE_STOP_ON": 299,
+    "NO_TRADE_ADV_FAIL": 111
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2025Q4.csv": {
+   "rows": 86767,
+   "events": {
+    "DECISION": 86767
+   },
+   "decision_ts_range": [
+    "2025-09-30 23:58:00",
+    "2025-12-31 21:53:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 86767,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 85559,
+    "lag_over_one_bar": 70,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 81301,
+    "NO_TRADE_SPREAD_TAX": 2864,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 701,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 375,
+    "NO_TRADE_STOP_ON": 299,
+    "NO_TRADE_ADV_FAIL": 89
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2026Q1.csv": {
+   "rows": 84183,
+   "events": {
+    "DECISION": 84180,
+    "OPEN": 1,
+    "FILL": 1,
+    "CLOSE": 1
+   },
+   "decision_ts_range": [
+    "2025-12-31 21:54:00",
+    "2026-03-31 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 84180,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 82975,
+    "lag_over_one_bar": 67,
+    "epoch_decision_ts_rows": 2
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 79286,
+    "NO_TRADE_SPREAD_TAX": 2210,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 643,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 463,
+    "NO_TRADE_STOP_ON": 353,
+    "NO_TRADE_ADV_FAIL": 77,
+    "SKIP_POSITION_ALREADY_OPEN": 9,
+    "DISPATCHED_OK_TARGET_RISK": 1
+   },
+   "execution_rows_missing": {
+    "entry_intended": 0,
+    "entry_actual": 0,
+    "sl_price": 0,
+    "tp_price": 0,
+    "lots": 0,
+    "slippage_points": 0,
+    "commission": 0,
+    "result_r": 0
+   },
+   "closed_trades": 1,
+   "result_r_sum": -0.005
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2026Q2.csv": {
+   "rows": 85835,
+   "events": {
+    "DECISION": 85835
+   },
+   "decision_ts_range": [
+    "2026-03-31 23:58:00",
+    "2026-06-30 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 85835,
+    "lag_not_positive": 1138,
+    "lag_exactly_one_bar": 84633,
+    "lag_over_one_bar": 64,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 76302,
+    "NO_TRADE_SPREAD_TAX": 6744,
+    "NO_TRADE_FOMC_WINDOW": 1138,
+    "NO_TRADE_INSUFFICIENT_TARGET": 775,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 436,
+    "NO_TRADE_STOP_ON": 318,
+    "NO_TRADE_ADV_FAIL": 122
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_A2026Q3.csv": {
+   "rows": 56385,
+   "events": {
+    "DECISION": 56385
+   },
+   "decision_ts_range": [
+    "2026-06-30 23:58:00",
+    "2026-08-27 23:57:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 56385,
+    "lag_not_positive": 479,
+    "lag_exactly_one_bar": 55864,
+    "lag_over_one_bar": 42,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 53071,
+    "NO_TRADE_SPREAD_TAX": 1775,
+    "NO_TRADE_INSUFFICIENT_TARGET": 582,
+    "NO_TRADE_FOMC_WINDOW": 479,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 233,
+    "NO_TRADE_STOP_ON": 175,
+    "NO_TRADE_ADV_FAIL": 70
+   },
+   "closed_trades": 0
+  },
+  "PEPPERSTONE_NEXA_TradeDNA_XAUUSD_B.csv": {
+   "rows": 27894,
+   "events": {
+    "DECISION": 27894
+   },
+   "decision_ts_range": [
+    "2026-08-27 23:58:00",
+    "2026-09-25 20:58:00"
+   ],
+   "causality": {
+    "decision_rows_checked": 27894,
+    "lag_not_positive": 658,
+    "lag_exactly_one_bar": 27018,
+    "lag_over_one_bar": 217,
+    "epoch_decision_ts_rows": 0
+   },
+   "features": {
+    "missing_columns": [],
+    "non_finite_values": 0,
+    "constant_features": [
+     "f19",
+     "f46",
+     "f47"
+    ]
+   },
+   "no_trade_reasons": {
+    "NO_TRADE_NO_QUALIFIED": 26181,
+    "NO_TRADE_FOMC_WINDOW": 659,
+    "NO_TRADE_SPREAD_TAX": 474,
+    "NO_TRADE_INSUFFICIENT_TARGET": 309,
+    "NO_TRADE_PORTFOLIO_CURRENCY": 148,
+    "NO_TRADE_STOP_ON": 83,
+    "NO_TRADE_ADV_FAIL": 40
+   },
+   "closed_trades": 0
+  }
+ },
+ "totals": {
+  "files": 48,
+  "rows": 3927134,
+  "decisions": 3927131,
+  "closed_trades": 1,
+  "no_trade_reason_families": {
+   "NO_TRADE_NO_QUALIFIED": 2820364,
+   "NO_TRADE_SPREAD_TAX": 980915,
+   "NO_TRADE_FOMC_WINDOW": 51997,
+   "NO_TRADE_INSUFFICIENT_TARGET": 33748,
+   "NO_TRADE_PORTFOLIO_CURRENCY": 21081,
+   "NO_TRADE_STOP_ON": 13735,
+   "NO_TRADE_ADV_FAIL": 5232,
+   "NO_TRADE_MARGIN_USAGE": 49,
+   "SKIP_POSITION_ALREADY_OPEN": 9,
+   "DISPATCHED_OK_TARGET_RISK": 1
+  }
+ }
+}

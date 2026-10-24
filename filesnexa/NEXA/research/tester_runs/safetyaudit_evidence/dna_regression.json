@@ -1,0 +1,104 @@
+{
+ "date": "2026-09-29",
+ "settings": "EURUSD M1 2024-01-01..2024-04-01, every tick (generated), delay 250 ms, leverage 200",
+ "pre_source": "NEXA_PRE_SAFETYAUDIT_BACKUP_20260929T092117Z (EA 97a3ff62..., Intelligence efa6db4e...)",
+ "post_sources": {
+  "NEXA_EA.mq5": "d65090cca1654814b1be6e6b50cb6c2570c2ba4a3a9c7790bae5ba7121716c62",
+  "NEXA_Intelligence.mqh": "18e3b30c7de52234a7b0191dafdf6b3c7ce9b43cde7b3944b08e7e998f898246",
+  "NEXA_Safety.mqh": "843fc60674d4c3e761993af6dfe73b73480cadc274ccfad31ddb8680716d1456",
+  "NEXA_Risk.mqh": "7fd5692a2bd3aec7443185f914be320158cfe55bcddcf370db059a6da0d908d1"
+ },
+ "comparisons": {
+  "deposit_50000": {
+   "pre_run": "safetyaudit_PRE_50000_r5",
+   "post_run": "safetyaudit_POST_50000",
+   "rows": [
+    89645,
+    89645
+   ],
+   "rows_differing_excl_rowid_writets": 0,
+   "differing_columns": {},
+   "differing_events": {},
+   "post_row_id_unique": true,
+   "pre_row_id_unique": true,
+   "post_events": {
+    "DECISION": 89645
+   },
+   "close_result_r_pre": [],
+   "close_result_r_post": []
+  },
+  "deposit_1000": {
+   "pre_run": "safetyaudit_PRE_1000_r2",
+   "post_run": "safetyaudit_POST_1000",
+   "rows": [
+    89657,
+    89657
+   ],
+   "rows_differing_excl_rowid_writets": 0,
+   "differing_columns": {},
+   "differing_events": {},
+   "post_row_id_unique": true,
+   "pre_row_id_unique": true,
+   "post_events": {
+    "DECISION": 89645,
+    "OPEN": 4,
+    "FILL": 4,
+    "CLOSE": 4
+   },
+   "close_result_r_pre": [
+    "0.0000",
+    "-1.0005",
+    "-0.0091",
+    "-0.9959"
+   ],
+   "close_result_r_post": [
+    "0.0000",
+    "-1.0005",
+    "-0.0091",
+    "-0.9959"
+   ]
+  },
+  "deposit_1000_forced_partials_InpPartialCloseAtR_0.5": {
+   "pre_run": "safetyaudit_PRE_1000_partial_a",
+   "post_run": "safetyaudit_POST_1000_partial_a",
+   "rows": [
+    89659,
+    89659
+   ],
+   "rows_differing_excl_rowid_writets": 2,
+   "differing_columns": {
+    "result_r": 2,
+    "reason": 2
+   },
+   "differing_events": {
+    "CLOSE": 2
+   },
+   "post_row_id_unique": true,
+   "pre_row_id_unique": true,
+   "post_events": {
+    "DECISION": 89645,
+    "OPEN": 4,
+    "FILL": 4,
+    "CLOSE": 4,
+    "PARTIAL_CLOSE": 2
+   },
+   "close_result_r_pre": [
+    "0.0000",
+    "-1.0005",
+    "-0.0091",
+    "-0.9959"
+   ],
+   "close_result_r_post": [
+    "0.2620",
+    "-1.0005",
+    "0.2545",
+    "-0.9959"
+   ]
+  }
+ },
+ "failed_or_invalid_runs_disclosed": [
+  "safetyaudit_PRE_50000, safetyaudit_PRE_1000, safetyaudit_PRE_50000_r2: tester never started a pass (launch race)",
+  "safetyaudit_PRE_50000_r3, _r4: header-only journals (pass did not run)",
+  "corrcap_parity_20260929 (first attempt): no pass"
+ ]
+}

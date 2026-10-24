@@ -1,0 +1,3234 @@
+{
+ "graph_version": "1.0",
+ "created": "2026-10-02",
+ "corpus": "39 files / 38 distinct works (S37 = S06)",
+ "description": "Knowledge graph of the NEXA research corpus: sources, author clusters, principles, methods, failed ideas, failure patterns, hypotheses and NEXA components. Knowledge only; no strategy or profitability claims.",
+ "node_types": [
+  "cluster",
+  "failed_idea",
+  "failure_pattern",
+  "hypothesis",
+  "method",
+  "nexa_component",
+  "principle",
+  "source"
+ ],
+ "relation_types": [
+  "concerns",
+  "contradicts",
+  "data_limited_for",
+  "duplicate_of",
+  "exhibits",
+  "member_of",
+  "motivates",
+  "operationalises",
+  "produced",
+  "provides_method",
+  "supports",
+  "used_by"
+ ],
+ "counts": {
+  "nodes": 157,
+  "edges": 397
+ },
+ "nodes": [
+  {
+   "id": "S01",
+   "type": "source",
+   "label": "Forex Essentials in 15 Trades: The Global-View.com Guide to Successful Currency Trading",
+   "file": "(Wiley Trading) John Bland, Jay M. Meisler, Michael D. Archer - Forex Essentials in 15 Trades_ The Global-View.com Guide to Successful Currency Trading (Wiley Trading)-Wiley (2009).pdf",
+   "year": 2009,
+   "source_type": "Industry/practitioner research",
+   "evidence_status": "Unverified claim",
+   "nexa_relevance": "medium (execution hygiene, regime features, session/lead-lag claims to test)",
+   "note": "sources/S01_bland_meisler_archer_forex_essentials_15_trades.md"
+  },
+  {
+   "id": "S02",
+   "type": "source",
+   "label": "Enhancing Time Series Momentum Strategies Using Deep Neural Networks",
+   "file": "1904.04912v3.pdf",
+   "year": 2020,
+   "source_type": "Oxford / university research",
+   "evidence_status": "Research finding",
+   "nexa_relevance": "medium (vol-scaling, turnover-cost loss, cost fragility)",
+   "note": "sources/S02_lim_zohren_roberts_deep_momentum_networks.md"
+  },
+  {
+   "id": "S03",
+   "type": "source",
+   "label": "Deep Reinforcement Learning for Trading",
+   "file": "1911.10107v1.pdf",
+   "year": 2019,
+   "source_type": "Oxford / university research",
+   "evidence_status": "Research finding",
+   "nexa_relevance": "low-medium (reward design, FX trend regime evidence)",
+   "note": "sources/S03_zhang_zohren_roberts_deep_rl_trading.md"
+  },
+  {
+   "id": "S04",
+   "type": "source",
+   "label": "The Rough Bergomi Model: From Motivation to Implementation",
+   "file": "212261203---Callum-Rough---ROUGH_CALLUM_01333836.pdf",
+   "year": 2023,
+   "source_type": "Academic thesis",
+   "evidence_status": "Established evidence (theory) / Research finding (replication)",
+   "nexa_relevance": "medium (volatility roughness hypothesis, noisy-objective lesson)",
+   "note": "sources/S04_rough_callum_rough_bergomi_msc.md"
+  },
+  {
+   "id": "S05",
+   "type": "source",
+   "label": "An algorithmic framework for sustainable marketing audit and prioritization (PRISM-Bridge)",
+   "file": "An_algorithmic_framework_for_sustainable_marketing.pdf",
+   "year": 2026,
+   "source_type": "External research (peer-reviewed journal, non-market domain)",
+   "evidence_status": "Unverified claim",
+   "nexa_relevance": "none for markets; governance vocabulary for backlog prioritisation",
+   "note": "sources/S05_balayan_prism_bridge_marketing.md"
+  },
+  {
+   "id": "S06",
+   "type": "source",
+   "label": "Anonymity, Signaling, and Collusion in Limit Order Books",
+   "file": "Anonymity, Signaling, and Collusion in Limit Order Books.pdf",
+   "year": 2025,
+   "source_type": "Oxford / university research",
+   "evidence_status": "Strongly supported (empirical facts); collusion model = hypothesis",
+   "nexa_relevance": "medium (adverse selection of slow limit orders; OFI not observable at Pepperstone)",
+   "note": "sources/S06_cartea_chang_graumans_anonymity_signaling_collusion_lob.md"
+  },
+  {
+   "id": "S07",
+   "type": "source",
+   "label": "Beat The Market Maker (BTMM) Strategy",
+   "file": "Beat-The-Market-Maker-BTMM-Strategy.pdf",
+   "year": null,
+   "source_type": "Industry/practitioner research",
+   "evidence_status": "Unverified claim",
+   "nexa_relevance": "low (testable level/ADR/session components only)",
+   "note": "sources/S07_btmm_beat_the_market_maker.md"
+  },
+  {
+   "id": "S08",
+   "type": "source",
+   "label": "Beat the Markets Strategy Guidebook",
+   "file": "Beat-the-Markets-Strategy-Guidebook.pdf",
+   "year": null,
+   "source_type": "Industry/practitioner research",
+   "evidence_status": "Unverified claim",
+   "nexa_relevance": "low (cautionary; low-prior pattern hypotheses)",
+   "note": "sources/S08_goodwin_beat_the_markets_guidebook.md"
+  },
+  {
+   "id": "S09",
+   "type": "source",
+   "label": "Bollinger On Bollinger Bands: Methods I-IV (excerpt)",
+   "file": "Bollinger On Bollinger Bands.pdf",
+   "year": 2001,
+   "source_type": "Industry/practitioner research",
+   "evidence_status": "Unverified claim (definitions established)",
+   "nexa_relevance": "medium (8E Squeeze provenance; untested variants)",
+   "note": "sources/S09_bollinger_on_bollinger_bands_methods.md"
+  },
+  {
+   "id": "S10",
+   "type": "source",
+   "label": "Uncertain Execution in Order-Driven Markets",
+   "file": "DPhil_Thesis_L_Sanchez-Betancourt.pdf",
+   "year": 2021,
+   "source_type": "Oxford / university research (academic thesis; ch.3 peer-reviewed SIFIN)",
+   "evidence_status": "Established (maths within model) / Strongly supported (LMAX empirics)",
+   "nexa_relevance": "high (MT5 deviation = discretion; asymmetric news slippage cost model)",
+   "note": "sources/S10_sanchez_betancourt_dphil_uncertain_execution.md"
+  },
+  {
+   "id": "S11",
+   "type": "source",
+   "label": "Foreign Exchange Markets with Last Look",
+   "file": "Foreign-Exchange-Markets-with-Last-Look-Mathematics-and-Financial-Economics.pdf",
+   "year": 2019,
+   "source_type": "Oxford / university research (peer-reviewed)",
+   "evidence_status": "Established evidence (theoretical, proofs); no empirical test",
+   "nexa_relevance": "high (fill realism, spread-volatility link)",
+   "note": "sources/S11_cartea_jaimungal_walton_fx_last_look.md"
+  },
+  {
+   "id": "S12",
+   "type": "source",
+   "label": "Online Quantitative Trading Strategies: An Empirical Performance Overview Through Backtesting",
+   "file": "Glucksman_Lahanis.pdf",
+   "year": 2025,
+   "source_type": "Other academic institution",
+   "evidence_status": "Research finding (weak)",
+   "nexa_relevance": "low (meta-allocator math; cautionary)",
+   "note": "sources/S12_lahanis_liu_zhou_online_portfolio_selection.md"
+  },
+  {
+   "id": "S13",
+   "type": "source",
+   "label": "Investment sizing with deep learning prediction uncertainties for high-frequency Eurodollar futures trading",
+   "file": "Investment-sizing-with-deep-learning-prediction-uncertainties-for.pdf",
+   "year": 2020,
+   "source_type": "Oxford / university research",
+   "evidence_status": "Research finding (preliminary)",
+   "nexa_relevance": "medium (sizing within cap; data-limited microprice)",
+   "note": "sources/S13_spears_zohren_roberts_uncertainty_sizing_eurodollar.md"
+  },
+  {
+   "id": "S14",
+   "type": "source",
+   "label": "Statistical methods in financial market dynamics and portfolio strategies",
+   "file": "Jin_2025_Statistical_methods_in.pdf",
+   "year": 2025,
+   "source_type": "Oxford / university research (academic thesis)",
+   "evidence_status": "Research finding (Ch4,6); Strongly supported statistical finding (Ch5); weak (Ch7)",
+   "nexa_relevance": "medium-high (lead-lag method, session split, cost curves, HAC/DSR)",
+   "note": "sources/S14_jin_dphil_statistical_methods_market_dynamics.md"
+  },
+  {
+   "id": "S15",
+   "type": "source",
+   "label": "Scaling and mean reversion in foreign exchange time series",
+   "file": "Maria Elisabeth Boeker PhD Thesis.pdf",
+   "year": 2021,
+   "source_type": "Academic thesis",
+   "evidence_status": "Established (scaling law replicated) / Research finding",
+   "nexa_relevance": "high (MA-reversion artefact pre-test; gap/vol estimation hygiene)",
+   "note": "sources/S15_boeker_scaling_mean_reversion_fx_phd.md"
+  },
+  {
+   "id": "S16",
+   "type": "source",
+   "label": "Quantitative Trading Strategy, Backtesting, and Performance Analysis Using Python",
+   "file": "Quantitative_Trading_Strategy_Backtesting_and_Perf.pdf",
+   "year": 2025,
+   "source_type": "Other academic institution (peer-reviewed, low-tier)",
+   "evidence_status": "Unverified claim / weak",
+   "nexa_relevance": "low (negative validation example)",
+   "note": "sources/S16_poudel_paudel_nepse_quant_backtest.md"
+  },
+  {
+   "id": "S17",
+   "type": "source",
+   "label": "Countertrend forex trading with TD Sequential",
+   "file": "TD SEQUENTAIL.pdf",
+   "year": 2005,
+   "source_type": "Industry/practitioner research",
+   "evidence_status": "Unverified claim (canonical rule spec)",
+   "nexa_relevance": "medium (8E TD spec gap)",
+   "note": "sources/S17_demark_td_sequential_currency_trader_2005.md"
+  },
+  {
+   "id": "S18",
+   "type": "source",
+   "label": "Rough Volatility Models",
+   "file": "TFG2024ECOSanchez_Rough.pdf",
+   "year": 2024,
+   "source_type": "Academic thesis",
+   "evidence_status": "Supported finding (textbook facts) with formula errors",
+   "nexa_relevance": "low-medium (volatility structure)",
+   "note": "sources/S18_sanchez_lopez_rough_volatility_fyp.md"
+  },
+  {
+   "id": "S19",
+   "type": "source",
+   "label": "How to Take Advantage of Volatility in the Gold Market",
+   "file": "Volatility_in_Gold_Markets_012110_UK.pdf",
+   "year": 2010,
+   "source_type": "Industry/practitioner research",
+   "evidence_status": "Unverified claim",
+   "nexa_relevance": "medium (8E E1 provenance; XAU volatility scale)",
+   "note": "sources/S19_carter_senters_gold_volatility_squeeze_webinar.md"
+  },
+  {
+   "id": "S20",
+   "type": "source",
+   "label": "Research and Implementation of Quantitative Trading Strategies Based on QuantConnect Platform",
+   "file": "Zhang_Kun_Mei_Yu_Hu_Yiming.pdf",
+   "year": 2025,
+   "source_type": "Academic thesis",
+   "evidence_status": "Unverified claim / descriptive (no evidence of edge)",
+   "nexa_relevance": "low (archetype list)",
+   "note": "sources/S20_zhang_yu_hu_quantconnect_bachelor_thesis.md"
+  },
+  {
+   "id": "S21",
+   "type": "source",
+   "label": "Beat the Market: A Scientific Stock Market System",
+   "file": "beatthemarket.pdf",
+   "year": 1967,
+   "source_type": "Other academic institution (academic authors, practitioner book)",
+   "evidence_status": "Strongly supported (principle, later established by BSM); performance self-reported",
+   "nexa_relevance": "low-medium (principles: decay, pyramiding risk, hedge vs forecast)",
+   "note": "sources/S21_thorp_kassouf_beat_the_market.md"
+  },
+  {
+   "id": "S22",
+   "type": "source",
+   "label": "151 Trading Strategies",
+   "file": "ssrn-3247865.pdf",
+   "year": 2018,
+   "source_type": "Industry/practitioner research (practitioner-academic hybrid book)",
+   "evidence_status": "Established (maths) / Unverified claim (empirics, second-hand)",
+   "nexa_relevance": "high (definitions, delay-d discipline, cost shrink, TSMOM math)",
+   "note": "sources/S22_kakushadze_serur_151_trading_strategies.md"
+  },
+  {
+   "id": "S23",
+   "type": "source",
+   "label": "Volatility forecasting with machine learning and intraday commonality",
+   "file": "ssrn-4022147.pdf",
+   "year": 2022,
+   "source_type": "Oxford / university research",
+   "evidence_status": "Supported finding",
+   "nexa_relevance": "high (volatility layer: VEI, stops, sizing)",
+   "note": "sources/S23_zhang_zhang_cucuringu_qian_vol_forecasting_ml_commonality.md"
+  },
+  {
+   "id": "S24",
+   "type": "source",
+   "label": "Algorithms and Supracompetitive Prices in Electronic Markets: The Impact of Tick Size",
+   "file": "ssrn-4105954.pdf",
+   "year": 2026,
+   "source_type": "Oxford / university research",
+   "evidence_status": "Established evidence (theory, proofs) + simulations; no market data",
+   "nexa_relevance": "low (spread-regime intuition; allocator algorithm caution)",
+   "note": "sources/S24_cartea_chang_penalva_algorithms_tick_size.md"
+  },
+  {
+   "id": "S25",
+   "type": "source",
+   "label": "Execution and Statistical Arbitrage with Signals in Multiple Automated Market Makers",
+   "file": "ssrn-4388104.pdf",
+   "year": 2023,
+   "source_type": "Oxford / university research",
+   "evidence_status": "Research finding",
+   "nexa_relevance": "low-medium (OU/cointegration toolkit; data-limited lead-lag)",
+   "note": "sources/S25_cartea_drissi_monga_amm_execution_stat_arb.md"
+  },
+  {
+   "id": "S26",
+   "type": "source",
+   "label": "Statistical Predictions of Trading Strategies in Electronic Markets",
+   "file": "ssrn-4442770.pdf",
+   "year": 2024,
+   "source_type": "Oxford / university research (peer-reviewed)",
+   "evidence_status": "Strongly supported",
+   "nexa_relevance": "medium (H-ABLATE; caution on public-data LOB edges)",
+   "note": "sources/S26_cartea_cohen_graumans_labyad_sanchez_betancourt_statistical_predictions.md"
+  },
+  {
+   "id": "S27",
+   "type": "source",
+   "label": "The Navigation of an Iceberg: The Optimal Use of Hidden Orders",
+   "file": "175-moench_paper.pdf",
+   "year": 2005,
+   "source_type": "Other academic institution (Goethe Univ. Frankfurt + DekaBank)",
+   "evidence_status": "Established evidence (first-passage maths) / Research finding (empirics)",
+   "nexa_relevance": "low-medium (H-HIT-PROB first-passage maths; passive fill trade-offs)",
+   "note": "sources/S27_esser_moench_optimal_iceberg.md"
+  },
+  {
+   "id": "S28",
+   "type": "source",
+   "label": "Understanding and Testing Iceberg Algorithmic Trading Strategy",
+   "file": "2190-Article Text-5532-6567-10-20240811.pdf",
+   "year": 2024,
+   "source_type": "Other academic institution (peer-reviewed, low-tier journal)",
+   "evidence_status": "Unverified claim (descriptive)",
+   "nexa_relevance": "low (QA checklist for order-handling logic)",
+   "note": "sources/S28_sahni_iceberg_order_testing.md"
+  },
+  {
+   "id": "S29",
+   "type": "source",
+   "label": "Optimal Display of Iceberg Orders",
+   "file": "668476885.pdf",
+   "year": 2011,
+   "source_type": "Other academic institution (+ Deutsche Bank data support)",
+   "evidence_status": "Established within model (Prop 1 proof absent) / Research finding",
+   "nexa_relevance": "low-medium (exposure vs priority; fill economics incl. misses)",
+   "note": "sources/S29_cebiroglu_horst_optimal_iceberg_display.md"
+  },
+  {
+   "id": "S30",
+   "type": "source",
+   "label": "Flash Boys: A Wall Street Revolt",
+   "file": "Flash-Boys.pdf",
+   "year": 2014,
+   "source_type": "External research (investigative journalism)",
+   "evidence_status": "Unverified claim (anecdotal; mechanisms partly supported)",
+   "nexa_relevance": "medium (stop slippage, last look, liquidity withdrawal awareness)",
+   "note": "sources/S30_lewis_flash_boys.md"
+  },
+  {
+   "id": "S31",
+   "type": "source",
+   "label": "Algorithmic FX Trading Handbook 2021",
+   "file": "TRADING-HANDBOOK-2021-SCREEN-1.pdf",
+   "year": 2021,
+   "source_type": "Industry/practitioner research",
+   "evidence_status": "Unverified claim (practitioner consensus)",
+   "nexa_relevance": "medium (governance, TCA benchmarks, H-VR-SCALE support, H-FIX-FLOW)",
+   "note": "sources/S31_fx_algo_trading_handbook_2021.md"
+  },
+  {
+   "id": "S32",
+   "type": "source",
+   "label": "Trading and Exchanges: Market Microstructure for Practitioners (draft copy, sampler)",
+   "file": "Trading-Exchanges-Market-Microstructure-Practitioners Draft Copy.pdf",
+   "year": 2002,
+   "source_type": "Oxford / university research (OUP textbook, USC author)",
+   "evidence_status": "Established evidence (textbook principles)",
+   "nexa_relevance": "medium-high (conceptual cost/adverse-selection foundation)",
+   "note": "sources/S32_harris_trading_and_exchanges_draft.md"
+  },
+  {
+   "id": "S33",
+   "type": "source",
+   "label": "GenFx: genetic generation of MetaTrader Expert Advisors",
+   "file": "iim_2014052015355914.pdf",
+   "year": 2014,
+   "source_type": "Other academic institution (peer-reviewed, open access)",
+   "evidence_status": "Failed (validation invalid)",
+   "nexa_relevance": "low (cautionary; H-SEARCH-DEFLATE)",
+   "note": "sources/S33_ibrahim_genfx_genetic_ea_generation.md"
+  },
+  {
+   "id": "S34",
+   "type": "source",
+   "label": "Price Jump Prediction in a Limit Order Book",
+   "file": "jmf_2013052414582995.pdf",
+   "year": 2013,
+   "source_type": "Other academic institution + Natixis (peer-reviewed)",
+   "evidence_status": "Research finding",
+   "nexa_relevance": "low (DATA-LIMITED; caution on bar-level LOB edges)",
+   "note": "sources/S34_zheng_moulines_abergel_price_jump_lob.md"
+  },
+  {
+   "id": "S35",
+   "type": "source",
+   "label": "Prediction of Stock Price Movement Using Continuous Time Models",
+   "file": "jmf_2015052215132554.pdf",
+   "year": 2015,
+   "source_type": "Other academic institution (peer-reviewed)",
+   "evidence_status": "Failed",
+   "nexa_relevance": "low (negative example; VG for tail simulation only)",
+   "note": "sources/S35_sonono_mashele_gbm_vg_prediction.md"
+  },
+  {
+   "id": "S36",
+   "type": "source",
+   "label": "Statistical Arbitrage in S&P500 (Kalman filter hedge ratios)",
+   "file": "jmf_2016022913315540.pdf",
+   "year": 2016,
+   "source_type": "Other academic institution (peer-reviewed)",
+   "evidence_status": "Unverified claim (methodologically flawed)",
+   "nexa_relevance": "low (negative example; causal-innovation and fixed-at-entry P&L rules)",
+   "note": "sources/S36_drakos_stat_arb_sp500_kalman.md"
+  },
+  {
+   "id": "S37",
+   "type": "source",
+   "label": "Anonymity, Signaling, and Collusion in Limit Order Books (DUPLICATE of S06, SSRN 5080700)",
+   "file": "ssrn-5080700.pdf",
+   "year": 2025,
+   "source_type": "Oxford / university research (= S06)",
+   "evidence_status": "= S06 (not an independent source)",
+   "nexa_relevance": "= S06",
+   "note": "sources/S37_ssrn5080700_duplicate_of_S06.md"
+  },
+  {
+   "id": "S38",
+   "type": "source",
+   "label": "HFT, trading intervals and portfolio volatility (OU model)",
+   "file": "tel_2019092615201272.pdf",
+   "year": 2019,
+   "source_type": "Other academic institution (peer-reviewed)",
+   "evidence_status": "Research finding (model only) with artefact",
+   "nexa_relevance": "low-medium (H-VR-SCALE)",
+   "note": "sources/S38_hong_hft_intervalling_portfolio_volatility.md"
+  },
+  {
+   "id": "S39",
+   "type": "source",
+   "label": "Foreign Exchange Intervention Rule for Central Banks: A Risk-Based Framework",
+   "file": "wpiea2021032-print-pdf.pdf",
+   "year": 2021,
+   "source_type": "External research (IMF)",
+   "evidence_status": "Research finding (proof of concept)",
+   "nexa_relevance": "medium (H-VAR-TRIGGER; density-evaluation toolkit)",
+   "note": "sources/S39_lafarguette_veyrune_imf_fx_intervention_var.md"
+  },
+  {
+   "id": "CL_CARTEA",
+   "type": "cluster",
+   "label": "Cartea group (Oxford-Man/Maths Institute)",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "CL_ZR",
+   "type": "cluster",
+   "label": "Zohren-Roberts group (Oxford-Man)",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "CL_CUCURINGU",
+   "type": "cluster",
+   "label": "Cucuringu (Oxford Stats/Turing)",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "CL_ROUGH",
+   "type": "cluster",
+   "label": "Rough-volatility pair",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "CL_SQUEEZE",
+   "type": "cluster",
+   "label": "Practitioner squeeze lineage",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "CL_ICEBERG",
+   "type": "cluster",
+   "label": "Iceberg-order lineage",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "CL_SCIRP",
+   "type": "cluster",
+   "label": "SCIRP open-access journals",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "CL_PRACT_MICRO",
+   "type": "cluster",
+   "label": "Microstructure for practitioners",
+   "note": "agreement within a cluster counts as roughly one line of evidence"
+  },
+  {
+   "id": "P1",
+   "type": "principle",
+   "label": "Transaction costs dominate published edges (cost curve)",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P2",
+   "type": "principle",
+   "label": "Volatility is clustered and forecastable; direction is not",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P3",
+   "type": "principle",
+   "label": "Resting/limit orders are adversely selected (quote = written option)",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P4",
+   "type": "principle",
+   "label": "Volatility scaling (1/sigma) normalises risk",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P5",
+   "type": "principle",
+   "label": "Simple strong baselines match complex models OOS",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P6",
+   "type": "principle",
+   "label": "Selection bias / multiple testing inflate results",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P7",
+   "type": "principle",
+   "label": "Execution timing is part of the result (delay-0 vs delay-1)",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P8",
+   "type": "principle",
+   "label": "Detrending/normalisation create artefacts",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P9",
+   "type": "principle",
+   "label": "FX returns scale super-diffusively (E ~ 0.56-0.58)",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P10",
+   "type": "principle",
+   "label": "Spread proportional to volatility x toxic share; news slippage tail",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P11",
+   "type": "principle",
+   "label": "Information lives in private/depth data",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P12",
+   "type": "principle",
+   "label": "Edges decay (crowding, regime change)",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P13",
+   "type": "principle",
+   "label": "Win rate is not edge; driftless TP/SL has zero expectancy",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P14",
+   "type": "principle",
+   "label": "Liquidity is conditional and withdraws in stress",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "P15",
+   "type": "principle",
+   "label": "Estimator bias with short samples and gaps",
+   "ref": "EVIDENCE_MAP.md §1.1"
+  },
+  {
+   "id": "F_S33",
+   "type": "failed_idea",
+   "label": "GA OOS inside selection (invalid validation)",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S35",
+   "type": "failed_idea",
+   "label": "Q-measure models for direction (hit ~50%)",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S36",
+   "type": "failed_idea",
+   "label": "Kalman P&L with re-fitted hedge ratio",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S16",
+   "type": "failed_idea",
+   "label": "Trade-resampling MC presented as overfitting proof",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S12",
+   "type": "failed_idea",
+   "label": "Frictionless OPS wealth (bounce artefact)",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S14L",
+   "type": "failed_idea",
+   "label": "Levy area 'nonlinear' claim vs own theorem",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S18",
+   "type": "failed_idea",
+   "label": "rBergomi without exp; exponential ACF",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S38",
+   "type": "failed_idea",
+   "label": "Prop 1 normalisation artefact",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S25",
+   "type": "failed_idea",
+   "label": "Optimal liquidation vs AC not significant",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S13",
+   "type": "failed_idea",
+   "label": "Uncertainty sizing fails at spread",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S02",
+   "type": "failed_idea",
+   "label": "Sharpe 2.8 not cost-robust",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S08",
+   "type": "failed_idea",
+   "label": "Cost-free post-hoc pattern backtests",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S01",
+   "type": "failed_idea",
+   "label": "Selected 15 trades; GSCS unfalsifiable",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S29",
+   "type": "failed_idea",
+   "label": "'Up to 60%' model-implied",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S27",
+   "type": "failed_idea",
+   "label": "Overlapping-window beta t-stat",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "F_S30",
+   "type": "failed_idea",
+   "label": "Extrapolated HFT 'tax' magnitudes",
+   "ref": "FAILED_IDEAS.md §A"
+  },
+  {
+   "id": "FP_COSTFREE",
+   "type": "failure_pattern",
+   "label": "Cost-free results",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_SELECTED",
+   "type": "failure_pattern",
+   "label": "Selected examples as evidence",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_HOLDOUT",
+   "type": "failure_pattern",
+   "label": "Holdout contamination",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_MULTI",
+   "type": "failure_pattern",
+   "label": "Multiple testing without correction",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_LOOKAHEAD",
+   "type": "failure_pattern",
+   "label": "Look-ahead / timing",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_BENCH",
+   "type": "failure_pattern",
+   "label": "Wrong or missing benchmark",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_ARTEFACT",
+   "type": "failure_pattern",
+   "label": "Artefacts mistaken for effects",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_OVERLAP",
+   "type": "failure_pattern",
+   "label": "Overlapping-sample significance",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "FP_INTEREST",
+   "type": "failure_pattern",
+   "label": "Interested-party magnitudes",
+   "ref": "FAILED_IDEAS.md §D"
+  },
+  {
+   "id": "M_QLIKE",
+   "type": "method",
+   "label": "QLIKE + Diebold-Mariano",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_HAR",
+   "type": "method",
+   "label": "HAR / HAR-D log-RV",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_PIT",
+   "type": "method",
+   "label": "PIT, log score, Diks test",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_COVER",
+   "type": "method",
+   "label": "Kupiec/Christoffersen coverage",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_DSR",
+   "type": "method",
+   "label": "Deflated Sharpe / PBO",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_HAC",
+   "type": "method",
+   "label": "HAC / Newey-West",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_ABLATE",
+   "type": "method",
+   "label": "Information ablation",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_WALK",
+   "type": "method",
+   "label": "Rolling walk-forward",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_COSTCURVE",
+   "type": "method",
+   "label": "Sharpe vs cost curve",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_EEFF",
+   "type": "method",
+   "label": "E_eff cost shrinkage",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_DELAY",
+   "type": "method",
+   "label": "Delay-d backtest",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_NULLRW",
+   "type": "method",
+   "label": "Random-walk / OU nulls",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_FIRSTPASS",
+   "type": "method",
+   "label": "First-passage / two-barrier probabilities",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_VR",
+   "type": "method",
+   "label": "Variance ratio",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_DMA",
+   "type": "method",
+   "label": "DMA / generalised Hurst",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_KALMANF",
+   "type": "method",
+   "label": "Kalman filter (causal innovations)",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_JOHANSEN",
+   "type": "method",
+   "label": "Johansen cointegration",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_DISCRETION",
+   "type": "method",
+   "label": "Optimal discretion delta*=alpha",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_ENVELOPE",
+   "type": "method",
+   "label": "Operational envelope + kill switch",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "M_TCA",
+   "type": "method",
+   "label": "Benchmark-relative TCA incl. opportunity cost",
+   "ref": "MATHEMATICAL_KNOWLEDGE_BASE.md / STATISTICAL_KNOWLEDGE_BASE.md"
+  },
+  {
+   "id": "NX_8E",
+   "type": "nexa_component",
+   "label": "Frozen 8-engine campaign (8E)",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_V2",
+   "type": "nexa_component",
+   "label": "V2 campaign (FROZEN; 2027 prospective OOS)",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_RISK",
+   "type": "nexa_component",
+   "label": "NEXA_Risk.mqh (unchanged)",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_SAFETY",
+   "type": "nexa_component",
+   "label": "NEXA_Safety.mqh fail-closed checks",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_COSTMODEL",
+   "type": "nexa_component",
+   "label": "Backtest cost/slippage model",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_DATA",
+   "type": "nexa_component",
+   "label": "Pepperstone MT5 bars/ticks (no depth)",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_TIME",
+   "type": "nexa_component",
+   "label": "Time conventions (server = NY+7; calendar offset)",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_SWEEPS",
+   "type": "nexa_component",
+   "label": "MT5 tester sweeps / EA generation",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_DEVIATION",
+   "type": "nexa_component",
+   "label": "MT5 deviation parameter",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "NX_EXEC",
+   "type": "nexa_component",
+   "label": "Execution timing (D-EXEC-ENTRYBAR)",
+   "note": "prior NEXA project fact; not from corpus"
+  },
+  {
+   "id": "H-DELAY-PARITY",
+   "type": "hypothesis",
+   "label": "H-DELAY-PARITY",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-COST-SHRINK",
+   "type": "hypothesis",
+   "label": "H-COST-SHRINK",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-SEARCH-DEFLATE",
+   "type": "hypothesis",
+   "label": "H-SEARCH-DEFLATE",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-NOISE-OBJ",
+   "type": "hypothesis",
+   "label": "H-NOISE-OBJ",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-ABLATE",
+   "type": "hypothesis",
+   "label": "H-ABLATE",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-HIT-PROB",
+   "type": "hypothesis",
+   "label": "H-HIT-PROB",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-ENVELOPE",
+   "type": "hypothesis",
+   "label": "H-ENVELOPE",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-VOL-1",
+   "type": "hypothesis",
+   "label": "H-VOL-1",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-VOL-2",
+   "type": "hypothesis",
+   "label": "H-VOL-2",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-VOL-3",
+   "type": "hypothesis",
+   "label": "H-VOL-3",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-VOL-4",
+   "type": "hypothesis",
+   "label": "H-VOL-4",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-ROUGH-1",
+   "type": "hypothesis",
+   "label": "H-ROUGH-1",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-VR-SCALE",
+   "type": "hypothesis",
+   "label": "H-VR-SCALE",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-VAR-TRIGGER",
+   "type": "hypothesis",
+   "label": "H-VAR-TRIGGER",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-GAP-VOL",
+   "type": "hypothesis",
+   "label": "H-GAP-VOL",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-SPREAD-REGIME",
+   "type": "hypothesis",
+   "label": "H-SPREAD-REGIME",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-VOLTARGET-CAP",
+   "type": "hypothesis",
+   "label": "H-VOLTARGET-CAP",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-MU-SIGMA2",
+   "type": "hypothesis",
+   "label": "H-MU-SIGMA2",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-TAIL-SIM",
+   "type": "hypothesis",
+   "label": "H-TAIL-SIM",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-NEWS-SLIP",
+   "type": "hypothesis",
+   "label": "H-NEWS-SLIP",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-STOP-SLIP",
+   "type": "hypothesis",
+   "label": "H-STOP-SLIP",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-LASTLOOK-REJECT",
+   "type": "hypothesis",
+   "label": "H-LASTLOOK-REJECT",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-DEVIATION-OPT",
+   "type": "hypothesis",
+   "label": "H-DEVIATION-OPT",
+   "nexa_data": "✗",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-HURST-GATE",
+   "type": "hypothesis",
+   "label": "H-HURST-GATE",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-THICKNESS-ER",
+   "type": "hypothesis",
+   "label": "H-THICKNESS-ER",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-TSMOM-TANH",
+   "type": "hypothesis",
+   "label": "H-TSMOM-TANH",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-SESSION-SPLIT",
+   "type": "hypothesis",
+   "label": "H-SESSION-SPLIT",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-FIX-FLOW",
+   "type": "hypothesis",
+   "label": "H-FIX-FLOW",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-GOTOBI/H-OPEN-CONT",
+   "type": "hypothesis",
+   "label": "H-GOTOBI/H-OPEN-CONT",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-NEWS-PTD",
+   "type": "hypothesis",
+   "label": "H-NEWS-PTD",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-LEADLAG-FX",
+   "type": "hypothesis",
+   "label": "H-LEADLAG-FX",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-PAIRS-OU",
+   "type": "hypothesis",
+   "label": "H-PAIRS-OU",
+   "nexa_data": "◐",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-CARRY-SWAP",
+   "type": "hypothesis",
+   "label": "H-CARRY-SWAP",
+   "nexa_data": "✗",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-PARTIAL-EXIT",
+   "type": "hypothesis",
+   "label": "H-PARTIAL-EXIT",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-ROUND-NUM",
+   "type": "hypothesis",
+   "label": "H-ROUND-NUM",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-SQUEEZE-VARIANTS",
+   "type": "hypothesis",
+   "label": "H-SQUEEZE-VARIANTS",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-TD-CANON",
+   "type": "hypothesis",
+   "label": "H-TD-CANON",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-PATTERN-LOWPRIOR",
+   "type": "hypothesis",
+   "label": "H-PATTERN-LOWPRIOR",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-RETURN-50",
+   "type": "hypothesis",
+   "label": "H-RETURN-50",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  },
+  {
+   "id": "H-ENSEMBLE-META",
+   "type": "hypothesis",
+   "label": "H-ENSEMBLE-META",
+   "nexa_data": "✓",
+   "ref": "RESEARCH_HYPOTHESIS_BACKLOG.md"
+  }
+ ],
+ "edges": [
+  {
+   "source": "S37",
+   "relation": "duplicate_of",
+   "target": "S06",
+   "evidence": "text identical; 48/48 pages pixel-identical"
+  },
+  {
+   "source": "S06",
+   "relation": "member_of",
+   "target": "CL_CARTEA"
+  },
+  {
+   "source": "S10",
+   "relation": "member_of",
+   "target": "CL_CARTEA"
+  },
+  {
+   "source": "S11",
+   "relation": "member_of",
+   "target": "CL_CARTEA"
+  },
+  {
+   "source": "S14",
+   "relation": "member_of",
+   "target": "CL_CARTEA"
+  },
+  {
+   "source": "S24",
+   "relation": "member_of",
+   "target": "CL_CARTEA"
+  },
+  {
+   "source": "S25",
+   "relation": "member_of",
+   "target": "CL_CARTEA"
+  },
+  {
+   "source": "S26",
+   "relation": "member_of",
+   "target": "CL_CARTEA"
+  },
+  {
+   "source": "S02",
+   "relation": "member_of",
+   "target": "CL_ZR"
+  },
+  {
+   "source": "S03",
+   "relation": "member_of",
+   "target": "CL_ZR"
+  },
+  {
+   "source": "S13",
+   "relation": "member_of",
+   "target": "CL_ZR"
+  },
+  {
+   "source": "S14",
+   "relation": "member_of",
+   "target": "CL_CUCURINGU"
+  },
+  {
+   "source": "S23",
+   "relation": "member_of",
+   "target": "CL_CUCURINGU"
+  },
+  {
+   "source": "S04",
+   "relation": "member_of",
+   "target": "CL_ROUGH"
+  },
+  {
+   "source": "S18",
+   "relation": "member_of",
+   "target": "CL_ROUGH"
+  },
+  {
+   "source": "S09",
+   "relation": "member_of",
+   "target": "CL_SQUEEZE"
+  },
+  {
+   "source": "S19",
+   "relation": "member_of",
+   "target": "CL_SQUEEZE"
+  },
+  {
+   "source": "S27",
+   "relation": "member_of",
+   "target": "CL_ICEBERG"
+  },
+  {
+   "source": "S28",
+   "relation": "member_of",
+   "target": "CL_ICEBERG"
+  },
+  {
+   "source": "S29",
+   "relation": "member_of",
+   "target": "CL_ICEBERG"
+  },
+  {
+   "source": "S33",
+   "relation": "member_of",
+   "target": "CL_SCIRP"
+  },
+  {
+   "source": "S34",
+   "relation": "member_of",
+   "target": "CL_SCIRP"
+  },
+  {
+   "source": "S35",
+   "relation": "member_of",
+   "target": "CL_SCIRP"
+  },
+  {
+   "source": "S36",
+   "relation": "member_of",
+   "target": "CL_SCIRP"
+  },
+  {
+   "source": "S38",
+   "relation": "member_of",
+   "target": "CL_SCIRP"
+  },
+  {
+   "source": "S30",
+   "relation": "member_of",
+   "target": "CL_PRACT_MICRO"
+  },
+  {
+   "source": "S31",
+   "relation": "member_of",
+   "target": "CL_PRACT_MICRO"
+  },
+  {
+   "source": "S32",
+   "relation": "member_of",
+   "target": "CL_PRACT_MICRO"
+  },
+  {
+   "source": "S02",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S03",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S13",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S14",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S12",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S16",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S08",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S22",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S32",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S31",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S10",
+   "relation": "supports",
+   "target": "P1"
+  },
+  {
+   "source": "S23",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S04",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S18",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S39",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S09",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S19",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S15",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S02",
+   "relation": "supports",
+   "target": "P2"
+  },
+  {
+   "source": "S06",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S10",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S11",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S29",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S27",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S32",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S31",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S30",
+   "relation": "supports",
+   "target": "P3"
+  },
+  {
+   "source": "S02",
+   "relation": "supports",
+   "target": "P4"
+  },
+  {
+   "source": "S03",
+   "relation": "supports",
+   "target": "P4"
+  },
+  {
+   "source": "S22",
+   "relation": "supports",
+   "target": "P4"
+  },
+  {
+   "source": "S13",
+   "relation": "supports",
+   "target": "P4"
+  },
+  {
+   "source": "S23",
+   "relation": "supports",
+   "target": "P5"
+  },
+  {
+   "source": "S13",
+   "relation": "supports",
+   "target": "P5"
+  },
+  {
+   "source": "S26",
+   "relation": "supports",
+   "target": "P5"
+  },
+  {
+   "source": "S14",
+   "relation": "supports",
+   "target": "P5"
+  },
+  {
+   "source": "S03",
+   "relation": "supports",
+   "target": "P5"
+  },
+  {
+   "source": "S39",
+   "relation": "supports",
+   "target": "P5"
+  },
+  {
+   "source": "S35",
+   "relation": "supports",
+   "target": "P5"
+  },
+  {
+   "source": "S32",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S33",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S36",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S01",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S08",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S22",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S14",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S04",
+   "relation": "supports",
+   "target": "P6"
+  },
+  {
+   "source": "S22",
+   "relation": "supports",
+   "target": "P7"
+  },
+  {
+   "source": "S14",
+   "relation": "supports",
+   "target": "P7"
+  },
+  {
+   "source": "S15",
+   "relation": "supports",
+   "target": "P8"
+  },
+  {
+   "source": "S38",
+   "relation": "supports",
+   "target": "P8"
+  },
+  {
+   "source": "S12",
+   "relation": "supports",
+   "target": "P8"
+  },
+  {
+   "source": "S14",
+   "relation": "supports",
+   "target": "P8"
+  },
+  {
+   "source": "S15",
+   "relation": "supports",
+   "target": "P9"
+  },
+  {
+   "source": "S11",
+   "relation": "supports",
+   "target": "P10"
+  },
+  {
+   "source": "S10",
+   "relation": "supports",
+   "target": "P10"
+  },
+  {
+   "source": "S01",
+   "relation": "supports",
+   "target": "P10"
+  },
+  {
+   "source": "S32",
+   "relation": "supports",
+   "target": "P10"
+  },
+  {
+   "source": "S31",
+   "relation": "supports",
+   "target": "P10"
+  },
+  {
+   "source": "S26",
+   "relation": "supports",
+   "target": "P11"
+  },
+  {
+   "source": "S34",
+   "relation": "supports",
+   "target": "P11"
+  },
+  {
+   "source": "S29",
+   "relation": "supports",
+   "target": "P11"
+  },
+  {
+   "source": "S13",
+   "relation": "supports",
+   "target": "P11"
+  },
+  {
+   "source": "S06",
+   "relation": "supports",
+   "target": "P11"
+  },
+  {
+   "source": "S21",
+   "relation": "supports",
+   "target": "P12"
+  },
+  {
+   "source": "S22",
+   "relation": "supports",
+   "target": "P12"
+  },
+  {
+   "source": "S01",
+   "relation": "supports",
+   "target": "P12"
+  },
+  {
+   "source": "S14",
+   "relation": "supports",
+   "target": "P12"
+  },
+  {
+   "source": "S03",
+   "relation": "supports",
+   "target": "P12"
+  },
+  {
+   "source": "S08",
+   "relation": "supports",
+   "target": "P13"
+  },
+  {
+   "source": "S02",
+   "relation": "supports",
+   "target": "P13"
+  },
+  {
+   "source": "S03",
+   "relation": "supports",
+   "target": "P13"
+  },
+  {
+   "source": "S01",
+   "relation": "supports",
+   "target": "P13"
+  },
+  {
+   "source": "S27",
+   "relation": "supports",
+   "target": "P13"
+  },
+  {
+   "source": "S30",
+   "relation": "supports",
+   "target": "P14"
+  },
+  {
+   "source": "S31",
+   "relation": "supports",
+   "target": "P14"
+  },
+  {
+   "source": "S32",
+   "relation": "supports",
+   "target": "P14"
+  },
+  {
+   "source": "S10",
+   "relation": "supports",
+   "target": "P14"
+  },
+  {
+   "source": "S15",
+   "relation": "supports",
+   "target": "P15"
+  },
+  {
+   "source": "S04",
+   "relation": "supports",
+   "target": "P15"
+  },
+  {
+   "source": "S19",
+   "relation": "contradicts",
+   "target": "P3",
+   "detail": "'limit orders = planned' ignores adverse selection",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S28",
+   "relation": "contradicts",
+   "target": "P3",
+   "detail": "icebergs 'reduce slippage' asserted",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S09",
+   "relation": "contradicts",
+   "target": "P8",
+   "detail": "band reversal claims vs MA artefact",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S16",
+   "relation": "contradicts",
+   "target": "P8",
+   "detail": "z/RSI reversion claimed",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S17",
+   "relation": "contradicts",
+   "target": "P8",
+   "detail": "countertrend exhaustion claimed",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S18",
+   "relation": "contradicts",
+   "target": "S04",
+   "detail": "exponential ACF vs power law (S18 wrong)",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S02",
+   "relation": "contradicts",
+   "target": "S03",
+   "detail": "cost tolerance 2-4 bps vs 25 bp (bases differ)",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S30",
+   "relation": "contradicts",
+   "target": "S32",
+   "detail": "HFT as tax vs dealers supply immediacy",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S11",
+   "relation": "contradicts",
+   "target": "S31",
+   "detail": "last look tightens spread vs creates liquidity illusion",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S34",
+   "relation": "contradicts",
+   "target": "S26",
+   "detail": "public LOB predicts trade sign vs public features ~chance for algo direction (different targets)",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S07",
+   "relation": "contradicts",
+   "target": "S06",
+   "detail": "3-day MM manipulation vs microstructure MM behaviour",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S20",
+   "relation": "contradicts",
+   "target": "S22",
+   "detail": "10-day MOMP 'Jegadeesh' vs 3-12 month momentum",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S02",
+   "relation": "contradicts",
+   "target": "S03",
+   "detail": "TSMOM alive (1995-2015) vs FX TSMOM negative (2011-2019)",
+   "ref": "CONTRADICTIONS.md"
+  },
+  {
+   "source": "S33",
+   "relation": "produced",
+   "target": "F_S33"
+  },
+  {
+   "source": "S35",
+   "relation": "produced",
+   "target": "F_S35"
+  },
+  {
+   "source": "S36",
+   "relation": "produced",
+   "target": "F_S36"
+  },
+  {
+   "source": "S16",
+   "relation": "produced",
+   "target": "F_S16"
+  },
+  {
+   "source": "S12",
+   "relation": "produced",
+   "target": "F_S12"
+  },
+  {
+   "source": "S14",
+   "relation": "produced",
+   "target": "F_S14L"
+  },
+  {
+   "source": "S18",
+   "relation": "produced",
+   "target": "F_S18"
+  },
+  {
+   "source": "S38",
+   "relation": "produced",
+   "target": "F_S38"
+  },
+  {
+   "source": "S25",
+   "relation": "produced",
+   "target": "F_S25"
+  },
+  {
+   "source": "S13",
+   "relation": "produced",
+   "target": "F_S13"
+  },
+  {
+   "source": "S02",
+   "relation": "produced",
+   "target": "F_S02"
+  },
+  {
+   "source": "S08",
+   "relation": "produced",
+   "target": "F_S08"
+  },
+  {
+   "source": "S01",
+   "relation": "produced",
+   "target": "F_S01"
+  },
+  {
+   "source": "S29",
+   "relation": "produced",
+   "target": "F_S29"
+  },
+  {
+   "source": "S27",
+   "relation": "produced",
+   "target": "F_S27"
+  },
+  {
+   "source": "S30",
+   "relation": "produced",
+   "target": "F_S30"
+  },
+  {
+   "source": "S08",
+   "relation": "exhibits",
+   "target": "FP_COSTFREE"
+  },
+  {
+   "source": "S12",
+   "relation": "exhibits",
+   "target": "FP_COSTFREE"
+  },
+  {
+   "source": "S14",
+   "relation": "exhibits",
+   "target": "FP_COSTFREE"
+  },
+  {
+   "source": "S16",
+   "relation": "exhibits",
+   "target": "FP_COSTFREE"
+  },
+  {
+   "source": "S20",
+   "relation": "exhibits",
+   "target": "FP_COSTFREE"
+  },
+  {
+   "source": "S36",
+   "relation": "exhibits",
+   "target": "FP_COSTFREE"
+  },
+  {
+   "source": "S02",
+   "relation": "exhibits",
+   "target": "FP_COSTFREE"
+  },
+  {
+   "source": "S01",
+   "relation": "exhibits",
+   "target": "FP_SELECTED"
+  },
+  {
+   "source": "S07",
+   "relation": "exhibits",
+   "target": "FP_SELECTED"
+  },
+  {
+   "source": "S09",
+   "relation": "exhibits",
+   "target": "FP_SELECTED"
+  },
+  {
+   "source": "S17",
+   "relation": "exhibits",
+   "target": "FP_SELECTED"
+  },
+  {
+   "source": "S19",
+   "relation": "exhibits",
+   "target": "FP_SELECTED"
+  },
+  {
+   "source": "S08",
+   "relation": "exhibits",
+   "target": "FP_SELECTED"
+  },
+  {
+   "source": "S33",
+   "relation": "exhibits",
+   "target": "FP_HOLDOUT"
+  },
+  {
+   "source": "S16",
+   "relation": "exhibits",
+   "target": "FP_HOLDOUT"
+  },
+  {
+   "source": "S08",
+   "relation": "exhibits",
+   "target": "FP_HOLDOUT"
+  },
+  {
+   "source": "S21",
+   "relation": "exhibits",
+   "target": "FP_HOLDOUT"
+  },
+  {
+   "source": "S12",
+   "relation": "exhibits",
+   "target": "FP_HOLDOUT"
+  },
+  {
+   "source": "S33",
+   "relation": "exhibits",
+   "target": "FP_MULTI"
+  },
+  {
+   "source": "S36",
+   "relation": "exhibits",
+   "target": "FP_MULTI"
+  },
+  {
+   "source": "S35",
+   "relation": "exhibits",
+   "target": "FP_MULTI"
+  },
+  {
+   "source": "S02",
+   "relation": "exhibits",
+   "target": "FP_MULTI"
+  },
+  {
+   "source": "S14",
+   "relation": "exhibits",
+   "target": "FP_MULTI"
+  },
+  {
+   "source": "S01",
+   "relation": "exhibits",
+   "target": "FP_MULTI"
+  },
+  {
+   "source": "S22",
+   "relation": "exhibits",
+   "target": "FP_LOOKAHEAD"
+  },
+  {
+   "source": "S14",
+   "relation": "exhibits",
+   "target": "FP_LOOKAHEAD"
+  },
+  {
+   "source": "S01",
+   "relation": "exhibits",
+   "target": "FP_LOOKAHEAD"
+  },
+  {
+   "source": "S20",
+   "relation": "exhibits",
+   "target": "FP_LOOKAHEAD"
+  },
+  {
+   "source": "S36",
+   "relation": "exhibits",
+   "target": "FP_LOOKAHEAD"
+  },
+  {
+   "source": "S39",
+   "relation": "exhibits",
+   "target": "FP_LOOKAHEAD"
+  },
+  {
+   "source": "S35",
+   "relation": "exhibits",
+   "target": "FP_BENCH"
+  },
+  {
+   "source": "S16",
+   "relation": "exhibits",
+   "target": "FP_BENCH"
+  },
+  {
+   "source": "S25",
+   "relation": "exhibits",
+   "target": "FP_BENCH"
+  },
+  {
+   "source": "S12",
+   "relation": "exhibits",
+   "target": "FP_BENCH"
+  },
+  {
+   "source": "S15",
+   "relation": "exhibits",
+   "target": "FP_ARTEFACT"
+  },
+  {
+   "source": "S38",
+   "relation": "exhibits",
+   "target": "FP_ARTEFACT"
+  },
+  {
+   "source": "S12",
+   "relation": "exhibits",
+   "target": "FP_ARTEFACT"
+  },
+  {
+   "source": "S14",
+   "relation": "exhibits",
+   "target": "FP_ARTEFACT"
+  },
+  {
+   "source": "S04",
+   "relation": "exhibits",
+   "target": "FP_ARTEFACT"
+  },
+  {
+   "source": "S27",
+   "relation": "exhibits",
+   "target": "FP_OVERLAP"
+  },
+  {
+   "source": "S14",
+   "relation": "exhibits",
+   "target": "FP_OVERLAP"
+  },
+  {
+   "source": "S30",
+   "relation": "exhibits",
+   "target": "FP_INTEREST"
+  },
+  {
+   "source": "S31",
+   "relation": "exhibits",
+   "target": "FP_INTEREST"
+  },
+  {
+   "source": "S23",
+   "relation": "provides_method",
+   "target": "M_QLIKE"
+  },
+  {
+   "source": "S23",
+   "relation": "provides_method",
+   "target": "M_HAR"
+  },
+  {
+   "source": "S39",
+   "relation": "provides_method",
+   "target": "M_PIT"
+  },
+  {
+   "source": "S14",
+   "relation": "provides_method",
+   "target": "M_DSR"
+  },
+  {
+   "source": "S14",
+   "relation": "provides_method",
+   "target": "M_HAC"
+  },
+  {
+   "source": "S26",
+   "relation": "provides_method",
+   "target": "M_ABLATE"
+  },
+  {
+   "source": "S26",
+   "relation": "provides_method",
+   "target": "M_WALK"
+  },
+  {
+   "source": "S23",
+   "relation": "provides_method",
+   "target": "M_WALK"
+  },
+  {
+   "source": "S02",
+   "relation": "provides_method",
+   "target": "M_WALK"
+  },
+  {
+   "source": "S14",
+   "relation": "provides_method",
+   "target": "M_COSTCURVE"
+  },
+  {
+   "source": "S02",
+   "relation": "provides_method",
+   "target": "M_COSTCURVE"
+  },
+  {
+   "source": "S22",
+   "relation": "provides_method",
+   "target": "M_EEFF"
+  },
+  {
+   "source": "S22",
+   "relation": "provides_method",
+   "target": "M_DELAY"
+  },
+  {
+   "source": "S15",
+   "relation": "provides_method",
+   "target": "M_NULLRW"
+  },
+  {
+   "source": "S27",
+   "relation": "provides_method",
+   "target": "M_FIRSTPASS"
+  },
+  {
+   "source": "S38",
+   "relation": "provides_method",
+   "target": "M_VR"
+  },
+  {
+   "source": "S31",
+   "relation": "provides_method",
+   "target": "M_VR"
+  },
+  {
+   "source": "S15",
+   "relation": "provides_method",
+   "target": "M_DMA"
+  },
+  {
+   "source": "S36",
+   "relation": "provides_method",
+   "target": "M_KALMANF"
+  },
+  {
+   "source": "S25",
+   "relation": "provides_method",
+   "target": "M_JOHANSEN"
+  },
+  {
+   "source": "S10",
+   "relation": "provides_method",
+   "target": "M_DISCRETION"
+  },
+  {
+   "source": "S31",
+   "relation": "provides_method",
+   "target": "M_ENVELOPE"
+  },
+  {
+   "source": "S32",
+   "relation": "provides_method",
+   "target": "M_TCA"
+  },
+  {
+   "source": "S31",
+   "relation": "provides_method",
+   "target": "M_TCA"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-DELAY-PARITY"
+  },
+  {
+   "source": "S14",
+   "relation": "motivates",
+   "target": "H-DELAY-PARITY"
+  },
+  {
+   "source": "H-DELAY-PARITY",
+   "relation": "concerns",
+   "target": "NX_EXEC"
+  },
+  {
+   "source": "H-DELAY-PARITY",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "S02",
+   "relation": "motivates",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "S03",
+   "relation": "motivates",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "S13",
+   "relation": "motivates",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "S14",
+   "relation": "motivates",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "S32",
+   "relation": "motivates",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "H-COST-SHRINK",
+   "relation": "concerns",
+   "target": "NX_COSTMODEL"
+  },
+  {
+   "source": "S33",
+   "relation": "motivates",
+   "target": "H-SEARCH-DEFLATE"
+  },
+  {
+   "source": "S14",
+   "relation": "motivates",
+   "target": "H-SEARCH-DEFLATE"
+  },
+  {
+   "source": "S36",
+   "relation": "motivates",
+   "target": "H-SEARCH-DEFLATE"
+  },
+  {
+   "source": "S02",
+   "relation": "motivates",
+   "target": "H-SEARCH-DEFLATE"
+  },
+  {
+   "source": "S32",
+   "relation": "motivates",
+   "target": "H-SEARCH-DEFLATE"
+  },
+  {
+   "source": "H-SEARCH-DEFLATE",
+   "relation": "concerns",
+   "target": "NX_SWEEPS"
+  },
+  {
+   "source": "S04",
+   "relation": "motivates",
+   "target": "H-NOISE-OBJ"
+  },
+  {
+   "source": "S02",
+   "relation": "motivates",
+   "target": "H-NOISE-OBJ"
+  },
+  {
+   "source": "S31",
+   "relation": "motivates",
+   "target": "H-NOISE-OBJ"
+  },
+  {
+   "source": "H-NOISE-OBJ",
+   "relation": "concerns",
+   "target": "NX_SWEEPS"
+  },
+  {
+   "source": "S26",
+   "relation": "motivates",
+   "target": "H-ABLATE"
+  },
+  {
+   "source": "S23",
+   "relation": "motivates",
+   "target": "H-ABLATE"
+  },
+  {
+   "source": "H-ABLATE",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S27",
+   "relation": "motivates",
+   "target": "H-HIT-PROB"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-HIT-PROB"
+  },
+  {
+   "source": "S08",
+   "relation": "motivates",
+   "target": "H-HIT-PROB"
+  },
+  {
+   "source": "H-HIT-PROB",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S31",
+   "relation": "motivates",
+   "target": "H-ENVELOPE"
+  },
+  {
+   "source": "S30",
+   "relation": "motivates",
+   "target": "H-ENVELOPE"
+  },
+  {
+   "source": "H-ENVELOPE",
+   "relation": "concerns",
+   "target": "NX_SAFETY"
+  },
+  {
+   "source": "S23",
+   "relation": "motivates",
+   "target": "H-VOL-1"
+  },
+  {
+   "source": "S04",
+   "relation": "motivates",
+   "target": "H-VOL-1"
+  },
+  {
+   "source": "S39",
+   "relation": "motivates",
+   "target": "H-VOL-1"
+  },
+  {
+   "source": "H-VOL-1",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S02",
+   "relation": "motivates",
+   "target": "H-VOL-2"
+  },
+  {
+   "source": "S03",
+   "relation": "motivates",
+   "target": "H-VOL-2"
+  },
+  {
+   "source": "S13",
+   "relation": "motivates",
+   "target": "H-VOL-2"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-VOL-2"
+  },
+  {
+   "source": "S23",
+   "relation": "motivates",
+   "target": "H-VOL-2"
+  },
+  {
+   "source": "H-VOL-2",
+   "relation": "concerns",
+   "target": "NX_RISK"
+  },
+  {
+   "source": "S23",
+   "relation": "motivates",
+   "target": "H-VOL-3"
+  },
+  {
+   "source": "H-VOL-3",
+   "relation": "concerns",
+   "target": "NX_TIME"
+  },
+  {
+   "source": "S23",
+   "relation": "motivates",
+   "target": "H-VOL-4"
+  },
+  {
+   "source": "H-VOL-4",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S04",
+   "relation": "motivates",
+   "target": "H-ROUGH-1"
+  },
+  {
+   "source": "S18",
+   "relation": "motivates",
+   "target": "H-ROUGH-1"
+  },
+  {
+   "source": "H-ROUGH-1",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S38",
+   "relation": "motivates",
+   "target": "H-VR-SCALE"
+  },
+  {
+   "source": "S15",
+   "relation": "motivates",
+   "target": "H-VR-SCALE"
+  },
+  {
+   "source": "S31",
+   "relation": "motivates",
+   "target": "H-VR-SCALE"
+  },
+  {
+   "source": "S32",
+   "relation": "motivates",
+   "target": "H-VR-SCALE"
+  },
+  {
+   "source": "H-VR-SCALE",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S39",
+   "relation": "motivates",
+   "target": "H-VAR-TRIGGER"
+  },
+  {
+   "source": "S23",
+   "relation": "motivates",
+   "target": "H-VAR-TRIGGER"
+  },
+  {
+   "source": "H-VAR-TRIGGER",
+   "relation": "concerns",
+   "target": "NX_SAFETY"
+  },
+  {
+   "source": "S15",
+   "relation": "motivates",
+   "target": "H-GAP-VOL"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-GAP-VOL"
+  },
+  {
+   "source": "H-GAP-VOL",
+   "relation": "concerns",
+   "target": "NX_TIME"
+  },
+  {
+   "source": "S24",
+   "relation": "motivates",
+   "target": "H-SPREAD-REGIME"
+  },
+  {
+   "source": "S11",
+   "relation": "motivates",
+   "target": "H-SPREAD-REGIME"
+  },
+  {
+   "source": "H-SPREAD-REGIME",
+   "relation": "concerns",
+   "target": "NX_COSTMODEL"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-VOLTARGET-CAP"
+  },
+  {
+   "source": "S02",
+   "relation": "motivates",
+   "target": "H-VOLTARGET-CAP"
+  },
+  {
+   "source": "H-VOLTARGET-CAP",
+   "relation": "concerns",
+   "target": "NX_RISK"
+  },
+  {
+   "source": "S13",
+   "relation": "motivates",
+   "target": "H-MU-SIGMA2"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-MU-SIGMA2"
+  },
+  {
+   "source": "S21",
+   "relation": "motivates",
+   "target": "H-MU-SIGMA2"
+  },
+  {
+   "source": "S12",
+   "relation": "motivates",
+   "target": "H-MU-SIGMA2"
+  },
+  {
+   "source": "H-MU-SIGMA2",
+   "relation": "concerns",
+   "target": "NX_RISK"
+  },
+  {
+   "source": "S35",
+   "relation": "motivates",
+   "target": "H-TAIL-SIM"
+  },
+  {
+   "source": "S39",
+   "relation": "motivates",
+   "target": "H-TAIL-SIM"
+  },
+  {
+   "source": "S21",
+   "relation": "motivates",
+   "target": "H-TAIL-SIM"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-TAIL-SIM"
+  },
+  {
+   "source": "H-TAIL-SIM",
+   "relation": "concerns",
+   "target": "NX_RISK"
+  },
+  {
+   "source": "S10",
+   "relation": "motivates",
+   "target": "H-NEWS-SLIP"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-NEWS-SLIP"
+  },
+  {
+   "source": "S11",
+   "relation": "motivates",
+   "target": "H-NEWS-SLIP"
+  },
+  {
+   "source": "S31",
+   "relation": "motivates",
+   "target": "H-NEWS-SLIP"
+  },
+  {
+   "source": "H-NEWS-SLIP",
+   "relation": "concerns",
+   "target": "NX_COSTMODEL"
+  },
+  {
+   "source": "H-NEWS-SLIP",
+   "relation": "concerns",
+   "target": "NX_TIME"
+  },
+  {
+   "source": "S30",
+   "relation": "motivates",
+   "target": "H-STOP-SLIP"
+  },
+  {
+   "source": "S32",
+   "relation": "motivates",
+   "target": "H-STOP-SLIP"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-STOP-SLIP"
+  },
+  {
+   "source": "S10",
+   "relation": "motivates",
+   "target": "H-STOP-SLIP"
+  },
+  {
+   "source": "H-STOP-SLIP",
+   "relation": "concerns",
+   "target": "NX_COSTMODEL"
+  },
+  {
+   "source": "S11",
+   "relation": "motivates",
+   "target": "H-LASTLOOK-REJECT"
+  },
+  {
+   "source": "S31",
+   "relation": "motivates",
+   "target": "H-LASTLOOK-REJECT"
+  },
+  {
+   "source": "S30",
+   "relation": "motivates",
+   "target": "H-LASTLOOK-REJECT"
+  },
+  {
+   "source": "H-LASTLOOK-REJECT",
+   "relation": "concerns",
+   "target": "NX_COSTMODEL"
+  },
+  {
+   "source": "S10",
+   "relation": "motivates",
+   "target": "H-DEVIATION-OPT"
+  },
+  {
+   "source": "H-DEVIATION-OPT",
+   "relation": "concerns",
+   "target": "NX_DEVIATION"
+  },
+  {
+   "source": "S15",
+   "relation": "motivates",
+   "target": "H-HURST-GATE"
+  },
+  {
+   "source": "S38",
+   "relation": "motivates",
+   "target": "H-HURST-GATE"
+  },
+  {
+   "source": "S04",
+   "relation": "motivates",
+   "target": "H-HURST-GATE"
+  },
+  {
+   "source": "H-HURST-GATE",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-THICKNESS-ER"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-THICKNESS-ER"
+  },
+  {
+   "source": "H-THICKNESS-ER",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-TSMOM-TANH"
+  },
+  {
+   "source": "S02",
+   "relation": "motivates",
+   "target": "H-TSMOM-TANH"
+  },
+  {
+   "source": "H-TSMOM-TANH",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S14",
+   "relation": "motivates",
+   "target": "H-SESSION-SPLIT"
+  },
+  {
+   "source": "S23",
+   "relation": "motivates",
+   "target": "H-SESSION-SPLIT"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-SESSION-SPLIT"
+  },
+  {
+   "source": "H-SESSION-SPLIT",
+   "relation": "concerns",
+   "target": "NX_TIME"
+  },
+  {
+   "source": "S31",
+   "relation": "motivates",
+   "target": "H-FIX-FLOW"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-FIX-FLOW"
+  },
+  {
+   "source": "S32",
+   "relation": "motivates",
+   "target": "H-FIX-FLOW"
+  },
+  {
+   "source": "H-FIX-FLOW",
+   "relation": "concerns",
+   "target": "NX_TIME"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-GOTOBI/H-OPEN-CONT"
+  },
+  {
+   "source": "H-GOTOBI/H-OPEN-CONT",
+   "relation": "concerns",
+   "target": "NX_TIME"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-NEWS-PTD"
+  },
+  {
+   "source": "S10",
+   "relation": "motivates",
+   "target": "H-NEWS-PTD"
+  },
+  {
+   "source": "H-NEWS-PTD",
+   "relation": "concerns",
+   "target": "NX_TIME"
+  },
+  {
+   "source": "S14",
+   "relation": "motivates",
+   "target": "H-LEADLAG-FX"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-LEADLAG-FX"
+  },
+  {
+   "source": "S25",
+   "relation": "motivates",
+   "target": "H-LEADLAG-FX"
+  },
+  {
+   "source": "H-LEADLAG-FX",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S25",
+   "relation": "motivates",
+   "target": "H-PAIRS-OU"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-PAIRS-OU"
+  },
+  {
+   "source": "S20",
+   "relation": "motivates",
+   "target": "H-PAIRS-OU"
+  },
+  {
+   "source": "S36",
+   "relation": "motivates",
+   "target": "H-PAIRS-OU"
+  },
+  {
+   "source": "S15",
+   "relation": "motivates",
+   "target": "H-PAIRS-OU"
+  },
+  {
+   "source": "H-PAIRS-OU",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S22",
+   "relation": "motivates",
+   "target": "H-CARRY-SWAP"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-CARRY-SWAP"
+  },
+  {
+   "source": "H-CARRY-SWAP",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S19",
+   "relation": "motivates",
+   "target": "H-PARTIAL-EXIT"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-PARTIAL-EXIT"
+  },
+  {
+   "source": "H-PARTIAL-EXIT",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S32",
+   "relation": "motivates",
+   "target": "H-ROUND-NUM"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-ROUND-NUM"
+  },
+  {
+   "source": "H-ROUND-NUM",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S09",
+   "relation": "motivates",
+   "target": "H-SQUEEZE-VARIANTS"
+  },
+  {
+   "source": "S19",
+   "relation": "motivates",
+   "target": "H-SQUEEZE-VARIANTS"
+  },
+  {
+   "source": "H-SQUEEZE-VARIANTS",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S17",
+   "relation": "motivates",
+   "target": "H-TD-CANON"
+  },
+  {
+   "source": "H-TD-CANON",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "S07",
+   "relation": "motivates",
+   "target": "H-PATTERN-LOWPRIOR"
+  },
+  {
+   "source": "S08",
+   "relation": "motivates",
+   "target": "H-PATTERN-LOWPRIOR"
+  },
+  {
+   "source": "S20",
+   "relation": "motivates",
+   "target": "H-PATTERN-LOWPRIOR"
+  },
+  {
+   "source": "S16",
+   "relation": "motivates",
+   "target": "H-PATTERN-LOWPRIOR"
+  },
+  {
+   "source": "H-PATTERN-LOWPRIOR",
+   "relation": "concerns",
+   "target": "NX_V2"
+  },
+  {
+   "source": "S01",
+   "relation": "motivates",
+   "target": "H-RETURN-50"
+  },
+  {
+   "source": "H-RETURN-50",
+   "relation": "concerns",
+   "target": "NX_DATA"
+  },
+  {
+   "source": "S12",
+   "relation": "motivates",
+   "target": "H-ENSEMBLE-META"
+  },
+  {
+   "source": "S24",
+   "relation": "motivates",
+   "target": "H-ENSEMBLE-META"
+  },
+  {
+   "source": "H-ENSEMBLE-META",
+   "relation": "concerns",
+   "target": "NX_8E"
+  },
+  {
+   "source": "H-VOL-1",
+   "relation": "operationalises",
+   "target": "P2"
+  },
+  {
+   "source": "H-VOL-2",
+   "relation": "operationalises",
+   "target": "P4"
+  },
+  {
+   "source": "H-VOL-3",
+   "relation": "operationalises",
+   "target": "P2"
+  },
+  {
+   "source": "H-VOL-4",
+   "relation": "operationalises",
+   "target": "P2"
+  },
+  {
+   "source": "H-ROUGH-1",
+   "relation": "operationalises",
+   "target": "P2"
+  },
+  {
+   "source": "H-VR-SCALE",
+   "relation": "operationalises",
+   "target": "P8"
+  },
+  {
+   "source": "H-COST-SHRINK",
+   "relation": "operationalises",
+   "target": "P1"
+  },
+  {
+   "source": "H-DELAY-PARITY",
+   "relation": "operationalises",
+   "target": "P7"
+  },
+  {
+   "source": "H-SEARCH-DEFLATE",
+   "relation": "operationalises",
+   "target": "P6"
+  },
+  {
+   "source": "H-NOISE-OBJ",
+   "relation": "operationalises",
+   "target": "P6"
+  },
+  {
+   "source": "H-HIT-PROB",
+   "relation": "operationalises",
+   "target": "P13"
+  },
+  {
+   "source": "H-STOP-SLIP",
+   "relation": "operationalises",
+   "target": "P14"
+  },
+  {
+   "source": "H-NEWS-SLIP",
+   "relation": "operationalises",
+   "target": "P10"
+  },
+  {
+   "source": "H-LASTLOOK-REJECT",
+   "relation": "operationalises",
+   "target": "P3"
+  },
+  {
+   "source": "H-HURST-GATE",
+   "relation": "operationalises",
+   "target": "P8"
+  },
+  {
+   "source": "H-GAP-VOL",
+   "relation": "operationalises",
+   "target": "P15"
+  },
+  {
+   "source": "H-ABLATE",
+   "relation": "operationalises",
+   "target": "P11"
+  },
+  {
+   "source": "H-DEVIATION-OPT",
+   "relation": "operationalises",
+   "target": "P3"
+  },
+  {
+   "source": "H-VAR-TRIGGER",
+   "relation": "operationalises",
+   "target": "P2"
+  },
+  {
+   "source": "H-ENVELOPE",
+   "relation": "operationalises",
+   "target": "P12"
+  },
+  {
+   "source": "NX_DATA",
+   "relation": "data_limited_for",
+   "target": "S13",
+   "detail": "no depth volumes: microprice"
+  },
+  {
+   "source": "NX_DATA",
+   "relation": "data_limited_for",
+   "target": "S26",
+   "detail": "no member/algo IDs"
+  },
+  {
+   "source": "NX_DATA",
+   "relation": "data_limited_for",
+   "target": "S29",
+   "detail": "no depth"
+  },
+  {
+   "source": "NX_DATA",
+   "relation": "data_limited_for",
+   "target": "S34",
+   "detail": "no depth"
+  },
+  {
+   "source": "NX_DATA",
+   "relation": "data_limited_for",
+   "target": "S06",
+   "detail": "no order-level IDs"
+  },
+  {
+   "source": "NX_DATA",
+   "relation": "data_limited_for",
+   "target": "S25",
+   "detail": "no second synchronous feed"
+  },
+  {
+   "source": "NX_DATA",
+   "relation": "data_limited_for",
+   "target": "S27",
+   "detail": "no iceberg/hidden depth"
+  },
+  {
+   "source": "M_QLIKE",
+   "relation": "used_by",
+   "target": "H-VOL-1"
+  },
+  {
+   "source": "M_HAR",
+   "relation": "used_by",
+   "target": "H-VOL-1"
+  },
+  {
+   "source": "M_PIT",
+   "relation": "used_by",
+   "target": "H-VAR-TRIGGER"
+  },
+  {
+   "source": "M_COVER",
+   "relation": "used_by",
+   "target": "H-VAR-TRIGGER"
+  },
+  {
+   "source": "M_DSR",
+   "relation": "used_by",
+   "target": "H-SEARCH-DEFLATE"
+  },
+  {
+   "source": "M_ABLATE",
+   "relation": "used_by",
+   "target": "H-ABLATE"
+  },
+  {
+   "source": "M_COSTCURVE",
+   "relation": "used_by",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "M_EEFF",
+   "relation": "used_by",
+   "target": "H-COST-SHRINK"
+  },
+  {
+   "source": "M_DELAY",
+   "relation": "used_by",
+   "target": "H-DELAY-PARITY"
+  },
+  {
+   "source": "M_FIRSTPASS",
+   "relation": "used_by",
+   "target": "H-HIT-PROB"
+  },
+  {
+   "source": "M_VR",
+   "relation": "used_by",
+   "target": "H-VR-SCALE"
+  },
+  {
+   "source": "M_DMA",
+   "relation": "used_by",
+   "target": "H-HURST-GATE"
+  },
+  {
+   "source": "M_NULLRW",
+   "relation": "used_by",
+   "target": "H-HURST-GATE"
+  },
+  {
+   "source": "M_KALMANF",
+   "relation": "used_by",
+   "target": "H-PAIRS-OU"
+  },
+  {
+   "source": "M_JOHANSEN",
+   "relation": "used_by",
+   "target": "H-PAIRS-OU"
+  },
+  {
+   "source": "M_DISCRETION",
+   "relation": "used_by",
+   "target": "H-DEVIATION-OPT"
+  },
+  {
+   "source": "M_ENVELOPE",
+   "relation": "used_by",
+   "target": "H-ENVELOPE"
+  },
+  {
+   "source": "M_TCA",
+   "relation": "used_by",
+   "target": "H-STOP-SLIP"
+  }
+ ]
+}

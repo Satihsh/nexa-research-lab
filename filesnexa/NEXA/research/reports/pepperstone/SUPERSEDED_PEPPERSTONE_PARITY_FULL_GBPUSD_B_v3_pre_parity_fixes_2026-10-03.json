@@ -1,0 +1,37 @@
+{
+ "GBPUSD_B": {
+  "decisions": 29246,
+  "pre_feature_veto_excluded": 719,
+  "compared_rows": 28527,
+  "contract_status": "FAIL",
+  "mismatch_rate_by_feature": {
+   "displacementATR": 0.25127,
+   "displacementDown": 0.00011,
+   "displacementUp": 4e-05,
+   "htfAlignment": 4e-05,
+   "liqBarsBeyond": 0.00845,
+   "liqBarsSinceReclaim": 0.00375,
+   "liqDisplacementAfter": 0.00182,
+   "liqEventActive": 0.00182,
+   "liqExcursionATR": 0.02149,
+   "liqFvgAfter": 0.00046,
+   "liqLevel": 0.00529,
+   "liqMssAfter": 0.00091,
+   "liqResolution": 0.00182,
+   "liqResponseDirection": 0.00182,
+   "liqSetup": 0.00182,
+   "liqState": 0.00782,
+   "liqSweepDirection": 0.00782,
+   "liqWickBodyRatio": 0.01521,
+   "spreadATRRatio": 0.52249,
+   "trendH1": 0.00014,
+   "trendM15": 4e-05,
+   "trendM5": 0.00021
+  },
+  "continuous_within_journal_precision": 22656,
+  "continuous_beyond_precision": {
+   "liqExcursionATR": 223,
+   "liqWickBodyRatio": 241
+  }
+ }
+}

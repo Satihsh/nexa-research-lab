@@ -1,0 +1,4 @@
+run=PS_BARS_EURUSD_A2025Q3
+start=2026-09-27 19:08:02
+end=2026-09-27 19:08:27
+expert=Advisors\NEXA_BarExport symbol=EURUSD period=M1 model=0 from=2025.07.01 to=2025.10.01 deposit=50000 leverage=200 delay=250

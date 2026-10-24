@@ -1,0 +1,9 @@
+{"source": "data/pepperstone/PEPPERSTONE_XAUUSD_ticks_recent.csv.gz (2026-08-28..2026-09-25, already-inspected data; descriptive only)",
+ "rows": 10837582, "last_nonzero": 0, "volume_nonzero": 0,
+ "flag_values": {"1158": 9514707, "1154": 672301, "1028": 650574},
+ "flag_bits_set": {"BID(2)": 10187008, "ASK(4)": 10165281, "LAST(8)": 0, "VOLUME(16)": 0, "BUY(32)": 0, "SELL(64)": 0},
+ "conclusion_aggressor": "no trade prints, no aggressor side, no volume: true order-flow delta and trade size are NOT observable",
+ "m5_tick_quote_imbalance_ratio": {"median": 1.004, "p95": 1.122, "share_ge_3": 0.0},
+ "m5_bar_proxy_ratio_share_ge_3": 0.1703,
+ "corr_log_tick_imbalance_vs_bar_proxy": 0.251, "aligned_m5_bars": 5580,
+ "corr_tick_count_vs_m1_tick_volume": 0.947, "median_tick_volume_per_tick": 0.935}

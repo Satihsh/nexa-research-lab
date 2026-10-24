@@ -1,0 +1,6 @@
+# Never commit credentials, the venv, or downloaded market data
+.env
+.env.*
+.venv/
+data/
+__pycache__/

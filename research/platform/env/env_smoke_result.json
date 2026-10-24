@@ -1,0 +1,50 @@
+{
+  "nautilus_version": "2.0.0rc6",
+  "python": "3.13.15",
+  "expected_balance_usd": "1001240.00",
+  "run1": {
+    "fills": [
+      [
+        "BUY",
+        "2",
+        "1.10000"
+      ],
+      [
+        "SELL",
+        "2",
+        "1.10500"
+      ]
+    ],
+    "fills_ts": [
+      1767571500000000000,
+      1767573000000000000
+    ],
+    "final_balance_usd": "1001240.00"
+  },
+  "run2": {
+    "fills": [
+      [
+        "BUY",
+        "2",
+        "1.10000"
+      ],
+      [
+        "SELL",
+        "2",
+        "1.10500"
+      ]
+    ],
+    "fills_ts": [
+      1767571500000000000,
+      1767573000000000000
+    ],
+    "final_balance_usd": "1001240.00"
+  },
+  "checks": {
+    "version": true,
+    "fills_match_hand_calc": true,
+    "balance_match_hand_calc": true,
+    "deterministic_rerun": true
+  },
+  "pass": true
+}

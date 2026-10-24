@@ -1,0 +1,126 @@
+{
+ "mode": "OOS",
+ "days": 3639,
+ "first_day": "2009-01-02",
+ "last_day": "2023-02-17",
+ "counts": {
+  "trade": 1604,
+  "no_breakout": 1745,
+  "missing": 157,
+  "cost_floor": 133
+ },
+ "S0": {
+  "theta": -0.029477,
+  "ci95": [
+   -0.068427,
+   0.005563
+  ],
+  "p_one_sided": 0.948026,
+  "B_finite": 2000,
+  "n": 1604
+ },
+ "S1": {
+  "theta": -0.071038,
+  "ci95": [
+   -0.110585,
+   -0.035351
+  ],
+  "p_one_sided": 1.0,
+  "B_finite": 2000,
+  "n": 1604
+ },
+ "S2": {
+  "theta": -0.112599,
+  "ci95": [
+   -0.153186,
+   -0.075343
+  ],
+  "p_one_sided": 1.0,
+  "B_finite": 2000,
+  "n": 1604
+ },
+ "S1_mean_pts": -1.020574,
+ "S1_win_rate": 0.5,
+ "exits": {
+  "stop": 471,
+  "target": 405,
+  "time": 728
+ },
+ "median_R_pts": 25.0,
+ "secondary_2R_S1": {
+  "theta": -0.049144,
+  "ci95": [
+   -0.090414,
+   -0.010256
+  ],
+  "p_one_sided": 0.994503,
+  "B_finite": 2000,
+  "n": 1604
+ },
+ "N2_beta_S1": {
+  "theta": -0.086753,
+  "ci95": [
+   -0.125916,
+   -0.041365
+  ],
+  "p_one_sided": 1.0,
+  "B_finite": 2000,
+  "n": 1838
+ },
+ "primary_minus_N2": 0.015715,
+ "years_sumR": {
+  "2009": -14.880908,
+  "2010": 2.923895,
+  "2011": -24.589178,
+  "2012": -13.720558,
+  "2013": -19.333592,
+  "2014": -6.693287,
+  "2015": -17.190614,
+  "2016": -21.102796,
+  "2017": -9.099749,
+  "2018": -8.551508,
+  "2019": 3.860403,
+  "2020": 0.18143,
+  "2021": 9.306027,
+  "2022": 2.987064,
+  "2023": 1.958822
+ },
+ "max_year_share": null,
+ "share_years_positive": 0.4,
+ "cost_floor_by_year": {
+  "2009": 18,
+  "2010": 37,
+  "2011": 21,
+  "2012": 22,
+  "2013": 22,
+  "2014": 7,
+  "2015": 1,
+  "2016": 1,
+  "2017": 4
+ },
+ "user_goal_mnq": {
+  "usd_per_trade_mean": -5.070137,
+  "usd_per_month_mean": -48.121302,
+  "usd_per_month_median": -34.0,
+  "share_months_positive": 0.443787,
+  "worst_month": -1206.5,
+  "n_months": 169
+ },
+ "checks": {
+  "1_mean>0_ci_lo>0": false,
+  "2_primary_minus_N2>0": true,
+  "3_years_pos>=60%_and_no_year>25%": false
+ },
+ "verdict": "FAILED",
+ "trades_sha256": "ef132768debf42229670958c6e7e5c137cafb7d092f8b6b7c1e2e6680fd223be",
+ "_provenance": {
+  "platform": "QuantConnect cloud, free Community B-MICRO node, LEAN 2.5.0.0.18184",
+  "project": 37866267,
+  "backtest_name": "Focused Yellow Green Bee",
+  "algorithm_id": "c4a3b304d5a07eff44a84ce80dc05ce8",
+  "code_sha256": "c9682d25812fcd1c9894f538be3ac77b385fac1ef29aa4388ae90a9f7848d2f0 (editor read-back)",
+  "data_points": 19112101,
+  "run_utc": "2026-10-16T05:20Z",
+  "log_file": "qc_horb30l_oos/oos_logs_focused_yellow_green_bee.txt"
+ }
+}

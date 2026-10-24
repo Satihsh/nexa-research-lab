@@ -1,0 +1,13 @@
+CAP-NEUTRAL RESEARCH — NOT PRODUCTION CONFIGURATION
+overrides:
+InpMaxSameCurrencyNet=10000
+InpRiskPercent=0.30
+InpHardRiskCeiling=1.00
+InpMaxDailyLossPct=2.00
+InpMaxDrawdownPct=10.00
+InpMaxTradesPerDay=10
+InpMaxSpreadATRRatio=0.15
+InpMaxMarginUsagePct=50.0
+InpMaxCorrelation=0.75
+InpCorrelationBars=100
+expert=NEXA_Research\NEXA_EA_CAPN sha256=91ee5e20b0a21b75d72b169bfc1f7d079dd6542c7239bc280e05c6724609e5fb

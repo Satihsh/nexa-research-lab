@@ -1,0 +1,4 @@
+run=PS_M1H_USDJPY_20190101_t2
+start=2026-09-27 23:04:04
+end=2026-09-27 23:04:29
+expert=Advisors\NEXA_BarExport symbol=USDJPY period=M1 model=2 from=2019.01.01 to=2019.07.01 deposit=50000 leverage=200 delay=0

@@ -1,0 +1,154 @@
+{
+ "sessions_scored": 203,
+ "va_width_pips_median": 20.999999999999908,
+ "E2": {
+  "5%": {
+   "seller_big_near_VAL": {
+    "mean_per_session": 5.6,
+    "median": 3.0,
+    "sessions_with_>=1_pct": 72.9
+   },
+   "buyer_big_near_VAH": {
+    "mean_per_session": 4.28,
+    "median": 2.0,
+    "sessions_with_>=1_pct": 60.1
+   },
+   "events_by_block": {
+    "Asia": 596,
+    "London": 485,
+    "NY": 925
+   }
+  },
+  "10%": {
+   "seller_big_near_VAL": {
+    "mean_per_session": 11.02,
+    "median": 7.0,
+    "sessions_with_>=1_pct": 80.8
+   },
+   "buyer_big_near_VAH": {
+    "mean_per_session": 8.56,
+    "median": 5.0,
+    "sessions_with_>=1_pct": 66.5
+   },
+   "events_by_block": {
+    "Asia": 1110,
+    "London": 1012,
+    "NY": 1853
+   }
+  },
+  "15%": {
+   "seller_big_near_VAL": {
+    "mean_per_session": 16.34,
+    "median": 11.0,
+    "sessions_with_>=1_pct": 82.3
+   },
+   "buyer_big_near_VAH": {
+    "mean_per_session": 12.91,
+    "median": 7.0,
+    "sessions_with_>=1_pct": 71.4
+   },
+   "events_by_block": {
+    "Asia": 1576,
+    "London": 1522,
+    "NY": 2841
+   }
+  },
+  "20%": {
+   "seller_big_near_VAL": {
+    "mean_per_session": 21.7,
+    "median": 15.0,
+    "sessions_with_>=1_pct": 84.7
+   },
+   "buyer_big_near_VAH": {
+    "mean_per_session": 16.93,
+    "median": 10.0,
+    "sessions_with_>=1_pct": 75.4
+   },
+   "events_by_block": {
+    "Asia": 2049,
+    "London": 1976,
+    "NY": 3816
+   }
+  },
+  "25%": {
+   "seller_big_near_VAL": {
+    "mean_per_session": 27.04,
+    "median": 21.0,
+    "sessions_with_>=1_pct": 86.7
+   },
+   "buyer_big_near_VAH": {
+    "mean_per_session": 21.09,
+    "median": 13.0,
+    "sessions_with_>=1_pct": 76.8
+   },
+   "events_by_block": {
+    "Asia": 2514,
+    "London": 2494,
+    "NY": 4764
+   }
+  }
+ },
+ "E9": {
+  "k1_d0.3": {
+   "lvns_per_profile_median": 1.0,
+   "lvns_per_profile_p90": 5.800000000000011,
+   "pct_sessions_LVN_below_VAL": 23.6,
+   "pct_sessions_LVN_above_VAH": 24.1
+  },
+  "k1_d0.5": {
+   "lvns_per_profile_median": 3.0,
+   "lvns_per_profile_p90": 8.800000000000011,
+   "pct_sessions_LVN_below_VAL": 40.9,
+   "pct_sessions_LVN_above_VAH": 40.4
+  },
+  "k1_d0.7": {
+   "lvns_per_profile_median": 5.0,
+   "lvns_per_profile_p90": 12.800000000000011,
+   "pct_sessions_LVN_below_VAL": 55.7,
+   "pct_sessions_LVN_above_VAH": 58.1
+  },
+  "k3_d0.3": {
+   "lvns_per_profile_median": 0.0,
+   "lvns_per_profile_p90": 2.8000000000000114,
+   "pct_sessions_LVN_below_VAL": 8.4,
+   "pct_sessions_LVN_above_VAH": 10.8
+  },
+  "k3_d0.5": {
+   "lvns_per_profile_median": 1.0,
+   "lvns_per_profile_p90": 4.0,
+   "pct_sessions_LVN_below_VAL": 17.7,
+   "pct_sessions_LVN_above_VAH": 22.2
+  },
+  "k3_d0.7": {
+   "lvns_per_profile_median": 2.0,
+   "lvns_per_profile_p90": 6.0,
+   "pct_sessions_LVN_below_VAL": 34.0,
+   "pct_sessions_LVN_above_VAH": 32.5
+  },
+  "k5_d0.3": {
+   "lvns_per_profile_median": 0.0,
+   "lvns_per_profile_p90": 1.0,
+   "pct_sessions_LVN_below_VAL": 4.4,
+   "pct_sessions_LVN_above_VAH": 4.9
+  },
+  "k5_d0.5": {
+   "lvns_per_profile_median": 0.0,
+   "lvns_per_profile_p90": 2.0,
+   "pct_sessions_LVN_below_VAL": 9.4,
+   "pct_sessions_LVN_above_VAH": 10.3
+  },
+  "k5_d0.7": {
+   "lvns_per_profile_median": 1.0,
+   "lvns_per_profile_p90": 4.0,
+   "pct_sessions_LVN_below_VAL": 18.7,
+   "pct_sessions_LVN_above_VAH": 19.2
+  },
+  "tradedevils": {
+   "lvns_per_profile_median": 0.0,
+   "lvns_per_profile_p90": 5.0,
+   "pct_sessions_LVN_below_VAL": 5.9,
+   "pct_sessions_LVN_above_VAH": 6.4
+  }
+ },
+ "profile_rows_median": 39.0
+}

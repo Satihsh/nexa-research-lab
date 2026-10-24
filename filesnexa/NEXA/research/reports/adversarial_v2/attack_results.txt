@@ -1,0 +1,57 @@
+C0 verify frozen mirror                             OK (legit control accepted)
+C1 legit lifecycle VAL->select->OOS once            OK (legit control accepted)
+A1a mutate protocol grid                            REJECTED: protocol F2_XAU_SESSION_BREAKOUT does not match the campaign pin
+A1b mutate protocol + re-pin its hash               REJECTED: campaign.json does not match the external anchor
+A1c delete a causal rule from protocol              REJECTED: protocol F2_XAU_SESSION_BREAKOUT does not match the campaign pin
+A2a mutate campaign (legacy trials 108->0)          REJECTED: campaign.json does not match the external anchor
+A2b mutate campaign + rewrite local ANCHOR.txt      REJECTED: campaign.json does not match the external anchor
+A2c unblock F6 in campaign                          REJECTED: campaign.json does not match the external anchor
+A3a drop 50 trials from universe                    REJECTED: trial universe file does not match its pin
+A3b universe forgery verified with forged anchor    REJECTED: ledger does not record exactly one CAMPAIGN_FROZEN for this anchor
+A3c shrink DSR trial count                          REJECTED: campaign.json does not match the external anchor
+A4a move OOS into the (seen) past in protocol       REJECTED: protocol F2_XAU_SESSION_BREAKOUT does not match the campaign pin
+A4b VAL window extended into EXCLUDED               REJECTED: window ['2023-01-01T00:00:00Z', '2025-06-01T00:00:00Z'] lies outside the VAL bounds
+A4c VAL entry inside embargo                        REJECTED: first entry 2023-01-01T00:00:00Z violates the VAL embargo
+A4d label crosses VAL end (purge)                   REJECTED: a label ends after the window/period end (purge violation)
+A4e non-UTC (server-offset) timestamp               REJECTED: timestamps must be explicit UTC ISO-8601 ending in 'Z': '2023-01-01T00:00:00+07:00'
+A5a repeat OOS on sealed trial                      REJECTED: OOS already observed for this experiment/claim/symbol
+A5b VAL query after OOS (OOS feeds selection)       REJECTED: in-sample results are closed once the OOS period has started
+A5c re-select after OOS                             REJECTED: OOS selection must be sealed BEFORE the OOS start
+A5d OOS recorded before OOS ends                    REJECTED: OOS must cover the full pinned window and can only be recorded after it ends
+A5e partial OOS window (cherry-pick)                REJECTED: OOS must cover the full pinned window and can only be recorded after it ends
+A5f selection after OOS start                       REJECTED: OOS selection must be sealed BEFORE the OOS start
+A6a second VAL query same trial                     REJECTED: this trial's validation has already been queried (budget = 1)
+A6b second VAL on a different sub-window            REJECTED: this trial's validation has already been queried (budget = 1)
+A6c delete VAL row from results then re-query       REJECTED: results.jsonl does not match the ledger
+A6d truncate ledger + results then re-query         REJECTED: ledger (3 entries) disagrees with the external witness (4 entries): truncation, rollback or out-of-API append
+A7a alter pinned data file                          REJECTED: pinned data 'calendar_manifest_v2' changed or missing: data/pepperstone/calendar/canonical_v2/calendar_manifes
+A7b alter pinned code file                          REJECTED: pinned code 'protocols_phase3_v2' changed or missing: research/protocols_phase3_v2.py
+A7c record with unpinned data_set_sha               REJECTED: result is not bound to the pinned data/code set
+A7d record with unpinned code_set_sha               REJECTED: result is not bound to the pinned data/code set
+A7e delete pinned design artifact                   REJECTED: pinned design_artifacts 'oos_determination_v2' changed or missing: research/reports/OOS_DETERMINATION_V2.md
+A8a unregistered sensitivity value (asian_end=8)    REJECTED: trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A8b extra unregistered sensitivity axis             REJECTED: trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A8c trial in BLOCKED family F6                      REJECTED: trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A9a OOS window labelled DEV                         REJECTED: window ['2027-01-04T00:00:00Z', '2028-01-03T00:00:00Z'] lies outside the DEV bounds
+A9b OOS window labelled VAL                         REJECTED: window ['2027-01-04T00:00:00Z', '2027-06-01T00:00:00Z'] lies outside the VAL bounds
+A9c OOS year labelled WF 2027                       REJECTED: wf_year 2027 is not one of the pinned WF_YEARS [2020, 2021, 2022, 2023, 2024]
+A9d EXCLUDED window labelled DEV                    REJECTED: window ['2025-02-01T00:00:00Z', '2025-06-01T00:00:00Z'] lies outside the DEV bounds
+A10a register leaky builder (certify failed)        REJECTED: builder __main__.future_feature FAILED causality certification
+A10b forged 'passed' certificate for leaky builder  REJECTED: register_builder takes the builder function, not a certificate
+A10c record with uncertified leaky builder          REJECTED: every builder must hold a causality certificate registered before opening
+A10d register builder after opening                 REJECTED: builders can only be registered while FROZEN (before opening)
+A10e smuggle leaky builder beside a certified one   REJECTED: every builder must hold a causality certificate registered before opening
+A10f builder source edited after certification      REJECTED: every builder must hold a causality certificate registered before opening
+A10g certify on a tiny sample (weak test)           REJECTED: certification needs >= 500 bars
+X6 delete external witness                          REJECTED: external witness missing for this anchor
+X7 correctly-chained ledger append outside API      REJECTED: ledger (4 entries) disagrees with the external witness (3 entries): truncation, rollback or out-of-API append
+R1 RESIDUAL truncate ledger AND witness together    ACCEPTED  <-- FAIL-OPEN
+X1 inject forged OPEN event in ledger               REJECTED: ledger/witness malformed: KeyError('prev_sha256')
+X2 record while FROZEN (not opened)                 REJECTED: evaluation not permitted in state FROZEN
+X3 open with missing/short approval                 REJECTED: opening requires an explicit human approval note
+X4 open after REJECTED                              REJECTED: cannot open from state REJECTED
+X5 re-freeze over existing campaign                 REJECTED: campaign already exists in this registry root
+
+attacks=51 fail_open=1 controls_ok=2
+real registry unchanged: True 2839dee2da38c72d
+real state: FROZEN

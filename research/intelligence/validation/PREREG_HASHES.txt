@@ -1,0 +1,446 @@
+recorded_utc 2026-10-04T13:46:35Z
+1c33eb2828b8271dc285a8a6db129b5f18e3036c9012ea44c33193adf51622c6  PREREG_T1_TICKVOL_PROXY.md
+aeb51408fce73f911218ca8f609e734024e10a1fd03a332db4217b37ea11bee7  PREREG_T2_VOLATILITY.md
+
+recorded_utc 2026-10-10T19:54:33Z  (OF-16/19/20 pre-registration; user approval 2026-10-11; no outcome computed)
+1b7eae0edc6e6b4001ac2ebb35898840f8a62666273807f971055763833c4829  PREREG_OF_COMMON.md
+215252b5a13c4d33bbdf1a3c2dc32bcece68a0257d6bf1944991ee619b63ca68  PREREG_OF16_OPEN_LOCATION.md
+300fe74df1ac2ae1177aca04c901d9049ecd56e682d10c222aa444daf0c30f81  PREREG_OF19_RELATIVE_IB.md
+c70d1f63fffc2689b87b5a90e409bbe86a28279a616c13ce6fb3abc99b00834e  PREREG_OF20_TREND_BALANCE.md
+
+recorded_utc 2026-10-10T20:08:10Z  (OF-16/19/20 code frozen after G1 unit tests 9/9 PASS; before discovery opened)
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+7938bc3baea20e44da84a827412c6723ace98204930ab2974e4ed6e5028f1043  of16.py
+b662a896476feeba3d5d1c71d9fd9ffa50c34cfadca908edd7e794f2bce209df  of19.py
+93da7dc11470c20380c880f2e2de90b2067f80eb350fba55117765d98fc788a1  of20.py
+ef97444156620122c63ca0096ba365262692a86726d1cd8b9bbf079a1ed8b9dc  test_of_common.py
+
+recorded_utc 2026-10-10T20:08:51Z  (deviation OF-D1: of20.py A0 full-day robustness IB anchor = first bar; crash fix before any OF-20 output existed)
+f594456408422d44de037f38cbc424d53d33dddba37330a6f783c1ee9ca999c2  of20.py
+
+recorded_utc 2026-10-10T22:22:00Z  (OF-20b pre-registration; user approval 2026-10-11; no OF-20b quantity computed; inherits PREREG_OF_COMMON.md 1b7eae0e…)
+fbd8f6bfa7a7b744fb2fe933a934829e78102b6f6fb31c90d8a1033dbd37ad3b  PREREG_OF20b_TREND_BALANCE_NORMALISED.md
+
+recorded_utc 2026-10-10T22:24:35Z  (OF-20b code frozen after G1 unit tests 10/10 PASS; before discovery opened)
+ebd51686024b0cc66826e44bda1e7a43be9f495153f154c86b96d7cbd73afbea  of20b.py
+f594456408422d44de037f38cbc424d53d33dddba37330a6f783c1ee9ca999c2  of20.py
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+1d1f2adb28d1a2ba3a77e0f57bde984c6b7278cba433398b06d98106a38c4e02  test_of_common.py
+
+recorded_utc 2026-10-11T00:30:25Z  (C1 Tokyo-fix pre-registration + frozen JP holiday file; user approval 2026-10-11; no C1 outcome computed)
+1a74009870a61d38f99606091a3205996e5e82a8db03f513b2797121b98e1d31  PREREG_C1_TOKYO_FIX.md
+18ad62c25d7f51700c71fdab4e6b57c7ada4856dff3da52858fa72b552638149  C1_JP_HOLIDAYS.json
+
+recorded_utc 2026-10-11T00:32:57Z  (C1 code frozen after unit tests 11/11 PASS; before discovery opened)
+0a1e447ed47d1fb886857bbc206d81658d7d25beb0c29f7ebc8265d40ae9467c  c1_tokyo_fix.py
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+8ad0ec1d1c35d9a5227344a587456091c44abfd103d53c8a6151f9b2d34dfd18  test_of_common.py
+5b0de75dac01b65e836ac51ba37a2697c92656ff50188c34ce986e38e99517b0  ~/NEXA-Agent-Lab/filesnexa/NEXA/research/nexa_robust.py
+
+recorded_utc 2026-10-11T00:45:27Z  (C2 TSMOM pre-registration; option (a) swaps; user approval 2026-10-11; no C2 outcome computed; not yet implemented)
+acfcfe13786618c1e30a4954cafbd669bc484cb2bb15fe1569726bbef21d07f1  PREREG_C2_TSMOM.md
+
+recorded_utc 2026-10-11T00:51:18Z  (C2 code frozen after unit tests 12/12 PASS; before discovery opened)
+aad165872763e72edb508800adcb114111b362b0e4769bdb530b1cff20d232b1  c2_tsmom.py
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+b28ac591ad8ef1fa79ace2c4808d5da61aef70ddab11ee79f1455a6d9a5a0f64  test_of_common.py
+5b0de75dac01b65e836ac51ba37a2697c92656ff50188c34ce986e38e99517b0  ~/NEXA-Agent-Lab/filesnexa/NEXA/research/nexa_robust.py
+e9d92ecf55f11a8ddae492f7125450a7ef6f629c859ce9b71a9bb6c930e0135a  ~/NEXA-Agent-Lab/filesnexa/NEXA/data/pepperstone/contracts.json
+
+recorded_utc 2026-10-11T08:11:41Z  (OFC1 core order-flow pre-registration; user approval 2026-10-11 "Approved, buy 6J, 6B, GC and pre-register"; no OFC1 outcome computed; not yet implemented; 6J/6B/GC purchase pending (402 Databento monthly limit))
+ede1bc8da8aa187982e0c4981af8bedc3489172dbc3ed60699ecca72cb3fd00f  PREREG_OFC1_CORE_ORDERFLOW.md
+
+recorded_utc 2026-10-11T08:27:21Z  (OFC1 code + tests 14/14 PASS + deviations D1-D10 frozen; before discovery opened; no OFC1 outcome computed)
+4065c597ebdcc47b02e60b0dc981d5a508b835385242701be7b5902331f01e75  ofc1_core.py
+9a9b1660f3352d596fbba3245af8abd4f21faa45b4daeb5678bc6795e17519d8  test_ofc1.py
+183760242e660d64745180e232dcbc296366ac5b7e0220667e00531d94796b8a  DEVIATIONS_OFC1.md
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+0cab01bbcecb30669d4c6cd5a56952555b31d1e15d51e88da5146c4475bb0c92  ../orderflow/databento/big_trades.py
+6d092bd6186dda2f98e884238610ee2ecaff05f0a22b72fd150df504cb38a7c3  ../orderflow/databento/dataset_condition_2025-09_2026-09.json
+5b0de75dac01b65e836ac51ba37a2697c92656ff50188c34ce986e38e99517b0  ~/NEXA-Agent-Lab/filesnexa/NEXA/research/nexa_robust.py
+
+recorded_utc 2026-10-11T08:30:52Z  (OFC1 run complete: disc->val->full opened once each; verdict INSUFFICIENT-N (130<150 trades); all splits negative; DSR post-hoc 0.00 (D11: scipy missing in databento venv))
+5c6b4dcbd20ebbca194a84514439a440a5be951664da0571f9f162102c087941  ofc1_results_disc.json
+ca396bd992fee60f60bc97c1cc669cbf4653d739ef877a843f33cb89e1815bb5  ofc1_results_val.json
+a01567341b46eb811a15dae4c77c473f0821741cf81cf5da99f629e58c9e18c1  ofc1_results.json
+e441547d7c47ab1c44a3205f3cad6b29f1b4fbcdad18ad4b14f239ec3c83060b  ofc1_dsr_posthoc.json
+3524214278293422625e848a85e6216166b2ba6050955f476ceb03ec6252430b  OFC1_REPORT.md
+
+recorded_utc 2026-10-11T08:41:59Z  (OFC1R FINAL replication pre-registration + wrapper; user approval 2026-10-11 "final run" + choice "6E only, 2023-2025"; data NOT yet downloaded (402 Databento monthly limit); no outcome seen)
+4c30f52f0f94f34714c132fdad4ded9d8ceac87847b2fd141a5fc56f668bd7e2  PREREG_OFC1R_REPLICATION.md
+ee209a1f30c972c6617efe7c5ef6e905c5f0764a764a2f5125122847cc90aa93  ofc1r_run.py
+4065c597ebdcc47b02e60b0dc981d5a508b835385242701be7b5902331f01e75  ofc1_core.py
+f292ed643ed458b222cda7bc5f4d8309a706a04ee073e0e30fea34a848797e38  ../orderflow/databento/dataset_condition_2022-10_2025-08.json
+
+recorded_utc 2026-10-11T08:53:39Z  (OFC1R FINAL run complete, executed once: REJECTED (211 trades, -0.119 R, S1 CI<0, all years negative, DSR 0.0007); OFC1 line CLOSED per user)
+ed68ad3cfcae0e22dce5ef20007d06db68cd8d5ec15b1d2c266d81057b27557c  ofc1r_results.json
+198404fbecdc2c078277961774d1fcf132151efd23407bacd5247af535ee055d  ofc1r_dsr.json
+8a5cd80b4aeba8ba81ccf6a456f7b3665a7d4e03151cffa04fcfe22c767739f0  OFC1R_REPORT.md
+
+recorded_utc 2026-10-11T10:27:20Z  (IM1 market intraday momentum pre-registration; user approval 2026-10-11 "Approved, pre-register intraday momentum"; no IM1 outcome computed; not implemented)
+aee2e8705d45c954ffb6481c8fdde129bf12611f3110e25145d7944c32f31fba  PREREG_IM1_INTRADAY_MOMENTUM.md
+
+recorded_utc 2026-10-11T10:40:03Z  (IM1 code + tests 7/7 PASS + calendar + deviations D1-D9 frozen; before discovery opened; no IM1 outcome computed)
+b63698e45cdc982c6a232950ec3a6372f8ddc3a6b212677555bf8611a340d980  im1_intraday_momentum.py
+37fdc461ef48b2edae367ee0e7f07a2ef5225b279d495496a101cf40449d148a  test_im1.py
+383c898c38817ce99a755e3385465c731c3f9a3377ac46929f25062b9d591037  IM1_US_CALENDAR.json
+20240bbe1debb851b6681be90e274594fed5692e72ef3731fe77184c4d165d95  DEVIATIONS_IM1.md
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+5b0de75dac01b65e836ac51ba37a2697c92656ff50188c34ce986e38e99517b0  ~/NEXA-Agent-Lab/filesnexa/NEXA/research/nexa_robust.py
+
+recorded_utc 2026-10-11T10:43:47Z  (IM1 run complete: disc->val->full once each; REJECTED net (S1 -1.08 bp, CI [-1.33,-0.83]); gross confirmed +0.35 bp, beta CI>0; FX placebo p 0.029 EUR/GBP; XAU no effect)
+d38388f2fe0ae249473ccaacf6744d29236111706a5e415ed7c8ac5f4b73ff1e  im1_results_disc.json
+cda9c97a9a4482f1fda67c862f908fa886bad2e40267089b5473db89553f1dc3  im1_results_val.json
+4a258948cfa6a2a683eb2dd725a0bc7e63b45b38270eb8f27ae94ed1574ad055  im1_results.json
+7a93ee492dafc2845bfbc5d45066a6335527d23509ad1071f90458877bf2c616  IM1_REPORT.md
+
+recorded_utc 2026-10-11T10:57:48Z  (FX1 daily fix reversals pre-registration (Krohn-Mueller-Whelan 2024); user approval 2026-10-11 "Approved, pre-register FX1"; no FX1 outcome computed; not implemented)
+182073199c56a09f5ffaadaf5c07b33140ca3e4fbec3d735863f6ea038769928  PREREG_FX1_FIX_REVERSALS.md
+
+recorded_utc 2026-10-11T11:06:03Z  (FX1 code, tests 7/7, calendars and deviations D1-D16 frozen before discovery; smoke counts only, no P&L; user approval 2026-10-11 "Approved, implement and run FX1")
+6b8585b336181230cecb40f138969886462514740556dac3f5260745ec46a550  fx1_fix_reversals.py
+1d4db029a0657e8ec68097971ecfb23065b731d6e33fd157bea828714d1c070f  test_fx1.py
+e220fd5ec40f405abc79a801de2a0ccfd8da05959e48d01cbcb6bed30cd8809f  FX1_CALENDARS.json
+d0cd34122d3e5f4cb47ebcf63c748a8ed653fd8238e0fa2d39c577b487f23ff0  DEVIATIONS_FX1.md
+b63698e45cdc982c6a232950ec3a6372f8ddc3a6b212677555bf8611a340d980  im1_intraday_momentum.py
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+
+recorded_utc 2026-10-11T11:08:13Z  (FX1 results: REJECTED net; gross confirmed 9/9 signs)
+fa8847c41c90a963ffdc057d7a5c1043a0d88475d9ac2c32a1b1e06448d5a55c  FX1_REPORT.md
+dd14c480015b777dc191e7c34d41e1c3488b57fe6d87892a203f6ee9bc1efc63  fx1_results_disc.json
+406379ad6be098c85259b288a486cb5d139ad68dfabc3dbb2080ecbb598d0e5e  fx1_results_val.json
+0d8c4d347116aee357ca972fc7b726a1f08a5cff65821c28051ba22406bc6597  fx1_results.json
+
+recorded_utc 2026-10-11T11:43:41Z  (feasibility check, long-horizon FX; read-only; no outcome computed; carry G1-BLOCKED)
+9ed40dc313ec62515939e14a82e0962c51785cdf3a3dd87a032a7713a271a7a6  FEASIBILITY_LONG_HORIZON_FX.md
+
+recorded_utc 2026-10-11T23:53:33Z  (H-ORB-1 NAS100 5-min ORB pre-registration (Zarattini & Aziz 2023); user approval 2026-10-12 "Pre-register H-ORB-1"; no NAS100 data on machine; not implemented)
+af3b616961189a3b457686c937db3c73e83cd7e2bc4d39545ffdb00c243cb336  PREREG_HORB1_NAS100_ORB.md
+
+recorded_utc 2026-10-13T14:54:09Z  (H-ORB-1 code frozen after unit tests 18/18 PASS; interpretations I-1..I-15 written; no NAS100 data on this machine; user approval 2026-10-13 'yes start H-ORB-1 test now')
+4c044c2322f50dc6302ca78f6d6896c8a258afba4f7f9942dbbe1e68dbd46cb3  horb1_orb.py
+5730b66d7a76a35644f99924a513a1cf6481643b1fa0d5e8530d71a046a0acf0  test_horb1.py
+2feb133e03d30cbffcecf359e97dd3a006e5ae6a6b39da1f142f881dbb371c0a  DEVIATIONS_HORB1.md
+8f99fe2a592ac8830273b220670924760da6e9d9c503b14548294d758bc9ef52  of_common.py
+b63698e45cdc982c6a232950ec3a6372f8ddc3a6b212677555bf8611a340d980  im1_intraday_momentum.py
+383c898c38817ce99a755e3385465c731c3f9a3377ac46929f25062b9d591037  IM1_US_CALENDAR.json
+af3b616961189a3b457686c937db3c73e83cd7e2bc4d39545ffdb00c243cb336  PREREG_HORB1_NAS100_ORB.md
+5b0de75dac01b65e836ac51ba37a2697c92656ff50188c34ce986e38e99517b0  ~/NEXA-Agent-Lab/filesnexa/NEXA/research/nexa_robust.py
+
+recorded_utc 2026-10-13T15:12:04Z  (H-ORB-1 D-1..D-6 recorded + --data option + Databento converter; tests 18/18 PASS; BEFORE NQ download; user approval 'approve Databento $4.71 (option 1)')
+400602bc69465bbf986c99c4a2c97c99da71285096f69f42ded05eadb4629d38  horb1_orb.py
+b688851837686a40f8921bfc5fa3180ce26f3ae41f57ffd3b673962fd2a704e5  horb1_databento_convert.py
+5730b66d7a76a35644f99924a513a1cf6481643b1fa0d5e8530d71a046a0acf0  test_horb1.py
+ee503aa92d3264bdcde3d6489429a5856f5b8c7c33092461897ec7a3e67e0fd7  DEVIATIONS_HORB1.md
+af3b616961189a3b457686c937db3c73e83cd7e2bc4d39545ffdb00c243cb336  PREREG_HORB1_NAS100_ORB.md
+
+recorded_utc 2026-10-13T15:30:37Z  (H-ORB-1 data frozen BEFORE stage P/H: Databento NQ.v.0 ohlcv-1m 2023-02-18..2026-10-10, USD 4.7078; converted with horb1_databento_convert.py b6888518; no statistic computed)
+bf5b20b4fdec7635ef7286d5756f1d9cc832bd408a74efda4e62a9691e89023a  ~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_ohlcv-1m_NQ.v.0_2023-02-18_2026-10-10.dbn.zst
+18d54a1c2f30b6a57fe8b0da4462e67fe2eb4c5d65dec7ad06bb173cc6b3bfe1  ~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/NQ_v0_ohlcv1m_2023-02-18_2026-10-10_canonical.csv.gz
+
+recorded_utc 2026-10-13T15:31:58Z  (H-ORB-1 results: stage P INSUFFICIENT by design, stage H opened once -> INCONCLUSIVE)
+5ba75c60e4882b2fb9bd8e3dcaa713af6410d3760f933a0f0352e17e425e3131  horb1_results_P.json
+c8fab747969c7b1b5e95c09f59e87b32f31bc334ede90d3979cdd3219e6ac5e1  horb1_results_H.json
+1f1acd3c1e349786dc0ebd2ccdce3fcf6a17dc6855eb2870ae4a84937c4f3c28  HORB1_REPORT.md
+
+recorded_utc 2026-10-13T15:53:56Z  (H-IVB1-NQ + H-IM-NQ pre-registrations; user approval 2026-10-13; no IVB or IM statistic computed on NQ; not yet implemented)
+3ef682683db21df13d00b08088b55b1dbfbeb5d1f15ca8ef9b9932df41612ee1  PREREG_HIVB1_NQ.md
+1113e2ee3d4462d450c73bda622025217f3599de4d049a989757bd8376e366c2  PREREG_HIM_NQ.md
+
+recorded_utc 2026-10-13T16:03:41Z  (H-IVB1-NQ + H-IM-NQ implementation frozen BEFORE the run; tests 16/16 on synthetic bars; no IVB/IM statistic computed on NQ; user approval 2026-10-13 'approved, implement and run')
+10548c1a76789be14e8c37bac1d01e7cfc910a77e7e833d8258d8323237b7ca1  hivb1_nq.py
+2b2c43f4b2f50aa2106ddd8da95012654533427ae62a550890480558b9a497da  him_nq.py
+9530eed54dc7f098ca8edd981c1afc5de22116f430cf48b3aef7e368b6ae9dc8  nq_volume_convert.py
+97909cd098d46ba847f01ad223feacad0951b793c7a0e673c46d54b9b7737374  test_hivb1_him.py
+838738d1185e05be363db751d8e08e32ff7e48cbf6058482367beb6fea44dbe5  DEVIATIONS_HIVB1_HIM.md
+35d1c3f55f1de9901d6e446e6fc8145963c62711c0aa464538f30ab681d8e133  ~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/NQ_v0_ohlcv1m_2023-02-18_2026-10-10_volume.csv.gz
+
+recorded_utc 2026-10-13T16:06:24Z  (H-IVB1-NQ opened once -> INCONCLUSIVE (no detectable edge); H-IM-NQ opened once -> REJECTED)
+ab53007907791e9085763567460e16c5d762f5f0953e67a7d7c4a1267e3e8d39  hivb1_results.json
+213dfe87d632dfbabeb6ef26550f7bc75bf763947a99a3f898f5bb2abb0cfa17  him_results.json
+aa3a46ed01f2e7caee64e4ddefef01edee823f74eed8ae233c4e6b013f8bda12  HIVB1_REPORT.md
+e6bf168b5bd17bbda76a6de1d5bb18fe35faefc52ec7208691c1c192402629d0  HIM_REPORT.md
+
+recorded_utc 2026-10-14T09:55:27Z  (H-ORB30L-NQ + H-VAR-NQ pre-registrations; user approval 2026-10-14; no statistic of either rule computed; not implemented)
+75fd92dd62f689813a2dc3572ac019f8fa04aa4cd08d9c1966c9419e407716a5  PREREG_HORB30L_NQ.md
+687dbf38a5adc3ee2c28fe026b6385d35ec2da93e4afde98ecd5bc7e7972b385  PREREG_HVAR_NQ.md
+
+recorded_utc 2026-10-15T05:30:36Z  (H-ORB30L-NQ + H-VAR-NQ implementation frozen BEFORE the run; tests 13/13 synthetic (+16/16 older); no statistic computed; user approval 2026-10-15 'approved, implement and run')
+7d4095bce32845a02ecd48f35cd00873cbc3cb7b7bffa5d3aa1d589105d53e75  horb30l_nq.py
+b02512c9ddc977e277c3cde92e02927e9b844e4c92f52bdc35b7c60ba746b078  hvar_nq.py
+3bf118197485175c16952919e5d02b56f57a0635da491501dec30be40bd397ec  test_horb30l_hvar.py
+16f6e29752dfbde0c370f2a214471cbdff98f1ad97915246be6eaa9111caee00  DEVIATIONS_HORB30L_HVAR.md
+
+recorded_utc 2026-10-15T05:33:18Z  (H-ORB30L-NQ opened once -> INCONCLUSIVE 6/7, DSR fails; H-VAR-NQ opened once -> INCONCLUSIVE, no evidence)
+0fd5512ffa1884cc8100c1dcd5a5d94b466eed14e18c26e675be7d56d0350bec  horb30l_results.json
+b91c412c7395eef5ae0abeab3888179da44f902f76bf66a3a1d8d657966a2145  hvar_results.json
+7bb1f056f37cd56da8cecb8b7191474c233ee69f0349c38c18209a2c8b2bf720  HORB30L_REPORT.md
+7c506e328e1dd04c1d291da3a558935f4032e244f110a9ad48d23cb284aa848a  HVAR_REPORT.md
+
+recorded_utc 2026-10-15T09:29:22Z  (H-ORB30L-REPL pre-registration: QuantConnect OOS to 2023-02-17 + Dukascopy forward log; user approval 2026-10-15; no OOS/forward statistic computed)
+758f8a31e9bd0f253a33b6eb01f61263028bff5f3685fc7581df1916edb56bfb  PREREG_HORB30L_REPL.md
+
+recorded_utc 2026-10-15T09:32:05Z  (H-ORB30L-REPL Part B forward logger frozen before first forward session 2026-10-15; tests 3/3 synthetic; QuantConnect Part A BLOCKED: MCP requires paid Assistant node, empty project 37866267 created, nothing run)
+1c80b1cc0ca557882362ac1efb043f530a4e6fc4ca73c9cfd45939af04bb83bc  forward_horb30l.py
+c5785d3d13b1df122bc5491e0db0af5346b53743528e844acf10466cefc90d0d  test_forward_horb30l.py
+
+recorded_utc 2026-10-15T10:31:24Z  (H-ORB30L-REPL Part A frozen BEFORE any OOS data: QC algorithm (MODE switch SMOKE/OOS only), port verified 0/896 mismatches; deviations D-1..D-7)
+7655367c6f7f8bb64510a0cf7e93d8eca65ca36264e4a47a366570d77986e43f  qc_horb30l_oos/main.py
+800867e13051261c45288d283cdd7fef3ed3187957de00aa8144ef5bb87617cc  DEVIATIONS_HORB30L_REPL.md
+
+recorded_utc 2026-10-15T10:43:22Z  (H-ORB30L-REPL D-8 upload wrappers; OOS variant differs from main.py only in the MODE line; still no OOS data read)
+c9682d25812fcd1c9894f538be3ac77b385fac1ef29aa4388ae90a9f7848d2f0  qc_horb30l_oos/main_oos_variant.py
+bfda89f5eca8b34da15ed07bcc051e3d2d0c0ef613f597dd106dd09810870caf  qc_horb30l_oos/wrapper_smoke.py
+3fa0f70201d03ebe4d0d989e5c78fb648053abed61d765947d79f3faddead8a8  qc_horb30l_oos/wrapper_oos.py
+60c42f96f60f0b6bd034f471764b6d639a793995c09de13fe267fe11a61bbf38  DEVIATIONS_HORB30L_REPL.md
+
+recorded_utc 2026-10-15T11:15:05Z  (H-ORB30L-REPL Part A-D: Dukascopy USATECH OOS replaces QC Part A (user 2026-10-15 'use free Dukascopy data instead'); frozen BEFORE any Dukascopy history exported or read; tests 6/6 synthetic; D-9/D-10 recorded)
+55fe9e68074ab35b13b1244c3da5d5b2549f944a64b8eed5c7480cefd96aea70  PREREG_HORB30L_REPL_DUKA.md
+95a892078b1fed906dc15682030e54390ea3d170fe2091648b5eabcb0e191fba  horb30l_duka_oos.py
+6fa84fa07d107228188832147e9e0094746c16cac29d424cde6b568c24540212  test_horb30l_duka_oos.py
+6891e8cb76468c6f43e828b322fd5d863880f5c0bc1b76a46dc1649e3a00ec9c  DEVIATIONS_HORB30L_REPL.md
+7d4095bce32845a02ecd48f35cd00873cbc3cb7b7bffa5d3aa1d589105d53e75  horb30l_nq.py
+1c80b1cc0ca557882362ac1efb043f530a4e6fc4ca73c9cfd45939af04bb83bc  forward_horb30l.py
+
+recorded_utc 2026-10-16T04:59:26Z  (H-ORB30L-REPL Part A-H: HistData NSXUSD bid replaces Dukascopy source (user 2026-10-16 'yes, go with HistData'); frozen BEFORE any HistData download; tests 4/4 + Duka 6/6 synthetic)
+3dcb799189fadc67d52be037b3b807ba58958a7c052fb65f67c27fa9057a8109  PREREG_HORB30L_REPL_HISTDATA.md
+5189d197607ae2c932757f4d6f97f4ff24e7c7734179c09dda6556ee9e4b029a  horb30l_histdata_oos.py
+d9d2bef60bbb460f76a5e0fd8fae77e3de7db086ae26618063dcf0e86b83407c  test_horb30l_histdata_oos.py
+95a892078b1fed906dc15682030e54390ea3d170fe2091648b5eabcb0e191fba  horb30l_duka_oos.py
+7d4095bce32845a02ecd48f35cd00873cbc3cb7b7bffa5d3aa1d589105d53e75  horb30l_nq.py
+
+recorded_utc 2026-10-16T05:03:58Z  (H-ORB30L-REPL Part A-H parity FAILED (P1 0.757, P2a 0.467, P2b 0.733, P3 0.743) -> NOT EVALUABLE; OOS stage not run, no pre-2023-02-18 day read)
+88ab5e747a0be25cadd06d311c20f37402720adabdba6208ea4cb977ac91c844  horb30l_histdata_parity.json
+ef5edfb20302b3f37420de4ee3478455aa65cfb860093bdda48645bbba1d1cc5  HORB30L_REPL_HISTDATA_REPORT.md
+
+recorded_utc 2026-10-16T05:18:12Z  (H-ORB30L-REPL Part A QC smoke PASSED 5/5 exact; before OOS run)
+53a98c448a08019f8cb5add83e0ac90fd6b656ea0aed505172140a1d7b82bac3  DEVIATIONS_HORB30L_REPL.md
+
+recorded_utc 2026-10-16T05:28:27Z  (H-ORB30L-REPL Part A QC OOS 2009-2023: FAILED, S1 -0.071R [-0.111,-0.035] n=1604; rule CLOSED)
+a2922b1e55d25a369ba453c423ec55a22dad5363e59b8447ceb982a57760c56b  qc_horb30l_oos/oos_logs_focused_yellow_green_bee.txt
+108ef26740c884ef19b4a8e60d9d418e076f0b758c0b3b0b66b6c1002653279e  horb30l_qc_oos_results.json
+32a05064d083093aba14d657dd9467df7b28d5d685f4b6b972bc78a01ef7f953  HORB30L_REPL_REPORT.md
+4bde91b155e9f3a5c7520db127fa6467a3fc31c7e76deacacba9f778ce04a85e  DEVIATIONS_HORB30L_REPL.md
+
+recorded_utc 2026-10-17T02:25:03Z  (CFT/CFT-P pre-registration, user 2026-10-17 'Ok we test the CFT and CFT-P'; written before any data; code not yet written)
+d8ba8ce49a2a302fb5079d8f0138d8af6ba88cfb05fcf5d6e87e9bb50f91be4f  PREREG_CFT.md
+
+recorded_utc 2026-10-17T02:41:55Z  (CFT code + tests frozen BEFORE any data; tests 8/8 synthetic; MODE line is the only per-run change)
+216dc4beffc148afac85cb857a23182d045e53e800b2478f47101cdf37707ac6  qc_cft/main.py
+016e79fe7958760e681815059c787d63c52dc440a112efa4408ff594c24571b6  test_cft.py
+c102da8539c4348cc5dc09d4252d7105725bad9f28d065003182102d547d1510  DEVIATIONS_CFT.md
+
+recorded_utc 2026-10-17T02:58:04Z  (CFT D-1: F1 failed 0.717/0.767 -> pre-declared tick-rule fallback; code re-frozen before any OOS run)
+4fe18619ecee9fad38984c2373e861ec4140a01c76bb8a108bee6591aaa98475  qc_cft/main.py
+426cd0f6de8e004fa33f7f3b3347b16854a25b6d15cd29dc334578202b76ca3e  DEVIATIONS_CFT.md
+
+recorded_utc 2026-10-17T03:12:49Z  (CFT D-2: F1 reference had no quotes (one-sided quote ticks ignored); fixed + quote-tick counter; F1 re-run in-sample before any OOS)
+f504897d8433b61df18016fdf13ec9ec0bf68b31329fb2f80f85725263850540  qc_cft/main.py
+
+recorded_utc 2026-10-17T03:21:17Z  (CFT ACHK run: MODE line only; editor hash verified)
+7604ebeabd0026412948803ffbbf66ba099d2a5d18be810ca917c48b0c211e83  qc_cft/main.py
+e7bc2b88b21db05d393f3df0eb0b54b1707088e4f8526560c83edc8e918b82f2  DEVIATIONS_CFT.md
+ef2583867438dc3fd0527a108f8d0051e0ff11c88d97ecc31ea404d9512d4cb7  qc_cft/f1_results.json
+
+recorded_utc 2026-10-17T03:43:12Z  (CFT ACHK done: A S1 -0.138 bp/d CI[-1.31,+1.11] -> not clearly negative, no port investigation; ES OOS run: MODE line only)
+f5ee7a3fd53473ad036da42733a84185b91548fe5d06c800c9b91effc757e24f  qc_cft/main.py
+64e1838652cf1eaea22190c17e89beffd99f7a2d8e7cecf3b01864ff3eeb1bdd  qc_cft/achk_logs_crying_blue_koala.txt
+
+recorded_utc 2026-10-17T04:22:03Z  (CFT ES OOS done (run once): A -0.748, B -0.884 bp/d, B 131 trades -> coded verdict INSUFFICIENT-N, B mean<0; CFT-P choice null. NQ transfer run: MODE line only)
+e11a7f20a37e0aae9678abcb9ce74b28ffda0fd9b8f92269ea75b8e485514ff8  qc_cft/main.py
+00abaa5059b322627ff7566f050de258b404042b01bbd8bb90ccdb5d46b16586  qc_cft/es_oos_logs_upgraded_light_brown_chimpanzee.txt
+e8a8f430e5f8f0e86918941bd0e6af5763e2df486c3a225975ff39bf0e10591b  qc_cft/cft_es_oos_results.json
+
+recorded_utc 2026-10-17T16:22:59Z  (T1 H-STATE + T2a H-VAR pre-registrations, user 2026-10-18 'we can start T1 and T2a pre-registrations'; written before any data; code not yet written)
+3a162810635e5c3910e350bedf25326c135a79224743afe5e63e8f1f649218ac  PREREG_T1_STATE.md
+b65cfc415987ad80db8d1524455eccfc01909eece6a2ec6ff4bb740fff41d448  PREREG_T2A_VAR.md
+
+recorded_utc 2026-10-17T16:26:28Z  (T1/T2a code + tests frozen BEFORE any data; tests 10/10 synthetic; MODE line is the only per-run change)
+6eb5ff40945f4fbf456be0b70f2102a8894319744d3a561d67d867964036773f  qc_asm/main.py
+922f6d9541b00edc02990391f06885eab2af3ded04a0d92b1375470b3fa18f7b  test_asm.py
+15c4887a19dd57dcb86ed59577adbcbd97de1b5eb6d935dfb1bc85462f2b61f6  DEVIATIONS_T1_T2A.md
+
+recorded_utc 2026-10-17T16:29:45Z  (T1/T2a ES run launched once; QC project NEXA/ASM 37990423 created via MCP create_project with the frozen file; editor hash verified = 6eb5ff40, 385 lines)
+
+recorded_utc 2026-10-17T16:35:40Z  (T1/T2a ES run done once (backtest 'Crying Fluorescent Yellow Owlet'; on-screen: T1 NOT PREDICTABLE; T2a P ~-0.05R n1431); NQ run launched once: MODE line only, editor hash verified)
+197427f58180d723050f3ca5640d079cbb8aaae2b7cdfd6c2f2fc4e9dbab1f28  qc_asm/main.py
+
+recorded_utc 2026-10-17T16:46:09Z  (T1/T2a results: T1 NOT PREDICTABLE ES+NQ; T2a all variants REJECTED ES+NQ)
+a389ac9374221345665f3cb9d05d564404caf693cd0473acc9f2b844d48138ef  qc_asm/es_logs_crying_fluorescent_yellow_owlet.txt
+091ceb7f3c13008a94cfcdabf20b02bfe0c5e5ab5927512cc69a270158fe3916  qc_asm/nq_logs_virtual_fluorescent_yellow_pony.txt
+7a8654781882f8d75df9d0ded096bee3a2ceb65f08e593790a6178151cb06f59  T1_T2A_REPORT.md
+
+recorded_utc 2026-10-17T16:51:36Z  (CFT NQ OOS done: A +2.72 CI[-1.35,8.37], B +0.13, B-A -2.59 -> INCONCLUSIVE; CFT NOT VALIDATED; CFT-P not recommended)
+f2e000310e122726ba3b7a28785d14a72d03ce144854a2a30c130c1d043743ab  qc_cft/nq_oos_logs_virtual_red_wolf.txt
+662c00a0186137d3245eb7ce8dc6ebcc1498fd7b6b7553a712b632a73d01244e  qc_cft/cft_nq_oos_results.json
+fd57699296642eb71b175123a7bf9ea60e953ca08f2672b72c2dd73fa4dc1a33  CFT_REPORT.md
+
+recorded_utc 2026-10-17T17:51:32Z  (H-PROP-EV pre-registration + Apex rules snapshot + code frozen after G1 unit tests 8/8 PASS; user approval 2026-10-18; no grid output computed)
+29070c2b7da06f5aeacce408c4421ea781b88bb7a5b3e85e82d238e3317e9756  PREREG_PROP_EV.md
+cb2aec17b0593d654fd9d63f37d1bc44feb3c03393a9d2a8d1719f888759cdfa  APEX_RULES_SNAPSHOT_2026-10-18.md
+ddd219c9f8320e964180fa5bb7c77df4f4251cf3168c2a24ca574e7ee52d0164  prop_ev.py
+9170dc9e3fd7c3b158554599d9f39342572bfa2c889211c0d99bc48145da4c1c  test_prop_ev.py
+
+recorded_utc 2026-10-17T17:52:58Z  (H-PROP-EV run once: Q1/Q2 negative at list fees, positive at 90%-coupon fees (fee convexity, P(payout)/attempt 3.6% at zero edge); Q3 = +0.025R net at list fees)
+0cefa39f2e38fc033111e2e55269e0ec44209165ab1b6d518ff64ccee217a204  prop_ev_results.json
+a9a3e4c1664159d06d576123f21617b5acaee331675830935cb5adb4590f95e3  PROP_EV_REPORT.md
+
+recorded_utc 2026-10-17T17:55:38Z  (H-FPT-REV pre-registration; user approval 2026-10-18; no data read for this rule)
+f3ef4c2900812813867f749ba3c96c5872b4156c0b6a9e7e4bc7ae802ad95a19  PREREG_FPT_REV.md
+
+recorded_utc 2026-10-18T04:05:53Z  (H-FPT-REV code frozen after G1 unit tests 9/9 PASS; MODE='NQ', F_FROM_NQ=None; before any data run)
+22311f8376880f26d772c6735872edb0de8a97cfc4cf2906425443871af0083c  qc_fpt/main.py
+ba0edcf5e160736d174ed6f0de5b1b88d801a75b3d3acccad9b63724c55e47e6  test_fpt.py
+
+recorded_utc 2026-10-18T04:11:51Z  (H-FPT-REV NQ run launched once on QC project 38025743 'NEXA/FPT', backtest 'Crawling Fluorescent Pink Parrot'; editor hash verified = 22311f83 (323 lines) before launch)
+
+recorded_utc 2026-10-18T04:18:56Z  (H-FPT-REV NQ done: P -0.456R CI[-0.500,-0.409] REJECTED; V-FIX -0.147 REJ; V-NO80 -0.424 REJ; V-OPEN -0.219 REJ; F=0.100465 -> ES file per PREREG s.2)
+e9e3b021ffc4a9e0164b3333820056b686efcecaf8ad2f9e898ac809a05d8954  qc_fpt/nq_logs_crawling_fluorescent_pink_parrot.txt
+4d4b94f0e7dd674dc567196da9c80c8d4dd40be2dde6295795e40f835e126754  qc_fpt/fpt_nq_results.json
+9512d6b5630fd9ec55d4d4280ec0de747c544f9727371c0ed6ee630efdc2beb5  qc_fpt/main_es.py
+
+recorded_utc 2026-10-18T04:22:16Z  (H-FPT-REV ES run launched once on QC project 38026425 'NEXA/FPT-ES', backtest 'Measured Light Brown Leopard'; editor hash verified = 9512d6b5 (323 lines))
+
+recorded_utc 2026-10-18T04:30:36Z  (H-FPT-REV ES done: P -0.403R CI[-0.441,-0.368] REJECTED; V-NO80 -0.390; V-OPEN -0.209; all streams REJECTED on NQ and ES)
+23ce4886e53e2653ca9cd2422212792ede552e38316768a2fc08a73ad096faee  qc_fpt/es_logs_measured_light_brown_leopard.txt
+15679d12e62ae698e4e5ab1ded04612857a427c47bf785e9940410f0f63cba6a  qc_fpt/fpt_es_results.json
+f635203d798f211e896c44ac4e65fa1d1d26d34fc2f46ef415604acfbf1ff7af  FPT_REV_REPORT.md
+
+recorded_utc 2026-10-18T06:36:29Z  (H-SWING pre-registration; user approval 2026-10-18; no data read for this rule)
+491912c29572989a15048b865bcbc2a09c5c5164d90818ce6202c9a13007133c  PREREG_SWING_TREND.md
+
+recorded_utc 2026-10-18T06:38:49Z  (H-SWING clarifications C-1/C-2 + code frozen after G1 unit tests 9/9 PASS; before any data)
+ce5d2450fc941de176de5dccbefd35e6c82c31d0d7df65cbad13c3f531d86549  DEVIATIONS_SWING.md
+e8cf492d3e5cade42229764cdd07268d99c3edb7c8a87a22a55138f7618a2763  qc_swing/main.py
+f724408c70d889c8b2567e0d3596d183db8245368d201d39049e7fcd2232e2f1  test_swing.py
+
+recorded_utc 2026-10-18T06:41:08Z  (H-SWING run launched once on QC project 38032653 'NEXA/SWING', backtest 'Virtual Red Parrot'; editor hash verified = e8cf492d (300 lines + final newline))
+
+recorded_utc 2026-10-18T08:00:59Z  (H-SWING-FWD pre-registration; user approval 2026-10-18; no data read for this test; Topstep snapshot recorded)
+117a53b69149ebc2d53d433617481d30f1feb511856c93b4387a8250df8fd91b  PREREG_SWING_FWD.md
+0143d72540d7080e0cafa7c7919013d2d50aa6610e0df93d18e094879686faf7  TOPSTEP_RULES_SNAPSHOT_2026-10-18.md
+
+recorded_utc 2026-10-18T08:02:28Z  (H-SWING-FWD code frozen after G1 tests 8/8 PASS + H-SWING 9/9 still PASS; engine source identical to e8cf492d; before any data)
+be25c85cfef0173e8e3402c42c189d4edd6e150197629b01ce31af0b225b235d  qc_swing_fwd/main.py
+f64e6fe1bbf996ba29fd457d3a504a52ed2adf122aeb09682dd16ad26c91e912  test_swing_fwd.py
+
+recorded_utc 2026-10-18T08:05:53Z  (H-SWING-FWD Part A run launched once on QC project 38036244 'NEXA/SWING-FWD', backtest 'Alert Green Caterpillar'; editor hash verified = be25c85c (416 lines + final newline))
+
+recorded_utc 2026-10-18T09:04:51Z  (H-SWING-FWD D-1: log truncation; code v2 = chunked logging only, G1 10/10 + H-SWING 9/9 PASS; no forward data exists)
+2fb8b61e2f89696d148a5599d428ef12dc3d80d27d588189fc3a172e4cb5757a  DEVIATIONS_SWING_FWD.md
+a19befe9083bf6aeae7872f20e8f527301e0519b51a4595bea3b50b5f702654d  qc_swing_fwd/main.py
+be25c85cfef0173e8e3402c42c189d4edd6e150197629b01ce31af0b225b235d  qc_swing_fwd/main_v1_be25c85c.py
+5da448287afd58162dfc71a8d1931c196a657b4abab8b74cc4169ac78b52f582  test_swing_fwd.py
+
+recorded_utc 2026-10-18T10:21:29Z  (H-PROP-EV-TS pre-registration; user decision 2026-10-18 'Proceed with whatever is best'; Topstep rules snapshot; no simulation output exists)
+4c8c890a296e297e814123bf14b9e65203d26e9033d5a94e6b3d7cfbe2452242  PREREG_PROP_EV_TS.md
+b1f18541d930f2300d44d8a6d5a3b5d55130845bc901e2e32c3823b0595d34fe  TOPSTEP_COMBINE_RULES_2026-10-18.md
+
+recorded_utc 2026-10-18T10:22:54Z  (H-PROP-EV-TS code frozen after G1 10/10 PASS (+ H-PROP-EV 8/8); engine imported from prop_ev.py ddd219c9 unchanged; before the run)
+f875d6953ff79974a88e63304ccf904d20a1e0db9860d46ffe4e0b1b08e01224  prop_ev_ts.py
+ab94630a06fc33fff402916e17e75fbc2ed9b16f375527e4eb6c259ebc86b602  test_prop_ev_ts.py
+
+recorded_utc 2026-10-18T10:30:37Z  (H-ML1 pre-registration; user 'Proceed machine-learning search on ES/NQ'; no data read for this hypothesis)
+b31686982e4e103ed046ecb6b8e048f48c82c965d9ad6d7cdd475eb1a8c503e8  PREREG_ML1.md
+
+recorded_utc 2026-10-18T10:35:55Z  (H-ML1 C-1/C-2 clarifications + D-1 placebo correction (pre-data); code frozen after G1 10/10 PASS on synthetic data; before any market data)
+620b17ac7facd85d3d5d38be2c4f947f49219ccd5aae4c0519cc235a8edb550f  DEVIATIONS_ML1.md
+00614c06bb4ff4b92b5d3751b0b13067726934aea7417b059a2c4263f192c698  qc_ml1/main.py
+f0f9680c4edd3bd59883299e828400aa65bb4686ccc5e08d66d275cbe481f076  test_ml1.py
+
+recorded_utc 2026-10-18T10:38:51Z  (H-ML1 run launched once on QC project 38041026 'NEXA/ML1', backtest 'Jumping Asparagus Caribou'; editor hash verified = 00614c06 (436 lines + final newline))
+
+recorded_utc 2026-10-18T14:28:54Z  (H-DISC1 approved by user in chat 2026-10-18 "Yes approve H-DISC1"; no trades yet)
+6724b92149fdebc71ee70c5c54831bba5bbf660d00fbdea130ae6f062e36ead1  PREREG_DISC1.md
+
+recorded_utc 2026-10-20T23:36:00Z  (H-SWEEP, H-ORB5, H-LVN-SPEED, H-ICE-FEAS pre-registrations; user 'all four, do it' 2026-10-21; no data read for these hypotheses)
+17473f2ab94a93dc95df2918c80884507979f5a240daf6dd18bcc494114e161c  PREREG_SWEEP.md
+bb9495f72802252397296505638c92eb163e3f3e62f5c4ecf6cd09f03e23b695  PREREG_ORB5.md
+7863d90c23b53ecfe3f4a0592b2267ffb94b99bc712db76d0089cb6fa0513400  PREREG_LVN_SPEED.md
+e0412b4e8d909891762ddbdabde85d9e3466d9a144ec9fbf11810f39714a3946  PREREG_ICEBERG_FEAS.md
+
+recorded_utc 2026-10-20T23:40:58Z  (H-SWEEP / H-ORB5 / H-LVN-SPEED / H-ICE-FEAS code frozen after G1 24/24 PASS on synthetic data (run_tests.py runner; pytest not installed); before any market data)
+bb1ac6242f52481dfdf745851ddfa0f2e254d3647379f3a0ab7ef5fef62d77b9  qc_sweep/main.py
+bb219a993cfbb7dd22234b59bfd0f24ee4e00b00de1fb0b747c0138d7485d424  qc_orb5/main.py
+8e50dfbbe82142d2f8f7347bc1f55be87410298bff317bafa812003e0ee384f8  qc_lvn/main.py
+228b8eb2bbb85bdb37ad1e483aa94391819d6fc35a4f8301abe8f0441456d02f  iceberg_feas.py
+493f4fae9060b79c034e605c77f7a335741ae79f9a5cc7804ea063f083b27b28  test_sweep.py
+47d49ce44050b3fa19def0fa0cffbaa44254432139b3f2aee8ac6092dc7646d0  test_orb5.py
+7a9a22bc97ab29278f96ede476cdff348346fe0d6e70bd34f57a74c898e1e9aa  test_lvn.py
+8f02322d60900c5ba387d753c7a828e6bec95448565cd1100d5ffdaa5e767a44  test_iceberg_feas.py
+457615ae0a74d69d73b165d6f9943f1c4589de491d22e4c483e3c68a5217e8e2  run_tests.py
+
+recorded_utc 2026-10-20T23:41:12Z  (ES transfer files: only the MODE line differs from the frozen NQ files)
+ebd458ee3cfdd012ea5cff16f6f4525170b50326512815349b38ae29d8ced188  qc_sweep/main_es.py
+f84f7397f20d226441b95a14b226f98e257143f07152cb5195a7664c6161523e  qc_orb5/main_es.py
+2f6874f986b1595d16075969520cfa45678edcc9024ba10fa47be65ffc45989a  qc_lvn/main_es.py
+527c11c1d17bf12109cad25c49c842d7a360e3b0f590aa6e28351f0331f5a51a  DEVIATIONS_SWEEP_ORB5_LVN.md
+
+recorded_utc 2026-10-21T13:46:29Z  (H-FLOW-PRED pre-registration; user approved in chat 2026-10-21 "approve H-FLOW-PRED, build it and push to github"; no data read for this hypothesis)
+85ceb02dd4472e653e742f354f273bef59c60b1f2f7066c612a511a1f09fec85  PREREG_FLOW_PRED.md
+
+recorded_utc 2026-10-21T13:54:02Z  (H-FLOW-PRED code frozen after G1 14/14 PASS on synthetic data (run_tests.py, .venv-ml); clarifications C-1..C-5 pre-data; before any market data. ES file differs only in the MODE line)
+e507e5d0747ca17e45a02a936e243493072e490085e149ac762f31c48de3de03  qc_flow_pred/main.py
+d83e9fe98e8d5bb6c257457078c8921966bb5631b814796d182a3a91ac841a74  qc_flow_pred/main_es.py
+446c59d4533210f42904ff920a692d62ccc450d0c3c6c4af556211822a8468ba  test_flow_pred.py
+457615ae0a74d69d73b165d6f9943f1c4589de491d22e4c483e3c68a5217e8e2  run_tests.py
+3510739bb42db53ab7ad7b4f1247a16625ccd0497bebaa1d2cbf3cd923acb014  DEVIATIONS_FLOW_PRED.md
+
+recorded_utc 2026-10-21T16:23:47Z  (H-FLOW-PRED probe done (94 s/day; QC 38235648, backtest 3f0a7a98; probe file f754eba2 = MODE line only); rung 3 selected per PREREG s.1a; only the RUNG line changed; before any main run)
+5a23b034887b987575edb710c1ce5579a58a5b66d54e912bac93fb8666321803  qc_flow_pred/main.py
+440e7e2e71c3059d9c324e85e1a31077f963f555741b2d32c88e97e2fbe79be9  qc_flow_pred/main_es.py
+f754eba29b4e9ce8324ae4df322b1169eba519d5b1b4b07bc71499bc9ac07a06  qc_flow_pred/main.py with MODE='PROBE' (uploaded probe file, not in git)
+
+recorded_utc 2026-10-21T16:37:19Z  (H-FLOW-PRED NQ main run launched once on QC project 38235648, backtest 'FLOW_PRED NQ main 5a23b034' 352560e3; editor hash verified = 5a23b034)
+
+recorded_utc 2026-10-21T17:41:43Z  (H-FLOW-PRED ES run launched once on QC project 38235648, backtest 'FLOW_PRED ES main 440e7e2e' 7cdfbbde; editor hash verified = 440e7e2e)
+
+recorded_utc 2026-10-22T10:20:30Z  (H-HOUGAARD pre-registration approved by user in chat 2026-10-22; no data read for this hypothesis)
+597c2a5c09f13538c3686d042c98b0593350337f772fb573d28d1dad53e605de  PREREG_HOUGAARD.md
+
+recorded_utc 2026-10-22T10:23:01Z  (H-HOUGAARD code frozen after G1 13/13 PASS on synthetic data; before any market data; ES/YM files differ only in the MODE line)
+230660bee02dd47d46021556acd07e4c07158c3c794418df7c71d3bc2b59dfef  qc_hougaard/main.py
+27afa20de907455d53ab94a3764bef63c08b5558e46c0ca15f08dc405a4d7913  qc_hougaard/main_es.py
+003df236f2831b5e6c0ee7ba626068a10520c927db176aa6ca9858da4789c590  qc_hougaard/main_ym.py
+8c278f0aaa5e397c1d1ccada71c9ecec69bd6fa58513fd9219f20aa5588cb6d9  test_hougaard.py
+ed89f2f0a59b4ecb5c29db8fea8b6d68c96bd5a0e4af7042595db25880756b7b  DEVIATIONS_HOUGAARD.md
+
+recorded_utc 2026-10-22T10:31:17Z  (H-HOUGAARD NQ run launched once on QC project 38279481, backtest 'HOUGAARD NQ 230660be' 7906f2ba; editor hash verified = 230660be)
+
+recorded_utc 2026-10-22T16:16:50Z  (H-CE50 pre-registration approved by user in chat 2026-10-23; no data read for this hypothesis)
+361a2e6339f3daf1e75cc828ec923d5988426f3cad84db42ab8a4d1afad0e50a  PREREG_CE50.md
+
+recorded_utc 2026-10-22T16:18:47Z  (H-CE50 code frozen after G1 12/12 PASS on synthetic data; before any market data; ES file differs only in the MODE line)
+9a1ae51edd3b9c1272b5fb77512d2bc447089c0fee3af349904506261270c11e  qc_ce50/main.py
+20e3b454cad4c35c4eec0e9e9b1c73543efac4238d2f037a3b33890a2b4dd4c5  qc_ce50/main_es.py
+f0de8c58d581f2bbe714eb480133f0907d8179eb5abd619eb00244441dd2f93b  test_ce50.py
+3166f4e58ab5b9e9dfa2a5fbce5b4961bb78a669110b681f39f28cb470516463  DEVIATIONS_CE50.md
+
+recorded_utc 2026-10-22T16:20:12Z  (H-CE50 NQ run launched once on QC project 38292473, backtest 'CE50 NQ 9a1ae51e' cb463b32; editor hash verified = 9a1ae51e)
+
+recorded_utc 2026-10-23T11:09:49Z  (H-DISC1-RULES pre-registration; user request 2026-10-23; no H-DISC1 trade exists yet)
+b27459428a300b8cee4006a92fd5a2bc41686f5d645071d791c1014afec8ec48  PREREG_DISC1_RULES.md
+
+recorded_utc 2026-10-23T11:10:36Z  (H-DISC1-RULES code frozen after 13/13 synthetic tests; before any H-DISC1 trade)
+23edfb220905b7c056d186a2ce8581c696dd413b1adf451e8d9bf91ec9fe7266  disc1_rules.py
+db6d3788b79f4d60c73342e792d5d4fd09529d849f1a94706b0c2350f29e3eca  test_disc1_rules.py
+
+recorded_utc 2026-10-23T11:32:32Z  (H-SK28-OOS pre-registration approved by the user; frozen s-k-28 commit 0ee4392d4e11b1ab9a110cc05122f70c3b8af667, 25 files in qc_sk28/frozen/FROZEN_SHA256.txt)
+5c8569bf62b6fdb32814d8ef8320cb233069b8af7862f4d6364418cd37e15be2  PREREG_SK28_OOS.md
+
+recorded_utc 2026-10-23T11:45:29Z  (H-SK28-OOS code frozen after 13/13 synthetic tests + G1 reference + chunk check 454/454; before any QuantConnect run. main.py is the 2023 H1 base; each chunk changes only the YEAR, HALF line)
+7c8ce7d90dd0f6e96739bd2f79877a7c0763d82f85bec58c3057fe83441d1d6c  qc_sk28/main.py
+5b376a5f055d86fb8f01bdd1b03845fc653f247593f27ae497d8c9ab018bc42d  sk28_stats.py
+02de39547862a9db1201499fce3af55c471a8ad8f93be127a36e333a1997108c  test_sk28.py
+3e06c209af687d47512114ca6423557170f203aa76270ed2b1110d3a42e10e4a  sk28_ref.py
+e4071bea2e7767551e27b332cadae68821d8a0638281c0b5306d01d4fa818df8  sk28_chunk_equiv.py
+a24505f3266c17f9c72409db0a883fa58f6dd28e5a0b53f0f9483125f6acc2a6  qc_sk28/ref_trades.py
+01cf74bc4ea32e3e272d503a7136d2ebfce3efda8b67788c0121c9acb5af7130  DEVIATIONS_SK28_OOS.md
+
+recorded_utc 2026-10-23T15:16:56Z  (H-GEX-RANGE pre-registration approved by the user)
+8f7ccf392f413eaa6ec0b46aee267ed16ebf5827edeae172a27a502d1cf9bee4  PREREG_GEX_RANGE.md
+
+recorded_utc 2026-10-23T15:20:04Z  (H-GEX-RANGE code frozen after 10/10 synthetic tests, before any QuantConnect run; main.py base YEAR = 2015, each chunk changes only the YEAR line, 0 = probe)
+9c5be569f79e8d5197efbec4ec6eeba8dabda3c7a6cddb77dc0b2b044804a9ac  qc_gex/main.py
+a1db18f02a696c15ecd9e09aa78b1649b02328dd369e1989f958489bcb9e7bac  gex_stats.py
+43ade23e33466bc81c5a16df9799b55bb2df27799775708a6b9afc3b4e1c8a33  test_gex.py

@@ -1,0 +1,4 @@
+run=PS_NEXA_XAUUSD_A2025Q4
+start=2026-09-27 18:59:04
+end=2026-09-27 18:59:59
+expert=Advisors\NEXA_EA symbol=XAUUSD period=M1 model=0 from=2025.10.01 to=2026.01.01 deposit=50000 leverage=200 delay=250

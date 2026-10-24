@@ -1,0 +1,4 @@
+run=REG_PMFIX_GBPUSD_A2025Q2
+start=2026-10-03 14:04:18
+end=2026-10-03 14:05:03
+expert=NEXA_EngFix\NEXA_EA_PMFIX symbol=GBPUSD period=M1 model=0 from=2025.04.01 to=2025.07.01 deposit=200 leverage=200 delay=250

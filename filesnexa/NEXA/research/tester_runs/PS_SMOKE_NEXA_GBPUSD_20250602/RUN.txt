@@ -1,0 +1,4 @@
+run=PS_SMOKE_NEXA_GBPUSD_20250602
+start=2026-09-27 17:55:35
+end=2026-09-27 17:56:00
+expert=Advisors\NEXA_EA symbol=GBPUSD period=M1 model=4 from=2025.06.02 to=2025.06.07 deposit=50000 leverage=200 delay=250

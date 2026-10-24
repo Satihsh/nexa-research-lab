@@ -1,0 +1,21 @@
+# NEXA v6 news calendar (read by NEXA Monitor from the journal folder). Times are US Eastern (ET).
+# Sources read 2026-10-23: federalreserve.gov/monetarypolicy/fomccalendars.htm, bls.gov/schedule/2026/home.htm, bea.gov/news/schedule.
+# FOMC: statement 14:00 ET on the second meeting day, press conference 14:30 ET. Panel warns only on "high".
+# Refresh weekly; add new events at the bottom (order does not matter).
+date,time_et,event,impact
+2026-10-28,14:00,FOMC statement,high
+2026-10-28,14:30,FOMC press conference,high
+2026-10-29,08:30,GDP Q3 advance + PCE (Sep),medium
+2026-10-30,08:30,Employment Cost Index Q3,medium
+2026-11-03,10:00,JOLTS (Sep),medium
+2026-11-06,08:30,Nonfarm payrolls (Oct),high
+2026-11-10,08:30,CPI (Oct),high
+2026-11-13,08:30,PPI (Oct),medium
+2026-11-25,08:30,GDP Q3 second + PCE (Oct),medium
+2026-12-01,10:00,JOLTS (Oct),medium
+2026-12-04,08:30,Nonfarm payrolls (Nov),high
+2026-12-09,14:00,FOMC statement + projections,high
+2026-12-09,14:30,FOMC press conference,high
+2026-12-10,08:30,CPI (Nov),high
+2026-12-15,08:30,PPI (Nov),medium
+2026-12-23,08:30,GDP Q3 third + PCE (Nov),medium

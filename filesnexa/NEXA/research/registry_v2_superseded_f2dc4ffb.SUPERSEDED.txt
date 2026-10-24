@@ -1,0 +1,11 @@
+SUPERSEDED PRE-OPENING FREEZE: never opened, no results, no builders registered (ledger: 1 event, CAMPAIGN_FROZEN).
+Anchor f2dc4ffb4aafe02254547811f5430f2e3b202e2ede59589282dfbe7b142b105e (frozen 2026-09-28). Directory preserved byte-for-byte (tree sha256 2f905a9d4b03b5026a3309d0fcf3dbe944f9310cbb00f9606c50a190111c832d);
+witness ~/.nexa_registry_witness/f2dc4ffb4aafe02254547811f5430f2e3b202e2ede59589282dfbe7b142b105e.jsonl preserved unmodified (sha256 dd721d3155a285a5e183d8a7adba57bbba3e4c09ec944f5a509fa182d79b60a2).
+Reason (2026-09-29 final pre-opening run): pinned code had to change before opening:
+  * feature/signal builders for F1, F2 (+random-range null), F3, F5 and the calendar baseline event builder;
+  * trial layer (orders, costs incl. swap charges, nulls, stationary bootstrap, selection, verdicts);
+  * execution hardening (no same-bar target after an intrabar fill, max_hold from fill, cancel-on-close);
+  * causality certification with sensitive cuts (fractional cuts missed 3 deliberately leaky builders);
+  * R1 control: mutating registry calls require the externally published ledger head (compare-and-swap).
+Protocols, periods, trial universe and counts are unchanged. Superseded by the final V2 freeze
+recorded in research/reports/PHASE3_V2_MANIFEST.md. MUST NEVER BE OPENED.

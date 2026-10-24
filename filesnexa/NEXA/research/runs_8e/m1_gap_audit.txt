@@ -1,0 +1,10 @@
+M1 history gaps inside trading hours (excluding Fri 20:00 -> Sun 23:59 UTC weekend and 20:00-23:00 UTC rollover), DEV 2018-2022 and all:
+  XAUUSD DEV: gaps>60min 39 (non-holiday 36), total missing hours 578, gaps>6h 9, largest 3 days 04:16:00
+  XAUUSD ALL: gaps>60min 74 (non-holiday 67), total missing hours 1089, gaps>6h 19, largest 3 days 04:16:00
+     largest DEV gaps: [('2020-12-24 18:44:00', '3 days 04:16:00'), ('2020-07-03 16:59:00', '2 days 05:01:00'), ('2020-11-27 18:44:00', '2 days 04:16:00'), ('2021-11-26 18:44:00', '2 days 04:16:00'), ('2022-11-25 18:44:00', '2 days 04:16:00')]
+  EURUSD DEV: gaps>60min 6 (non-holiday 6), total missing hours 133, gaps>6h 2, largest 3 days 02:06:00
+  EURUSD ALL: gaps>60min 17 (non-holiday 13), total missing hours 439, gaps>6h 10, largest 3 days 02:06:00
+     largest DEV gaps: [('2022-12-23 19:59:00', '3 days 02:06:00'), ('2022-12-30 19:59:00', '2 days 03:06:00'), ('2021-04-01 15:36:00', '0 days 02:55:00'), ('2018-09-14 16:31:00', '0 days 02:06:00'), ('2022-01-11 18:20:00', '0 days 01:24:00')]
+  GBPUSD DEV: gaps>60min 8 (non-holiday 8), total missing hours 157, gaps>6h 3, largest 3 days 02:06:00
+  GBPUSD ALL: gaps>60min 19 (non-holiday 15), total missing hours 463, gaps>6h 11, largest 3 days 02:06:00
+     largest DEV gaps: [('2022-12-23 19:59:00', '3 days 02:06:00'), ('2022-12-30 19:59:00', '2 days 03:06:00'), ('2018-07-17 07:05:00', '0 days 22:24:00'), ('2021-04-01 15:36:00', '0 days 02:55:00'), ('2018-09-14 16:31:00', '0 days 02:06:00')]

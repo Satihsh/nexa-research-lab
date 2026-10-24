@@ -1,0 +1,471 @@
+"""Adversarial scratch-copy attacks on PHASE3_SIX_FAMILIES_V2. Never touches the real registry."""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import shutil
+import sys
+from datetime import UTC, datetime
+
+NEXA = "~/NEXA-Agent-Lab/filesnexa/NEXA"
+SP = sys.argv[1]
+ANCHOR = sys.argv[2]
+sys.path.insert(0, os.path.join(NEXA, "research"))
+import nexa_causality as nc  # noqa: E402
+import nexa_registry2 as r2  # noqa: E402
+
+REAL = os.path.join(NEXA, "research", "registry_v2")
+
+
+def tree_sha(d):
+    h = hashlib.sha256()
+    for root, _, files in sorted(os.walk(d)):
+        for f in sorted(files):
+            p = os.path.join(root, f)
+            h.update(p.encode()); h.update(open(p, "rb").read())
+    return h.hexdigest()
+
+
+WIT = os.path.expanduser(f"~/.nexa_registry_witness/{ANCHOR}.jsonl")
+REAL_BEFORE = tree_sha(REAL) + hashlib.sha256(open(WIT, "rb").read()).hexdigest()
+BASE = os.path.join(SP, "mirror_base")
+shutil.rmtree(BASE, ignore_errors=True)
+camp = json.load(open(os.path.join(REAL, "campaign.json")))
+pinned = [p["path"] for g in ("data", "code", "design_artifacts") for p in camp["pins"][g].values()]
+os.makedirs(BASE)
+open(os.path.join(BASE, "NEXA_EA.mq5"), "w").write("scratch marker")
+for rel in pinned:
+    dst = os.path.join(BASE, rel); os.makedirs(os.path.dirname(dst), exist_ok=True)
+    src = os.path.join(NEXA, rel)
+    if os.path.getsize(src) > 50_000_000:
+        os.symlink(src, dst)                 # big M1 files: read-only symlink, never written
+    else:
+        shutil.copy2(src, dst)
+shutil.copytree(REAL, os.path.join(BASE, "research", "registry_v2"))
+os.makedirs(os.path.join(BASE, "witness")); shutil.copy2(WIT, os.path.join(BASE, "witness"))
+
+clock = {"now": datetime(2026, 9, 28, 12, tzinfo=UTC)}
+r2._utcnow = lambda: clock["now"]
+results = []
+
+
+def fresh():
+    d = os.path.join(SP, "mirror_run")
+    shutil.rmtree(d, ignore_errors=True)
+    shutil.copytree(BASE, d, symlinks=True)
+    clock["now"] = datetime(2026, 9, 28, 12, tzinfo=UTC)
+    return d, r2.RegistryV2(os.path.join(d, "research", "registry_v2"), nexa_root=d, witness_dir=os.path.join(d, "witness"))
+
+
+def attack(name, fn):
+    d, reg = fresh()
+    try:
+        fn(d, reg)
+        results.append((name, "ACCEPTED  <-- FAIL-OPEN"))
+    except r2.RegistryError as e:
+        results.append((name, "REJECTED: " + str(e)[:110]))
+    except Exception as e:  # noqa: BLE001
+        results.append((name, "ABORTED (non-RegistryError) " + type(e).__name__ + ": " + str(e)[:80]))
+
+
+def control(name, fn):
+    d, reg = fresh()
+    fn(d, reg)
+    results.append((name, "OK (legit control accepted)"))
+
+
+def jl(p):
+    return json.load(open(p))
+
+
+def jw(p, o):
+    open(p, "w").write(r2.canonical_json(o))
+
+
+def causal_feature(b):
+    return b["close"].rolling(20, min_periods=20).mean()
+
+
+def future_feature(b):
+    return b["close"].shift(-5) - b["close"]          # uses 5 bars of the future
+
+
+def causal_feature_edited(b):                          # "same" builder edited after certification
+    return b["close"].rolling(21, min_periods=20).mean().shift(-1)
+
+
+def other_causal(b):
+    return b["close"].rolling(5, min_periods=5).max()
+
+
+import numpy as np  # noqa: E402
+import pandas as pd  # noqa: E402
+
+rng = np.random.default_rng(1); c = 100 + np.cumsum(rng.normal(0, .3, 800)); o = np.r_[100, c[:-1]]
+BARS = pd.DataFrame({"open": o, "high": np.maximum(o, c) + .1, "low": np.minimum(o, c) - .1, "close": c})
+GOOD = nc.certify(causal_feature, BARS)
+LEAK = nc.certify(future_feature, BARS)
+assert GOOD["passed"] and not LEAK["passed"]
+
+F2 = "F2_XAU_SESSION_BREAKOUT"
+TID = r2.trial_id(F2, "continuation", "XAUUSD", {"buffer_b": 0.1, "target_r": 2.0, "stop": "range_mid", "asian_end_utc_hour": 6})
+TID2 = r2.trial_id(F2, "continuation", "XAUUSD", {"buffer_b": 0.0, "target_r": 2.0, "stop": "range_mid", "asian_end_utc_hour": 6})
+OOS = ["2027-01-04T00:00:00Z", "2028-01-03T00:00:00Z"]
+VALW = ["2023-01-01T00:00:00Z", "2025-01-01T00:00:00Z"]
+
+
+def opened(reg):
+    reg.register_builder(ANCHOR, causal_feature, BARS)
+    reg.open_evaluation(ANCHOR, "SCRATCH COPY ONLY - adversarial test, dummy metrics, not a real opening")
+
+
+def rec(reg, tid, period, window, first, label, data=None, code=None, builders=None, **kw):
+    c = reg.verify(ANCHOR)["campaign"]
+    return reg.record(ANCHOR, tid, period, window, first, label, data or reg.digest(c["pins"]["data"]),
+                      code or reg.digest(c["pins"]["code"]), builders or [causal_feature], {"dummy": 0}, **kw)
+
+
+def val(reg, tid=TID):
+    return rec(reg, tid, "VAL", VALW, "2023-01-02T00:00:00Z", "2024-12-31T00:00:00Z")
+
+
+def oos(reg, tid=TID, window=OOS, first="2027-01-05T00:00:00Z"):
+    return rec(reg, tid, "OOS", window, first, "2028-01-02T00:00:00Z")
+
+
+def full_life(reg):
+    opened(reg); val(reg); reg.select_for_oos(ANCHOR, TID, "dummy"); clock["now"] = datetime(2028, 1, 5, tzinfo=UTC); oos(reg)
+
+
+REGP = lambda d: os.path.join(d, "research", "registry_v2")  # noqa: E731
+PROTO = lambda d: os.path.join(REGP(d), "protocols", "F2_XAU_SESSION_BREAKOUT@v2.json")  # noqa: E731
+
+# -------- controls (must succeed, so rejections below are meaningful)
+control("C0 verify frozen mirror", lambda d, reg: reg.verify(ANCHOR))
+control("C1 legit lifecycle VAL->select->OOS once", lambda d, reg: full_life(reg))
+
+
+# -------- 1 protocol mutation
+def a1(d, reg):
+    p = jl(PROTO(d)); p["grid"]["target_r"].append(5.0); jw(PROTO(d), p); reg.verify(ANCHOR)
+attack("A1a mutate protocol grid", a1)
+
+
+def a1b(d, reg):
+    p = jl(PROTO(d)); p["tests"]["alpha"] = 0.10; jw(PROTO(d), p)
+    c = jl(os.path.join(REGP(d), "campaign.json")); c["pins"]["protocols"][F2] = r2.protocol_sha(p)
+    jw(os.path.join(REGP(d), "campaign.json"), c); reg.verify(ANCHOR)
+attack("A1b mutate protocol + re-pin its hash", a1b)
+
+
+def a1c(d, reg):
+    p = jl(PROTO(d)); p["leakage_rules"] = p["leakage_rules"][:-1]; jw(PROTO(d), p); reg.verify(ANCHOR)
+attack("A1c delete a causal rule from protocol", a1c)
+
+
+# -------- 2 campaign mutation
+def a2(d, reg):
+    c = jl(os.path.join(REGP(d), "campaign.json")); c["trial_counts"]["legacy_trials"] = 0
+    jw(os.path.join(REGP(d), "campaign.json"), c); reg.verify(ANCHOR)
+attack("A2a mutate campaign (legacy trials 108->0)", a2)
+
+
+def a2b(d, reg):
+    c = jl(os.path.join(REGP(d), "campaign.json")); c["correction"]["family_wise"] = "none"
+    jw(os.path.join(REGP(d), "campaign.json"), c)
+    new = r2.sha256_text(r2.canonical_json(c)); open(os.path.join(REGP(d), "ANCHOR.txt"), "w").write(new + "\n")
+    reg.verify(ANCHOR)
+attack("A2b mutate campaign + rewrite local ANCHOR.txt", a2b)
+
+
+def a2c(d, reg):
+    c = jl(os.path.join(REGP(d), "campaign.json")); c["experiments"]["F6_TICK_QUOTE_IMBALANCE"]["status"] = "ACTIVE"
+    jw(os.path.join(REGP(d), "campaign.json"), c); reg.verify(ANCHOR)
+attack("A2c unblock F6 in campaign", a2c)
+
+
+# -------- 3 trial count / universe
+def a3(d, reg):
+    up = os.path.join(REGP(d), "trial_universe.json"); u = jl(up); jw(up, u[:-50]); reg.verify(ANCHOR)
+attack("A3a drop 50 trials from universe", a3)
+
+
+def a3b(d, reg):   # full internal forgery: shrink universe, re-pin, recompute campaign hash, verify with FORGED anchor
+    up = os.path.join(REGP(d), "trial_universe.json"); u = jl(up); jw(up, u[:-50])
+    cp = os.path.join(REGP(d), "campaign.json"); c = jl(cp)
+    c["pins"]["trial_universe_sha256"] = r2.sha256_file(up); c["trial_counts"]["active_trials"] -= 50
+    c["trial_counts"]["dsr_trial_count"] -= 50; jw(cp, c)
+    reg.verify(r2.sha256_text(r2.canonical_json(c)))
+attack("A3b universe forgery verified with forged anchor", a3b)
+
+
+def a3c(d, reg):
+    cp = os.path.join(REGP(d), "campaign.json"); c = jl(cp); c["trial_counts"]["dsr_trial_count"] = 17
+    jw(cp, c); reg.verify(ANCHOR)
+attack("A3c shrink DSR trial count", a3c)
+
+
+# -------- 4 dates
+def a4(d, reg):
+    p = jl(PROTO(d)); p["periods_utc"]["OOS"] = ["2025-01-06T00:00:00Z", "2026-01-05T00:00:00Z"]; jw(PROTO(d), p)
+    reg.verify(ANCHOR)
+attack("A4a move OOS into the (seen) past in protocol", a4)
+
+
+def a4b(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2023-01-01T00:00:00Z", "2025-06-01T00:00:00Z"], "2023-01-02T00:00:00Z",
+                     "2025-05-01T00:00:00Z")
+attack("A4b VAL window extended into EXCLUDED", a4b)
+
+
+def a4c(d, reg):
+    opened(reg); rec(reg, TID, "VAL", VALW, "2023-01-01T00:00:00Z", "2024-12-31T00:00:00Z")
+attack("A4c VAL entry inside embargo", a4c)
+
+
+def a4d(d, reg):
+    opened(reg); rec(reg, TID, "VAL", VALW, "2023-01-02T00:00:00Z", "2025-01-01T03:00:00Z")
+attack("A4d label crosses VAL end (purge)", a4d)
+
+
+def a4e(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2023-01-01T00:00:00+07:00", "2025-01-01T00:00:00Z"], "2023-01-02T00:00:00Z",
+                     "2024-12-31T00:00:00Z")
+attack("A4e non-UTC (server-offset) timestamp", a4e)
+
+
+# -------- 5 repeat OOS
+def a5(d, reg):
+    full_life(reg); oos(reg)
+attack("A5a repeat OOS on sealed trial", a5)
+
+
+def a5b(d, reg):
+    full_life(reg); val(reg, TID2)
+attack("A5b VAL query after OOS (OOS feeds selection)", a5b)
+
+
+def a5c(d, reg):
+    full_life(reg); reg.select_for_oos(ANCHOR, TID2, "reselect after seeing OOS")
+attack("A5c re-select after OOS", a5c)
+
+
+def a5d(d, reg):
+    opened(reg); val(reg); reg.select_for_oos(ANCHOR, TID, "x"); clock["now"] = datetime(2027, 6, 1, tzinfo=UTC); oos(reg)
+attack("A5d OOS recorded before OOS ends", a5d)
+
+
+def a5e(d, reg):
+    opened(reg); val(reg); reg.select_for_oos(ANCHOR, TID, "x"); clock["now"] = datetime(2028, 1, 5, tzinfo=UTC)
+    rec(reg, TID, "OOS", ["2027-01-04T00:00:00Z", "2027-07-01T00:00:00Z"], "2027-01-05T00:00:00Z", "2027-06-30T00:00:00Z")
+attack("A5e partial OOS window (cherry-pick)", a5e)
+
+
+def a5f(d, reg):
+    opened(reg); val(reg); val(reg, TID2); clock["now"] = datetime(2027, 1, 10, tzinfo=UTC)
+    reg.select_for_oos(ANCHOR, TID, "late selection")
+attack("A5f selection after OOS start", a5f)
+
+
+# -------- 6 repeat validation
+def a6(d, reg):
+    opened(reg); val(reg); val(reg)
+attack("A6a second VAL query same trial", a6)
+
+
+def a6b(d, reg):
+    opened(reg); val(reg)
+    rec(reg, TID, "VAL", ["2023-06-01T00:00:00Z", "2025-01-01T00:00:00Z"], "2023-06-02T00:00:00Z", "2024-12-31T00:00:00Z")
+attack("A6b second VAL on a different sub-window", a6b)
+
+
+def a6c(d, reg):
+    opened(reg); val(reg)
+    rp = reg.results_path; rows = open(rp).read().splitlines()[:-1]; open(rp, "w").write("\n".join(rows) + ("\n" if rows else ""))
+    val(reg)
+attack("A6c delete VAL row from results then re-query", a6c)
+
+
+def a6d(d, reg):
+    opened(reg); val(reg)
+    lp = reg.ledger_path; rows = open(lp).read().splitlines()[:-1]; open(lp, "w").write("\n".join(rows) + "\n")
+    rp = reg.results_path; open(rp, "w").write("")
+    val(reg)
+attack("A6d truncate ledger + results then re-query", a6d)
+
+
+# -------- 7 data / code hashes
+def a7(d, reg):
+    p = os.path.join(d, "data/pepperstone/calendar/canonical_v2/calendar_manifest_v2.json")
+    open(p, "a").write(" "); reg.verify(ANCHOR)
+attack("A7a alter pinned data file", a7)
+
+
+def a7b(d, reg):
+    p = os.path.join(d, "research/protocols_phase3_v2.py"); open(p, "a").write("\n# tweak\n"); reg.verify(ANCHOR)
+attack("A7b alter pinned code file", a7b)
+
+
+def a7c(d, reg):
+    opened(reg); rec(reg, TID, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z",
+                     "2019-12-31T00:00:00Z", data="f" * 64)
+attack("A7c record with unpinned data_set_sha", a7c)
+
+
+def a7d(d, reg):
+    opened(reg); rec(reg, TID, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z",
+                     "2019-12-31T00:00:00Z", code="e" * 64)
+attack("A7d record with unpinned code_set_sha", a7d)
+
+
+def a7e(d, reg):
+    p = os.path.join(d, "research/reports/OOS_DETERMINATION_V2.md"); os.remove(p); reg.verify(ANCHOR)
+attack("A7e delete pinned design artifact", a7e)
+
+
+# -------- 8 unregistered sensitivity config
+def a8(d, reg):
+    opened(reg)
+    t = r2.trial_id(F2, "continuation", "XAUUSD", {"buffer_b": 0.1, "target_r": 2.0, "stop": "range_mid", "asian_end_utc_hour": 8})
+    rec(reg, t, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z", "2019-12-31T00:00:00Z")
+attack("A8a unregistered sensitivity value (asian_end=8)", a8)
+
+
+def a8b(d, reg):
+    opened(reg)
+    t = r2.trial_id(F2, "continuation", "XAUUSD", {"buffer_b": 0.1, "target_r": 2.0, "stop": "range_mid",
+                                                   "asian_end_utc_hour": 6, "atr_filter": 1.2})
+    rec(reg, t, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z", "2019-12-31T00:00:00Z")
+attack("A8b extra unregistered sensitivity axis", a8b)
+
+
+def a8c(d, reg):
+    opened(reg)
+    t = r2.trial_id("F6_TICK_QUOTE_IMBALANCE", "executable_edge", "EURUSD", {"window_updates": 50, "quantile_q": 0.9, "hold_s": 1})
+    rec(reg, t, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z", "2019-12-31T00:00:00Z")
+attack("A8c trial in BLOCKED family F6", a8c)
+
+
+# -------- 9 relabel OOS as DEV / VAL / WF
+def a9(d, reg):
+    opened(reg); clock["now"] = datetime(2028, 1, 5, tzinfo=UTC)
+    rec(reg, TID, "DEV", OOS, "2027-01-05T00:00:00Z", "2028-01-02T00:00:00Z")
+attack("A9a OOS window labelled DEV", a9)
+
+
+def a9b(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2027-01-04T00:00:00Z", "2027-06-01T00:00:00Z"], "2027-01-05T00:00:00Z", "2027-05-01T00:00:00Z")
+attack("A9b OOS window labelled VAL", a9b)
+
+
+def a9c(d, reg):
+    opened(reg); rec(reg, TID, "WF", ["2027-01-04T00:00:00Z", "2028-01-01T00:00:00Z"], "2027-01-05T00:00:00Z",
+                     "2027-12-01T00:00:00Z", wf_year=2027)
+attack("A9c OOS year labelled WF 2027", a9c)
+
+
+def a9d(d, reg):
+    opened(reg); rec(reg, TID, "DEV", ["2025-02-01T00:00:00Z", "2025-06-01T00:00:00Z"], "2025-02-01T00:00:00Z", "2025-05-01T00:00:00Z")
+attack("A9d EXCLUDED window labelled DEV", a9d)
+
+
+# -------- 10 future-information feature
+def a10(d, reg):
+    reg.register_builder(ANCHOR, future_feature, BARS)
+attack("A10a register leaky builder (certify failed)", a10)
+
+
+def a10b(d, reg):
+    forged = dict(LEAK, passed=True, failures=[]); reg.register_builder(ANCHOR, forged, BARS)
+attack("A10b forged 'passed' certificate for leaky builder", a10b)
+
+
+def a10c(d, reg):
+    opened(reg); rec(reg, TID, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z",
+                     "2019-12-31T00:00:00Z", builders=[future_feature])
+attack("A10c record with uncertified leaky builder", a10c)
+
+
+def a10d(d, reg):
+    opened(reg); reg.register_builder(ANCHOR, other_causal, BARS)
+attack("A10d register builder after opening", a10d)
+
+
+def a10e(d, reg):
+    opened(reg); rec(reg, TID, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z",
+                     "2019-12-31T00:00:00Z", builders=[causal_feature, future_feature])
+attack("A10e smuggle leaky builder beside a certified one", a10e)
+
+
+def a10f(d, reg):
+    opened(reg); rec(reg, TID, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z",
+                     "2019-12-31T00:00:00Z", builders=[causal_feature_edited])
+attack("A10f builder source edited after certification", a10f)
+
+
+def a10g(d, reg):
+    reg.register_builder(ANCHOR, causal_feature, BARS.iloc[:50])
+attack("A10g certify on a tiny sample (weak test)", a10g)
+
+
+def x6(d, reg):
+    os.remove(reg.witness_path(ANCHOR)); reg.verify(ANCHOR)
+attack("X6 delete external witness", x6)
+
+
+def x7(d, reg):
+    opened(reg); lp = reg.ledger_path
+    e = json.loads(open(lp).read().splitlines()[-1]); body = {"seq": e["seq"] + 1, "utc": e["utc"], "event": "OOS_SELECTED",
+        "payload": {"group": [F2, "continuation", "XAUUSD"], "trial_id": TID, "rationale": "chained forgery"},
+        "prev_sha256": e["entry_sha256"]}
+    body["entry_sha256"] = r2.sha256_text(r2.canonical_json(body)); open(lp, "a").write(r2.canonical_json(body) + "\n")
+    reg.verify(ANCHOR)
+attack("X7 correctly-chained ledger append outside API", x7)
+
+
+def r1(d, reg):   # RESIDUAL: attacker rewrites BOTH ledger and external witness consistently
+    opened(reg); val(reg)
+    for pth in (reg.ledger_path, reg.witness_path(ANCHOR)):
+        rows = open(pth).read().splitlines()[:-1]; open(pth, "w").write("\n".join(rows) + "\n")
+    open(reg.results_path, "w").write(""); val(reg)
+attack("R1 RESIDUAL truncate ledger AND witness together", r1)
+
+
+# -------- extra: ledger / state tampering
+def x1(d, reg):
+    lp = reg.ledger_path; e = json.loads(open(lp).readline())
+    e2 = {"seq": 1, "event": "EVALUATION_OPENED", "payload": {"note": "forged"}, "prev": e.get("hash", ""), "hash": "0" * 64}
+    open(lp, "a").write(json.dumps(e2) + "\n"); reg.verify(ANCHOR)
+attack("X1 inject forged OPEN event in ledger", x1)
+
+
+def x2(d, reg):
+    rec(reg, TID, "DEV", ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"], "2019-01-01T00:00:00Z", "2019-12-31T00:00:00Z")
+attack("X2 record while FROZEN (not opened)", x2)
+
+
+def x3(d, reg):
+    reg.open_evaluation(ANCHOR, "short")
+attack("X3 open with missing/short approval", x3)
+
+
+def x4(d, reg):
+    reg.reject(ANCHOR, "adversarial test rejection"); reg.open_evaluation(ANCHOR, "try to reopen a rejected campaign now")
+attack("X4 open after REJECTED", x4)
+
+
+def x5(d, reg):
+    r2.RegistryV2(REGP(d), nexa_root=d).create_and_freeze("PHASE3_SIX_FAMILIES_V2", [], {}, 0, {}, {})
+attack("X5 re-freeze over existing campaign", x5)
+
+shutil.rmtree(os.path.join(SP, "mirror_run"), ignore_errors=True)
+REAL_AFTER = tree_sha(REAL) + hashlib.sha256(open(WIT, "rb").read()).hexdigest()
+w = max(len(n) for n, _ in results)
+for n, r in results:
+    print(f"{n:<{w}}  {r}")
+fail_open = [n for n, r in results if "FAIL-OPEN" in r]
+print(f"\nattacks={sum(1 for n, _ in results if not n.startswith('C'))} fail_open={len(fail_open)} "
+      f"controls_ok={sum(1 for n, r in results if n.startswith('C') and r.startswith('OK'))}")
+print("real registry unchanged:", REAL_BEFORE == REAL_AFTER, REAL_BEFORE[:16])
+real = r2.RegistryV2(REAL, nexa_root=NEXA); print("real state:", real.state(real.verify(ANCHOR)["ledger"]))

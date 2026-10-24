@@ -1,0 +1,5 @@
+label=ENGINEERING REGRESSION -- not research evidence
+unit=NEXA_PMMut1
+mqh=build/mut/M1_current_stop_denominator/NEXA_PositionMgmt.mqh
+mqh_sha256=23f6375e1760db856f3aa4136da1a9f471504ac78e22f59eb9e5b2085ee8a9fd
+harness_ex5_sha256=ee6b27f50edf82d2182b593b9fd543edafaa8d96aba5fa73eed90650a8d5b333

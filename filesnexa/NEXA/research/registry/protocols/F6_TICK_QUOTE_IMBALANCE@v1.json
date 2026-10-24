@@ -1,0 +1,172 @@
+{
+ "costs": {
+  "commission_per_lot_side_usd": 3.5,
+  "latency_ms": 250,
+  "slippage": {
+   "event_multiplier": 3.0,
+   "points": 0.0,
+   "spread_frac": 0.5
+  },
+  "spread": "per-bar recorded spread (M1) or tick ask-bid",
+  "swap": "contracts.json swap_long/short on positions crossing server 00:00"
+ },
+ "data": {
+  "ticks": {
+   "PEPPERSTONE_EURUSD_ticks_recent.csv.gz": "d79d3f248e8219eae8f6f417e579e6e309cc64d8252151f38880253a9b03181b",
+   "PEPPERSTONE_GBPUSD_ticks_recent.csv.gz": "c3a140a6c9209bb01e4beec5255d4639462d5b21d1390b81b755d5183d5fe5a3",
+   "PEPPERSTONE_USDJPY_ticks_recent.csv.gz": "d42b01043dc2595ba2cf5182e2175602a6c9eb88a03ac872c7407a50b36811b6",
+   "PEPPERSTONE_XAGUSD_ticks_recent.csv.gz": "ade00c6dbf585abe8362d1292fc6b9c5a54616a0f600fbea9ce600698c27ae6a",
+   "PEPPERSTONE_XAUUSD_ticks_recent.csv.gz": "80c8e2a48f84b1b6319d6031435731c7f6c11989f4a0f6e4bd3f50cc75294a2e"
+  }
+ },
+ "data_caveat": "quote-only ticks: volume=0, last=0, no aggressor flags, DOM unavailable",
+ "design_doc": "research/reports/RESEARCH_DESIGN_SIX_FAMILIES.md",
+ "environment": {
+  "execution_module_sha256": "302188bad2e46381daffc15dc09530e3bf2bf88dfa73950417be6853717921ae",
+  "time_convention": {
+   "clock": "PEPPERSTONE_NY_CLOSE",
+   "evidence_sha256": "6da7930744d9451f94a75593b1644cf4e7d5960e550754cdc33492b44764d739",
+   "module_sha256": "3a39f33b2c4e115c59f435d099f69c1931e73bb5af7ffeff72e8a7cb35745760"
+  }
+ },
+ "execution": {
+  "ambiguous_bar": "STOP_FIRST",
+  "bar_latency": "next bar open",
+  "engine": "nexa_execution",
+  "gap": "fill at bar open",
+  "limit_fill": "trade-through by 1 point (touch is not a fill)"
+ },
+ "experiment": "F6_TICK_QUOTE_IMBALANCE",
+ "extra_nulls": [
+  "sign_shuffled_1min_blocks",
+  "time_shifted"
+ ],
+ "failure_criteria": [
+  "OOS E[R] CI includes 0",
+  "fails any null after BH-FDR",
+  "E[R] < 0 at spread x2 or latency 500 ms",
+  "PBO >= 0.5",
+  "DSR < 0.95",
+  "unstable parameter surface",
+  "OOS/IS degradation < 0.5 or sign flip",
+  "leave-one-out flips sign",
+  "fewer than 200 OOS-eligible trades"
+ ],
+ "family": "quote_microstructure",
+ "frozen_utc": "2026-09-27T15:45:48+00:00",
+ "grid": {
+  "hold_s": [
+   1,
+   5,
+   30
+  ],
+  "quantile_q": [
+   0.9,
+   0.95,
+   0.99
+  ],
+  "window_updates": [
+   50,
+   200,
+   1000
+  ]
+ },
+ "hypothesis": "broker QUOTE-update imbalance predicts next mid move beyond sign-shuffled null AND survives spread+commission+250 ms latency (NOT institutional order flow)",
+ "labels": {
+  "type": "executable P/L sign at hold; mid-only result never reported as edge"
+ },
+ "metrics": [
+  "win_rate",
+  "loss_rate",
+  "expectancy_r_ci",
+  "median_r",
+  "profit_factor",
+  "max_drawdown_r",
+  "mae_r",
+  "mfe_r",
+  "sharpe_per_trade_if_n>=100_nonoverlap",
+  "sortino",
+  "trades_per_week",
+  "exposure",
+  "spread_cost_r",
+  "commission_r",
+  "slippage_r",
+  "latency_ms",
+  "fill_probability",
+  "regime_stability",
+  "parameter_stability",
+  "oos_expectancy",
+  "degradation_oos_over_is"
+ ],
+ "nulls": [
+  "timing",
+  "direction",
+  "circular_shift"
+ ],
+ "periods": {
+  "DEV": [
+   "2026-08-28",
+   "2026-09-11"
+  ],
+  "FORWARD": ">= 4 weeks logged after freeze (true OOS)",
+  "OOS": [
+   "2026-09-21",
+   "2026-09-25"
+  ],
+  "VAL": [
+   "2026-09-14",
+   "2026-09-18"
+  ]
+ },
+ "robustness": {
+  "cost_shocks": {
+   "commission_x": [
+    1.5
+   ],
+   "slippage_plus_spread": [
+    1
+   ],
+   "spread_x": [
+    1.5,
+    2,
+    3
+   ]
+  },
+  "holdouts": [
+   "leave-one-year-out",
+   "leave-one-symbol-out"
+  ],
+  "latency_ms": [
+   250,
+   500,
+   1000
+  ],
+  "missed_fill_drop": [
+   0.1,
+   0.25
+  ],
+  "sensitivity_rule": ">= 70% of neighbouring grid cells keep E[R] > 0 and CI sign"
+ },
+ "sha256": "c81063525fe810f2169081c8463ad80c569e2d968177ce00334d36d0857aa538",
+ "status": "ACTIVE",
+ "symbols": [
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "XAUUSD",
+  "XAGUSD"
+ ],
+ "tests": {
+  "alpha": 0.05,
+  "bootstrap": "stationary block, block = max hold, 5000 draws, seeded",
+  "dsr_min": 0.95,
+  "fdr_q": 0.1,
+  "min_trades_promote": 200,
+  "min_trades_report": 30,
+  "null_permutations": 5000,
+  "null_rule": "intersection-union: every null p <= alpha",
+  "pbo_max": 0.5
+ },
+ "time_convention": "PEPPERSTONE_NY_CLOSE via nexa_time",
+ "version": 1
+}

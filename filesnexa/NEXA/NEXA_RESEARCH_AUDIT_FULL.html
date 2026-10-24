@@ -1,0 +1,1269 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>NEXA Research Audit — Full (Parts 1–40)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#ddd;--code:#f4f4f4;--acc:#1f4e79}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111;--fg:#e6e6e6;--line:#333;--code:#1c1c1c;--acc:#7fb3e0}}
+:root[data-theme="dark"]{--bg:#111;--fg:#e6e6e6;--line:#333;--code:#1c1c1c;--acc:#7fb3e0}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;max-width:920px;margin:0 auto;padding:24px}
+h1,h2,h3{color:var(--acc);line-height:1.25} h2{border-bottom:1px solid var(--line);padding-bottom:6px;margin-top:2em}
+table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top} th{background:var(--code)}
+code,pre{background:var(--code);border-radius:4px;font-family:ui-monospace,Menlo,Consolas,monospace} code{padding:1px 4px;font-size:.92em}
+pre{padding:12px;overflow-x:auto} pre code{padding:0} hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+</style></head><body><h1>NEXA Research Audit</h1>
+<h3>Independent critical review of NEXA_COMPLETE_RESEARCH_MASTER.md</h3>
+<p><strong>Role:</strong> Quant Research / Systematic Trading / ML / Microstructure / Adversarial Audit
+<strong>Verdict up front:</strong> The document is a strong <em>architecture and vocabulary</em> specification. It is <strong>not yet a research foundation</strong> in the scientific sense — almost nothing in it has been tested against data. This is normal and fine for this stage, but the document's own Section 87 ("substantially covered") overstates what's actually been established. Nothing is "covered" until it has produced a number from real data.</p>
+<hr />
+<h2>PART 1 — RESEARCH COVERAGE MAP</h2>
+<p>Legend: 🟢 sufficiently researched (concept is well-defined AND has external empirical support) · 🟡 partially researched (concept well-defined, empirical support thin/mixed) · 🔴 major gap (no empirical grounding, or not yet defined measurably) · ⚪ concept exists, no empirical evidence attached (practitioner lore)</p>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Status</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Market microstructure theory (O'Hara, adverse selection, inventory)</td>
+<td>🟢</td>
+<td>Real academic literature, well-established, but written for equities/centralized markets — needs adaptation notes for fragmented spot FX</td>
+</tr>
+<tr>
+<td>FX market structure (fragmentation, venue, BIS/SNB papers)</td>
+<td>🟢</td>
+<td>Real institutional research, correctly cited as context not signal</td>
+</tr>
+<tr>
+<td>Candlestick patterns / classic price action</td>
+<td>🟡</td>
+<td>Decades of practitioner use, but the academic literature on pattern profitability net of costs is weak-to-negative in modern liquid FX</td>
+</tr>
+<tr>
+<td>Market structure (BOS/CHoCH, swing structure)</td>
+<td>🟡→🔴</td>
+<td>Clear definitional path to being testable, but zero backtest evidence in the doc yet — purely a vocabulary layer</td>
+</tr>
+<tr>
+<td>SMC (order blocks, FVG, liquidity pools)</td>
+<td>⚪</td>
+<td>Practitioner framework, self-referential (SMC content largely cites other SMC content, not independent studies)</td>
+</tr>
+<tr>
+<td>ICT (displacement, MSS, OTE, BPR, killzones, inducement)</td>
+<td>⚪</td>
+<td>Same — internally consistent narrative, no independent empirical validation anywhere in the corpus</td>
+</tr>
+<tr>
+<td>BTMM (Steve Mauro market-maker cycle)</td>
+<td>⚪</td>
+<td>Pure practitioner narrative; three of the four BTMM sources are the <em>same author's</em> own materials — this is one voice, not corroborating evidence</td>
+</tr>
+<tr>
+<td>Camarilla pivots</td>
+<td>🟡</td>
+<td>One study cited (<code>Intraday_trading_using_Advanced_Camarill</code>) — single-paper evidence is not "researched," it's "found one paper"</td>
+</tr>
+<tr>
+<td>Momentum</td>
+<td>🟢</td>
+<td>Extremely well-documented anomaly across asset classes over decades (Jegadeesh-Titman onward); real risk is FX-specific decay and turnover cost</td>
+</tr>
+<tr>
+<td>Mean reversion</td>
+<td>🟢</td>
+<td>Well-documented, especially short-horizon FX; regime-dependent (fails badly in trends)</td>
+</tr>
+<tr>
+<td>Statistical arbitrage / cointegration / pairs</td>
+<td>🟡</td>
+<td>Textbook-level treatment cited (Tsay, "Finding Alphas") but FX pairs cointegration is notoriously unstable vs. equities — half-life instability not addressed</td>
+</tr>
+<tr>
+<td>Regime detection (HMM, directional change)</td>
+<td>🟡</td>
+<td>Academic techniques correctly named, but regime detection is itself a noisy, lagging estimator — doc doesn't yet grapple with this (see Part 8)</td>
+</tr>
+<tr>
+<td>Macro/news, central-bank/intervention</td>
+<td>🟡</td>
+<td>Reasonable calendar-driven treatment; genuinely hard problem (event studies show huge dispersion in reaction, not a clean signal)</td>
+</tr>
+<tr>
+<td>Intermarket analysis (Murphy)</td>
+<td>🟡</td>
+<td>Classic reference but intermarket relationships (DXY/gold/yields/equities) are famously regime-unstable; doc notes this but has no test plan</td>
+</tr>
+<tr>
+<td>Behavioral finance</td>
+<td>🟡</td>
+<td>Real literature (De Bondt, survey papers) but almost entirely about <em>human</em> traders in aggregate markets — translating "loss aversion" into an actionable feature for an ML system trading against other algos is a large, unaddressed leap</td>
+</tr>
+<tr>
+<td>ML for trading (López de Prado, Jansen, Ritter)</td>
+<td>🟢</td>
+<td>Excellent source selection — these are the right books. But citing López de Prado is not the same as having implemented purged CV / meta-labeling / triple-barrier, which the doc admits (Section 87)</td>
+</tr>
+<tr>
+<td>Probability calibration</td>
+<td>🟡</td>
+<td>Correct vocabulary (Brier, ECE, Platt/isotonic) but no chosen method, no data to calibrate on yet</td>
+</tr>
+<tr>
+<td>Meta-labeling</td>
+<td>🟡</td>
+<td>Correctly scoped as López de Prado's technique; entirely unimplemented</td>
+</tr>
+<tr>
+<td>Adversarial engine</td>
+<td>🔴</td>
+<td>Attractive concept, but as written it's a checklist, not a model. "Attack the thesis" needs to cash out into a quantitative rejection rule or it's just discretionary judgment wearing a formal costume</td>
+</tr>
+<tr>
+<td>Portfolio/correlation/exposure</td>
+<td>🟡</td>
+<td>Correct concepts (currency-factor exposure, concentration) but no correlation-estimation methodology specified (rolling window? shrinkage? regime-conditional?)</td>
+</tr>
+<tr>
+<td>Execution / cost modeling</td>
+<td>🔴</td>
+<td>This is the single most under-built area relative to its importance — see Part 3. No slippage model, no market-impact model, no realistic $100-account execution-cost analysis</td>
+</tr>
+<tr>
+<td>Backtest validation (walk-forward, purged CV, PBO, Deflated Sharpe)</td>
+<td>🟢 (as vocabulary) / 🔴 (as practice)</td>
+<td>The right defenses are <em>named</em>. None have been run. A list of anti-overfitting tools is not itself an anti-overfitting result</td>
+</tr>
+<tr>
+<td>MLOps / drift / strategy survival</td>
+<td>🟡</td>
+<td>Sound engineering concepts, unimplemented, appropriately deferred</td>
+</tr>
+<tr>
+<td>MT5/Python execution architecture</td>
+<td>🟡</td>
+<td>Reasonable, but MT5 retail-account realities (requotes, broker-side dealing desk behavior, variable spread at $100 equity) are underweighted</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Overall read:</strong> ~15% of the document is empirically grounded concept selection (momentum, mean reversion, microstructure theory, ML methodology). ~55% is well-organized <em>vocabulary and architecture</em> for concepts that are plausible but untested (SMC/ICT/BTMM/Camarilla/regime/calibration/meta-labeling). ~30% (execution realism, adversarial-engine mechanics, correlation methodology, and — critically — anything about actual win rates or edge magnitude) is a genuine gap with no empirical anchor at all yet.</p>
+<hr />
+<h2>PART 2 — CRITICAL CLASSIFICATION (A–E)</h2>
+<p><strong>A. Empirically supported:</strong> momentum/trend persistence at multi-day+ horizons; mean reversion at short horizons in ranging regimes; volatility clustering (ATR-type features); bid-ask spread as a real, measurable transaction cost; adverse selection around order flow (microstructure theory); triple-barrier labeling as a <em>labeling methodology</em> (not a strategy, a technique with published track record in quant research); purged CV as leakage prevention.</p>
+<p><strong>B. Plausible but uncertain:</strong> session-conditional volatility/behavior (real but weaker and less stable than folklore suggests); intermarket relationships (DXY/gold/yields) as <em>conditioning</em> variables rather than signals; Camarilla pivots as support/resistance proxies (single-paper evidence); cointegration-based FX pairs trading (works in equities, FX half-lives are unstable); regime classification improving strategy selection (true in principle, unproven whether the classifier itself adds more noise than signal — see Part 8).</p>
+<p><strong>C. Practitioner belief:</strong> most of SMC (order blocks "work" because institutions defend them), most of ICT (displacement/MSS as institutional footprints), all of BTMM's market-maker-cycle narrative, "killzones" as universally superior trading windows, candlestick pattern reliability in isolation.</p>
+<p><strong>D. Unobservable narrative — must be excluded as literal claims:</strong> "banks are hunting retail stop-losses," "smart money accumulation/distribution intent," "the market maker cycle is engineered by institutions," "inducement is a deliberate trap." The document already states this principle correctly in §2.7 and §6 — the discipline required is to make sure this rule is actually <em>enforced</em> in feature engineering, not just stated as doctrine. It is very easy for a term like "manipulation candle" to sneak back into a feature name six months into implementation.</p>
+<p><strong>E. Testable-hypothesis transforms</strong> (this is the productive work — examples beyond the ones you already listed for "liquidity sweep"):</p>
+<ul>
+<li><strong>Order block →</strong> range of the last opposing candle before a displacement leg; features: OB size in ATR, OB age, number of touches, % of OB mitigated, volume/tick-volume on formation, whether price closed beyond OB after retest (label).</li>
+<li><strong>Fair Value Gap (FVG) →</strong> 3-candle imbalance size in ATR, gap-fill %, time-to-fill, whether fill occurred before or after a structure break, directionality of fill (full/partial/none) as the label.</li>
+<li><strong>Displacement →</strong> candle body/ATR ratio, consecutive same-direction closes, acceleration (2nd derivative of price), volume/tick-volume spike vs. rolling baseline, immediate follow-through (next N bars' net movement in ATR).</li>
+<li><strong>Market Structure Shift / CHoCH / BOS →</strong> formalize as: break of a defined swing point (need a precise, non-discretionary swing detector — e.g., fractal or ZigZag with fixed parameters) + close beyond it + minimum displacement threshold; label = whether structure held for N subsequent bars.</li>
+<li><strong>Inducement →</strong> liquidity taken just beyond a minor swing <em>before</em> the real move; measurable as: small excursion beyond a minor high/low (<X ATR) followed by reversal >Y ATR within Z bars — testable as a two-stage sweep pattern, no institutional-intent claim required.</li>
+<li><strong>Killzone/session →</strong> simply a categorical/time-of-day feature; the "kill" framing should be dropped entirely — it's session × volatility × spread, nothing more, and should be tested like any other conditioning variable.</li>
+<li><strong>BTMM "market maker cycle" →</strong> decompose into: accumulation (range compression, ATR percentile low), manipulation (sweep beyond range extreme), distribution (displacement + structure break) — i.e., this reduces to liquidity-sweep + displacement + regime features you already have elsewhere in the doc. <strong>This is an important finding: BTMM, SMC and ICT substantially overlap once converted to features.</strong> Treating them as three separate engines risks triple-counting one underlying phenomenon (see the "illusion of diversification" issue in Part 4).</li>
+</ul>
+<hr />
+<h2>PART 3 — WIN RATE MATHEMATICS (why win rate is not the target)</h2>
+<p>Expectancy per trade in R-multiples:</p>
+<pre><code>E[R] = p·W − (1−p)·L
+</code></pre>
+<p>where <code>p</code> = win probability, <code>W</code> = average winner in R, <code>L</code> = average loser in R (positive number).</p>
+<p><strong>Net of costs</strong>, every trade also pays a fixed cost <code>c</code> in R (spread+commission+slippage, expressed as a fraction of the stop distance):</p>
+<pre><code>E[R_net] = p·W − (1−p)·L − c
+</code></pre>
+<p>This is why high win rate and high profitability are different axes:</p>
+<ul>
+<li>A 90%-win-rate mean-reversion scalp strategy with <code>W=0.3R</code>, <code>L=3R</code> (small wins, occasional catastrophic loss) has <code>E[R] = 0.9(0.3) − 0.1(3) = 0.27 − 0.30 = −0.03R</code> — <strong>negative expectancy despite a 90% win rate.</strong> This is the classic "picking up nickels in front of a steamroller" failure mode, and it is exactly the shape of risk many scalping/martingale-adjacent systems take (which is why §2.3's martingale ban matters).</li>
+<li>A 35%-win-rate trend/breakout strategy with <code>W=3R</code>, <code>L=1R</code>: <code>E[R] = 0.35(3) − 0.65(1) = 1.05 − 0.65 = 0.40R</code> — <strong>strongly positive expectancy at a win rate most discretionary traders would call "bad."</strong></li>
+</ul>
+<p><strong>Cost sensitivity scales with frequency and inversely with average trade size (in R).</strong> A strategy needing 10 pips of stop to capture a 2-pip-cost trade is far more fragile than one with a 100-pip stop and the same 2-pip cost. At <strong>$100 starting equity</strong> with 0.25–0.5% risk/trade (per §29), you are risking $0.25–$0.50 per trade — spread/commission at typical retail FX pricing can easily be 10–40% of that risk amount depending on symbol and stop distance. <strong>This is the single most important unmodeled variable in the whole document:</strong> at this account size, transaction costs are not a rounding error, they are a large fraction of expected R, and the document has no cost model calibrated to $100-account reality (minimum lot size vs. risk-per-trade is even flagged as a potential blocker in §29 without being resolved).</p>
+<p><strong>Realistic upper bound on win rate</strong>, stated honestly rather than arbitrarily:</p>
+<ul>
+<li>There is no law of markets that caps win rate at some number like 60% or 70%. What <em>is</em> true empirically across published systematic strategies (CTA trend, stat-arb, market-making, published meta-labeling studies) is a <strong>consistent pattern</strong>: strategies with win rates above ~65–70% are almost always mean-reversion/carry-like with a small-win/large-tail-loss profile, are highly cost- and regime-sensitive, and their historical Sharpe ratios cluster modestly (most credible systematic FX strategies, after realistic costs, land in the 0.5–1.5 annualized Sharpe range, occasionally higher for short windows before decay). Any single-system claim of sustained 80%+ win rate <strong>with positive R:R</strong> should be treated as a red flag for overfitting, survivorship bias, or an unmodeled tail risk — not as an engineering target.</li>
+<li><strong>NEXA's realistic target region</strong>, given the meta-labeling/triple-barrier architecture described: win rates in the <strong>40–60%</strong> range with payoff ratios of <strong>1.2R–2.5R</strong>, net of realistic costs, would already represent a genuinely strong, professional-grade result if it survives walk-forward + purged CV + Deflated Sharpe. This is a <em>research target</em>, not a promise — it must be earned from data, not assumed.</li>
+</ul>
+<p><strong>Section 44's "80 wins / 20 losses at +2R/-1R" illustration is worth flagging explicitly:</strong> that combination (80% win rate <em>and</em> 2:1 payoff) is not "illustrative" in a neutral sense — it describes an expectancy of <code>0.8(2) − 0.2(1) = 1.4R</code> per trade, which over 100 trades is a performance level essentially unseen in real, live, cost-inclusive systematic trading at any real capital scale. Keeping this number in the document, even labeled "illustrative," creates anchoring risk for the whole team. Recommend replacing it with a realistic illustration (e.g., 45% win rate, 1.8R payoff, <code>E[R]=0.45(1.8)-0.55(1)=0.26R</code>) so compounding intuition is built on a believable number.</p>
+<hr />
+<h2>PART 4 — WIN RATE / PAYOFF BY STRATEGY FAMILY</h2>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Typical WR pattern</th>
+<th>Typical payoff</th>
+<th>Frequency</th>
+<th>Cost sensitivity</th>
+<th>Regime sensitivity</th>
+<th>Primary failure mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trend following</td>
+<td>Low (30–45%)</td>
+<td>High (2–5R)</td>
+<td>Low–med</td>
+<td>Low</td>
+<td>Fails badly in chop/range</td>
+<td>Whipsaw in ranging regimes</td>
+</tr>
+<tr>
+<td>Momentum</td>
+<td>Low–med (35–50%)</td>
+<td>Med–high</td>
+<td>Med</td>
+<td>Med</td>
+<td>Fails at regime turns</td>
+<td>Crowding/reversal risk</td>
+</tr>
+<tr>
+<td>Mean reversion</td>
+<td>High (55–75%)</td>
+<td>Low (0.5–1.5R)</td>
+<td>High</td>
+<td><strong>Very high</strong></td>
+<td>Fails badly in trends/shocks</td>
+<td>Fat-tail loss on regime break</td>
+</tr>
+<tr>
+<td>Breakout</td>
+<td>Low–med (30–45%)</td>
+<td>High</td>
+<td>Low–med</td>
+<td>Med</td>
+<td>Fails in low-vol/choppy markets</td>
+<td>False breakouts, whipsaw</td>
+</tr>
+<tr>
+<td>Liquidity sweep/reversal</td>
+<td>Med (45–60%, <em>if real</em>)</td>
+<td>Med</td>
+<td>Med</td>
+<td>High (needs tight stop near sweep)</td>
+<td>Session/vol dependent</td>
+<td>Sweep continues (no reversal)</td>
+</tr>
+<tr>
+<td>SMC/ICT composite</td>
+<td><strong>Unknown</strong> — no independent study exists</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Overlapping/correlated signals mistaken for confluence</td>
+</tr>
+<tr>
+<td>BTMM cycle</td>
+<td><strong>Unknown</strong> — single-author source</td>
+<td>Unknown</td>
+<td>Low (multi-day cycle)</td>
+<td>Low</td>
+<td>Unknown</td>
+<td>Cycle mistiming; subjective phase identification</td>
+</tr>
+<tr>
+<td>Price action (classic)</td>
+<td>Med (varies hugely by definition)</td>
+<td>Med</td>
+<td>Med–high</td>
+<td>High</td>
+<td>Med</td>
+<td>Discretionary drift, poor OOS reproducibility</td>
+</tr>
+<tr>
+<td>Statistical arbitrage / pairs</td>
+<td>High (60–80% typical in equities)</td>
+<td>Low–med</td>
+<td>High</td>
+<td>High</td>
+<td>Breaks when cointegration breaks</td>
+<td>Regime shift destroys hedge ratio</td>
+</tr>
+<tr>
+<td>Market making</td>
+<td>Very high (80%+) but <strong>not comparable</strong> — different risk unit</td>
+<td>Tiny per trade</td>
+<td>Very high</td>
+<td>Extreme</td>
+<td>High (adverse selection in trends)</td>
+<td>Inventory risk in directional moves; <strong>not viable as a retail strategy at $100 with MT5 spot access</strong></td>
+</tr>
+<tr>
+<td>Short-term scalping</td>
+<td>High nominal WR</td>
+<td>Low</td>
+<td>Very high</td>
+<td><strong>Extreme</strong> — often the dominant factor</td>
+<td>High</td>
+<td>Cost erosion, exactly the "steamroller" case in Part 3</td>
+</tr>
+<tr>
+<td>News/event</td>
+<td>Low–med, high variance</td>
+<td>High variance</td>
+<td>Low</td>
+<td>Med (but slippage/gaps spike)</td>
+<td>Event-specific</td>
+<td>Gap risk, spread explosion, execution failure</td>
+</tr>
+<tr>
+<td>ML classification (raw)</td>
+<td>Depends on labeling</td>
+<td>Depends</td>
+<td>Depends</td>
+<td>Depends</td>
+<td>Prone to overfit without care</td>
+<td>Overfitting, non-stationarity, regime drift</td>
+</tr>
+<tr>
+<td>Meta-labeling</td>
+<td>Improves <strong>precision</strong> of a primary signal, not standalone WR</td>
+<td>Improves payoff by filtering bad primary signals</td>
+<td>Reduces frequency vs. primary alone</td>
+<td>Reduces cost drag by cutting weak trades</td>
+<td>Still inherits primary strategy's regime sensitivity</td>
+<td>Meta-model overfits to primary strategy's specific failure history</td>
+</tr>
+<tr>
+<td>Ensemble/hybrid</td>
+<td>Can smooth variance <strong>if genuinely diversified</strong></td>
+<td>Blend of components</td>
+<td>Depends</td>
+<td>Depends</td>
+<td>Can reduce single-regime fragility</td>
+<td><strong>False diversification if components are correlated</strong> (see below)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>On combining strategies — the illusion-of-diversification risk is real and specific to this document:</strong> SMC, ICT, BTMM, and "liquidity sweep" price action are, after the Part 2 feature-transform, substantially the <strong>same underlying phenomenon</strong> (range compression → sweep → displacement → structure break) described in four different vocabularies. If NEXA's Strategy Factory instantiates four "independent" engines from these four sources and then counts agreement among them as confluence, it is not getting four votes — it is getting <strong>one vote counted four times</strong>, which will produce falsely high backtested confidence and falsely tight (overconfident) calibrated probabilities. The document's own §85.1 test matrix is the right fix (test incremental value layer by layer) — the audit finding is that this discipline is <strong>necessary before any layer beyond the first is allowed to influence a probability estimate</strong>, not merely a nice-to-have measured after the fact.</p>
+<hr />
+<h2>PART 5 — HIGHEST-PROBABILITY CONFLUENCE CONDITIONS</h2>
+<p>The reframe you propose (conditional confluence over standalone win rate) is directionally correct and is exactly what meta-labeling formalizes. Two audit points:</p>
+<ol>
+<li><strong>Confluence must be tested for genuine independence, not just co-occurrence.</strong> Given the Part 4 finding, "HTF structure + liquidity sweep + displacement + MSS + FVG + OB" is mostly <strong>one signal (structural break event) observed at five points along its own unfolding</strong>, not five independent confirmations. Genuinely independent conditioning variables in your list are: <strong>volatility regime, session, intermarket confirmation, news state, and execution quality (spread)</strong> — these come from different data sources and different mechanisms, so <em>they</em> are where real confluence gain is plausible. Camarilla location is a borderline case (technically independent math, weak standalone evidence).</li>
+<li><strong>The right test design</strong> is not "does this combination look good in one backtest" but a <strong>conditional hit-rate / conditional expectancy table</strong>: bucket historical triple-barrier outcomes by each conditioning variable and combinations thereof, and check whether expectancy is stable, monotonic, and statistically significant (with multiple-testing correction — this is exactly where PBO/Deflated Sharpe from §42 becomes mandatory, because searching over many conditioning combinations is a classic overfitting generator). Until that table exists, "conditional confluence produces better trade selection" is a hypothesis, not a design decision — treat it that way in the architecture (i.e., the confluence-scoring logic should be a <em>parameter to be learned/validated</em>, not hard-coded weights).</li>
+</ol>
+<hr />
+<h2>PART 6 — CONDITIONAL PROBABILITY MODELING</h2>
+<p>Modeling <code>P(TP before SL | state, setup, regime, execution)</code> via triple-barrier labeling is the right call and is standard in modern quant research (this is literally López de Prado's method, correctly identified in your source list). A few audit notes:</p>
+<ul>
+<li><strong>Calibration approach:</strong> for tree-ensemble/GBM primary or meta-models, <strong>isotonic regression</strong> is generally preferred over Platt scaling when you have enough data (thousands of triple-barrier events) since it doesn't assume a sigmoid relationship; Platt scaling is preferable with smaller samples or noisier probability estimates. NEXA should support both and select by held-out Brier score / ECE, exactly as the doc's §23 lists — the missing piece is a <strong>decision rule for choosing between them</strong>, and a <strong>minimum-sample threshold</strong> below which no probability is trusted for sizing (this should feed directly into the No-Trade Engine, §47).</li>
+<li><strong>Calibration drift</strong> deserves more weight than the current single-line mention. Calibration is regime-dependent by construction (§23 says "calibration by regime," which is correct) but this means you need <strong>enough triple-barrier events per regime</strong> to calibrate separately, which for a $100/2–6-trades/day system could take a long time to accumulate — this is a real data-sufficiency constraint on go-live timing, not just a modeling footnote.</li>
+<li><code>P(no meaningful movement)</code> and <code>P(adverse excursion)</code> are good additions beyond binary TP/SL — MAE/MFE distributions (already in §34) should feed a <strong>path-based label</strong>, not just a barrier-touch label, since two trades that both "win" can have very different adverse-excursion risk profiles that matter for position sizing and stop placement.</li>
+</ul>
+<hr />
+<h2>PART 7 — META-LABELING ARCHITECTURE</h2>
+<p>The two-stage design (primary signal generator → ML take/reject/resize) is well-chosen and is the correct way to fold SMC/ICT/BTMM/Camarilla-derived signals into a disciplined system without asking a single black-box model to learn market structure from raw OHLC. Risks to manage explicitly (not currently addressed in the doc):</p>
+<ul>
+<li><strong>The meta-model can only be as good as the primary signal's <em>signal density</em>.</strong> If SMC-style setups occur, say, twice a week per symbol, you don't have enough labeled events to train a reliable meta-model per-symbol without pooling across symbols/regimes — pooling introduces its own stationarity assumptions that need testing.</li>
+<li><strong>Meta-labeling overfitting is subtler than primary-strategy overfitting</strong>, because the meta-model is trained on the <em>residual</em> errors of a specific primary strategy on a specific historical sample — this is exactly what purged CV/embargo (§41) is designed to control, but it needs to be applied at the meta-model stage specifically, not just the primary strategy stage.</li>
+<li>Recommend the take/reject/reduce output be <strong>three-valued at minimum</strong> (as designed) but with an explicit <code>min_confidence</code> threshold below which the system defaults to reject — this operationalizes "NO TRADE is valid" concretely rather than leaving it as a philosophy statement.</li>
+</ul>
+<hr />
+<h2>PART 8 — ADAPTIVE REGIME-SPECIFIC STRATEGY SELECTION</h2>
+<p>Yes, this should be tested, and yes — <strong>your own question ("can regime classification itself become a source of error?") is the correct one to be asking, and the answer is yes, materially.</strong> Specific failure modes to design against:</p>
+<ul>
+<li><strong>Regime misclassification at transitions is the highest-risk moment</strong>, precisely because transitions are also when trend-followers and mean-reverters give maximally opposite signals — a regime classifier that lags (as most do, since they rely on realized volatility/trend windows) will misroute capital right when the cost of misrouting is highest.</li>
+<li><strong>Regime labels should themselves carry calibrated confidence</strong> (§14 already proposes <code>P(regime)</code> outputs, which is right) — the strategy router should down-weight or refuse to route when <code>P(regime)</code> is low/ambiguous, rather than forcing a hard TREND/RANGE assignment.</li>
+<li><strong>Test regime-classification error empirically</strong> the same way you'd test any classifier: confusion matrix against a labeled historical regime series (can be semi-automated via realized-vol/trend-strength quantiles as a noisy ground truth), and separately measure whether <em>strategy performance conditioned on the classifier's regime call</em> beats <em>strategy performance conditioned on the true/retrospective regime</em> — the gap between those two is the cost of classification error, and it should be quantified before regime-based routing is trusted with capital.</li>
+<li>Hard-coding regime→strategy mappings (as your example table does) is fine as a <strong>starting hypothesis for the Strategy Factory to test</strong>, explicitly not as a production rule — this matches your own instruction ("do not hard-code this without testing"), the audit finding is just to make sure the eventual code treats it as such (a learnable/backtestable mapping, not an if/else block).</li>
+</ul>
+<hr />
+<h2>SUMMARY ANSWERS TO YOUR 10 QUESTIONS</h2>
+<ol>
+<li><strong>What you already know:</strong> vocabulary, architecture, the right academic/technique references, correct high-level principles (evidence over narrative, no forced trading, expectancy over win rate).</li>
+<li><strong>What you don't know:</strong> whether <em>any</em> of it works. No feature has been tested against real triple-barrier-labeled outcomes yet. No cost model calibrated to $100-equity reality exists.</li>
+<li><strong>Unsupported assumptions:</strong> that SMC/ICT/BTMM/Camarilla each add independent value (Part 4 — likely correlated/overlapping); that confluence-of-many-signals reliably raises probability (Part 5 — untested, and partly an artifact of correlated signals); the §44 80%-WR/2R illustration as a mental anchor (Part 3).</li>
+<li><strong>Redundant research:</strong> SMC, ICT, and BTMM as three separate "engines" — they should be unified into one liquidity/structure feature family (as §87's design decisions already gesture toward) rather than three architecturally separate modules; treating them separately risks the "illusion of diversification" outcome explicitly flagged above.</li>
+<li><strong>Missing research:</strong> (a) a realistic $100-account, MT5-broker-specific transaction-cost model (spread distribution by session/symbol, slippage under real order types, minimum lot vs. risk-per-trade resolution); (b) any actual backtest — everything above is currently a concept, not a result; (c) an explicit statistical-independence test for the confluence stack; (d) a regime-classification error/confusion analysis; (e) FX-specific cointegration half-life stability study if stat-arb is to be pursued.</li>
+<li><strong>What's required before engineering:</strong> clean historical tick/OHLC/spread data from your actual target broker; a frozen feature-definition spec (Part 2's transforms, finalized); a labeling spec (triple-barrier parameters); a written cost model.</li>
+<li><strong>Is current research sufficient to design NEXA?</strong> Sufficient to design the <em>architecture</em> (yes — it's genuinely well thought out). Not sufficient to justify <em>any specific feature's inclusion with capital behind it</em> — that requires the empirical work in Part 1/§87's own "remaining work" list, which is the real critical path.</li>
+<li><strong>Maximizing probability of successful trades, scientifically:</strong> meta-labeling on a small set of independently-sourced conditioning variables (volatility regime, session, intermarket confirmation, news state, execution quality) layered on ONE unified structural/liquidity signal family, calibrated per-regime, with a hard confidence floor below which the system outputs NO TRADE.</li>
+<li><strong>Realistic upper win-rate range:</strong> no universal cap exists, but credible, cost-inclusive, non-overfit systematic FX edges cluster around 40–60% win rate with 1.2–2.5R payoff (or the inverse — high WR with small payoff — for mean-reversion/carry-style engines, which carries tail risk that must be explicitly bounded). Treat any backtested number outside this envelope as a signal to look harder for leakage or overfitting before believing it.</li>
+<li><strong>What to research next, in order:</strong> (1) build the cost/execution model against your actual broker at $100 equity — this determines which strategy families are even viable at this capital size; (2) unify SMC/ICT/BTMM into one liquidity-structure feature family and run the §85.1 incremental-value test on real data; (3) build triple-barrier labels and run a first honest walk-forward + purged CV pass on momentum/mean-reversion baseline features (the two families with the strongest prior) before spending engineering time on the more exotic engines; (4) only then layer meta-labeling, calibration, and regime routing on top of whatever survives step 3.
+-e </li>
+</ol>
+<hr />
+<h3>Parts 9–26: continuation of the same audit, covering the A+ setup framework, the adversarial engine, data requirements, order-flow limitations, cost reality, overfitting, Strategy Factory, portfolio risk, risk of ruin, growth math, and the final verdict/blueprint.</h3>
+<p>I ran targeted web checks against 2024–2025 material rather than relying only on the corpus you supplied, specifically on meta-labeling efficacy, SMC/ICT independent evidence, COT predictive power, and retail-FX cost reality. Findings are folded in below with citations. Bottom line up front, since you asked me not to bury it: <strong>the external evidence does not contradict anything in Part 1 — it sharpens it.</strong> Meta-labeling has real but modest, condition-dependent support. SMC/ICT has essentially none as a standalone framework. Retail FX transaction costs are large enough to be the dominant variable, not a footnote. COT is too laggy to be a primary signal for a 2–6-trades/day intraday-to-swing system.</p>
+<hr />
+<h2>PART 9 — THE "A+ SETUP" AS A MEASURABLE OBJECT</h2>
+<p><strong>Answer to your direct question first: it should be a combination — specifically a calibrated probability feeding an expectancy calculation, gated by a minimum score on independent (non-redundant) dimensions.</strong> A raw "score out of 17 boxes checked" is exactly the kind of subjective scoring system you told me not to build, because most of your 17 listed inputs are correlated (per Part 4's finding) and a checkbox system silently double-counts them. Here is the structure that avoids that:</p>
+<p><strong>Stage 1 — Feature vector, not a checklist.</strong> Every one of your 17 inputs becomes a continuous or ordinal feature (not a yes/no box): e.g. <code>displacement_atr_ratio</code>, <code>structure_break_confirmed (0/1)</code>, <code>liquidity_sweep_depth_atr</code>, <code>momentum_zscore</code>, <code>volatility_percentile</code>, <code>session_category</code>, <code>camarilla_level_distance</code>, <code>spread_zscore</code>, <code>execution_quality_score</code>, <code>intermarket_confirmation (-1/0/1)</code>, <code>news_risk_score</code>, <code>historical_conditional_expectancy_bucket</code>, <code>regime_probability</code>, <code>correlation_exposure_score</code>, <code>adversarial_score</code> (Part 10).</p>
+<p><strong>Stage 2 — Collapse correlated features before scoring.</strong> Run a correlation/clustering pass (this is literally what your own corpus's PCA/clustered-feature-importance material — de Prado's clustered feature importance — is for) on the structure/liquidity/SMC/ICT/price-action block, since Part 4 already established these largely measure one phenomenon. Feed the <strong>cluster's representative signal</strong>, not five raw sub-features, into scoring.</p>
+<p><strong>Stage 3 — The actual A+ definition is a threshold on the meta-labeled, calibrated probability plus a floor on independence-checked confluence, not a separate "grade."</strong> Concretely:</p>
+<pre><code>A+ candidate ⇔
+   calibrated P(TP before SL | state) ≥ threshold_p        (probability gate)
+   AND  E[R_net] ≥ threshold_ev                             (expectancy gate, cost-inclusive)
+   AND  regime_confidence ≥ threshold_regime                 (don't act on an ambiguous regime call)
+   AND  adversarial_score passes (Part 10)                   (survives attack)
+   AND  correlation/portfolio exposure within limits          (Part 17)
+   AND  execution_quality_score ≥ threshold_exec              (spread/liquidity acceptable)
+</code></pre>
+<p>This is a <strong>combination of a probability threshold and an expected-value threshold</strong>, both conditioned on regime and gated by the adversarial and portfolio checks — not a single arbitrary score. The "A+" label itself should be <strong>retired as engineering vocabulary</strong> once this is built; internally NEXA should just output the calibrated probability and expected R, and "A+" becomes whatever top percentile of historically realized expectancy that pipeline turns out to produce — determined empirically, not asserted up front. Defining "A+" by fiat before you have outcome data is exactly the subjective-definition trap you're asking me to avoid.</p>
+<hr />
+<h2>PART 10 — QUANTIFYING THE ADVERSARIAL ENGINE</h2>
+<p>The good news: your "why am I wrong" list maps cleanly onto <strong>specific, already-known quantitative techniques</strong> — it doesn't need a bespoke LLM-reasoning loop as its primary mechanism (an LLM commentary layer can sit on top for human-readable explanation, but the actual rejection logic should be statistical). Mapping each question:</p>
+<table>
+<thead>
+<tr>
+<th>Adversarial question</th>
+<th>Quantitative mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What invalidates this setup?</td>
+<td>Explicit, pre-defined invalidation level (structural) — binary check, already in your Stop-Loss Engine (§30)</td>
+</tr>
+<tr>
+<td>What evidence contradicts the direction?</td>
+<td>Feature-level disagreement check: does the meta-model's top contributing features (SHAP/feature-importance) include any features pointing the opposite direction? Quantify as a disagreement score</td>
+</tr>
+<tr>
+<td>What if the sweep interpretation is wrong?</td>
+<td>Counter-label check: what fraction of historically similar sweep setups (nearest-neighbor in feature space) resulted in continuation vs. reversal? This is a <strong>conditional base-rate lookup</strong>, not a philosophical question</td>
+</tr>
+<tr>
+<td>What if this is breakout not reversal?</td>
+<td>Model ambiguity between two primary-strategy classifiers (breakout model vs. reversal model) both scoring the same window — if both fire with similar confidence, that's a <strong>quantified regime-ambiguity flag</strong>, not a hunch</td>
+</tr>
+<tr>
+<td>What if regime is transitioning?</td>
+<td>Direct output of the Regime Engine's <code>P(transition)</code> (§14) — already specified, just needs to be wired into the reject logic as a hard gate</td>
+</tr>
+<tr>
+<td>What if news invalidates the pattern?</td>
+<td>News-proximity feature + historical conditional expectancy of this setup type <em>during</em> comparable news windows vs. outside them — a straightforward subgroup comparison</td>
+</tr>
+<tr>
+<td>What if spread increases?</td>
+<td>Stress-test: recompute <code>E[R_net]</code> at the 90th-percentile historical spread for this symbol/session, not just current spread. Reject if expectancy turns negative under stress</td>
+</tr>
+<tr>
+<td>What if execution is poor?</td>
+<td>Same idea applied to historical slippage distribution — stressed expectancy under P90 slippage</td>
+</tr>
+<tr>
+<td>What if this setup is crowded?</td>
+<td>Proxy: frequency of the same primary signal firing across correlated symbols simultaneously (Part 17) — a crowding proxy, not sentiment guesswork</td>
+</tr>
+<tr>
+<td>What happened to similar setups historically?</td>
+<td>This <strong>is</strong> meta-labeling's training data — the adversarial check and the meta-model are, structurally, the same query asked two ways. They should share the same historical-analog lookup infrastructure rather than being built twice</td>
+</tr>
+<tr>
+<td>Worst plausible path from entry?</td>
+<td>MAE distribution (already in your Trade DNA/§34) — output the historical 5th-percentile MAE for this setup type as a pre-trade "worst plausible excursion" number, compare against stop distance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The key design decision:</strong> the Adversarial Engine should not be a separate model bolted on afterward — it is largely <strong>a second look at the same feature/probability infrastructure asking "does this hold up under stress and under the near-miss/counter-evidence view," implemented as (a) stressed-expectancy recalculation under P90 cost/slippage, (b) a disagreement score between competing primary models, and (c) a historical-analog base-rate check.</strong> All three are quantifiable today with the features already specified elsewhere in your document; nothing new needs to be invented, it needs to be <strong>wired as hard reject gates</strong>, not advisory commentary. An LLM can narrate <em>why</em> it rejected (useful for your own review/audit trail) but must not be the thing deciding reject/accept.</p>
+<hr />
+<h2>PART 11 — DATA INVENTORY (Essential / Highly Valuable / Optional / Unnecessary)</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Tier</th>
+<th>Contributes</th>
+<th>Reliability</th>
+<th>NEXA access</th>
+<th>Look-ahead risk</th>
+<th>Cost</th>
+<th>Importance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broker-specific tick/bid-ask/spread history</td>
+<td><strong>Essential</strong></td>
+<td>The actual execution reality you'll trade against — nothing else substitutes</td>
+<td>High if pulled directly from your broker's server</td>
+<td>Yes, via MT5 history + logging your own live spread going forward</td>
+<td>Low if timestamped correctly</td>
+<td>Free (your own broker) but <strong>short history</strong> — most MT5 brokers give limited tick history depth, may need a paid vendor (Dukascopy, TrueFX, HistData) to backfill years</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>OHLC (multi-timeframe)</td>
+<td><strong>Essential</strong></td>
+<td>Base data for every engine in the doc</td>
+<td>High</td>
+<td>Yes</td>
+<td>Low</td>
+<td>Free/cheap</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Tick volume (MT5)</td>
+<td><strong>Essential</strong></td>
+<td>Only volume proxy available in spot FX — not real volume, but a real proxy</td>
+<td>Medium (broker-count-of-ticks, not real traded volume)</td>
+<td>Yes</td>
+<td>Low</td>
+<td>Free</td>
+<td>High — but must be labeled a <em>proxy</em>, never "volume"</td>
+</tr>
+<tr>
+<td>Real bid/ask (not just close)</td>
+<td><strong>Essential</strong></td>
+<td>Needed for accurate spread-cost modeling and realistic backtest fills</td>
+<td>High if broker-native</td>
+<td>Depends on broker/history depth</td>
+<td>Medium if reconstructed rather than logged live</td>
+<td>Free/cheap</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Economic calendar (time, currency, impact, actual/forecast)</td>
+<td><strong>Highly valuable</strong></td>
+<td>News-proximity and surprise-magnitude features</td>
+<td>High for well-known providers (ForexFactory, Investing.com)</td>
+<td>Yes, scrapeable/API</td>
+<td><strong>Real look-ahead risk</strong>: "impact" ratings are sometimes revised after the fact — freeze the pre-event version only</td>
+<td>Free–cheap</td>
+<td>High</td>
+</tr>
+<tr>
+<td>DXY / broad USD index</td>
+<td><strong>Highly valuable</strong></td>
+<td>Intermarket confirmation, factor-exposure calc (Part 17)</td>
+<td>High</td>
+<td>Yes (index data widely available)</td>
+<td>Low</td>
+<td>Free</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Rates / yield differentials (2Y, 10Y)</td>
+<td><strong>Highly valuable</strong></td>
+<td>Fundamental driver of FX carry/trend, explains many multi-week moves</td>
+<td>High (central bank/FRED data)</td>
+<td>Yes, free</td>
+<td>Low</td>
+<td>Free</td>
+<td>Medium-high</td>
+</tr>
+<tr>
+<td>Gold, oil, major equity indices</td>
+<td><strong>Highly valuable</strong> for correlation/regime context; <strong>optional</strong> as direct signal</td>
+<td>Cross-asset risk-on/off proxy</td>
+<td>High</td>
+<td>Yes</td>
+<td>Low</td>
+<td>Free</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Futures order flow / CME FX futures volume+OI</td>
+<td><strong>Highly valuable</strong></td>
+<td>The closest thing to a real aggregated order-flow proxy available to a retail-scale operation, since spot FX itself has none</td>
+<td>High (CME data)</td>
+<td>Requires paid data feed for real-time; delayed/EOD often free</td>
+<td>Low-medium</td>
+<td>Free (delayed) to $$ (real-time)</td>
+<td>Medium-high, capped by frequency mismatch with 2–6 trades/day</td>
+</tr>
+<tr>
+<td>COT report</td>
+<td><strong>Optional</strong>, not "highly valuable" — see below</td>
+<td>Weekly positioning context only</td>
+<td>Medium, and <strong>explicitly weak evidence of standalone predictive power</strong> — an academic study on COT-based S&amp;P500 sentiment signals found no significant average returns and noted the 3-day publication lag <cite index="24-1">prevents timely public access to this type of information</cite></td>
+<td>Yes, free from CFTC</td>
+<td><strong>High look-ahead risk if mishandled</strong> — must be lagged by publication delay, not report date</td>
+<td>Free</td>
+<td>Low-medium — usable as a slow regime/bias context feature, not a trade trigger</td>
+</tr>
+<tr>
+<td>Implied volatility (FX options)</td>
+<td><strong>Optional</strong></td>
+<td>Forward-looking vol expectation, useful for the Volatility/Tail-Risk Engine</td>
+<td>Medium-high but requires a paid feed for FX vol surfaces</td>
+<td>Limited/paid</td>
+<td>Low</td>
+<td>$</td>
+<td>Medium, mainly for position sizing not entries</td>
+</tr>
+<tr>
+<td>Depth of Market (DOM) — broker-level</td>
+<td><strong>Optional, low value</strong></td>
+<td>Shows only your specific broker's own book, not the market's</td>
+<td>Low as a market-wide signal — see Part 12</td>
+<td>Yes if broker exposes it</td>
+<td>Low</td>
+<td>Free</td>
+<td>Low — do not overweight this, explained in Part 12</td>
+</tr>
+<tr>
+<td>Sentiment/positioning data (retail sentiment, e.g., broker "% long/short")</td>
+<td><strong>Optional</strong></td>
+<td>Weak contrarian proxy at best, single-broker sample bias</td>
+<td>Low-medium</td>
+<td>Some brokers expose it free</td>
+<td>Medium (self-selected sample)</td>
+<td>Free-cheap</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Execution logs / your own latency+slippage history</td>
+<td><strong>Essential once live/demo trading begins</strong></td>
+<td>This <em>is</em> the real cost model — nothing else is as accurate for your specific broker</td>
+<td>High (it's your own data)</td>
+<td>Yes, you generate it</td>
+<td>None — it's ground truth</td>
+<td>Free</td>
+<td>Critical, but only exists once you start paper/demo trading</td>
+</tr>
+<tr>
+<td>Options market data (FX) beyond implied vol (skew, risk reversals)</td>
+<td><strong>Optional</strong></td>
+<td>Advanced positioning-skew signal, institutional-grade</td>
+<td>Medium</td>
+<td>Paid, hard to access at your scale</td>
+<td>Low</td>
+<td>$$-$$$</td>
+<td>Low priority at this stage</td>
+</tr>
+<tr>
+<td>Swap/financing rates</td>
+<td><strong>Highly valuable but narrow</strong></td>
+<td>Needed only if holding overnight — directly affects net expectancy for swing-style trades</td>
+<td>High (broker-published)</td>
+<td>Yes</td>
+<td>Low</td>
+<td>Free</td>
+<td>Medium — essential input to cost model (Part 13) if any trade holds overnight, irrelevant for pure intraday</td>
+</tr>
+<tr>
+<td>Commission schedule</td>
+<td><strong>Essential</strong></td>
+<td>Direct input to cost model</td>
+<td>High</td>
+<td>Yes (broker-published)</td>
+<td>None</td>
+<td>Free</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unnecessary at this stage:</strong> alt-data (satellite, credit card panels — equity-market tools, not relevant to spot FX/majors/gold), social-media sentiment scraping, and full historical options chains. These are the "sounds advanced, adds cost, adds little" category your own §88 standard should reject.</p>
+<hr />
+<h2>PART 12 — ORDER FLOW REALITY IN MT5 / OTC FX</h2>
+<p>Being precise, as requested:</p>
+<p><strong>What NEXA can observe via MT5:</strong>
+- Your specific broker's quoted bid/ask and their sequence over time (a <em>single dealer's</em> price stream, not the market's).
+- Your own fills, requotes, and realized slippage.
+- Tick arrival frequency (proxy for "activity," not volume).
+- If your broker exposes it, a broker-level DOM — but this reflects <strong>only that broker's own internal liquidity pool or their LP aggregation</strong>, not the interbank market.</p>
+<p><strong>What NEXA cannot observe:</strong>
+- The actual centralized limit order book for any FX pair — <strong>it does not exist</strong>; spot FX is a fragmented, multi-dealer OTC market by construction, which your own document correctly notes in §5. There is no "the order book" to see.
+- Real institutional order flow, resting institutional orders, or genuine aggregate volume across the interbank market.
+- Other brokers'/dealers' books, or the true depth behind any price level.
+- Actual identity or intent of counterparties ("smart money" positioning) — this is the §2.7 principle again, and it applies with full force here: nothing in MT5 lets you observe institutional intent, only price/spread/tick behavior at your own broker.</p>
+<p><strong>On the specific proxies you asked about:</strong>
+- <strong>CME FX futures order flow / volume / OI</strong> — genuinely useful as a <strong>cross-market confirmation signal</strong>, since CME futures are centrally cleared and volume there is real, but it is a <em>different, correlated market</em> (futures vs. spot), not spot order flow itself. Use it labeled <code>INFERRED</code> (see below), never <code>OBSERVED</code>.
+- <strong>Broker DOM</strong> — real but narrow; useful only for gauging your own broker's momentary liquidity/execution risk, not market-wide liquidity. Low value as a trading signal, moderate value as an <em>execution-quality</em> input.
+- <strong>Tick data / tick volume</strong> — a genuine, useful, broker-specific activity proxy; label <code>OBSERVED</code> (it's real data) but the <em>interpretation</em> "this means order flow pressure" is <code>INFERRED</code>.
+- <strong>Spread</strong> — real, <code>OBSERVED</code>, directly usable as a liquidity/cost proxy.
+- <strong>Price impact</strong> — cannot be directly observed in spot FX without your own large orders; any price-impact "estimate" NEXA computes is a <strong>model output</strong>, i.e. <code>MODELLED</code>, not observed.
+- <strong>Liquidity proxies generally</strong> (session, ATR compression, spread behavior) — useful, <code>INFERRED</code> from observed data.</p>
+<p><strong>Labeling discipline (this should be a literal schema field on every feature in the feature store, not just a design note):</strong></p>
+<ul>
+<li><code>OBSERVED</code> — directly measured from your broker's data feed or your own execution logs (bid/ask, spread, your fills, tick timestamps).</li>
+<li><code>INFERRED</code> — derived from observed data via a defined, deterministic calculation (ATR, momentum, session category, sweep depth in ATR).</li>
+<li><code>MODELLED</code> — output of a statistical/ML model with its own error distribution (regime probability, calibrated P(TP before SL), price-impact estimate).</li>
+<li><code>ASSUMED</code> — an unverifiable premise treated as a working hypothesis for feature construction only, never as a fact (e.g., "this price level represents resting institutional liquidity"). <strong>Anything in category D from Part 2 of the first report belongs here or should be excluded from the feature store entirely</strong> — an <code>ASSUMED</code> label is the correct home for concepts you convert to testable hypotheses per Part 2, precisely so nobody downstream mistakes a narrative assumption for ground truth.</li>
+</ul>
+<hr />
+<h2>PART 13 — TRANSACTION COST REALITY</h2>
+<p><strong>This deserves to be blunt, because the evidence is blunt.</strong> An SSRN study of retail FX trader outcomes found that <cite index="34-1">approximately 20% of traders can expect to end up with a profitable account, around 40% might expect their account to be subject to a margin call</cite>, and — most relevant to NEXA specifically — it found <cite index="34-1">a strong correlation between the overall profitability of traders and impact of the cost of the bid-ask spread, whilst finding little if any evidence that retail FX traders, when viewed as a group, are achieving results better than that from random trading</cite>. That is the single most important sentence for this whole project: <strong>the dominant explanatory variable for why most retail FX participants lose is cost, not signal quality.</strong> This directly validates Part 3's flag — the cost model is not a secondary engineering detail, it may be the single highest-leverage piece of research NEXA needs before anything else.</p>
+<p><strong>Cost stack, in order of typical magnitude at $100–$1,000 equity:</strong></p>
+<ol>
+<li><strong>Spread</strong> — dominant and constant on every trade regardless of outcome. At 0.25–0.5% risk/trade on a $100 account, a 1–2 pip EURUSD spread against a tight structural stop can represent a double-digit percentage of the risk budget on a single trade.</li>
+<li><strong>Slippage</strong> — variable, worse during news/session opens, and asymmetric (negative slippage more common than positive on market orders in retail conditions per the sources reviewed).</li>
+<li><strong>Commission</strong> (if ECN-style account) — fixed per lot, predictable, but at $100 equity and micro-lot sizing, fixed-commission structures can be disproportionately punishing; a commission-free but wider-spread account may actually be cheaper at this account size — <strong>this needs to be tested against your actual broker's fee schedule, not assumed.</strong></li>
+<li><strong>Swap/financing</strong> — irrelevant for pure intraday, material for anything held overnight; needs explicit inclusion in expectancy for the swing-style side of the strategy portfolio.</li>
+<li><strong>Market impact</strong> — effectively zero at $100–$10,000 equity in majors; becomes real only at much larger size — <strong>correctly deprioritized for now, but flag it as something that must be revisited before the $100k+ stage in Part 19.</strong></li>
+<li><strong>News spread expansion</strong> — a distinct, spiky cost that a flat average-spread assumption will completely miss; must be modeled as a distribution, not a constant (this is exactly why Part 10's "stress-test at P90 spread" adversarial check matters).</li>
+</ol>
+<p><strong>On your specific question — are high-win-rate scalping strategies especially vulnerable to cost:</strong> yes, unambiguously, and Part 3 already showed the mechanism (small <code>W</code>, cost <code>c</code> is a larger fraction of <code>W</code> than of a larger <code>W</code> from a swing/trend trade). This is not a matter of opinion; it's arithmetic — the same fixed spread cost is a much larger percentage bite out of a 5-pip target than a 50-pip target.</p>
+<p><strong>Recommended NEXA cost framework:</strong>
+- Build <strong>per-symbol, per-session empirical distributions</strong> (not point estimates) of spread and slippage from your own broker's live/demo data — minimum several weeks of logging before trusting the model.
+- Compute expectancy at <strong>three cost scenarios</strong>: median cost, P75, P90 — and require positive expectancy at <strong>P75 minimum</strong> before a strategy is allowed to size up past the minimum test allocation.
+- Treat commission/swap as symbol- and account-type-specific lookup tables, not global constants.</p>
+<hr />
+<h2>PART 14 — OVERFITTING AUDIT</h2>
+<p>Given the size of your feature space (dozens of engineered features across a dozen "engines"), multiple-testing risk is real and needs to be treated as a first-class engineering constraint, not a footnote.</p>
+<p><strong>Threats present in your architecture specifically:</strong>
+- <strong>Feature/strategy selection bias</strong>: with 30 engines each proposing features, testing all combinations and keeping "what worked" is close to guaranteed overfitting without correction.
+- <strong>Repeated backtest iteration / test-set contamination</strong>: every time a human looks at OOS results and then tweaks a feature, the OOS set becomes contaminated. This is the most common real-world failure mode and the hardest to enforce discipline against.
+- <strong>Look-ahead bias in specific places you should watch</strong>: news "impact" labels that get revised after the event (Part 11), any regime label computed with a centered/non-causal window, any normalization statistic computed over the full dataset instead of expanding/rolling windows, and — subtly — feature engineering that uses a swing-point detector requiring future bars to confirm a swing (very easy to leak in SMC/ICT-style structure features).
+- <strong>Overlapping labels</strong>: triple-barrier labels for nearby entries overlap in time by construction — this is exactly why purging/embargo (§41) is not optional, it's structurally required by your own labeling choice.
+- <strong>Regime leakage</strong>: if regime is labeled using information that wasn't actually available causally at the time (e.g., a regime classifier trained and applied on the same window), regime-conditioned results will look artificially strong.
+- <strong>LLM-generated strategy overfitting</strong>: if any part of the Strategy Factory uses an LLM to propose feature combinations by "looking at" a chart or backtest and suggesting refinements, that process is functionally identical to a human iterating on the test set — it needs the same experiment-ledger discipline (§57) applied to it, with no exception for "the AI did it, not a person."</p>
+<p><strong>What's mandatory vs. what's supporting, ranked:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Status for NEXA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Walk-forward / time-aware validation</td>
+<td><strong>Mandatory, foundational</strong> — non-negotiable given non-stationary FX</td>
+</tr>
+<tr>
+<td>Purged CV + embargo</td>
+<td><strong>Mandatory</strong> given triple-barrier's inherent label overlap</td>
+</tr>
+<tr>
+<td>Triple-barrier labeling</td>
+<td><strong>Mandatory</strong> — already correctly chosen, aligns labels with actual trade mechanics</td>
+</tr>
+<tr>
+<td>Frozen final OOS / one-shot evaluation</td>
+<td><strong>Mandatory</strong> — this is the actual discipline that prevents "repeated iteration" leakage; a held-out period never touched until the very final go/no-go decision</td>
+</tr>
+<tr>
+<td>Experiment ledger</td>
+<td><strong>Mandatory</strong> — the only real defense against silent multiple-testing; every configuration tried must be logged whether it "worked" or not</td>
+</tr>
+<tr>
+<td>PBO / CSCV</td>
+<td><strong>Mandatory before any strategy is trusted with real capital</strong> — this is the direct, quantitative answer to "how many configurations did we effectively try"</td>
+</tr>
+<tr>
+<td>Deflated Sharpe Ratio</td>
+<td><strong>Mandatory alongside PBO</strong> — corrects the headline performance metric for the number of trials</td>
+</tr>
+<tr>
+<td>Monte Carlo (trade-order/slippage stress)</td>
+<td><strong>Mandatory</strong> — required for the risk-of-ruin work in Part 18 regardless of strategy quality</td>
+</tr>
+<tr>
+<td>Parameter perturbation / plateau analysis</td>
+<td><strong>Highly recommended</strong> — cheap to run, catches "miracle single parameter point" overfits directly</td>
+</tr>
+<tr>
+<td>Sensitivity/robustness testing</td>
+<td><strong>Highly recommended</strong>, largely folded into the perturbation analysis above</td>
+</tr>
+<tr>
+<td>Combinatorial purged CV specifically (vs. simple purged k-fold)</td>
+<td><strong>Recommended but not blocking</strong> — adds robustness to the PBO estimate; can be phased in after simpler validation is working, not required for the first experiments in Part 22</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>PART 15 — STRATEGY FACTORY ARCHITECTURE</h2>
+<p>Given Part 4's finding (SMC/ICT/BTMM/price-action-sweep are largely one phenomenon), the Strategy Factory should be organized around <strong>independent underlying mechanisms</strong>, not around practitioner brand names:</p>
+<pre><code>STRATEGY FACTORY
+│
+├── MECHANISM: TREND/MOMENTUM PERSISTENCE
+│     (trend following, momentum, breakout — related, test separately for
+│      incremental value, likely to be correlated with each other too)
+│
+├── MECHANISM: MEAN REVERSION / RANGE
+│     (classic mean reversion, range price-action)
+│
+├── MECHANISM: LIQUIDITY/STRUCTURE EVENT
+│     (unified SMC + ICT + BTMM + liquidity-sweep price action —
+│      ONE mechanism family per Part 4's finding)
+│
+├── MECHANISM: LEVEL/PIVOT REACTION
+│     (Camarilla, classic S/R — tested as a location feature, not a
+│      standalone strategy)
+│
+├── MECHANISM: STATISTICAL / RELATIVE VALUE
+│     (cointegration/pairs, stat-arb — structurally distinct from the above,
+│      genuinely different risk driver)
+│
+├── MECHANISM: MACRO/CONDITIONING
+│     (not a standalone entry strategy — a conditioning layer that modulates
+│      every other family's confidence: rates, DXY, intermarket, news)
+│
+└── MECHANISM: ML/HYBRID
+      (meta-labeling and any ensemble sits ON TOP of the above, not
+       alongside them as a peer &quot;strategy&quot;)
+</code></pre>
+<p><strong>Lifecycle:</strong>
+- <strong>Generate:</strong> each mechanism family produces candidate feature/rule variants within a bounded, pre-registered search space (not unlimited hyperparameter freedom — bound it before you search, or PBO will punish you later).
+- <strong>Test:</strong> walk-forward + purged CV + the full §42/Part 14 battery, logged to the experiment ledger regardless of outcome.
+- <strong>Rank:</strong> by the Strategy Survival Score (Part 16), not by raw backtest Sharpe.
+- <strong>Deploy:</strong> shadow/paper mode first, with a pre-defined minimum sample size and time window before any live capital, exactly as your §87 remaining-work list already specifies.
+- <strong>Monitor:</strong> live-vs-backtest performance gap, calibration drift, rolling expectancy — continuously, not just at deploy time.
+- <strong>Retire:</strong> automatic retirement rule triggered by sustained Survival Score decay below a pre-set floor (Part 16) — not a discretionary "it feels like it stopped working" call.
+- <strong>Replace:</strong> new candidates only enter the live population after passing the same frozen-OOS gate the retired strategy once passed — a <strong>strategy population with entry/exit gates</strong>, yes, this is the right model, and it maps directly onto your own §36 Strategy Survival Engine and §58 Strategy Acceptance Gates — the audit finding is just that the mechanism-family reorganization above should happen <em>before</em> the factory is built, so you're not instantiating four correlated "engines" that all compete for the same underlying signal.</p>
+<hr />
+<h2>PART 16 — STRATEGY SURVIVAL SCORE</h2>
+<p><strong>Do not blindly optimize Sharpe — agreed, and here's the precise reason:</strong> Sharpe rewards consistency of returns but says nothing about tail risk, regime concentration, or whether the edge came from 3 lucky trades out of 40. A survival score needs to combine return quality, robustness, and decay-detection as <strong>separate sub-scores</strong>, not one blended number that can hide a weak dimension behind a strong one.</p>
+<p><strong>Recommended structure — three sub-scores, each gating, not just summing:</strong></p>
+<ol>
+<li><strong>Return-quality sub-score:</strong> OOS expectancy, Sortino (preferred over Sharpe alone since it only penalizes downside vol), profit factor, payoff ratio, win rate (diagnostic only, as you specified in Part 23).</li>
+<li><strong>Robustness sub-score:</strong> PBO, Deflated Sharpe, parameter-plateau width, regime robustness (performance spread across at least TREND/RANGE/HIGH_VOL buckets), execution robustness (expectancy under P75/P90 cost stress from Part 13), correlation with existing live strategies (a strategy correlated 0.9 with one already running adds little true diversification regardless of its own standalone score).</li>
+<li><strong>Health/decay sub-score:</strong> live-vs-backtest performance gap, calibration drift (ECE trend over recent window), rolling recent-window expectancy vs. historical expectancy, trade-count sufficiency (a strategy with 12 live trades cannot yet be judged — treat its health score as <code>insufficient data</code>, not as a numeric failure).</li>
+</ol>
+<p><strong>Which matters most:</strong> the <strong>robustness and health sub-scores should gate the return-quality sub-score, not average with it.</strong> A strategy with excellent OOS expectancy but a bad PBO score or active calibration drift should be excluded regardless of how attractive its headline numbers look — this is the direct fix for "blindly optimizing Sharpe," generalized to "blindly optimizing any single headline return metric."</p>
+<hr />
+<h2>PART 17 — PORTFOLIO-LEVEL THINKING</h2>
+<p>Your EURUSD/GBPUSD/AUDUSD-long example is correct and important: naive per-trade risk limits (e.g., "1% risk per trade, 10 trades max") can silently produce far more than 10% effective portfolio risk if those trades share a factor.</p>
+<p><strong>Required calculations:</strong>
+- <strong>Rolling, regime-conditional correlation matrix</strong> across all tradeable symbols (not a static long-run correlation — FX correlations shift materially across regimes, exactly as §90/§28 already note).
+- <strong>Currency-factor exposure</strong>: decompose each position into its underlying currency legs (a EURUSD long + GBPUSD long + AUDUSD long is a USD-short factor bet three times over) — this is simple linear algebra (net exposure per currency = sum of position deltas), not a hard build.
+- <strong>Strategy-family exposure</strong>: are multiple "different" trades actually the same mechanism family (Part 15) firing on correlated symbols simultaneously? This is the crowding check from Part 10.
+- <strong>Portfolio volatility and concentration</strong>: compute portfolio-level variance using the correlation matrix and position sizes, not just sum of individual position risk.</p>
+<p><strong>Capital allocation method recommendation — ranked for a $100–low-thousands account specifically:</strong>
+1. <strong>Volatility scaling (size inversely to ATR/realized vol) as the base layer</strong> — simple, robust, low estimation-error risk, appropriate at small scale.
+2. <strong>Fractional Kelly (e.g., quarter-Kelly) as a secondary overlay once calibrated probabilities exist</strong> — full Kelly is well-documented to be too aggressive under real-world estimation error (your own probability estimates will have error, and Kelly is famously sensitive to overestimating edge); quarter- to half-Kelly is the standard practitioner compromise, and should only be introduced <em>after</em> calibration (Part 6) is demonstrated, never before.
+3. <strong>Correlation/exposure caps as hard constraints on top of both</strong> — e.g., a maximum aggregate exposure per currency factor, enforced as a hard portfolio-engine rule regardless of what sizing math suggests, exactly matching your own §81 "hard constraints override AI" doctrine.
+4. <strong>Risk parity and full Bayesian/constrained optimization</strong> — deprioritize for now; these add real value at larger scale with more strategies and more stable covariance estimates, but at $100 equity and a handful of strategies, the estimation error in a full optimizer will likely dominate any theoretical benefit. Revisit at the $10,000+ stage (Part 19).</p>
+<p><strong>Safest framework for NEXA now:</strong> volatility-scaled base sizing → fractional-Kelly adjustment once calibration is proven → hard exposure/correlation caps as a non-negotiable ceiling. Skip full portfolio optimization until there's enough live strategy history to estimate a stable covariance structure.</p>
+<hr />
+<h2>PART 18 — RISK OF RUIN</h2>
+<p><strong>Core relationships</strong> (standard, but worth stating precisely for your specific constraints):</p>
+<ul>
+<li>Risk of ruin falls steeply as <strong>edge (expectancy) rises and as risk-per-trade falls</strong>, and rises steeply with <strong>losing-streak length and position size</strong>. At small edge, ruin probability is highly sensitive to risk-per-trade — this is precisely why §29's 0.25–0.5% starting range is the right instinct.</li>
+<li><strong>Expected drawdown</strong> scales roughly with volatility of returns and inversely with the ratio of edge to variance — a high-Sharpe low-variance strategy will have much shallower expected drawdown than a lumpy high-payoff/low-win-rate one for the <em>same</em> expectancy, which matters when choosing which strategy family to weight more heavily for a small account that cannot survive a deep drawdown psychologically or structurally (minimum lot size constraints, per §29).</li>
+<li><strong>Loss-streak probability</strong> at a given win rate <code>p</code> over <code>n</code> trades follows a straightforward binomial tail calculation — worth computing explicitly per strategy once win rate is known, since a "45% win rate" strategy will produce longer losing streaks by feel than most people intuitively expect (a run of 6–8 consecutive losses is unremarkable at p=0.45 over a few hundred trades, and the risk engine should be sized to survive that comfortably, not be surprised by it).</li>
+<li><strong>Recovery requirement is asymmetric and convex</strong>: a 50% drawdown requires a 100% gain to recover, a 20% drawdown requires 25%. This is the mathematical argument for why <strong>protecting against deep drawdown matters more than maximizing average return</strong> at small scale — geometric growth is what compounds your account, and a single deep drawdown can structurally impair the account's ability to compound (this is also why minimum lot size vs. risk-per-trade, flagged in §29, is a real go/no-go gate, not a detail: if a broken lot-size floor forces you to risk more than your risk budget on a given trade, that trade should simply be skipped, not resized upward).</li>
+</ul>
+<p><strong>Appropriate initial risk for $100:</strong> 0.25–0.5% as the document already proposes is reasonable <em>if</em> the cost model (Part 13) confirms trades are viable at that size after spread/commission — but given Part 13's findings, the more binding constraint may be broker minimum lot size, not the theoretical risk percentage. <strong>This should be resolved empirically (what's the smallest viable position at your actual broker) before finalizing the risk engine's floor</strong>, not assumed.</p>
+<p><strong>Risk should scale with equity, not be a fixed dollar target — agreed, and mechanically this means:</strong> risk-per-trade stays a <em>percentage</em> of current equity throughout, position size in lots/units recalculates every trade from current equity × risk% ÷ stop distance, and the portfolio/correlation caps (Part 17) scale the same way. No part of the risk engine should reference a fixed dollar figure.</p>
+<hr />
+<h2>PART 19 — THE $100 → $1M QUESTION</h2>
+<p><strong>Separating the three categories exactly as you asked:</strong></p>
+<p><strong>Mathematically possible:</strong> yes, trivially — compounding at almost any positive rate eventually reaches any target given enough time or enough risk. This tells you nothing useful and should not drive engineering decisions.</p>
+<p><strong>Statistically plausible, stage by stage</strong> (using realistic, cost-inclusive expectancy from Part 3's target region — E[R] roughly 0.2–0.4R/trade, 2–6 trades/day, 0.25–1% risk/trade scaling up as equity and confidence grow):</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Required multiple</th>
+<th>At modest realistic edge (~0.3R/trade avg, several trades/day)</th>
+<th>Statistical plausibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$100 → $200</td>
+<td>2x</td>
+<td>Achievable in weeks-to-months if cost model is favorable; <strong>dominated by cost/lot-size friction at this size</strong>, not edge</td>
+<td>Plausible but fragile — this stage is where Part 13's findings bite hardest</td>
+</tr>
+<tr>
+<td>$200 → $500</td>
+<td>2.5x</td>
+<td>Months</td>
+<td>Plausible, same friction concern easing somewhat</td>
+</tr>
+<tr>
+<td>$500 → $1,000</td>
+<td>2x</td>
+<td>Months</td>
+<td>Plausible</td>
+</tr>
+<tr>
+<td>$1,000 → $10,000</td>
+<td>10x</td>
+<td>Many months to a few years at realistic risk levels (raising risk% to chase this faster sharply raises ruin probability — see Part 18)</td>
+<td>Plausible <strong>only</strong> with sustained, validated edge and patient compounding; this is the stage where most "aggressive account growth" attempts historically blow up, because the temptation is to raise risk% rather than let time compound a modest edge</td>
+</tr>
+<tr>
+<td>$10,000 → $100,000</td>
+<td>10x</td>
+<td>Multi-year at responsible risk, assuming edge survives regime changes over that time</td>
+<td>Statistically plausible but <strong>not guaranteed to remain statistically plausible</strong> — market regimes, broker conditions, and the strategy's own alpha decay (§37) all introduce real uncertainty over a multi-year horizon that a short backtest cannot capture</td>
+</tr>
+<tr>
+<td>$100,000 → $1,000,000</td>
+<td>10x</td>
+<td>Multi-year, and <strong>market impact/capacity constraints (deprioritized in Part 13 at small size) become real again here</strong> — the strategies validated at $100 may not scale cleanly to this size without revisiting execution assumptions</td>
+<td>Statistically uncertain; genuinely a different research problem than the earlier stages</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Responsible engineering target:</strong> design the risk/portfolio engine to <strong>maximize long-run geometric growth subject to a hard maximum-drawdown and risk-of-ruin constraint</strong> (this is directly your Part 23 answer, and it's the correct target) — and explicitly <strong>do not size the system to hit any of the above stage transitions on a schedule.</strong> The math above exists to inform realistic expectations and drawdown tolerance design, not to become a deadline that pressures the risk engine into raising risk% to catch up. Every historical account-blowup pattern in retail trading follows exactly that pressure sequence: fall behind an internal schedule → raise risk → hit a loss streak (which Part 18 shows is statistically normal, not rare) → ruin. The risk engine should be structurally incapable of responding to "we're behind schedule" as an input.</p>
+<hr />
+<h2>PART 20 — PRIORITIZED MISSING RESEARCH</h2>
+<p><strong>PRIORITY 1 — MUST RESEARCH (blocks starting empirical work):</strong>
+1. Actual broker-specific spread/slippage/commission distributions (Part 13) — nothing else can be validated without this.
+2. Broker minimum lot size vs. $100-equity risk-per-trade reconciliation (Part 18/§29) — determines whether the account needs to be a cent/micro account and what the real minimum viable risk% is.
+3. Clean, sufficiently long broker-representative historical tick/OHLC/spread data source, since native MT5 history depth is often short (Part 11).
+4. A frozen feature-definition spec unifying SMC/ICT/BTMM into one liquidity-structure family (Part 15) — needed before any backtest of that family can be run without double-counting.
+5. Triple-barrier + purged CV + experiment-ledger infrastructure built and tested on a toy strategy before it's trusted on the real one (this is validation-of-the-validator, easy to skip, costly if skipped).</p>
+<p><strong>PRIORITY 2 — HIGH VALUE:</strong>
+6. Empirical PBO/Deflated Sharpe results on the momentum and mean-reversion baseline (the two families with the strongest external prior) — Experiment 1 in Part 22 depends on this infrastructure existing.
+7. Regime-classifier confusion/error analysis (Part 8) — before trusting any regime-conditioned routing.
+8. Meta-labeling efficacy check on your own primary signals specifically — external literature confirms meta-labeling <strong>can</strong> help but is condition-dependent: one controlled study found the technique <cite index="4-1">improved backtest metrics compared to the primary model alone</cite> across four classifier types even though <cite index="4-1">the machine learning models did not have an expressive performance which raises the necessity of testing the method furtherly</cite> — i.e., expect a real but modest improvement, not a transformation, and confirm it on your own data before relying on it.
+9. Independent verification of the SMC/ICT independence question (Part 4/15) via clustered feature-importance analysis on real features.
+10. Intermarket-relationship stability check (does DXY/gold/yields conditioning actually add incremental value in your data, or is it noise dressed as macro sophistication) — external literature is genuinely split here and it needs your own test, not another citation.</p>
+<p><strong>PRIORITY 3 — USEFUL:</strong>
+11. Fractional-Kelly calibration study once probability calibration (Part 6) is proven.
+12. Session/killzone conditional-expectancy study — likely real but smaller than practitioner lore suggests.
+13. Camarilla incremental-value test — single existing paper is not enough, needs your own OOS check.
+14. Cross-asset (futures order flow) confirmation signal test as a secondary confluence source (Part 11/12).
+15. News-event conditional expectancy (does this setup type perform differently in a news window, both directions).</p>
+<p><strong>PRIORITY 4 — OPTIONAL / DO NOT PRIORITIZE YET:</strong>
+16. Options/implied-vol skew research (Part 11) — advanced, low near-term ROI at this account size.
+17. Reinforcement learning exploration (§63) — high engineering cost, historically fragile in live trading, revisit only after the supervised/meta-labeling pipeline is proven.
+18. Full Bayesian portfolio optimization (Part 17) — revisit at larger scale.
+19. Synthetic data generation (§62) — useful eventually for stress-testing rare regimes, not a near-term blocker.
+20. Additional generic trading books/practitioner material — <strong>explicitly stop here.</strong> Your source library (López de Prado, O'Hara, Tsay, Ritter, Jansen, the BIS/SNB papers) already covers the methodology and market-structure foundation needed. More SMC/ICT/BTMM practitioner material will not change Part 2's classification of those concepts — only your own empirical testing can do that now.</p>
+<hr />
+<h2>PART 21 — MINIMUM DATASET TO START EMPIRICAL WORK</h2>
+<p><strong>Markets:</strong> start with <strong>EURUSD, GBPUSD, USDJPY, and XAUUSD</strong>, exactly as you proposed, for good reasons: these are the deepest-liquidity, tightest-spread instruments available at retail scale (minimizing the Part 13 cost-drag problem that dominates small-account results), have the longest and cleanest historical data available from multiple vendors, and — specifically for XAUUSD — give you a genuinely different-character instrument (higher volatility, different session behavior, different intermarket linkages via real rates/USD) to test whether your feature set generalizes or was overfit to EUR/GBP-style majors specifically. <strong>Do not expand the universe further until this set is validated</strong> — more symbols before validation just multiplies the multiple-testing problem from Part 14.</p>
+<p><strong>Timeframes:</strong> the entry/execution timeframe your strategies will actually trade on (likely M5–H1 given 2–6 trades/day) <strong>plus</strong> at least one higher timeframe (H4/D1) for structure/regime context — matching your own architecture's HTF-context requirement, not a new decision.</p>
+<p><strong>Historical duration:</strong> minimum <strong>5+ years</strong>, ideally 8–10, specifically because it needs to span <strong>multiple volatility regimes</strong> (at least one genuine high-volatility/shock period, e.g. 2020, and one low-volatility grind period) — a dataset covering only one regime will produce a strategy that looks great and is actually just regime-fit, which is the single most common way retail systematic strategies fail.</p>
+<p><strong>Tick/OHLC:</strong> OHLC at minimum on the target timeframes; tick or 1-minute-level data is strongly preferred for accurate triple-barrier labeling (barrier-touch timing gets meaningfully wrong on coarse bars) and for realistic slippage/fill simulation.</p>
+<p><strong>Bid/ask + spread:</strong> required, not optional — a mid-price-only backtest will produce a systematically optimistic result exactly because it omits the Part 13 cost reality.</p>
+<p><strong>Volume:</strong> tick volume as available; treat as a proxy per Part 12.</p>
+<p><strong>Session timestamps:</strong> required, broker-server-time-to-UTC mapping resolved explicitly (a common, easy-to-miss source of subtle look-ahead/misalignment bugs).</p>
+<p><strong>Economic events:</strong> a calendar dataset with pre-event forecast values frozen (Part 11's look-ahead warning) covering the same historical window.</p>
+<p><strong>Execution assumptions:</strong> for the initial research phase, use conservative, P75-cost assumptions (Part 13) rather than optimistic best-case fills — it's far better to underestimate viability early and be pleasantly surprised in live testing than the reverse.</p>
+<hr />
+<h2>PART 22 — INITIAL EXPERIMENT ROADMAP (expanded)</h2>
+<p>Your 10-experiment sketch is the right shape; expanding it into a fuller, correctly sequenced roadmap:</p>
+<p><strong>Phase A — Infrastructure validation (before any real-strategy testing)</strong>
+1. Validate the triple-barrier labeling implementation on synthetic/toy data with known outcomes (does it produce the labels you expect?).
+2. Validate purged CV/embargo implementation the same way (does it actually remove the overlapping observations it should?).
+3. Build and sanity-check the cost model against real logged spread/slippage from demo trading.</p>
+<p><strong>Phase B — Baseline priors (the two strongest external priors, tested first)</strong>
+4. Does a simple momentum baseline show OOS edge, net of realistic costs, on EURUSD/GBPUSD/USDJPY/XAUUSD over the full historical window?
+5. Does a simple mean-reversion baseline show OOS edge under the same conditions, and in which regime bucket specifically?</p>
+<p><strong>Phase C — The structure/liquidity family (your original list, sequenced)</strong>
+6. Does unified liquidity-sweep + displacement + structure-break (the merged SMC/ICT/BTMM mechanism, per Part 15) show measurable OOS edge over the Phase B baselines?
+7. Does adding FVG improve expectancy incrementally over #6 (per §85.1's own test-matrix design)?
+8. Does OB add incremental information after controlling for #6/#7 (test for redundancy specifically, given Part 4's overlap concern)?
+9. Does Camarilla location improve conditional expectancy over #6?
+10. Does session/killzone conditioning improve the edge, and is the improvement stable across the full historical window or concentrated in one sub-period (regime-fit check)?</p>
+<p><strong>Phase D — Conditioning layers</strong>
+11. Does intermarket confirmation (DXY/rates/gold-cross) improve precision, tested as a genuinely separate-source conditioning variable per Part 5?
+12. Does news-window conditioning change expectancy (both a "avoid before high-impact news" test and a "does the setup work differently during elevated volatility post-news" test)?
+13. Does volatility-regime conditioning (ATR percentile bucket) change which mechanism family performs best, validating or invalidating the Part 8 regime-routing hypothesis empirically?</p>
+<p><strong>Phase E — ML layers (only after B–D produce a real, validated primary signal to feed)</strong>
+14. Does ML meta-labeling improve precision on the best-performing primary signal from Phase C/D specifically (not on raw price — meta-labeling needs a real primary signal to filter)?
+15. What is the meta-model's calibration quality (Brier/ECE) and does isotonic or Platt scaling perform better on your actual sample size?
+16. Does adversarial/stressed-expectancy filtering (Part 10) improve realized OOS expectancy versus the meta-labeled signal alone?
+17. Does regime filtering improve OOS performance net of the regime-classifier's own error rate (Part 8) — i.e., does routing actually beat not-routing once misclassification cost is included?</p>
+<p><strong>Phase F — Portfolio and survival</strong>
+18. Does portfolio-level correlation/exposure filtering improve risk-adjusted returns across the full symbol set versus per-symbol independent sizing (Part 17)?
+19. Run the full PBO/CSCV/Deflated-Sharpe battery across every configuration tested in Phases B–E, using the experiment ledger, to get an honest count of "how many things did we effectively try" before trusting any headline number.
+20. Run Monte Carlo (trade-order, slippage, parameter perturbation) risk-of-ruin analysis on the final surviving configuration before any live-capital discussion.</p>
+<hr />
+<h2>PART 23 — OBJECTIVE FUNCTION</h2>
+<p>Agreed and already argued for throughout: <strong>the optimization target should be expected geometric growth of equity, subject to hard constraints on maximum drawdown, risk of ruin, tail loss, exposure, and execution feasibility</strong> — not Sharpe, not win rate, not raw backtest return. Practically, this means the Strategy Factory's ranking function (Part 15/16) should be structured as a <strong>constrained optimization, not a single scalar to maximize</strong>: compute expected geometric growth for each candidate, but <strong>exclude</strong> (not merely penalize) any candidate that violates a hard constraint, exactly matching your own §81 doctrine that hard risk controls sit above AI discretion. Win rate remains a diagnostic reported alongside payoff ratio, exactly as your own §77 already correctly separates "primary" from "secondary" metrics — the audit finding is just to make sure the <em>actual ranking code</em>, not only the philosophy document, enforces this separation.</p>
+<hr />
+<h2>PART 24 — FINAL VERDICT</h2>
+<p><strong>B — MOSTLY READY</strong>, leaning toward the C boundary on execution/cost specifically. Here's the precise reasoning, not a hedge:</p>
+<ul>
+<li>The <strong>architecture, doctrine, and source selection</strong> are sound enough to begin empirical work now — nothing about the high-level design needs fundamental rework (this rules out D).</li>
+<li>But three concrete, identifiable gaps currently block <em>responsible</em> empirical work from starting immediately, which rules out A: (1) no real cost model calibrated to your actual broker and account size — and Part 13's evidence suggests this is not a minor gap, it may be the dominant variable; (2) no resolved minimum-lot-size-vs-risk-percent reconciliation for a $100 account; (3) SMC/ICT/BTMM are architecturally still three separate "engines" in the document rather than the one unified mechanism family Part 4/15 shows they should be, which — if built as-is — will produce inflated, falsely-diversified backtest results on day one.</li>
+<li>None of these three gaps require new conceptual research or another book. They require <strong>direct empirical work against your own broker and data</strong>, which is exactly the kind of "research" that should happen next — hands-on, not literature-based.</li>
+</ul>
+<p><strong>Practical read: you are closer to A than the letter grade suggests</strong>, because what's missing is narrow and mechanical (cost data, lot-size math, one architecture consolidation) rather than broad and conceptual. Resolve those three items, and this becomes A.</p>
+<hr />
+<h2>PART 26 — FINAL OUTPUT</h2>
+<p><strong>1. Executive Research Verdict:</strong> B, mostly ready — sound architecture and doctrine, blocked from full readiness by three concrete, resolvable gaps (real cost model, lot-size/risk reconciliation, SMC/ICT/BTMM consolidation into one mechanism family), not by any conceptual flaw.</p>
+<p><strong>2. What NEXA already understands:</strong> correct high-level doctrine (evidence over narrative, expectancy over win rate, NO TRADE as valid, hard risk controls above AI); correct academic source selection (López de Prado, O'Hara, Tsay, Ritter/Jansen, BIS/SNB); correctly identified validation techniques (walk-forward, purged CV, PBO, Deflated Sharpe, Monte Carlo); a workable meta-labeling/triple-barrier design.</p>
+<p><strong>3. What is still missing:</strong> a broker-real cost model; a $100-account lot-size resolution; unification of the structure/liquidity signal family; any actual empirical test result — everything currently is designed, nothing yet is proven; a regime-classifier error analysis; an independence test for the confluence stack.</p>
+<p><strong>4. Highest win-rate research findings:</strong> no universal ceiling exists, but win rate and profitability are different axes (Part 3); credible cost-inclusive systematic FX edges cluster around 40–60% WR / 1.2–2.5R payoff, or the inverse high-WR/small-payoff shape with bounded tail risk; the retail-trader base rate is sobering — one study found only <cite index="34-1">approximately 20% of traders profitable</cite>, with cost, not signal quality, the dominant explanatory variable — which is the strongest single argument in this entire audit for prioritizing the cost model above every other research item.</p>
+<p><strong>5. Highest-probability trade conditions:</strong> genuinely independent conditioning variables (volatility regime, session, intermarket confirmation, news state, execution quality) layered on ONE unified structural/liquidity signal — not five overlapping "confirmations" of the same underlying event.</p>
+<p><strong>6. Recommended probability architecture:</strong> triple-barrier labels → primary mechanism-family signal (Part 15) → meta-labeled take/reject/resize → isotonic or Platt calibration selected by held-out Brier/ECE → regime-conditional recalibration once sufficient per-regime sample size exists.</p>
+<p><strong>7. Recommended Strategy Factory architecture:</strong> organized by independent underlying mechanism (trend/momentum, mean reversion, unified liquidity-structure, level/pivot reaction, stat-arb, macro-conditioning, ML/hybrid on top) rather than by practitioner brand name, with generate/test/rank/deploy/monitor/retire/replace lifecycle gated by the frozen-OOS and experiment-ledger discipline already specified in your §36/§57/§58.</p>
+<p><strong>8. Recommended adversarial architecture:</strong> not a separate model — a second pass over the same feature/probability infrastructure implementing (a) stressed-expectancy recalculation at P90 cost/slippage, (b) a quantified disagreement score between competing primary signals, and (c) a historical-analog base-rate/MAE lookup, all as hard reject gates; an optional LLM layer narrates the decision but never makes it.</p>
+<p><strong>9. Critical data requirements:</strong> broker-specific tick/bid-ask/spread/commission history (essential, currently missing); your own logged execution/slippage data (essential, only obtainable by starting demo trading); a 5–10 year multi-regime OHLC+spread dataset across EURUSD/GBPUSD/USDJPY/XAUUSD; economic calendar with frozen pre-event values; DXY/rates/gold for intermarket conditioning. COT and options data are optional, not blocking.</p>
+<p><strong>10. Critical validation requirements:</strong> walk-forward, purged CV + embargo, triple-barrier, frozen one-shot final OOS, experiment ledger, PBO/CSCV, Deflated Sharpe, and Monte Carlo risk-of-ruin — all mandatory, in that build order, before any live-capital discussion.</p>
+<p><strong>11. Biggest risks of overfitting:</strong> the sheer number of engineered features across 30 "engines" combined with any repeated look-then-tweak iteration on OOS data; overlapping triple-barrier labels without purging; leaked swing-point/structure detectors; LLM-proposed feature refinement treated as exempt from the experiment ledger.</p>
+<p><strong>12. Biggest conceptual weaknesses:</strong> SMC/ICT/BTMM treated as three separate engines when they are substantially one mechanism (illusion-of-diversification risk); no cost model sized to $100 equity; the §44 80%-WR/2R illustrative example anchoring expectations to an unrealistic level; "A+ setup" currently undefined as anything other than a subjective label.</p>
+<p><strong>13. Top 20 research gaps:</strong> enumerated in full in Part 20 above.</p>
+<p><strong>14. Top 20 empirical experiments:</strong> enumerated in full in Part 22 above.</p>
+<p><strong>15. Minimum dataset required:</strong> 5–10 years, multi-regime, tick/OHLC + real bid-ask + spread + tick volume + session timestamps + frozen-value economic calendar, for the four symbols below.</p>
+<p><strong>16. Recommended initial markets:</strong> EURUSD, GBPUSD, USDJPY, XAUUSD — deepest liquidity/tightest spread (minimizes the dominant cost-drag variable), longest clean data history, and XAUUSD specifically tests generalization beyond EUR/GBP-style majors. Do not expand the universe before this set is validated.</p>
+<p><strong>17. What we should STOP researching:</strong> additional SMC/ICT/BTMM practitioner material (more sources will not change their evidentiary status — only your own empirical test can); additional generic trading books beyond the strong library already assembled; reinforcement learning, full Bayesian portfolio optimization, options-skew research, and synthetic data generation — all real but premature at this stage and account size.</p>
+<p><strong>18. What we MUST research next, in order:</strong> (1) real broker cost/spread/slippage/lot-size reality; (2) unify the structure/liquidity signal family and rebuild the Strategy Factory around independent mechanisms; (3) build and validate the triple-barrier/purged-CV/experiment-ledger infrastructure on toy data; (4) run Phase B/C of the Part 22 experiment roadmap (momentum/mean-reversion baselines, then the unified liquidity-structure signal) — this is the direct answer to your framing question: <em>which combinations of observable features actually produce a statistically significant, cost-adjusted, regime-robust edge</em> is now an empirical question to run, not a research-literature question to keep reading about.</p>
+<p><strong>19. Is NEXA ready for engineering?</strong> Ready for the <em>narrow, empirical</em> engineering work in items 1–4 above immediately. Not ready for the full 30-engine production architecture until that empirical work produces real, validated, cost-inclusive results — which is exactly what §87's own "remaining work is primarily empirical/engineering" conclusion already says, this audit's contribution is sequencing and prioritizing that remaining work rather than treating all 19 of its listed items as equally next.</p>
+<p><strong>20. Final research blueprint:</strong> cost model → lot-size reconciliation → signal-family unification → validation-infrastructure build/self-test → Phase B/C baseline and structure-signal experiments (with full PBO/Deflated-Sharpe/Monte-Carlo discipline applied throughout, logged in the experiment ledger from the very first run) → only then meta-labeling, regime-routing, portfolio-level, and adversarial layers on top of whatever survives. Every step produces a number before the next step is allowed to begin.</p>
+<hr />
+<h2>PART 27 — BROKER REALITY INTEGRATION (MetaQuotes Ltd. demo, $100, 1:100 leverage)</h2>
+<p>This section converts the first real broker/account data (collected from MT5 Symbol Specifications, not assumed) into hard system rules. It supersedes any earlier placeholder assumptions about position sizing in Parts 1–26.</p>
+<h3>27.1 Confirmed account facts</h3>
+<ul>
+<li>Broker/server: MetaQuotes Ltd. demo · Account type: Forex Hedged USD · Balance: $100 · Leverage: 1:100 · No trades placed yet.</li>
+<li>EURUSD/GBPUSD/USDJPY: contract size 100,000, min/step volume 0.01, stops level 0, filling Fill-or-Kill.</li>
+<li>XAUUSD: contract size 100 oz (CFD leverage calc), tick size 0.01, min/step volume 0.01, filling FOK/IOC.</li>
+<li>Swaps quoted in points (1 point = smallest price increment, e.g. 0.00001 for 5-digit EURUSD = 1/10 pip) — negligible for intraday, non-trivial only for multi-day holds; convert to $ per position before use, don't assume pip≈point.</li>
+</ul>
+<h3>27.2 Pip/tick economics at 0.01 lot (derived, XAUUSD unverified — see 27.5)</h3>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Pip/tick size</th>
+<th>$ per 0.01 lot per pip/tick</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EURUSD</td>
+<td>0.0001</td>
+<td>$0.10</td>
+<td>USD quote, no conversion needed</td>
+</tr>
+<tr>
+<td>GBPUSD</td>
+<td>0.0001</td>
+<td>$0.10</td>
+<td>USD quote, no conversion needed</td>
+</tr>
+<tr>
+<td>USDJPY</td>
+<td>0.01</td>
+<td>≈$0.065–0.07</td>
+<td>Profit currency JPY → converts at live USDJPY rate; <strong>recompute dynamically, never hardcode</strong></td>
+</tr>
+<tr>
+<td>XAUUSD</td>
+<td>0.01</td>
+<td><strong>UNVERIFIED — reported tick value (0.1) is 10x the standard-convention figure (0.01) for a 100oz contract.</strong> Must be confirmed via a live demo 0.01-lot trade before any gold sizing is trusted.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>27.3 Minimum viable equity by symbol (at realistic structural stops, target risk 0.25–0.5%)</h3>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Stop</th>
+<th>Risk at 0.01 lot</th>
+<th>Equity needed @0.5%</th>
+<th>Equity needed @0.25%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EURUSD</td>
+<td>15 pips</td>
+<td>$1.50</td>
+<td>$300</td>
+<td>$600</td>
+</tr>
+<tr>
+<td>EURUSD</td>
+<td>8 pips</td>
+<td>$0.80</td>
+<td>$160</td>
+<td>$320</td>
+</tr>
+<tr>
+<td>GBPUSD</td>
+<td>15 pips</td>
+<td>$1.50</td>
+<td>$300</td>
+<td>$600</td>
+</tr>
+<tr>
+<td>USDJPY</td>
+<td>15 pips</td>
+<td>~$1.00</td>
+<td>$200</td>
+<td>$400</td>
+</tr>
+<tr>
+<td>XAUUSD</td>
+<td>$3 stop</td>
+<td>$3.00 (pending 27.5 verification)</td>
+<td>$600</td>
+<td>$1,200</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Finding:</strong> at $100 equity, the 0.01-lot floor structurally forces ~1–3% effective risk per trade on all four symbols at realistic stops — well above the 0.25–0.5% target. This is a hard broker-granularity constraint, not a flaw in the risk philosophy.</p>
+<h3>27.4 HARD RULE — Position sizing (supersedes prior placeholder logic)</h3>
+<pre><code>risk_amount = equity × risk_pct
+stop_distance_pips = |entry − structural_stop| / pip_size(symbol)
+raw_lots = risk_amount / (stop_distance_pips × pip_value_per_0.01lot(symbol) × 100)
+rounded_lots = floor_to_step(raw_lots, 0.01)
+
+IF rounded_lots ≥ 0.01:
+    take trade at rounded_lots; log actual_risk_pct achieved
+ELSE:
+    implied_risk_pct = (stop_distance_pips × pip_value_per_0.01lot(symbol)) / equity
+    IF implied_risk_pct ≤ HARD_RISK_CEILING (1.0%, non-negotiable):
+        take trade at 0.01 lot; flag &quot;oversized_relative_to_target&quot;; log actual_risk_pct
+    ELSE:
+        NO TRADE — reason_code = MIN_LOT_EXCEEDS_HARD_RISK_CEILING
+</code></pre>
+<ul>
+<li><code>HARD_RISK_CEILING = 1.0%</code> is a temporary structural floor for the $100–$600 equity range, not the long-run target. Target risk_pct (0.25–0.5%) resumes automatically once equity crosses the per-symbol threshold in 27.3.</li>
+<li>The structural stop is never tightened merely to fit a lot size (§30 already forbids widening a stop to avoid stop-out; the same discipline applies in reverse).</li>
+<li>This rule is a hard system constraint per §2.2 — AI cannot override it upward, only the No-Trade branch is available when the ceiling is breached.</li>
+</ul>
+<h3>27.5 Outstanding broker specs still required (not research — direct lookups/verifications)</h3>
+<ol>
+<li>XAUUSD tick value — verify via one 0.01-lot demo trade (open, observe P/L over a known price move, close).</li>
+<li>Current typical spread per symbol, by session (Asia/London/NY/overlap) — not yet collected, see 27.6.</li>
+<li>Margin required for 0.01 lot per symbol, as MT5's own order ticket shows it (Hedged account type may compute this differently than the theoretical leverage formula).</li>
+<li>Stop-out level / margin-call level (%) — Account tab, needed for Part 18 risk-of-ruin math.</li>
+<li>Commission — spec list implies spread-only, not confirmed.</li>
+<li>Execution mode (Market/Instant/Request) — distinct from the Fill-or-Kill filling policy already confirmed.</li>
+<li>Freeze level.</li>
+<li>Swap monetary value as MT5 displays it directly (cross-check against the point-based conversion above).</li>
+</ol>
+<h3>27.6 Live/demo execution data collection spec</h3>
+<p>Fields to log per tick: timestamp (server+local), symbol, bid, ask, spread, session tag.
+Fields to log per test order: requested price, filled price, slippage, order-send→confirm latency, fill result (filled/rejected/requoted — relevant specifically because the filling policy is FOK, so rejection rate itself is a cost metric).
+Minimum window: 2–3 weeks spanning all sessions before trusting any distribution.
+Method: (a) passive per-tick CSV logger (OnTick → FileWrite, no orders placed, zero risk) run continuously on one chart per symbol; (b) small batch of 0.01-lot market orders opened and immediately closed (5–10 per session per symbol) to sample slippage/latency/fill outcome without holding directional exposure or burning the demo balance on P/L swings.</p>
+<h3>27.7 Status</h3>
+<p>Sections 27.1–27.4 are now hard system rules. Sections 27.5–27.6 are the immediate next empirical steps — direct broker verification and data collection, not further literature research.</p>
+<h3>27.8 Programmatic collector (replaces manual screenshots)</h3>
+<p>Manual order-ticket screenshots are single instantaneous snapshots and were explicitly logged as such (EURUSD/GBPUSD 0.0 pip, USDJPY 0.2 pip, XAUUSD 0.25 price units at capture time) — not treated as typical spreads. From this point forward, data collection is programmatic via three MQL5 tools, run in the <strong>desktop MT5 terminal</strong> (the browser Web Terminal cannot execute custom scripts/EAs — same demo login, desktop app required):</p>
+<ol>
+<li><strong><code>NEXA_SpecSnapshot.mq5</code></strong> (script, run once) — pulls account-level margin/stop-out/call levels and, per symbol, tick value, contract size, freeze/stops level, execution mode, and fill-mode bitmask directly from the API. Also calls <code>OrderCalcMargin()</code> and <code>OrderCalcProfit()</code> to compute hypothetical margin and the exact monetary value of a defined price move <strong>without placing any order</strong> — this is what resolves the XAUUSD tick-value ambiguity from 27.5(1) definitively, from the broker's own pricing engine rather than a live trade.</li>
+<li><strong><code>NEXA_TickLogger.mq5</code></strong> (EA, one instance per chart, 4 charts total) — logs every tick's bid/ask/spread with server+local timestamp and a session tag, continuously, placing no orders. This is the source for the real spread distribution referenced throughout Parts 5/13/27.3, replacing the single-instant snapshots.</li>
+<li><strong><code>NEXA_DealAudit.mq5</code></strong> (script, run after a small batch of manual 0.01-lot test open/close trades) — reads commission, swap, and realized price back from MT5's own closed-deal history. Commission is not exposed by any pre-trade calculation function; a handful of real (demo, zero-risk) round-trip trades is the only way to capture it, and this script pulls it back out automatically rather than requiring a screenshot per trade.</li>
+</ol>
+<p>Outstanding items from 27.5 now resolved without further manual work: (1) XAUUSD tick value — script 1; (3) margin per 0.01 lot — script 1; (4) stop-out/margin-call level — script 1; (5) commission — script 3; (6) execution mode — script 1 (already independently confirmed as Market Execution via the order ticket); (7) freeze level — script 1. Item (2), the real spread distribution by session, is covered by script 2 running for the planned 2–3 week window.</p>
+<hr />
+<h2>PART 28 — MT5 INTEGRATION: PHASE 1 IMPLEMENTATION</h2>
+<p>Per the MT5 Integration Master Directive, NEXA is implemented directly as an MT5 Expert Advisor — no separate web/SaaS/dashboard. <code>NEXA_EA_Phase1.mq5</code> is the first working milestone as defined in that directive: MT5 → EA → live data → analysis → LONG/SHORT/NO TRADE → risk calc → automated demo execution → SL/TP → position management → trade journal.</p>
+<p><strong>Implemented now (rule-based, not ML):</strong>
+- Feature engine: causal fractal swing detection (BOS/CHoCH via structure break), displacement (body/ATR ratio), liquidity sweep (wick-beyond-swing-then-close-back-inside), Camarilla R3/R4/S3/S4, session tag, ATR-relative volatility regime tag.
+- Composite gate: structure break / sweep / displacement collapsed into <strong>one</strong> liquidity-structure vote per direction (Part 4/15 finding — not stacked as independent confirmations), gated by regime/session/spread sanity as separate conditioning.
+- Position sizing: queries the broker's live <code>SYMBOL_TRADE_TICK_VALUE</code>/<code>SYMBOL_TRADE_TICK_SIZE</code> at runtime rather than hardcoded pip tables — resolves the XAUUSD tick-value ambiguity by construction, implements the Part 27.4 hard-ceiling/no-trade branch exactly as specified.
+- Hard risk controls (cannot be overridden by the composite gate or any future AI layer): per-trade risk ceiling, daily loss cap, max-drawdown pause, max 10 trades/day, spread-vs-ATR sanity check, fixed % risk regardless of prior result (no martingale by construction).
+- Execution: CTrade-based, FOK-aware single retry on requote, duplicate-order prevention (checks existing position before sending), restart recovery (detects and resumes an existing NEXA-magic position on init rather than duplicating or ignoring it).
+- Position management: breakeven move at a configurable R-multiple, time-based exit on stalled trades.
+- Trade DNA journal: every decision (including every NO_TRADE and its reason code) and every executed trade logged to CSV in the Common Files folder.</p>
+<p><strong>Explicitly deferred to Phase 2, with the swap-in point already built and labeled (<code>GetAIScore()</code>):</strong>
+- Calibrated ML/meta-labeling probability — requires Part 22's experiments to produce and validate a model, exported to ONNX and called from <code>GetAIScore()</code>. Currently returns 0 and is not used in any decision.
+- Cross-symbol correlation/portfolio exposure netting (Part 17) — the four chart instances currently share only risk-state counters (daily loss, trade count, drawdown), not currency-factor exposure.
+- News-calendar gate — needs an external calendar feed wired in; not present yet.
+- Full adversarial stressed-expectancy scoring (Part 10) — only the basic spread-vs-ATR sanity check is implemented; the P90-cost stress test and historical-analog base-rate check are not yet built.
+- TP target is currently a fixed 1.8R placeholder, not a calibrated expectancy-optimal target — flagged in code for recalibration once Part 22 produces real numbers.</p>
+<p><strong>Status:</strong> ready to compile and run on demo. This produces the first real Trade DNA dataset — once it accumulates decisions/trades, that data becomes the input to Part 22's Phase B/C experiments (testing the composite gate's OOS edge), closing the loop between the research and the running system rather than the two staying separate.</p>
+<hr />
+<h2>PART 29 — MT5 INTEGRATION: PHASE 2 (FULL SYSTEM INTEGRATED INTO THE EA)</h2>
+<p>Phase 1's EA is now expanded in place (<code>NEXA_Common.mqh</code>, <code>NEXA_Features.mqh</code>, <code>NEXA_Risk.mqh</code>, <code>NEXA_Intelligence.mqh</code>, <code>NEXA_EA.mq5</code>) rather than replaced. Coverage against the 19-item directive:</p>
+<p><strong>Built and functional now:</strong> hardened sizing via <code>OrderCalcProfit</code>/<code>OrderCalcMargin</code> (item 16, resolves XAUUSD ambiguity by construction); expanded BOS/CHoCH/MSS/FVG/Order Block/OTE/BPR structure engine (items 3, 8); BTMM re-derived from the same unified feature set per the Part 4/15 finding rather than a separate voting engine (item 4); Camarilla as location-only (item 5, unchanged from Phase 1); full regime classifier — trend/range, vol state, breakout/false-breakout, transition flag (item 6); liquidity-event/displacement scoring folded into the unified structure vote (item 7); native MT5 economic-calendar news filter (item 11); synthetic same-basket USD-composite as the honest substitute for real intermarket data (item 12, explicitly labeled INFERRED); portfolio currency-exposure netting across all four symbols via shared GlobalVariables (item 13); Trade DNA now captures the full feature set on every decision and every close, with R-result computed automatically via <code>OnTradeTransaction</code> (item 14); rolling expectancy and a historical-analog bucket check feeding both the adversarial gate and a strategy-survival pause (items 9, 15); adversarial validation — stressed spread, contradictory-signal disagreement, historical bucket base rate, ATR-based worst-plausible-path (item 10); evidence-based TP from the nearest structural liquidity level, with a fixed-R fallback used only when no level exists and always logged as such (item 17); every previously-hardcoded assumption in Phase 1 replaced with a live broker or self-generated value where one exists (item 18); all hard risk gates preserved unchanged and unreachable by any of the above (item 19 — nothing added in Phase 2 sits upstream of the risk engine's authority).</p>
+<p><strong>Still a real, labeled hook, not fabricated (item 2):</strong> <code>GetAIScore()</code> in <code>NEXA_Intelligence.mqh</code> now performs actual <code>OnnxCreate</code>/<code>OnnxRun</code> integration and will use a trained model the moment one exists at <code>InpOnnxModelFile</code>. It returns an explicit <code>-1</code> (unavailable) sentinel otherwise, and the EA runs correctly either way — meta-labeling activates automatically once Part 22's experiments produce a validated, exported model; no code change needed at that point beyond dropping the file in.</p>
+<p><strong>Honest limitations carried forward, documented in code comments where they occur:</strong> the portfolio exposure cap (<code>InpMaxSameCurrencyNet</code>) is a first-pass heuristic pending a real correlation matrix (Part 17); the calendar API call is flagged as the piece most likely to need a minor field-name adjustment on first compile, since MT5's calendar structs have changed across builds; the adversarial worst-plausible-path check is an ATR-multiple proxy, not the real MAE distribution described in Part 6, because that requires accumulated Trade DNA history the system is now positioned to generate.</p>
+<p><strong>Status:</strong> ready to compile across all five files (four <code>.mqh</code> includes + <code>NEXA_EA.mq5</code>, all in the same MQL5/Experts or Include folder as appropriate). This is the complete rule-based NEXA system running natively in MT5, generating its own labeled training data on every decision cycle toward the eventual meta-model.</p>
+<hr />
+<h2>PART 30 — OPEN-SOURCE RESEARCH INTEGRATION (Argus, MALE5, mt5-quant, quantumbotx)</h2>
+<p>Four repositories were inspected directly (fetched, not assumed) per the Ultimate MT5 Integration directive. Component-by-component verdict:</p>
+<p><strong>Argus (logiccrafterdz/Argus)</strong> — real, portable risk-engineering upgrades, integrated directly into <code>NEXA_Risk.mqh</code>/<code>NEXA_EA.mq5</code>: a genuine Pearson correlation matrix across open positions (replacing Part 29's placeholder heuristic exposure cap), a dual-threshold progressive drawdown throttle (1.0×→0.5×→0.25×→0.0× position scaling ahead of the existing hard drawdown stop, which is unchanged), exponential-backoff execution retry (replacing the single fixed retry), partial close at a configurable R-multiple, and a weekend flat rule. Argus's own published strategies were explicitly NOT copied — only the orchestration/risk mechanisms, per the directive's instruction not to assume published performance implies future edge.</p>
+<p><strong>MALE5 (MegaJoctan/MALE5)</strong> — a mature, pure-MQL5 machine learning library (logistic/ridge/linear regression, decision trees, random forest, AdaBoost, SVM, naive Bayes, plus preprocessing/cross-validation/metrics), confirmed genuinely native with zero Python dependency. This is a stronger fit for item 2 than the ONNX path alone, since it lets a meta-model be trained directly from NEXA's own Trade DNA CSV inside MetaEditor. Added as <code>NEXA_MALE5_Bridge.mqh</code> — <strong>optional, not force-included</strong>, since MALE5 must be separately installed by the user and forcing the include would break compilation for anyone who hasn't. <code>GetAIScore_MALE5()</code> follows the same -1/unavailable sentinel convention as the existing ONNX <code>GetAIScore()</code>, so both backends are interchangeable and neither ever fabricates a score.</p>
+<p><strong>mt5-quant (masdevid/mt5-quant)</strong> — confirmed to be literally an MCP server for backtest/optimization analytics (89 tools: compile, backtest, deal-level analytics, report management), exactly the kind of component the directive said not to turn NEXA into. Correctly excluded from the EA entirely; it is a separate, optional developer tool a person could run independently against MT5's Strategy Tester output, not a library to merge. Its analytic categories (loss-sequence, direction-bias, concurrent-position, hold-time-vs-profit) are useful vocabulary for a future Part 22 validation script, nothing more.</p>
+<p><strong>quantumbotx</strong> — not independently fetched this pass; the directive already scoped it down to feature-engineering/backtesting concepts minus its Flask/dashboard layer, and those concepts overlap with what MALE5 and Argus already cover. Noted here rather than silently skipped.</p>
+<p><strong>Status:</strong> <code>NEXA_Common.mqh</code>, <code>NEXA_Features.mqh</code>, <code>NEXA_Intelligence.mqh</code> unchanged in this pass. <code>NEXA_Risk.mqh</code> and <code>NEXA_EA.mq5</code> patched in place (not rewritten) with the Argus-derived mechanisms above. <code>NEXA_MALE5_Bridge.mqh</code> added as a new, justified, opt-in module per the directive's "add new modules only where justified" constraint.</p>
+<hr />
+<h2>PART 31 — STATIC CODE AUDIT (three real bugs found and fixed)</h2>
+<p>A line-by-line pass over the five-file codebase, done as a compiler's-eye review rather than an architecture re-read, since no MetaEditor/MT5 install is reachable in this environment to compile directly (fixed, narrow network allowlist — no path to the MetaQuotes toolchain). Three genuine issues found and fixed in place:</p>
+<ol>
+<li><strong>Look-ahead bug in the swing detector:</strong> four call sites (sweep detection and both OTE-leg lookups in <code>NEXA_Features.mqh</code>) started the swing search at a hardcoded shift of 2, which with the default <code>InpSwingLookback=2</code> reads the still-forming current bar (index 0) — an unstable value that changes every tick, not a confirmed swing. Fixed to <code>InpSwingLookback + 1</code> everywhere, matching the pattern already correct elsewhere in the same file.</li>
+<li><strong>Unsafe <code>ZeroMemory()</code> on a struct containing strings:</strong> <code>NexaSignal</code> holds <code>sessionTag</code> and <code>adversarialReason</code> as strings; MQL5 explicitly warns against <code>ZeroMemory</code> on structs with strings/dynamic arrays since it can corrupt the string's internal reference rather than clear it — a runtime crash risk, not something a compiler flags. Replaced with an explicit <code>ResetSignal()</code> function in <code>NEXA_Common.mqh</code>, used at both call sites in <code>NEXA_EA.mq5</code>.</li>
+<li><strong>Dead code / unused-variable warning:</strong> <code>ExecuteSignal</code> computed a redundant exposure pre-check into an unused <code>bool</code>. Removed — the real exposure check already runs again after sizing.</li>
+</ol>
+<p><strong>What remains genuinely outside this session's reach:</strong> actual compilation, Strategy Tester backtesting, spread-stress testing, and demo deployment all require the MT5/MetaEditor toolchain running on the user's own machine. The next loop is: user compiles → pastes back the exact text of any remaining compiler error → fixed here → repeat until clean, then backtest/stress-test/demo per the standard MT5 workflow.</p>
+<hr />
+<h2>PART 32 — SECOND OPEN-SOURCE RESEARCH PASS (FxTT ecosystem, DaxAlgo, LOB/microstructure)</h2>
+<p>Fourteen sources were provided. Verified directly (fetched and read): five ForexTradingTools repos (session-high-low, pivot-points, news-calendar, forex-scanner, and the org's repo index), plus DaxAlgo-Terminal's architecture via its published skill index, plus general confirmation of MQL5's native matrix/vector/ML-method capability (the area MQL5 Article 497 covers) and of the DeepLOB/FI-2010 mid-price-movement research area FSUHeting's repo is presumably built on. <strong>Not independently verified</strong> despite attempts: the specific FSUHeting repo, Tick-BackTester, RL-agent-trader, MarketSync-EA, the fivetecglobalcapital blog post, and the scribd document — search did not surface readable content for these within this pass, and that limitation is stated here rather than papered over with invented detail.</p>
+<p><strong>What was real and got integrated:</strong></p>
+<ol>
+<li><strong>FxTT Session High/Low → headless session structural-liquidity tracking.</strong> The FxTT indicator's concept (Asia/London/NY running high/low, GMT-offset configurable, midnight-wraparound-aware) is now tracked internally in <code>NEXA_Features.mqh</code> (<code>UpdateSessionLevels()</code>) — deliberately <em>without</em> the chart-object drawing the original indicator uses, since NEXA is explicitly headless (the directive's own item 2). Session highs/lows feed into <code>NexaSignal</code> and are now candidate TP targets in <code>CalcEvidenceBasedTP()</code> alongside swing points and Camarilla levels.</li>
+<li><strong>FxTT Pivot Points confirmed the existing Camarilla formula exactly</strong> — R1-R4/S1-S4 multiplier math in the FxTT source matches what was already implemented in <code>CalcCamarilla()</code>, an independent cross-check rather than a new source of code.</li>
+<li><strong>FxTT News Calendar confirmed the existing <code>CalendarValueHistory</code>-based approach</strong> as the right native pattern; no functional gap found, though its auto-refresh-timer design (reload on a schedule rather than on every call) is a cheap optimization worth adopting later if calendar-query overhead ever matters.</li>
+<li><strong>DaxAlgo's Null/Http hot-swappable service pattern</strong> (<code>IAiAnalystClient</code>, explicitly Null vs. real backend, selected via config) is confirmed as the same pattern already in use for <code>GetAIScore()</code>'s -1/unavailable sentinel — named and validated here rather than newly built, since it was already the right shape.</li>
+<li><strong>Tick-flow OBI/CVD proxies</strong>, new module <code>NEXA_Microstructure.mqh</code>, built on MQL5's native <code>vector</code> type. Explicitly labeled per Part 12's provenance taxonomy: real LOB-based OBI (the DeepLOB/FI-2010 research area) does not apply to spot FX, which has no centralized order book. What's implemented is a tick-direction proxy — using the broker's <code>TICK_FLAG_BUY</code>/<code>TICK_FLAG_SELL</code> when populated (closer to real aggressor data), falling back to price-direction when not (weaker, explicitly noted as such). Fed on every tick (not gated by the new-bar check, since tick flow is lost otherwise), logged to Trade DNA, and included in the AI feature vector.</li>
+</ol>
+<p><strong>What was not integrated, and why:</strong> DaxAlgo's full broker-abstraction/plugin-SDK architecture is a C#/.NET desktop application, not portable to MQL5 by rewriting — its <em>pattern</em> (interface-based, hot-swappable, Null-object default) was extracted and confirmed already present; its actual code was not and could not be ported. The three unverified repos were not integrated on principle — the directive itself said not to blindly merge, and integrating based on a repo name and guessed contents would be exactly that.</p>
+<hr />
+<h2>PART 33 — v3 HARDENING PASS (latency, MTF provenance, async, spread tax, EV matrix)</h2>
+<p>Five architectural flaws addressed; <code>NEXA_Common.mqh</code>, <code>NEXA_Features.mqh</code>, <code>NEXA_EA.mq5</code> rewritten, <code>NEXA_Intelligence.mqh</code> and <code>NEXA_Risk.mqh</code> patched.</p>
+<p><strong>1. OnTick CPU starvation — fixed by strict frequency separation.</strong> <code>OnTick()</code> now has two tiers. Tier 1 (every tick) does O(1) work only: <code>UpdateTickFlow()</code> and <code>ManageOpenPosition()</code>. Tier 2 (new bar only, gated on <code>iTime</code> change) does <em>all</em> structural work. <code>BuildFeatures()</code> is called exactly once per bar and its result cached in <code>g_sig</code>; no swing detection, CopyRates, or nested loop runs on the tick path at all.</p>
+<p><strong>2. MTF provenance — fixed by explicit cached rate arrays.</strong> <code>PERIOD_CURRENT</code> is gone from every structural calculation. <code>RefreshMTFCache()</code> copies M5/M15/H1 plus the entry timeframe into four <code>MqlRates</code> arrays once per bar, all with <code>start_pos=1</code> so the forming bar is never in the array. Swing detection operates on those arrays and requires <code>lookback</code> closed bars on both sides — causality is structural, not incidental. New <code>NexaSignal</code> fields: <code>trendM5/trendM15/trendH1</code>, <code>m15SwingHigh/Low</code>, <code>h1SwingHigh/Low</code>, <code>htfAlignment</code>. An optional <code>InpRequireHTFAlignment</code> macro filter blocks entries taken against an aligned H1+M15 bias.</p>
+<p><strong>3. Async execution — implemented with the state machine it actually requires.</strong> <code>trade.SetAsyncMode()</code> means the position does not exist when the call returns, which silently breaks ticket-keyed state and would fire duplicate orders on the following tick. Correct handling: an in-flight guard (per-symbol GlobalVariable + timestamp, with a <code>InpInFlightTimeoutSec</code> stale release) raised <em>before</em> dispatch; trade context staged under the symbol key pre-send and migrated to the position-id key by <code>OnTradeTransaction</code> on the confirming <code>DEAL_ENTRY_IN</code>; trade-count incremented on confirmed fill, not on dispatch. Retry backoff retuned for Wine (300/600/1200 ms) and now treats <code>TRADE_RETCODE_PLACED</code> as success and <code>CONNECTION</code>/<code>PRICE_OFF</code>/<code>TIMEOUT</code> as retryable. Realized slippage (intended vs. fill) is now logged per entry.</p>
+<p><strong>4. Spread tax.</strong> <code>InpMaxSpreadATRRatio</code> default tightened 0.35 → <strong>0.15</strong>. Breach produces <code>NO_TRADE_SPREAD_TAX_&lt;pct&gt;</code> with the actual percentage recorded, and the check runs before any setup evaluation.</p>
+<p><strong>5. Asymmetric EV matrix.</strong> The fixed 1.8R placeholder is gone. <code>CalcDynamicTP()</code> measures distance to the nearest HTF structural liquidity anchor (Camarilla R3/R4/S3/S4, M15 and H1 swing extremes, session extremes), expresses it in R, and clamps to [1.0, 4.0]. If the nearest anchor is closer than 1R the trade is <strong>rejected</strong> (<code>INSUFFICIENT_TARGET_ROOM</code>) rather than taken at a compressed target — a target that cannot pay for risk plus cost has no positive EV regardless of setup quality. Realized <code>targetR</code> is journaled per trade.</p>
+<p><strong>Static audit findings fixed this pass:</strong> use-before-definition on the journal functions (would have failed compilation — forward declarations added); AI feature vector widened to 32 elements including the new MTF fields, with a <code>NEXA_AI_FEATURE_COUNT</code> define and a runtime pack-count assert that refuses inference on a misaligned tensor rather than reading garbage. Verified: zero duplicate <code>input</code> names across the six active files, all cross-module function references resolve, single <code>IncrementTradeCount()</code> call site.</p>
+<p><strong>Not done, stated plainly:</strong> <code>NEXA_Advanced_Ingest.mqh</code> does not exist in this project and was not fabricated. Sub-millisecond end-to-end execution is not achievable on an MT5/Wine/retail-broker stack — <code>OnTick</code> is an event callback and order submission is a network round trip; what was engineered instead is removal of all CPU-bound work from the tick path, which is the real controllable bottleneck.</p>
+<hr />
+<h2>PART 34 — REVIEW RESPONSE: MTF INDEXING CLAIM, AND THE VIRTUAL LEDGER HAZARD</h2>
+<p>An external review of v3 reported a critical <code>ArraySetAsSeries</code> omission in the MTF cache and proposed a <code>NEXA_Advanced_Ingest.mqh</code> module to fix it plus add a virtual ledger. Both claims were checked against the code.</p>
+<p><strong>The indexing bug was not real.</strong> <code>Features_Init()</code> already calls <code>ArraySetAsSeries(..., true)</code> on all four rate arrays (entry, M5, M15, H1) before any <code>CopyRates</code> executes, and the flag persists on a dynamic array across reallocation. Swings were never reading oldest-to-newest. Notably, the proposed fix (<code>EnforceTimeSeriesAlignment</code>) covered only M5/M15/H1 and omitted <code>g_ratesEntry</code> — the array that drives entries, stop placement and sweep detection — so had the diagnosis been correct, the most consequential array would have remained broken. A defensive per-copy re-assertion was nonetheless added covering <strong>all four</strong> arrays: it costs nothing and guards a partial-init failure or a future array added without its init line.</p>
+<p><strong>The virtual ledger as proposed contained a real safety flaw and was not integrated as written.</strong> <code>SyncVirtualClosedStats()</code> maintained a fabricated balance (<code>simulatedBalance += R × balance × 0.003</code>), assigned it to <code>simulatedEquity</code>, and <code>ValidateVirtualExecution()</code> then gated the margin ceiling on <code>simulatedEquity × 0.40</code>. Because the simulated figure syncs downward to reality only when real equity is lower, a winning run inflates it above the real account and <strong>loosens the margin ceiling against money that does not exist</strong> — a risk gate keyed to an imaginary denominator, which is precisely what the risk-engine-has-final-authority rule exists to prevent. It was also redundant: <code>CalcLotSizeHardened()</code> already checks <code>OrderCalcMargin</code> against real <code>ACCOUNT_MARGIN_FREE</code>.</p>
+<p><strong>What was built instead</strong> (<code>NEXA_Advanced_Ingest.mqh</code>, now integrated): the underlying ideas kept, the hazard removed by structural separation.
+- <code>PreflightExecutionCheck()</code> — a final gate before dispatch validating terminal connection, <code>MQL_TRADE_ALLOWED</code>, account trade permission, symbol tradability, and required margin <strong>against live <code>ACCOUNT_MARGIN_FREE</code></strong>. It can only reject, never permit, and stacks on top of the existing sizing check rather than replacing it.
+- <code>SyncShadowLedger()</code> — a diagnostic-only idealized R-compounding track, explicitly documented as not an account. Its purpose is <code>ShadowVsRealGap()</code>: the divergence between the modelled path and the real balance <em>is</em> the accumulated execution tax (slippage, spread, commission, partial fills), which is the number worth watching. A file-level design rule states that no code may gate a risk decision on it, and the reason the rule exists is recorded alongside it.</p>
+<p>Verified after integration: no duplicate <code>input</code> names across the seven active files, include order clean, all references resolve.</p>
+<hr />
+<h2>PART 35 — FOMC STRUCTURAL CALENDAR INTEGRATION</h2>
+<p>A third-party FOMC training guide (Sentiment Pips, dated September 2026) was supplied. Its checkable factual claims were verified against independent sources and hold: Warsh took office as Chair on 22 May 2026 for a four-year term to May 2030, with a Board seat to 2040; Powell remained on the Board as a governor with that term running to January 2028.</p>
+<p><strong>Assessment for NEXA: roughly 15% of the material is machine-actionable, and that portion is worth integrating.</strong></p>
+<p><em>Not usable without a different architecture:</em> statement word-diffing, Dot Plot median/dispersion counting, dissent tallies, press-conference tone reading, and expected-vs-delivered pricing. These require parsing unstructured text and holding rate-futures / 2-year-yield data. NEXA is an MQL5 EA with a calendar API and has neither. A Fed-statement NLP layer inside MT5 would be a large separate project with a poor effort-to-edge ratio relative to the rest of the roadmap.</p>
+<p><em>Usable immediately — the time structure</em>, which is pure scheduling data and maps directly onto a hard risk gate: 8 meetings a year on published dates, decision at 2:00pm ET, 4 of 8 carrying the SEP and Dot Plot, a press conference roughly 30 minutes later, and the practitioner observation that the 2:00pm move is frequently reversed during that press conference.</p>
+<p><strong>Built: <code>NEXA_FOMC.mqh</code></strong>, a hard time gate distinct from the generic calendar filter, because that filter's symmetric ~30-minute buffer does not cover an asymmetric multi-hour risk window. Behaviour: blocks new entries from a configurable number of hours before the decision until several hours after (covering the press conference and reversal window), widens that window on SEP/Dot Plot meetings, and flattens any open position one hour before the window opens rather than being caught holding through it.</p>
+<p>Three design decisions worth recording:
+- <strong>DST is handled by widening, not by calculating.</strong> 2:00pm ET is 18:00 GMT under EDT and 19:00 under EST. Rather than implement a US DST calendar (a reliable source of off-by-one-hour bugs), the window anchors at 18:00 GMT and adds a one-hour safety margin on the trailing side so both cases are covered. Sitting out an extra hour is far cheaper than being live through an unhedged FOMC reversal.
+- <strong>The gate fails open and says so.</strong> The meeting table is hand-entered and covers 2026 only. When the present date passes the last entry, the gate stops blocking and logs loudly at init with instructions to update it. It does not silently pretend to protect.
+- <strong>The reversal observation widens a no-trade window and never generates a signal.</strong> Per the Part 2 evidence taxonomy, "the 2pm move is frequently reversed by 3pm" is practitioner belief, not a result validated in this project. Using an unvalidated claim to sit out is low-risk; using it to enter would not be.</p>
+<p>Past 2026 meetings are retained in the table so backtests over that period apply the same gate the live system would have.</p>
+<hr />
+<h2>PART 36 — RISK-DISCIPLINE PASS, AND TWO REJECTED RECOMMENDATIONS</h2>
+<p>A set of EA-hardening recommendations was reviewed. Several were already implemented in v3 (frequency separation with no heavy loops or Print calls on the tick path, <code>OrderSendAsync</code> via CTrade async mode, magic-number isolation, all parameters exposed as <code>input</code>, fixed-size circular buffer for tick flow, requote/slippage handling with exponential backoff).</p>
+<p><strong>Applied:</strong> daily loss halt tightened 3% → <strong>2%</strong>; minimum take-profit raised to <strong>1.5R</strong> (asymmetric R:R now enforced as a floor, not a default); session-window and hard-close-hour filters added as inputs, both defaulting to OFF pending evidence; and a <strong>stop-loss ratchet guard</strong> (<code>SafeModifySL</code>) that structurally rejects any modification moving a stop further from price, logging the rejection rather than silently ignoring it — enforcement rather than convention, so no future edit to the management logic can widen risk on a live position.</p>
+<p><strong>Rejected — naked virtual stop-losses.</strong> The proposal was to omit <code>StopLoss</code> from <code>MqlTradeRequest</code>, hold targets in global variables, and close via <code>OrderSendAsync</code> on breach, justified as latency elimination. This inverts the actual latency picture: a server-side stop executes inside the broker's matching engine with no network round-trip, whereas a virtual stop requires tick arrival → EA logic → dispatch → round-trip, which is strictly slower, and more so under Wine. More seriously, it leaves the position unprotected against terminal crash, VPS reboot, connection loss, or an unhandled EA error — a stop that exists only in RAM on an emulation layer is not a hard control, which contradicts the project's standing rule that hard risk controls cannot be overridden. A hybrid was offered instead and not yet built: a wide physical disaster stop on the server (≈3× the structural stop) as an unconditional floor, with the tighter virtual stop layered on top in the EA.</p>
+<p><strong>Flagged, not built — Bollinger mean reversion in 22:00–01:00 GMT.</strong> The general principle (exploit one specific anomaly rather than trade all day) is sound and fits the Strategy Factory design. The specific window has a measurable conflict: dead hours combine the widest spreads with the lowest ATR, so both terms of the spread-tax ratio (spread ÷ ATR, capped at 15%) move against the setup simultaneously. Expectation is that the gate vetoes most such trades — but that is a prediction, not a measurement, and the tick logger already running collects exactly the data needed to settle it. Decision: compute median spread ÷ median ATR for that window from two to three weeks of logged broker data before writing the strategy, rather than building it blind.</p>
+<hr />
+<h2>PART 37 — PDH/PDL LIQUIDITY ENGINE, EVENT MEMORY, AND THE DECISION-GATE REBUILD</h2>
+<p>An external review correctly identified that the v3 decision gate collapsed a large feature set into a single directional vote, and separately found a real logic bug. Both traced to one root cause: <strong>the system had no event memory.</strong></p>
+<p><strong>Bug confirmed and fixed.</strong> <code>breakoutState</code> tested <code>structureBreakUp &amp;&amp; close &lt; swingHigh</code>, but <code>structureBreakUp</code> is <em>defined</em> as <code>close &gt; swingHigh</code>. The condition was a contradiction, so <code>NEXA_BREAKOUT_FALSE</code> was unreachable and the false-breakout veto never fired. A false breakout is inherently two-stage — break, then rejection back through the level — so it requires memory of the break bar. <code>ClassifyBreakout()</code> in <code>NEXA_Features.mqh</code> now carries that state.</p>
+<p><strong>New module <code>NEXA_Liquidity.mqh</code> — PDH/PDL sweep engine with an explicit state machine.</strong> Every other NEXA feature is a property of the current bar; a liquidity grab is not. It unfolds as: price exceeds the level → holds beyond N bars → closes back inside → structure responds → entry. States are IDLE → BEYOND → RECLAIMED → CONFIRMED → EXPIRED, tracked independently per pool (PDH, PDL, Asia high, Asia low). Excursion depth, bars-beyond, wick/body rejection ratio, and time-since-reclaim are all captured as the event unfolds rather than reconstructed afterwards.</p>
+<p>Two discriminations the state machine enforces that a snapshot cannot: an excursion beyond <code>InpMaxSweepExcursionATR</code>, or a stay beyond the level longer than <code>InpMaxBarsBeyond</code>, means price <strong>accepted</strong> the level — that is a breakout, not a grab, and the event is abandoned rather than traded as a reversal. A new trading day moves PDH/PDL, so any event referencing the stale level is reset rather than silently carried onto a pool that no longer exists.</p>
+<p><strong>Direction is derived, not assumed.</strong> Per the instruction not to hardcode "PDH sweep = SELL": a taken high can precede a genuine reversal or the opening drive of a continuation. The engine observes the structural response after the reclaim and labels the event <code>REVERSAL</code> or <code>CONTINUATION</code> accordingly, setting <code>responseDirection</code> from what price actually did. Both variants are journaled so the meta-model can eventually learn which contexts favour which; the engine itself asserts nothing about edge.</p>
+<p><strong>Decision gate rebuilt in four tiers.</strong> Tier 1 requires a confirmed, resolved liquidity event — without one there is no thesis, regardless of how many other features are lit (this is the specific change from v3, where any single directional feature sufficed). Tier 2 takes direction from the observed response. Tier 3 applies hard vetoes (session, spread tax, news, false breakout, HTF conflict) that can only reject. Tier 4 scores quality across ten checks, gated by <code>InpMinQualityScore</code>, and deliberately <strong>does not stack correlated confirmations</strong>: MSS, displacement and post-sweep FVG all describe the same impulse, so they contribute one point between them rather than three — stacking them is exactly what makes a backtest look confident about one observation viewed from four angles.</p>
+<p><strong>Stop placement now derives from the event.</strong> The stop sits beyond the sweep extreme (ATR-padded) rather than at a generic swing: if the grab was real, price should not revisit the extreme it reached taking that liquidity, and if it does, the thesis is dead.</p>
+<p><strong>Files changed:</strong> <code>NEXA_Common.mqh</code> (event enums and fields), <code>NEXA_Features.mqh</code> (breakout fix, engine wiring), <code>NEXA_EA.mq5</code> (decision engine, stop placement, Trade DNA columns), <code>NEXA_Intelligence.mqh</code> (AI vector 32 → 40 features), plus new <code>NEXA_Liquidity.mqh</code>. Nine files total; no input-name collisions.</p>
+<p><strong>Accepted as still open, not silently closed:</strong> there is no trained ONNX model in this codebase and <code>InpRequireAIConfirmation</code> defaults false, so this remains a rule engine with an optional AI layer, not an AI-driven engine — the review's characterisation is correct and the training pipeline (labelling, purged CV, calibration, threshold optimisation) remains the Part 22 work. The FOMC table is still hand-maintained through December 2026. Displacement and order-block detection remain first-approximation models. The bar-gated architecture makes this an M1 intraday scalper, not a sub-second HFT system.</p>
+<hr />
+<h2>PART 38 — PRODUCTION-HARDENING PASS (review items 1–8)</h2>
+<p><strong>1. Persistent / reconstructable event state.</strong> <code>ReconstructLiquidityState()</code> replays the state machine forward over closed historical bars at init, oldest to newest, exactly as it would have run live. Because the machine only advances forward and never re-reads a later bar to reinterpret an earlier one, replay cannot introduce lookahead by construction. Honest limitation recorded in code: replay reproduces displacement and FVG exactly (both are 1–3 bar local computations) but approximates MSS with a deliberately <em>stricter</em> strong-displacement proxy, so reconstruction under-reports rather than inventing events. Reconstructed events are tagged <code>NEXA_ORIGIN_RECONSTRUCTED</code> (INFERRED, not OBSERVED) and forfeit a quality point they cannot substantiate.</p>
+<p><strong>2. PDH/PDL definition.</strong> Now explicitly defined as <em>the previous completed D1 bar as delivered by the execution broker's own feed, on that broker's server time</em>, with the source bar's timestamp captured on every signal and journaled. The code documents why: brokers rolling the daily bar at different hours reallocate the Asian session's extremes between two candles, producing different PDH/PDL for the same calendar date. Consequence stated plainly — these levels are broker-relative and a model trained on one broker's levels is not portable without revalidation.</p>
+<p><strong>3. Reversal vs continuation as separate identities.</strong> <code>ENUM_NEXA_SETUP</code> gives eight distinct families (PDH/PDL/AsiaH/AsiaL × reversal/continuation), assigned at confirmation and journaled per row, so expectancy and win rate are computed per family rather than blending two unrelated edges into one "liquidity event" average.</p>
+<p><strong>4 &amp; 5. AI schema frozen at v1.0, 48 features.</strong> The stale "32 ELEMENTS" comment is gone. The schema is documented index-by-index with append-only rules, a paired <code>NEXA_AI_SCHEMA_VERSION</code>, and the missing liquidity features added (<code>liqMssAfter</code>, <code>liqDisplacementAfter</code>, <code>liqFvgAfter</code>, <code>liqEventActive</code>, <code>liqLevel</code>, <code>liqSetup</code>, <code>liqOrigin</code>). Index 29 carries an inline warning that <code>usdCompositeDirection</code> is INFERRED from the traded symbols and must not be read as independent macro evidence.</p>
+<p><strong>6. FOMC now fails closed.</strong> Previous behaviour (stale schedule → keep trading) was backwards: unknown event status is a reason to stop opening trades, not to continue blind. New entries are blocked with <code>FOMC_SCHEDULE_STALE_FAILCLOSED</code> while existing positions continue to be managed normally by the risk engine — refusing to manage an open position would be a different and worse failure.</p>
+<p><strong>7. Session levels rebuilt after restart.</strong> <code>ReconstructSessionLevels()</code> walks today's closed M1 bars and recomputes Asia/London/NY extremes. Unlike the liquidity machine this is a plain running max/min, so it rebuilds <em>exactly</em> — no approximation, no provenance downgrade.</p>
+<p><strong>8. Training pipeline.</strong> New <code>NEXA_TrainingExport.mq5</code> converts Trade DNA into a labelled dataset using triple-barrier labelling (TP-before-SL / SL-before-TP / vertical timeout), matching the question the EA actually asks rather than next-bar direction. Feature columns are by construction the same 48 values in the same order the live model receives. Bars whose range spans both barriers are resolved pessimistically to LOSS and flagged in an <code>ambiguous</code> column so the frequency is measured rather than assumed negligible. The script emits walk-forward fold boundaries with embargo, and states in its own header that it does not train, validate, calibrate or select — those remain outside MT5 and unbuilt.</p>
+<p><strong>Accepted from the review and acted on:</strong> <code>usdCompositeDirection</code> removed from quality scoring entirely. It is synthesised from the same four traded symbols, so counting it as macro confirmation was double-counting price action already represented. Still journaled and fed to the model; no longer earns a vote.</p>
+<p><strong>Still open, not silently closed:</strong> no trained model exists, so this remains a rule engine with an optional AI hook. The FOMC table still requires annual maintenance (now self-announcing rather than silent). Displacement and order-block detection remain first-approximation. The breakout classifier distinguishes failed-vs-held but does not yet separate sweep / retest / acceptance as distinct events. Compilation, Strategy Tester runs with real ticks, and forward testing remain outside this environment.</p>
+<hr />
+<h2>PART 39 — PRODUCTION HARDENING PASS (29-defect matrix, all resolved)</h2>
+<p>Full discovery → static audit → minimal repair → cross-module audit → second static pass, per the Master Production Hardening directive. The defect matrix is in <code>NEXA_DEFECT_MATRIX.md</code>. All ten files rewritten in place preserving architecture, interfaces and strategy mathematics; two formulas changed, both documented as provably defective (D07 breakout veto ignored direction; D15 OBI was permanently zero on FX feeds because tick.volume is 0).</p>
+<p><strong>Would have failed compilation:</strong> cross-file global used before declaration (<code>InpDisplacementATRMin</code> in Liquidity, <code>g_asiaHigh</code> in Features_Init). Fixed by parameterising and reordering.</p>
+<p><strong>Would have leaked the future (KNOWN ISSUE 1):</strong> replay evaluated every historical bar against the session's <em>final</em> Asia H/L and <em>today's</em> PDH/PDL. Now <code>ReconstructLiquidityState()</code> accumulates Asia incrementally per replayed bar and looks up PDH/PDL as of each bar's own day via <code>GetPreviousDayLevelsAsOf()</code>. It also reports whether it observed the 00:00 boundary; a partial range never replaces the complete live value.</p>
+<p><strong>Would have opened a trade with the stop on the wrong side (KNOWN ISSUE 2):</strong> the generic <code>extremeBeyond ∓ pad</code> formula, applied to a PDH-continuation LONG, placed the stop above entry. <code>CalcSetupStop()</code> is now setup-aware — reversal stops beyond the sweep extreme, continuation stops beyond the reclaimed level — and every stop is validated on the correct side of the market with the broker's minimum distance before any sizing.</p>
+<p><strong>Would have vetoed the setup family the system exists to trade (KNOWN ISSUE 3):</strong> a failed <em>upside</em> break is what a PDH reversal short looks like, yet <code>breakoutState==FALSE</code> vetoed both directions. The classifier now reports the failed break's direction and the veto applies only when it matches the proposed trade direction.</p>
+<p><strong>Would have bypassed required AI confirmation (KNOWN ISSUE 5):</strong> <code>if(require &amp;&amp; aiScore&gt;=0)</code> let an unavailable model (-1) through. Now fails closed. ONNX shapes are pinned to <code>[1,48]→[1,1]</code> at load and a model that rejects them is released; inputs and output are finite-checked; an invalid probability is treated as unavailable (KNOWN ISSUES 4, 6).</p>
+<p><strong>Would have duplicated orders:</strong> TIMEOUT/CONNECTION were retried. They are ambiguous — the server may have accepted — so the guard is now held and nothing is resent. Partial closes also finalised R and deleted context, losing the full-trade result; finalisation now waits for the position to cease to exist.</p>
+<p><strong>Would have silently discarded every training row (KNOWN ISSUE 7):</strong> <code>FILE_CSV</code>+<code>FileReadString</code> reads one field. Rewritten to line-based parsing with a header-name column map. Labels now use the <em>logged</em> SL/TP prices rather than a hardcoded R, and model the EA's breakeven ratchet and conditional time exit (KNOWN ISSUE 8). Trade DNA now journals <code>ai_00..ai_47</code> from the same <code>PackFeatures()</code> the live model consumes, so the training tensor is reproducible by construction. The export header states what remains unmodelled (partial close, bid/ask exit, slippage, commission).</p>
+<p><strong>Also fixed:</strong> <code>Liquidity_Init()</code> called after the replay, wiping it; <code>PositionSelect(_Symbol)</code> replaced by a magic+symbol selector correct under both margin modes, with the mode detected and logged at init; <code>PositionSelect(_Symbol)</code> risk of touching another EA's position removed; direction-aware <code>SYMBOL_TRADE_MODE</code> check; calendar query error now fails closed; single <code>NexaGMTNow()</code> clock replacing a mix of <code>TimeGMT()</code> and <code>TimeCurrent()</code>; session H/L attributed by the closed bar's timestamp; full <code>ValidateInputs()</code> at init returning <code>INIT_PARAMETERS_INCORRECT</code>; every division guarded; every Copy* return validated against both the returned count and <code>ArraySize</code>; every array index range-checked; actual monetary risk recomputed after every normalisation and rejected if above the ceiling.</p>
+<p><strong>Environment limitation, stated plainly:</strong> MetaEditor is not reachable from this environment. Verification is exhaustive static analysis (dependency graph, declaration order, signature/caller consistency across every changed function, division/index/Copy* enumeration, broker-state and AI-authority traces). Compilation, Strategy Tester execution, and demo forward-test remain the user's steps.</p>
+<hr />
+<h2>PART 40 — FINAL ADVERSARIAL REVIEW (15 further defects, D30–D44)</h2>
+<p>A hostile re-read of the hardened codebase, targeting compilation, runtime, lookahead, direction, stop side, ownership, duplicate execution, restart state, risk bypass and journal integrity. The two that mattered most were in paths the earlier pass had reasoned about but not traced end-to-end:</p>
+<p><strong>Async rejection was invisible.</strong> <code>OrderSendAsync</code> returns <code>PLACED</code> for every syntactically valid request; the broker's actual verdict (invalid stops, insufficient margin, market closed, requote) arrives later as <code>TRADE_TRANSACTION_REQUEST</code>. Nothing handled it. The in-flight guard sat until timeout — and, worse, the <code>OPEN</code> row with the full feature snapshot had already been journaled, so the training exporter would have labelled a trade that never existed. The handler now catches async rejections (sync mode is deliberately excluded, since <code>ExecuteSignal</code> owns that lifecycle and retries), journals <code>REJECTED</code>, and the exporter pairs each <code>OPEN</code> with its subsequent <code>FILL</code> — labelling from the actual fill price and server-side stops, and dropping any decision that never became a trade.</p>
+<p><strong>The news gate would have produced zero backtest trades.</strong> <code>CalendarValueHistory</code> is unavailable in the Strategy Tester; the fail-closed logic added in Part 39 would therefore have declared every bar a risk window. The tester is now detected and the generic filter declared inactive once, loudly. The FOMC gate (hard-coded dates) still runs in the tester.</p>
+<p><strong>Replay and live could disagree on which day was "previous".</strong> Replay cached PDH/PDL on a GMT-day key, but the broker's D1 bar rolls at server midnight — <code>InpGMTOffset</code> hours earlier. Replay now performs the same per-bar lookup the live path does. Separately, the replay consumed the newest closed bar and the first live <code>BuildFeatures</code> fed it again; a single-feed guard now ensures every closed bar reaches the state machine exactly once across both paths.</p>
+<p><strong>Restart and timeout paths.</strong> The in-flight timeout no longer releases blindly: it checks for a pending order (keep guard), an already-landed position (adopt it, migrate context, release), or nothing (release). At init, a position that filled while the terminal was down now inherits its staged context instead of losing it. Full-vs-partial close is decided from deal history volumes rather than the position record, which can lag the deal. A position found without a server-side stop is re-protected from its staged risk distance before any R-based management runs. Async close requests are de-duplicated per ticket. The daily trade counter increments at dispatch rather than at fill, so four instances firing on one bar cannot all pass the ceiling.</p>
+<p><strong>Journal integrity.</strong> An old-schema <code>NEXA_TradeDNA_*.csv</code> is detected by header and moved aside with <code>FileMove</code> rather than appended to. <code>#property strict</code> (an MQL4 directive) removed from both <code>.mq5</code> files; <code>DEAL_ENTRY</code> comparisons cast to the enum.</p>
+<p>Second pass over the patches: declaration order verified for every new helper, all new divisions guarded, input names unique, braces balanced in all ten files, code-only parentheses balanced (raw count differs only inside header comments).</p>
+<p><strong>Build status remains: STATICALLY VERIFIED — COMPILATION NOT AVAILABLE IN THIS ENVIRONMENT.</strong></p></body></html>

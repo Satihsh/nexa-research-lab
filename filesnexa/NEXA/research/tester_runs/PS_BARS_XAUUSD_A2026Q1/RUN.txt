@@ -1,0 +1,4 @@
+run=PS_BARS_XAUUSD_A2026Q1
+start=2026-09-27 19:01:30
+end=2026-09-27 19:02:06
+expert=Advisors\NEXA_BarExport symbol=XAUUSD period=M1 model=0 from=2026.01.01 to=2026.04.01 deposit=50000 leverage=200 delay=250

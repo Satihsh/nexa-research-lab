@@ -1,0 +1,179 @@
+{
+ "label": "EXPLORATORY (not pre-registered)",
+ "reason": "Why: the pre-registered TVPC input z5 = ln(median spread / trailing median) is undefined on 72-100% of FX days because\nPepperstone records a 0-point raw spread on most FX M1 bars, so the pre-registered fitted TVPC was estimated on a biased\n603-of-2019-day subsample (no GBPUSD rows). These variants use every day. They do NOT replace the pre-registered verdict.",
+ "E1_z5_mean_spread": {
+  "rows_used": 2019,
+  "n_train": 1005,
+  "n_test": 1014,
+  "auc": 0.6672153463898304,
+  "brier": 0.23277221895404165,
+  "brier_climatology": 0.2509850670109079,
+  "calibration_slope": 0.6643861440712329,
+  "calibration_intercept": -0.08564681286149871,
+  "auc_by_pair": {
+   "EURUSD": 0.6196481299212598,
+   "GBPUSD": 0.715925484538669,
+   "USDJPY": 0.6433333333333332,
+   "XAUUSD": 0.6382063882063883
+  },
+  "coef": {
+   "z1": -0.27753338532034105,
+   "z2": 0.1628435842293646,
+   "z3": 0.06804067899998953,
+   "z4": 0.0489427227162073,
+   "z5m": 0.012808936263280692,
+   "z6": -0.5327802470849238,
+   "GBPUSD": -0.2868178480399477,
+   "USDJPY": 0.48476214855494315,
+   "XAUUSD": 0.37215677086671145
+  },
+  "intercept": 0.1495260158686607,
+  "standardise_mu_discovery": {
+   "z1": 0.566554,
+   "z2": 0.071308,
+   "z3": 0.08432,
+   "z4": 0.998369,
+   "z5m": -0.01713,
+   "z6": 1.584967
+  },
+  "standardise_sd_discovery": {
+   "z1": 0.319617,
+   "z2": 0.024924,
+   "z3": 0.297777,
+   "z4": 0.009248,
+   "z5m": 0.377544,
+   "z6": 0.788515
+  },
+  "meets_prereg_bar_auc_ge_0.65_and_brier_lt_clim": true
+ },
+ "E2_no_z5": {
+  "rows_used": 2019,
+  "n_train": 1005,
+  "n_test": 1014,
+  "auc": 0.6672309486568399,
+  "brier": 0.23275976645555846,
+  "brier_climatology": 0.2509850670109079,
+  "calibration_slope": 0.6645614475003725,
+  "calibration_intercept": -0.08546702236105264,
+  "auc_by_pair": {
+   "EURUSD": 0.6195250984251968,
+   "GBPUSD": 0.7164272721570596,
+   "USDJPY": 0.6428301886792452,
+   "XAUUSD": 0.6377968877968878
+  },
+  "coef": {
+   "z1": -0.27729783292102683,
+   "z2": 0.16342893847472742,
+   "z3": 0.06784166307178262,
+   "z4": 0.0493917400159851,
+   "z6": -0.5324850443463192,
+   "GBPUSD": -0.2859647796094324,
+   "USDJPY": 0.4840880118197818,
+   "XAUUSD": 0.37319048195852506
+  },
+  "intercept": 0.1490525943018223,
+  "standardise_mu_discovery": {
+   "z1": 0.566554,
+   "z2": 0.071308,
+   "z3": 0.08432,
+   "z4": 0.998369,
+   "z6": 1.584967
+  },
+  "standardise_sd_discovery": {
+   "z1": 0.319617,
+   "z2": 0.024924,
+   "z3": 0.297777,
+   "z4": 0.009248,
+   "z6": 0.788515
+  },
+  "meets_prereg_bar_auc_ge_0.65_and_brier_lt_clim": true
+ },
+ "E0_TVPC0_all_days": {
+  "n_test": 1014,
+  "auc_test": 0.6007067826955257,
+  "auc_by_pair": {
+   "XAUUSD": 0.6015902265902265,
+   "EURUSD": 0.5651451771653543,
+   "GBPUSD": 0.6138744276484979,
+   "USDJPY": 0.608805031446541
+  }
+ },
+ "reliable_rate_holdout_by_pair": {
+  "EURUSD": 0.502,
+  "GBPUSD": 0.418,
+  "USDJPY": 0.586,
+  "XAUUSD": 0.599
+ },
+ "downstream_holdout_E1": {
+  "n_records": 2020,
+  "n_days": 1010,
+  "TVPC": {
+   "spearman_score_vs_neg_flag_disagree": 0.16756247130942986,
+   "spearman_score_vs_neg_dist_disagree": 0.5166060688913223,
+   "flag_disagree_top_minus_bottom": [
+    -0.10979228486646886,
+    -0.1483679525222552,
+    -0.07266320474777467
+   ],
+   "dist_disagree_top_minus_bottom": [
+    -0.26041666696044363,
+    -0.30932023513315765,
+    -0.21976547189469706
+   ],
+   "flag_agree_top": 0.9213649851632048,
+   "flag_agree_bottom": 0.8115727002967359,
+   "pass_rule": "expected direction = top-minus-bottom disagreement < 0 with 95% CI excluding 0",
+   "flag_disagree_PASS": true,
+   "dist_disagree_PASS": true
+  },
+  "TVPC0": {
+   "spearman_score_vs_neg_flag_disagree": 0.06976031753961547,
+   "spearman_score_vs_neg_dist_disagree": 0.26650980733927476,
+   "flag_disagree_top_minus_bottom": [
+    -0.05192878338278932,
+    -0.09198813056379822,
+    -0.014836795252225518
+   ],
+   "dist_disagree_top_minus_bottom": [
+    -0.12765521448952957,
+    -0.1646017294667987,
+    -0.09294658253495641
+   ],
+   "flag_agree_top": 0.9080118694362018,
+   "flag_agree_bottom": 0.8560830860534124,
+   "pass_rule": "expected direction = top-minus-bottom disagreement < 0 with 95% CI excluding 0",
+   "flag_disagree_PASS": true,
+   "dist_disagree_PASS": true
+  }
+ },
+ "E3_activity_ex_roll": {
+  "XAUUSD": {
+   "roll_window_days": 50,
+   "M3a_all": 0.5987813825030943,
+   "M3a_ex_roll": 0.657345072906534,
+   "M3a_roll_only": 0.37376706698238077,
+   "M3a_holdout_ex_roll": 0.608745827068445
+  },
+  "EURUSD": {
+   "roll_window_days": 40,
+   "M3a_all": 0.6002517659283446,
+   "M3a_ex_roll": 0.6659894558029497,
+   "M3a_roll_only": 0.2960884104197428,
+   "M3a_holdout_ex_roll": 0.6537281132903853
+  },
+  "GBPUSD": {
+   "roll_window_days": 40,
+   "M3a_all": 0.44664149461951824,
+   "M3a_ex_roll": 0.5249327458255854,
+   "M3a_roll_only": 0.1630849147456193,
+   "M3a_holdout_ex_roll": 0.4425815079827441
+  },
+  "USDJPY": {
+   "roll_window_days": 40,
+   "M3a_all": 0.554228121351525,
+   "M3a_ex_roll": 0.630747040961896,
+   "M3a_roll_only": 0.22707181628896214,
+   "M3a_holdout_ex_roll": 0.5791516149630471
+  }
+ }
+}

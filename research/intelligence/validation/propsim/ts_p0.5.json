@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "1.3.0",
+  "perAttempt": {
+    "attemptsObserved": 10000,
+    "passProbability": 0.2635,
+    "passProbabilityCi": {
+      "low": 0.2549577427389885,
+      "high": 0.2722238884903414
+    },
+    "failureBreakdown": {
+      "daily-loss": 0,
+      "max-loss": 7365,
+      "time-limit": 0,
+      "abandoned": 0
+    },
+    "avgDaysWhenPassed": 37.327134724857686,
+    "avgDaysWhenFailed": 27.417786829599457,
+    "stagnationDays": {
+      "mean": 17.6047,
+      "min": 0,
+      "max": 154,
+      "p05": 4,
+      "p25": 9,
+      "p50": 15,
+      "p75": 23,
+      "p90": 33,
+      "p95": 41
+    },
+    "steps": [
+      {
+        "index": 0,
+        "reached": 10000,
+        "passed": 2635,
+        "passProbability": 0.2635,
+        "passProbabilityCi": {
+          "low": 0.2549577427389885,
+          "high": 0.2722238884903414
+        },
+        "failureBreakdown": {
+          "daily-loss": 0,
+          "max-loss": 7365,
+          "time-limit": 0,
+          "abandoned": 0
+        }
+      }
+    ]
+  },
+  "journey": {
+    "fundedProbability": 0.2635,
+    "fundedProbabilityCi": {
+      "low": 0.2549577427389885,
+      "high": 0.2722238884903414
+    },
+    "attemptCap": 1,
+    "attempts": {
+      "mean": 1,
+      "min": 1,
+      "max": 1,
+      "p05": 1,
+      "p25": 1,
+      "p50": 1,
+      "p75": 1,
+      "p90": 1,
+      "p95": 1
+    },
+    "attemptsHistogram": {
+      "min": 1,
+      "max": 1,
+      "binWidth": 0,
+      "counts": [
+        10000
+      ]
+    },
+    "cost": {
+      "mean": 132.0332,
+      "min": 49,
+      "max": 590,
+      "p05": 49,
+      "p25": 49,
+      "p50": 98,
+      "p75": 198,
+      "p90": 247,
+      "p95": 296
+    },
+    "costHistogram": {
+      "min": 49,
+      "max": 590,
+      "binWidth": 27.05,
+      "counts": [
+        3503,
+        2578,
+        0,
+        898,
+        0,
+        933,
+        0,
+        1208,
+        0,
+        561,
+        232,
+        0,
+        69,
+        0,
+        11,
+        0,
+        6,
+        0,
+        0,
+        1
+      ]
+    },
+    "costGivenFunded": {
+      "mean": 258.6595825426945,
+      "min": 198,
+      "max": 590,
+      "p05": 198,
+      "p25": 247,
+      "p50": 247,
+      "p75": 296,
+      "p90": 345,
+      "p95": 345
+    },
+    "daysToFunded": {
+      "mean": 37.327134724857686,
+      "min": 6,
+      "max": 169,
+      "p05": 12,
+      "p25": 22,
+      "p50": 33,
+      "p75": 48,
+      "p90": 66,
+      "p95": 77
+    }
+  },
+  "funded": {
+    "horizonTradingDays": 250,
+    "payoutTotal": {
+      "mean": 229.62375686645507,
+      "min": 0,
+      "max": 14898.188781738281,
+      "p05": 0,
+      "p25": 0,
+      "p50": 0,
+      "p75": 0,
+      "p90": 675,
+      "p95": 1462.5
+    },
+    "payoutTotalGivenFunded": {
+      "mean": 871.4374074628277,
+      "min": 0,
+      "max": 14898.188781738281,
+      "p05": 0,
+      "p25": 0,
+      "p50": 225,
+      "p75": 1125,
+      "p90": 2475,
+      "p95": 3636.5624999999923
+    },
+    "blownProbability": 1,
+    "avgPayoutEvents": 1.2607210626185958,
+    "payoutProbability": 0.6018975332068311,
+    "daysToFirstPayout": {
+      "mean": 17.112862547288778,
+      "min": 5,
+      "max": 80,
+      "p05": 9,
+      "p25": 12,
+      "p50": 16,
+      "p75": 20,
+      "p90": 26,
+      "p95": 31
+    }
+  },
+  "ev": {
+    "evTotal": 97.59055686645507,
+    "evStandardError": 7.844323148563089,
+    "pPositive": 0.1371,
+    "net": {
+      "mean": 97.59055686645507,
+      "min": -590,
+      "max": 14602.188781738281,
+      "p05": -247,
+      "p25": -98,
+      "p50": -71,
+      "p75": -49,
+      "p90": 428,
+      "p95": 1230
+    },
+    "netHistogram": {
+      "min": -590,
+      "max": 14602.188781738281,
+      "binWidth": 759.6094390869141,
+      "counts": [
+        8763,
+        626,
+        243,
+        140,
+        87,
+        37,
+        42,
+        30,
+        11,
+        2,
+        5,
+        4,
+        2,
+        4,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    }
+  },
+  "drawdown": {
+    "maxDrawdownPct": {
+      "mean": 3.82865,
+      "min": 0,
+      "max": 5.5,
+      "p05": 1.5,
+      "p25": 4,
+      "p50": 4,
+      "p75": 4.5,
+      "p90": 4.5,
+      "p95": 5
+    },
+    "histogram": {
+      "min": 0,
+      "max": 5.5,
+      "binWidth": 0.275,
+      "counts": [
+        1,
+        77,
+        0,
+        228,
+        0,
+        345,
+        0,
+        404,
+        0,
+        455,
+        423,
+        0,
+        407,
+        0,
+        4018,
+        0,
+        3074,
+        0,
+        331,
+        237
+      ]
+    }
+  },
+  "assumptions": {
+    "spec": {
+      "challengeId": "nexa-topstep-50k-standard-2026-10-18",
+      "name": "Topstep 50K Combine + XFA, Standard path, no DLL (NEXA hand-written from TOPSTEP_COMBINE_RULES_2026-10-18.md)",
+      "productType": "futures",
+      "accountSize": 50000,
+      "currency": "usd",
+      "steps": [
+        {
+          "profitTargetAmount": 3000,
+          "minTradingDays": 2,
+          "maxDays": 250,
+          "consistency": {
+            "maxBestDayProfitPct": 55
+          }
+        }
+      ],
+      "dailyLoss": null,
+      "maxLoss": {
+        "amount": 2000,
+        "mode": "trailing-realized-eod",
+        "locksAtInitial": true,
+        "lockOffsetAmount": 0
+      },
+      "fees": {
+        "price": 49,
+        "billing": "monthly",
+        "resetFee": 49,
+        "activationFee": 149,
+        "refundableOnPass": false
+      },
+      "funded": {
+        "profitSplitPct": 90,
+        "payoutFrequency": "on-demand",
+        "firstPayoutMinDays": 5,
+        "maxLoss": {
+          "amount": 2000,
+          "mode": "trailing-realized-eod",
+          "locksAtInitial": true,
+          "lockOffsetAmount": 0
+        },
+        "payoutRules": {
+          "minWinningDays": 5,
+          "winningDayMinProfit": 150,
+          "maxPayoutPctOfProfit": 50,
+          "maxPayoutAmount": 2000,
+          "bufferAmount": 0
+        }
+      },
+      "flagsNotSimulated": []
+    },
+    "profile": {
+      "kind": "parametric",
+      "winRate": 0.5,
+      "avgWinR": 1,
+      "avgLossR": 1,
+      "winStdR": 0,
+      "lossStdR": 0,
+      "tradesPerDay": 2,
+      "tradesPerDayModel": "fixed",
+      "risk": {
+        "mode": "fixed-amount",
+        "value": 250
+      }
+    },
+    "options": {
+      "paths": 10000,
+      "seed": 20261018,
+      "attemptCap": 1,
+      "simulateFunded": true,
+      "fundedHorizonDays": 250,
+      "unlimitedStepDayCap": 365,
+      "includeHistograms": true,
+      "tracePaths": 0
+    },
+    "flags": [
+      {
+        "id": "trades-resolve-same-day",
+        "detail": "All trades are modeled as same-day round trips; overnight and weekend holding are not simulated.",
+        "source": "engine"
+      },
+      {
+        "id": "post-target-min-days-risk-free",
+        "detail": "After every objective is met, remaining minimum trading days are simulated as risk-free trading days.",
+        "source": "engine"
+      },
+      {
+        "id": "consistency-stop-rule",
+        "detail": "Consistency rules are simulated with a rational stop rule: the trader stops a day once further profit cannot improve compliance, and keeps trading across days until the best-day share satisfies the rule.",
+        "source": "engine"
+      },
+      {
+        "id": "attempts-iid",
+        "detail": "Attempts are independent draws from the same trader profile; no learning or tilt effects.",
+        "source": "engine"
+      },
+      {
+        "id": "monthly-billing-approximation",
+        "detail": "Monthly billing is charged once per 21 simulated trading days.",
+        "source": "engine"
+      },
+      {
+        "id": "funded-withdrawal-model",
+        "detail": "On each eligible payout day the trader withdraws the maximum the rules allow (profit above any buffer, per-payout caps, never below the loss floor); balances and loss floors carry across payouts.",
+        "source": "engine"
+      },
+      {
+        "id": "calendar-days-approximated",
+        "detail": "Calendar-day payout minimums convert to trading days at 5 per 7.",
+        "source": "engine"
+      }
+    ],
+    "disclaimer": "Simulation, not prediction. Results are Monte Carlo distributions under the stated assumptions and the encoded ruleset, not financial advice and not a guarantee of passing any challenge. Firms change their rules; the firm's own published rules are always authoritative. Check the spec's source citations and their lastVerified dates when present."
+  },
+  "meta": {
+    "paths": 10000,
+    "seed": 20261018
+  }
+}

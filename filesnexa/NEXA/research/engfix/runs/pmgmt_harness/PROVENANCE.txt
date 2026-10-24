@@ -1,0 +1,5 @@
+label=ENGINEERING REGRESSION -- not research evidence
+unit=NEXA_PositionMgmtTest
+mqh=NEXA_PositionMgmt.mqh
+mqh_sha256=b98a49b59aa45b7fbd01cc68d5b2ad1dfb06e7bb4151c2531df29fc6c4849a51
+harness_ex5_sha256=ad1252035b762a95bbe7dc7784c9fdad2fb3edf108e6ed06a35f43e89ff81b00

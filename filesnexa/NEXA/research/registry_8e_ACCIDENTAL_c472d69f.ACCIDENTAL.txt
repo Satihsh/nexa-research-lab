@@ -1,0 +1,5 @@
+ACCIDENTAL DUPLICATE FREEZE - NOT AUTHORITATIVE - NEVER OPEN, NEVER RECORD RESULTS
+Created 2026-10-01 14:04:56 local by an operator error: `python freeze_8e.py --help` (the script has no
+--help flag and treated "--help" as the registry root). Anchor c472d69ffe13bf66fcb28d0f9007db311e1def395a6cecf97f0f2ba7db8b9cf3,
+ledger seq 0 only (CAMPAIGN_FROZEN), 0 results. Directory renamed from research/--help. Witness file kept.
+Authoritative RESEARCH_8E_V1 remains research/registry_8e, anchor 6468fdea1eb4063e6658ade37fdc7c137693f8b626c6a641dcd29af885517ccf, seq 3.

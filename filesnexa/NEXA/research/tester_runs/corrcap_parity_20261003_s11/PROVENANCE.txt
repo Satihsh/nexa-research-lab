@@ -1,0 +1,4 @@
+nexa_risk_sha256=1f684cdef889757ae1b5cbf6c6d72378891d8e9f65bf951f964658ff9fa5897b
+harness_ex5_sha256=cd77b7171c9ac07895e36b30a401311533a0b62f923c71122957b56ecc59a2e0
+fixtures_sha256=816285c23850efbd513936a54e22cd3f70aaefac50c7f76679e377a1e2f7d7b0
+note=re-run after the human-approved S11 change to NEXA_Risk.mqh (2026-10-03); harness compiled from build/s11_src (0/0)

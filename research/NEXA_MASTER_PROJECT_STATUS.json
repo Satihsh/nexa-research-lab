@@ -1,0 +1,791 @@
+{
+ "generated": "2026-10-02",
+ "updated": "2026-10-03 (8E closed; D45 fixed in source; B-EXPOSURE-CAP decided from the cap-neutral campaign; B-PARITY-LIQ and B-PARITY-EDGE resolved; B-PARITY-TOL decided → parity contract PASS; D46 stale-bar guard fixed in source; S11 exposure fail-closed fixed in source; D-TZ DST-aware clock fixed in source; C4 daily-loss budget fixed in source; 2026-10-04: S13 time-aligned USD composite fixed in source, f29 parity-compared)",
+ "update_2026_10_04_S13": {
+  "decision": "option B, human-approved",
+  "fix": "UsdCompositeDirection reads each basket symbol by TIME via CopyRates (last bar at or before the decision bar and 10 bars earlier; symbols > 5 bars stale or degenerate skipped); vote rule unchanged; no input",
+  "NEXA_Intelligence.mqh": "81641c4e… (was 18e3b30c…; pre-change copy build/s13_pre_source/)",
+  "unchanged": "NEXA_EA.mq5 4ef7de88…, NEXA_Risk.mqh a43d8328…, NEXA_Common.mqh bbf22ee9…, PackFeatures, schema",
+  "oracle": "nexa_parity.py d938a078… (usd_composite_direction; MarketData.basket; f29 compared when basket bars are supplied, exempt otherwise)",
+  "build": "build/NEXA_EA_S13.ex5 dec57013… (compile 0/0, NOT deployed)",
+  "regression": "12/12 GBPUSD windows vs C4: 995,081 rows, 0 differ outside f29 (trading identical, 561 trades); f29 changed on 149,519 / 993,333 decisions (15.05 %)",
+  "parity": "window B, S13 journals, all 4 symbols: PASS, 44 features compared (was 43), f29 0 mismatches, 47/47 ties (reports/pepperstone/B_PARITY_S13_VERIFY_WINDOW_B.json 39cbd88e…)",
+  "journals_note": "existing journals keep the old positional f29",
+  "deployed_ea": "f0ae9618… unchanged",
+  "pytest": "628 passed",
+  "report": "filesnexa/NEXA/research/engfix/S13_REPORT.md"
+ },
+ "update_2026_10_03_C4": {
+  "decision": "option B, human-approved change to the frozen NEXA_Risk.mqh",
+  "rule": "pre-trade: E_now − OpenRisk(all open positions, current price to stop) − NewRisk ≥ DailyStartEquity × (1 − InpMaxDailyLossPct/100); inside the portfolio lock; halt trigger kept; fail-closed on unreadable state",
+  "NEXA_Risk.mqh": "a43d8328… (was 1f684cde…; appended section, invariant test pins it as a third approved block)",
+  "NEXA_EA.mq5": "4ef7de88… (was 3edcec11…; 2 added lines in ExecuteSignal)",
+  "build": "build/NEXA_EA_C4.ex5 149aa0b1… (compile 0/0, NOT deployed)",
+  "harness": "tester_runs/dailybudget_c4_20261003: 9/9 boundary and fail-closed cases",
+  "production_regression": "12/12 GBPUSD windows ($200) byte-identical to the D-TZ build; 0 refusals (worst day −1.73 %)",
+  "research_config_pairs": "6 windows ($50k, cap off), D-TZ vs C4: 34/34 refusals justified; days beyond −2 % 5 → 2; worst day −2.42 % → −2.01 % (remaining overshoot = stop slippage)",
+  "corr_harness": "re-run, 18/18 identical (tester_runs/corrcap_parity_20261003_c4)",
+  "evidence_pins": "D46/S11/D-TZ evidence tests now pinned to their own source snapshots",
+  "deployed_ea": "f0ae9618… unchanged",
+  "pytest": "620 passed",
+  "report": "filesnexa/NEXA/research/engfix/C4_REPORT.md"
+ },
+ "update_2026_10_03_DTZ": {
+  "decision": "option A, human-approved",
+  "fix": "NEXA_Common.mqh NexaServerGMTOffsetHours = InpGMTOffset (standard time) + 1 h inside US DST (server = New York + 7 h; explicit US rule as nexa_time.py); NexaToGMT/NexaGMTNow use it; no input added",
+  "NEXA_Common.mqh": "bbf22ee9… (was f4d0a7de…; pre-change copy build/dtz_pre_source/)",
+  "oracle": "nexa_parity.py 728c4631… (server_gmt_offset_hours; ParityConfig.server_follows_us_dst=True)",
+  "build": "build/NEXA_EA_DTZ.ex5 53439394… (compile 0/0, NOT deployed)",
+  "clock_proof": "compiled clock = nexa_time on 271,690/271,690 hours 2000–2030 (tester_runs/clock_dtz_20261003)",
+  "runtime_proof": "980,197 journalled session tags: 0 mismatches vs the true clock (D-TZ build) and 0 vs the fixed clock (S11 baseline)",
+  "behaviour": "changes only inside US DST (first divergence in DST in every window); 169,149 keyed rows differ; trades 525 → 561; 0 new trades in real 21–24 GMT (LATE)",
+  "parity": "window B, D-TZ journals, all 4 symbols: PASS, 0 mismatches, 47/47 ties (reports/pepperstone/B_PARITY_DTZ_VERIFY_WINDOW_B.json 58952feb…)",
+  "evidence_note": "earlier NEXA evidence (cap-neutral Gate 8, D45/D46/S11 regressions, stored window-B parity report) used the old fixed clock",
+  "deployed_ea": "f0ae9618… unchanged",
+  "pytest": "614 passed",
+  "report": "filesnexa/NEXA/research/engfix/DTZ_REPORT.md"
+ },
+ "update_2026_10_03_S11": {
+  "decision": "option A, human-approved change to the frozen NEXA_Risk.mqh",
+  "fix": "NetCurrencyExposure reports an unreadable position / volume / currency spec; ExposureCapOK blocks with EXPOSURE_POSITION_UNREADABLE or EXPOSURE_CAP_INVALID_SPEC (same rule as the approved correlation cap)",
+  "NEXA_Risk.mqh": "1f684cde… (was 7fd5692a…; pre-S11 copy build/s11_pre_source/)",
+  "build": "build/NEXA_EA_S11.ex5 7d37dc7d… (compile 0/0, NOT deployed)",
+  "regression": "12/12 GBPUSD windows vs D46 baseline: 995,400 rows, 0 differing; 281 exposure-cap blocks identical; 0 new fail-closed rows (unreadable path covered statically)",
+  "corr_harness": "re-run in tester, 18/18 identical (tester_runs/corrcap_parity_20261003_s11)",
+  "limits": "all hard-risk limits, inputs and defaults unchanged",
+  "historical_runners": "run_staleguard_regression.sh, run_engfix_regression.sh, run_capneutral_batch.sh, capn_analysis.py stay pinned to 7fd5692a (their evidence) and now refuse/flag by design",
+  "deployed_ea": "f0ae9618… unchanged",
+  "pytest": "606 passed",
+  "report": "filesnexa/NEXA/research/engfix/S11_REPORT.md"
+ },
+ "update_2026_10_03_D46": {
+  "defect": "D-STALE-BAR-EVAL: after a weekend/holiday closure the EA evaluated Friday's last bar at Monday's first tick and could trade it at Monday's price (588–589 such evaluations in 96 tester runs, 0 trades)",
+  "fix": "NexaClosedBarStale + NEXA_STALE_BAR_MAX_SEC = 6 h (constant, no input): journalled NO_TRADE_STALE_BAR after BuildFeatures; features and liquidity state unchanged",
+  "NEXA_EA.mq5": "3edcec11… (was 10b62623…)",
+  "build": "build/NEXA_EA_STALE.ex5 fd2fe06e… (compile 0/0, NOT deployed)",
+  "regression": "12/12 GBPUSD windows vs D45 baseline: 147/147 stale rows flagged = expected, 0 other rows changed, trades identical",
+  "deployed_ea": "f0ae9618… unchanged",
+  "NEXA_Risk": "7fd5692a… unchanged",
+  "pytest": "600 passed",
+  "report": "filesnexa/NEXA/research/engfix/STALEGUARD_REPORT.md"
+ },
+ "update_2026_10_03_B_PARITY_TOL": {
+  "decision": "option A (human-approved): journal-quantisation tolerance + reviewed tie register",
+  "continuous_rule": "abs<=1e-9 OR rel<=1e-6 OR abs<=0.5e-6+|mql5|*2^-23",
+  "tie_register": "research/parity_accepted_ties.json e92a8866… (47 entries: RC3 36, EDGE-2 11)",
+  "nexa_parity.py": "a4bf9f93… (was 590c977e…)",
+  "result": "window B PASS on GBPUSD/EURUSD/USDJPY/XAUUSD: 112,688 rows, 0 mismatches, 47 accepted ties, 0 unused",
+  "evidence": "filesnexa/NEXA/research/reports/pepperstone/B_PARITY_TOL_VERIFY_WINDOW_B.json f02aa017…",
+  "F3_F4": "BLOCKED → COMPLETE",
+  "scope": "window B only",
+  "stored_reports": "replaced 2026-10-03 (human-approved): PEPPERSTONE_PARITY_FULL_B.json = PASS result f02aa017… + per-symbol logs + PEPPERSTONE_PARITY_FULL_B.provenance.txt; pre-fix FAIL reports (FULL_B, GBPUSD_B_v3, parity_full*.log, mismatch tables) archived byte-identical as SUPERSEDED_*_pre_parity_fixes_2026-10-03.*",
+  "pytest": "596 passed"
+ },
+ "update_2026_10_03_B_PARITY_EDGE": {
+  "nexa_parity.py": "590c977e… (was 6c58f6aa…)",
+  "fixed": "EDGE-1: M5/M15/H1 windows use the decision clock = first tick of the next M1 bar (34 trend/htfAlignment rows after daily-break, weekend and intraday tick gaps)",
+  "accepted": "EDGE-2: 8 rows (+3 dependent MSS), exact 1.20 displacement floating-point tie (filed under B-PARITY-TOL)",
+  "verification": "window B, 4 symbols: trend/htfAlignment 0 mismatches; other rates unchanged; remaining categorical mismatches are accepted ties only",
+  "F3_status": "IN PROGRESS → BLOCKED (only B-PARITY-TOL and report regeneration remain, both need a human)",
+  "observation": "EA evaluates Friday's last bar at Monday's first tick; not checked whether weekend/session filters block entries",
+  "evidence": "filesnexa/NEXA/research/reports/pepperstone/B_PARITY_LIQ_ROOT_CAUSE.md; B_PARITY_EDGE_VERIFY_WINDOW_B.json 6dd8803d…",
+  "pytest": "591 passed"
+ },
+ "update_2026_10_03_B_PARITY_LIQ": {
+  "nexa_parity.py": "6c58f6aa… (was 1cd3d231…)",
+  "fixed": "RC1 weekend Asia carry-over (mirror MQL5 UpdateSessionLevels); RC2 last-day PDH/PDL from D1 exports lacking the forming day",
+  "accepted": "RC3: 18 GBPUSD window-B rows, exact 2.5-ATR floating-point tie (filed under B-PARITY-TOL)",
+  "verification": "window B, 4 symbols: all liquidity state fields 0 mismatches except GBPUSD liqBarsBeyond 18 rows (RC3); non-liquidity rates unchanged",
+  "evidence": "filesnexa/NEXA/research/reports/pepperstone/B_PARITY_LIQ_ROOT_CAUSE.md; B_PARITY_LIQ_VERIFY_WINDOW_B.json e668f728…",
+  "pytest": "590 passed",
+  "stored_parity_reports": "not regenerated (pre-fix oracle)"
+ },
+ "update_2026_10_03_D45": {
+  "NEXA_EA.mq5": "10b62623… (was d65090cc…)",
+  "NEXA_PositionMgmt.mqh": "b98a49b5…",
+  "fixed_build": "build/NEXA_EA_PMFIX.ex5 28e8d925… (NOT deployed)",
+  "deployed_ea": "f0ae9618… unchanged",
+  "pytest": "587 passed",
+  "report": "filesnexa/NEXA/research/engfix/ENGINEERING_REPORT_D45.md"
+ },
+ "scope": "Read-only audit of NEXA-Agent-Lab (filesnexa/NEXA working copy + Agent-Lab research/knowledge). The audit modified nothing; the only later change is the human-approved 8E VAL/selection/close, recorded in registry_8e (plus its witness file in ~/.nexa_registry_witness/), with outputs in runs_8e/ (selection.json, analysis outputs, 12 stress tables in the cache).",
+ "verification_performed_today": {
+  "pytest": "546 passed, 1 warning",
+  "ruff": "All checks passed",
+  "NEXA_Risk_sha256": "7fd5692a2bd3aec7443185f914be320158cfe55bcddcf370db059a6da0d908d1",
+  "V2_ledger_head": "seq 6 bbd9a28ed6bc7e0b20f3fca9f9ba1fe437f4bd39dc9c1e99ed73fb7505be5b2b (no EVALUATION_OPENED)",
+  "8E_ledger_head": "seq 2170 9f7249a235b41c2452703c2e7baf3b2617cb1fe32b2a66e5d8655067e505d575 (CAMPAIGN_REJECTED, terminal; 2,160 VAL results, 6 OOS_SELECTED)",
+  "update_2026_10_02_8E": "Human-approved Route A run and close: 91 related tests passed; registry verified against off-machine (transcript) checkpoints at seq 3, 2163, 2169, 2170; V2 unchanged at seq 6 bbd9a28e…",
+  "deployed_terminal_build": "stale (NEXA_EA.ex5 2026-09-27 19:38)",
+  "disk_free": "7.2 GiB"
+ },
+ "status_counts": {
+  "COMPLETE": 26,
+  "IN PROGRESS": 0,
+  "PENDING": 9,
+  "BLOCKED": 6,
+  "FROZEN": 4,
+  "REJECTED": 7,
+  "NOT FOUND": 1
+ },
+ "items": [
+  {
+   "id": "A1",
+   "area": "Architecture",
+   "component": "Core two-tier architecture (MQL5 live tier ⇄ Python research tier; Trade DNA schema v1.0 contract)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "research/README.md (tier contract); research/reports/DECISION_CONTRACT_AUDIT.md; nexa_schema_v1.json sha c24198b0…; NEXA_BUILD_MANIFEST.json",
+   "next_action": "Decide schema v1.1 (decision-contract fields) — PROPOSED, not implemented",
+   "dependency": "Human approval (DECISION_CONTRACT_AUDIT.md §3)"
+  },
+  {
+   "id": "A2",
+   "area": "Architecture",
+   "component": "Agent-Lab dual-agent orchestrator (Astra/Opus debates: main.py, agents/, prompts/)",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "AL:main.py; AL:workspace/nexa/debates (9 runs); AL:workspace/nexa/evidence and patches EMPTY; PROGRESS.md 2026-09-27 'debates hold no usable content'",
+   "next_action": "None required; development-governance tooling only, not an EA component",
+   "dependency": "Human decision whether to keep using it"
+  },
+  {
+   "id": "B1",
+   "area": "MQL5 EA",
+   "component": "NEXA_EA.mq5 source (incl. pre-live safety fixes S1–S10, NEXA_Safety.mqh, D45 position-management fix, D46 stale-bar guard, C4 daily-loss budget call)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "NEXA_EA.mq5 sha 4ef7de88… after the C4 daily-loss budget call in ExecuteSignal (2026-10-03, 2 lines; D49). Before: 3edcec11… after the D46 stale-bar guard (2026-10-03: a closed bar evaluated > 6 h after it closed never opens a trade; filesnexa/NEXA/research/engfix/STALEGUARD_REPORT.md: compile 0/0, 12/12 regression runs, 147/147 stale rows flagged, 0 other rows changed; NEXA_DEFECT_MATRIX.md D46). Before: 10b62623… after D45 (preserved at build/pmfix_src/), d65090cc… post-safety-audit (preserved at build/pmfix_pre_source/); NEXA_PositionMgmt.mqh b98a49b5…; NEXA_Safety.mqh 843fc606…; research/reports/NEXA_PRELIVE_SAFETY_AUDIT_2026-09-29.md (compile 0/0, 29/29 primitives, 12/12 mutations); build/NEXA_EA.sha256",
+   "next_action": "Resolve open items S14–S15 (S11 fixed 2026-10-03 as D47, S12/D-TZ as D48, S13 as D50; see E-section)",
+   "dependency": "Human decisions"
+  },
+  {
+   "id": "B2",
+   "area": "MQL5 EA",
+   "component": "Deployment of current EA build to MT5 terminal",
+   "status": "BLOCKED",
+   "emoji": "🔴",
+   "evidence": "Terminal MQL5/Experts/Advisors/NEXA_EA.ex5 dated 2026-09-27 19:38 (f0ae9618…) and deployed NEXA_Risk.mqh 11,846 B (pre-fix; repo 17,273 B) — STALE build; S15 in safety audit. The verified current build build/NEXA_EA_S13.ex5 (dec57013…, D45 + D46 + S11 + D-TZ + C4 + S13, compile 0/0) exists and is NOT deployed (earlier builds NEXA_EA_C4.ex5 149aa0b1…, NEXA_EA_DTZ.ex5 53439394…, NEXA_EA_S11.ex5 7d37dc7d…, NEXA_EA_STALE.ex5 fd2fe06e… and NEXA_EA_PMFIX.ex5 28e8d925… are superseded)",
+   "next_action": "Do not deploy until risk/safety decisions are made; then redeploy + multi-chart demo forward check",
+   "dependency": "Human deployment approval (S11 and D-TZ fixed 2026-10-03; B-EXPOSURE-CAP decided 2026-10-03: no change; C4 and S13 fixed 2026-10-03/04; remaining policy item E3 (S14 deviation) is an open decision)"
+  },
+  {
+   "id": "C1",
+   "area": "Risk Engine",
+   "component": "NEXA_Risk.mqh (1% / 2% daily / 10% DD / 10 trades / spread ≤15% ATR / caps)",
+   "status": "FROZEN",
+   "emoji": "⚫",
+   "evidence": "sha a43d8328… = approved hash since 2026-10-03 (C4 pre-trade daily-loss budget appended, human-authorised; before: 1f684cde… after S11, 7fd5692a… after the 2026-09-29 correlation fix; pre-change copies build/c4_pre_source/, build/s11_pre_source/); hard-risk limits and defaults unchanged; test_nexa_mql5_invariants.py pins all three approved blocks; NEXA_RISK_CORRELATION_CAP_SAFETY_FIX.md (M1 fixed, fail-closed)",
+   "next_action": "Any change only with explicit human authorisation",
+   "dependency": "Human"
+  },
+  {
+   "id": "C2",
+   "area": "Risk Engine",
+   "component": "S11 NetCurrencyExposure skips unreadable positions (fail-open)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "FIXED 2026-10-03 (human-approved option A, frozen file): an unreadable position or currency spec now blocks with EXPOSURE_POSITION_UNREADABLE / EXPOSURE_CAP_INVALID_SPEC; NEXA_Risk.mqh 1f684cde…; build/NEXA_EA_S11.ex5 7d37dc7d… (compile 0/0, NOT deployed); regression 12/12 runs, 995,400 rows identical, 281 cap blocks identical; correlation harness re-run identical (18/18); filesnexa/NEXA/research/engfix/S11_REPORT.md; NEXA_DEFECT_MATRIX.md D47 (was NEXA_PRELIVE_SAFETY_AUDIT_2026-09-29.md S11)",
+   "next_action": "Ships with the next approved deployment (B2); no separate action",
+   "dependency": "Deployment decision (B2)"
+  },
+  {
+   "id": "C3",
+   "area": "Risk Engine",
+   "component": "B-EXPOSURE-CAP: InpMaxSameCurrencyNet=2 min-lots (0.02 lots) blocks trading above ~$1.3k",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "DECIDED. Cause: pepperstone/PEPPERSTONE_FINAL_AUDIT.md §S1/§T (3,927,131 decisions → 1 trade). Human chose option B (2026-10-02): tester-only cap-neutral campaign, cap inert, every other control frozen; 48/48 runs verified (2026-10-03). Result (filesnexa/NEXA/research/capneutral/CAPNEUTRAL_RESEARCH_RESULTS.md): Gate 8 NEGATIVE_EXPECTANCY: net −0.318R/trade, 95 % CI [−0.384, −0.250], n = 1,902; gross −0.072R before commission; every symbol negative (XAUUSD inconclusive). Decision: production cap UNCHANGED — a change is not justified without an edge",
+   "next_action": "Keep the production cap at 2; revisit only if a future, properly validated edge appears (then option C: risk-counted cap, separately approved)",
+   "dependency": "—"
+  },
+  {
+   "id": "C4",
+   "area": "Risk Engine",
+   "component": "D-DAYLOSS-TRIGGER: 2% is a halt trigger, realised day loss can reach ≈2.97%",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "FIXED 2026-10-03 (human-approved option B, frozen file): pre-trade budget E_now − OpenRisk(all open positions to their stops) − NewRisk ≥ 0.98 × DailyStartEquity, checked inside the portfolio lock; halt trigger kept; fail-closed on unreadable state; NEXA_Risk.mqh a43d8328…, NEXA_EA.mq5 4ef7de88…, build/NEXA_EA_C4.ex5 149aa0b1… (compile 0/0, NOT deployed); harness 9/9; production-input regression 12/12 byte-identical (gate never bound at $200); research-config pairs 34/34 refusals justified, days beyond −2 % 5 → 2, worst day −2.42 % → −2.01 % (residual = stop slippage); filesnexa/NEXA/research/engfix/C4_REPORT.md; NEXA_DEFECT_MATRIX.md D49 (was research/reports/NEXA_24_5_TRUTH_TABLE.md 2% row)",
+   "next_action": "Ships with the next approved deployment (B2); no separate action",
+   "dependency": "Deployment decision (B2)"
+  },
+  {
+   "id": "D1",
+   "area": "Intelligence Engine",
+   "component": "NEXA_Intelligence.mqh: ONNX seam, AI veto-only, fail-closed, news fail-closed (S7)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "NEXA_Intelligence.mqh sha 81641c4e… after S13 (2026-10-04: UsdCompositeDirection reads the basket by time; D50; was 18e3b30c… post-audit, copy build/s13_pre_source/); NEXA_ARCHITECTURE_GAP_AUDIT_2026.md (ML inference / ONNX rows)",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "D2",
+   "area": "Intelligence Engine",
+   "component": "Trained model / ONNX artifact / calibration (seam L1)",
+   "status": "BLOCKED",
+   "emoji": "🔴",
+   "evidence": "research/README.md ('No model trained'); AI_CalibrationId()='NONE'; PEPPERSTONE_FINAL_AUDIT.md §R; cap-neutral campaign 2026-10-03: Gate 8 NEGATIVE_EXPECTANCY: net −0.318R/trade, 95 % CI [−0.384, −0.250], n = 1,902 — a veto-only meta-model has no edge to protect",
+   "next_action": "Not warranted for the current rule set",
+   "dependency": "A rule set with a demonstrated edge (none)"
+  },
+  {
+   "id": "E1",
+   "area": "Research Engine",
+   "component": "Python research tier (ingest, parity, labels, validate, stats, robust, factory, model, time, calendar, execution, registry, causality)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "research/*.py; 628 tests passed + ruff clean (2026-10-04, after the S13 change; 620 after C4; 614 after D-TZ; 606 after S11; 600 after D46; 596 after B-PARITY-TOL; 591 after B-PARITY-EDGE; 590 after B-PARITY-LIQ; 587 after D45; 546 at the 2026-10-02 audit)",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "E2",
+   "area": "Execution Engine",
+   "component": "Live execution in EA (async, in-flight guard, retry re-validation, breached-stop recovery)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "NEXA_PRELIVE_SAFETY_AUDIT_2026-09-29.md S1–S10",
+   "next_action": "Optional: OrderCheck (M5), OnTester summary (M3)",
+   "dependency": "Engineering (unblocked)"
+  },
+  {
+   "id": "E5",
+   "area": "Execution Engine",
+   "component": "Position management D45 (D-PARTIAL-AFTER-BE): 1.5R partial close and 48-bar time exit were unreachable after breakeven",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "Fixed in source 2026-10-03: R vs the original initial risk RiskDist_<posId>; partial exactly once (deal history + pending close order + in-flight window); NEXA_PositionMgmt.mqh. Compile 0/0; harness 47/47; mutants 6/6 killed; pre/post regression 24 tester runs at production inputs (partials 0 → 52, sends = executions, 24/24 reconcile); filesnexa/NEXA/research/engfix/ENGINEERING_REPORT_D45.md; NEXA_DEFECT_MATRIX.md D45",
+   "next_action": "Ships with the next approved deployment (B2); no separate action",
+   "dependency": "Deployment decision (B2)"
+  },
+  {
+   "id": "E3",
+   "area": "Execution Engine",
+   "component": "S14 fixed deviation 20 points for every symbol",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "NEXA_PRELIVE_SAFETY_AUDIT S14",
+   "next_action": "Decide deviation policy (knowledge base H-DEVIATION-OPT needs fill logs)",
+   "dependency": "Human decision; fill logs"
+  },
+  {
+   "id": "E4",
+   "area": "Execution Engine",
+   "component": "Execution simulator nexa_execution.py — defect D-EXEC-ENTRYBAR (pessimistic STOP same-bar exit)",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "NEXA_8_ENGINE_RESULTS.md §1.1; runs_8e/gate_dev/entry_bar_exit_defect.txt; still pinned by V2. 8E closed 2026-10-02 with the defect disclosed and uncorrected (no 8E re-freeze needed any more)",
+   "next_action": "Fix before any FUTURE campaign that uses STOP entries is frozen (new code path or new pinned module); not time-critical",
+   "dependency": "Human approval; editing nexa_execution.py itself breaks the V2 code pins (V2 behaviour unaffected: MARKET/LIMIT only)"
+  },
+  {
+   "id": "F1",
+   "area": "Trade DNA",
+   "component": "Schema v1.0 journaling + ingest; real Pepperstone DNA (48 files, 3,927,134 rows, 0 ingest errors)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "PEPPERSTONE_FINAL_AUDIT.md §L; nexa_ingest.py; PEPPERSTONE_DNA_AUDIT.json",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "F2",
+   "area": "Trade DNA",
+   "component": "Labels / resolved episodes at scale (Gate 5/7)",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "Production config: 1 trade (PEPPERSTONE_FINAL_AUDIT.md §N–§R). Cap-neutral campaign 2026-10-03: 1,902 resolved trades (research config, implemented EA; data/pepperstone/tester_capneutral/); nexa_labels not run on them",
+   "next_action": "Label them only if a later research phase needs it",
+   "dependency": "Research-phase approval"
+  },
+  {
+   "id": "F3",
+   "area": "Trade DNA / Parity",
+   "component": "Feature parity MQL5 ⇄ Python oracle",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "PEPPERSTONE_FINAL_AUDIT.md §M (3 oracle defects fixed). B-PARITY-LIQ RESOLVED 2026-10-03 (research/reports/pepperstone/B_PARITY_LIQ_ROOT_CAUSE.md): 2 more oracle defects fixed (RC1 weekend Asia carry-over, RC2 last-day PDH/PDL; nexa_parity.py 6c58f6aa…), RC3 accepted as a floating-point tie; window B liqState mismatches 0.51–0.84 % → 0 on all 4 symbols. B-PARITY-EDGE RESOLVED 2026-10-03 (same report): EDGE-1 oracle decision clock after tick gaps fixed (nexa_parity.py 590c977e…; trend/htfAlignment → 0 on all 4 symbols), EDGE-2 accepted as a floating-point tie (1.20 displacement threshold). Window-B categorical mismatches are now accepted ties only. CONTRACT PASS 2026-10-03 under B-PARITY-TOL option A (F4): all 4 symbols, 112,688 rows, 0 mismatches, 47 accepted ties (research/reports/pepperstone/B_PARITY_TOL_VERIFY_WINDOW_B.json f02aa017…; nexa_parity.py a4bf9f93…). Scope: window B only (the only real-tick full-parity window). Re-run 2026-10-03 after D-TZ (DST-aware EA clock + oracle mirror nexa_parity.py 728c4631…): PASS on all 4 symbols, 0 mismatches, 47/47 ties matched (research/reports/pepperstone/B_PARITY_DTZ_VERIFY_WINDOW_B.json 58952feb…); the stored report still shows the pre-D-TZ PASS. Re-run 2026-10-04 after S13 (f29 time-aligned and now COMPARED, nexa_parity.py d938a078…): PASS on all 4 symbols with 44 features compared (was 43), f29 0 mismatches, 47/47 ties (research/reports/pepperstone/B_PARITY_S13_VERIFY_WINDOW_B.json 39cbd88e…); exempt now only obiProxy, cvdProxy, liqOrigin, newsRiskActive",
+   "next_action": "Stored window-B reports replaced 2026-10-03 (human-approved): research/reports/pepperstone/PEPPERSTONE_PARITY_FULL_B.json = the PASS result (f02aa017…, provenance file alongside); pre-fix FAIL reports kept as SUPERSEDED_*_pre_parity_fixes_2026-10-03.*. Next: review new ties before any new window is added to the register",
+   "dependency": "—"
+  },
+  {
+   "id": "F4",
+   "area": "Trade DNA / Parity",
+   "component": "B-PARITY-TOL: contract tolerance (1e-9) tighter than journal precision",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "PEPPERSTONE_FINAL_AUDIT.md §S3; also holds the accepted window-B floating-point ties (2026-10-03, research/reports/pepperstone/B_PARITY_LIQ_ROOT_CAUSE.md): RC3 18 GBPUSD rows (exact 2.5-ATR tie) and EDGE-2 8 rows + 3 dependent MSS rows (exact 1.20 displacement tie). DECIDED 2026-10-03 (human, option A): continuous abs ≤ 0.5e-6 + |mql5|·2⁻²³ (journal 6-decimal + float32 quantisation) added to the 1e-9 / 1e-6 rule; categorical exact except the reviewed register research/parity_accepted_ties.json (47 entries, e92a8866…; exact symbol/bar/feature/values match only). README_PARITY.md §Tolerance updated",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "G1",
+   "area": "Strategy Factory",
+   "component": "Frozen-protocol factory (Axiory XAUUSD H1; Pepperstone H1 ×5)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "nexa_factory*.py; reports/FACTORY_XAUUSD_H1.md; pepperstone/FACTORY_PEPPERSTONE_H1.md",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "G2",
+   "area": "Strategy Factory",
+   "component": "Factory results: 0/25 families pass; TrendLock synthesis = drift; MR & Camarilla negative",
+   "status": "REJECTED",
+   "emoji": "❌",
+   "evidence": "pepperstone/PEPPERSTONE_FINAL_AUDIT.md §O/§Q; PROGRESS.md finding 3",
+   "next_action": "No re-tuning; new families only via new frozen campaigns",
+   "dependency": "—"
+  },
+  {
+   "id": "H1",
+   "area": "Learning / validation",
+   "component": "Gate 8 stats, Gate 12 robust (BH-FDR, PSR/DSR, PBO, WF), Gate 9 meta-label code",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "nexa_stats.py, nexa_robust.py, nexa_model.py + tests (in the 546)",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "H2",
+   "area": "Learning / validation",
+   "component": "Gate 8/9/11/12 applied to NEXA itself",
+   "status": "REJECTED",
+   "emoji": "❌",
+   "evidence": "Gate 8 run 2026-10-03 on the cap-neutral campaign (filesnexa/NEXA/research/capneutral/CAPNEUTRAL_RESEARCH_RESULTS.md): Gate 8 NEGATIVE_EXPECTANCY: net −0.318R/trade, 95 % CI [−0.384, −0.250], n = 1,902 (PRELIMINARY: not out-of-sample). Gates 9/11/12 not run: there is no edge to filter or validate",
+   "next_action": "No Gate 9/12 work on the current rule set; any new rule set needs its own frozen campaign",
+   "dependency": "—"
+  },
+  {
+   "id": "I1",
+   "area": "Data infrastructure",
+   "component": "Pepperstone M1 2017-06→2026-09 (5 symbols), D1 2000→2026 (core + 91 FX), MT5 calendar export, nexa_time (NY+7, US DST), canonical M1",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "data/pepperstone (4.4 GB); INFRASTRUCTURE_READINESS_PHASE2.md; TIME_CONVENTION_EVIDENCE.json; NEXA_8_ENGINE_SPECIFICATION.md §0",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "I2",
+   "area": "Data infrastructure",
+   "component": "Real tick history",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "Only 2026-08-28 → 2026-09-25 (21 days) quote-only ticks (8E spec §0); NEXA_TickLogger.mq5 exists, not running (MT5 not running)",
+   "next_action": "Start post-freeze tick logging (needs terminal running, read-only)",
+   "dependency": "Human approval to run terminal logger; disk space (7.2 GiB free)"
+  },
+  {
+   "id": "I3",
+   "area": "Data infrastructure",
+   "component": "NAS100 history",
+   "status": "BLOCKED",
+   "emoji": "🔴",
+   "evidence": "NEXA_24_5_TRUTH_TABLE.md (DATA-LIMITED); registry_8e E8_NAS100 BLOCKED",
+   "next_action": "Decide whether to download NAS100 history",
+   "dependency": "Human data decision (no broad downloads rule)"
+  },
+  {
+   "id": "I4",
+   "area": "Data infrastructure",
+   "component": "Depth/volume/aggressor data, historical swaps, second synchronous feed",
+   "status": "BLOCKED",
+   "emoji": "🔴",
+   "evidence": "8E spec §0 (no DOM, no volume, no aggressor); NEXA_FUTURE_RESEARCH_BACKLOG.md B9 (no historical swaps); V2 F4/F6 BLOCKED",
+   "next_action": "None possible at this broker; F4 needs a second broker login",
+   "dependency": "External data / second broker (human)"
+  },
+  {
+   "id": "J1",
+   "area": "MT5 / Pepperstone",
+   "component": "Pepperstone-Demo 61603218 read-only integration; compile via tools/compile_mql5.sh; tester batch + verify",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "PEPPERSTONE_FINAL_AUDIT.md §A–§G; tools/*.sh; research/nexa_tester_verify.py; 48/48 chunks verified",
+   "next_action": "Known: ~25% random tester deaths (B-TERMINAL), 8 GB RAM, 7.2 GiB disk free",
+   "dependency": "—"
+  },
+  {
+   "id": "J2",
+   "area": "MCP",
+   "component": "meta-trader-mcp (read-only data/market access)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "Used read-only throughout; PROGRESS.md D-BRIDGE-COMPILE: MCP compile_ea cannot compile multi-file EAs (use tools/compile_mql5.sh); no MCP code in repo",
+   "next_action": "Keep read-only; never enable trading tools",
+   "dependency": "—"
+  },
+  {
+   "id": "K1",
+   "area": "V2 research",
+   "component": "PHASE3_SIX_FAMILIES_V2 (F1, F2, F3, F5 ACTIVE; 1,632 trials; DSR 1,740; 17 primary tests)",
+   "status": "FROZEN",
+   "emoji": "⚫",
+   "evidence": "research/registry_v2: ANCHOR 6090be68…; ledger 7 events, head seq 6 bbd9a28e… (verified today), no EVALUATION_OPENED; witness file present; V2_OPENING_CHECKLIST.md",
+   "next_action": "Human: explicit 'OPEN V2' (checkpoint taken from the off-machine record, Q4); then DEV/VAL; seal selection before 2027-01-04; score OOS once after 2028-01-03",
+   "dependency": "Human approval; republish the off-machine record after every V2 event"
+  },
+  {
+   "id": "K2",
+   "area": "V2 research",
+   "component": "V2 families F4 cross-feed latency, F6 tick quote imbalance",
+   "status": "BLOCKED",
+   "emoji": "🔴",
+   "evidence": "registry_v2/campaign.json (status BLOCKED)",
+   "next_action": "—",
+   "dependency": "Second synchronous feed (F4); measurable order flow (F6)"
+  },
+  {
+   "id": "K3",
+   "area": "V2 research",
+   "component": "PHASE3_SIX_FAMILIES_V1",
+   "status": "REJECTED",
+   "emoji": "❌",
+   "evidence": "research/registry/ledger.jsonl seq 8 CAMPAIGN_REJECTED",
+   "next_action": "Never open",
+   "dependency": "—"
+  },
+  {
+   "id": "K4",
+   "area": "V2 research",
+   "component": "Superseded V2 freezes 27b3463f, f2dc4ffb, faac4c86, 88b7688b",
+   "status": "FROZEN",
+   "emoji": "⚫",
+   "evidence": "registry_v2_superseded_* (+ .SUPERSEDED.txt)",
+   "next_action": "Never open",
+   "dependency": "—"
+  },
+  {
+   "id": "L1",
+   "area": "8-engine research",
+   "component": "RESEARCH_8E_V1 (E8_STACK, E8_THRESH; 2,160 trials): DEV → VAL → pinned selection → formally CLOSED (no edge)",
+   "status": "REJECTED",
+   "emoji": "❌",
+   "evidence": "research/registry_8e ledger (human-approved Route A, 2026-10-02): 2,160 single-query VAL results (seq 4–2163, head d838e2d6…); 6 OOS_SELECTED (seq 2164–2169, head 80eacbd8…); CAMPAIGN_REJECTED seq 2170 9f7249a2… (terminal, re-verified). PRELIMINARY VALIDATION / SEEN DATA: 0/11 DEV-positive trials replicated; 15/1,787 eligible trials with VAL lower bound > 0 (all XAUUSD close_next_open, mostly nested qb_0.995); no pick passes DSR (max 0.076 vs 0.95); both XAU picks untradeable at $200 (below min lot); +24.5 %/day target-hit rate 0. runs_8e/selection.json, selected_analysis.json, stack.csv, info_summary.csv",
+   "next_action": "None: terminal, never reopen. Any follow-up idea (e.g. XAU quote-burst) only as a hypothesis for a NEW, properly frozen campaign",
+   "dependency": "—"
+  },
+  {
+   "id": "L2",
+   "area": "8-engine research",
+   "component": "8E DEV verdicts: Donchian CONTRADICTED; TD veto CONTRADICTED; OFI proxy FAILED; Squeeze/EMA200 UNPROVEN; MACD/VEI PROMISING (information only)",
+   "status": "REJECTED",
+   "emoji": "❌",
+   "evidence": "NEXA_24_5_TRUTH_TABLE.md; NEXA_8_ENGINE_RESULTS.md §2–§3; VAL 2026-10-02: 0/11 DEV-positive trials replicated, every stacked layer net-negative on VAL (runs_8e/stack.csv)",
+   "next_action": "No engine is net-positive alone; full stack ≈5 trades/5 yrs (NOT TESTABLE). Final with the 8E close",
+   "dependency": "—"
+  },
+  {
+   "id": "L3",
+   "area": "8-engine research",
+   "component": "E8_NAS100",
+   "status": "REJECTED",
+   "emoji": "❌",
+   "evidence": "registry_8e campaign.json (BLOCKED, never evaluated); closed with the campaign at seq 2170",
+   "next_action": "None: any NAS100 test needs a new frozen campaign",
+   "dependency": "NAS100 data (I3) for any future campaign"
+  },
+  {
+   "id": "L4",
+   "area": "8-engine research",
+   "component": "Accidental freeze c472d69f; superseded 834473f0",
+   "status": "FROZEN",
+   "emoji": "⚫",
+   "evidence": "registry_8e_ACCIDENTAL_c472d69f(.ACCIDENTAL.txt); registry_8e_superseded_834473f0",
+   "next_action": "Never open",
+   "dependency": "—"
+  },
+  {
+   "id": "M1",
+   "area": "Capital Velocity",
+   "component": "+24.5%/day objective",
+   "status": "REJECTED",
+   "emoji": "❌",
+   "evidence": "NEXA_24_5_TRUTH_TABLE.md: CONTRADICTED on DEV (0 target days in 1,774 streams); $200 XAU/NAS100 infeasible; 10-pip TP XAU unreachable. Cap-neutral campaign 2026-10-03: CONTRADICTED again for the tested configuration (0 of 3,125 symbol-days; best day +3.15 %; implemented ceiling +12.67 %/day under the frozen controls)",
+   "next_action": "Do not pursue as an objective; keep math as a constraint",
+   "dependency": "—"
+  },
+  {
+   "id": "M2",
+   "area": "Capital Velocity",
+   "component": "Capital-velocity simulator + exact feasibility math (research only)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "NEXA_CAPITAL_VELOCITY_DESIGN.md; nexa_8e_capital.py, nexa_8e_feasibility.py; test_nexa_capital_velocity.py",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "N1",
+   "area": "Research corpus",
+   "component": "39 PDFs (38 distinct works) fully studied",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "AL:research/knowledge/_PROCESSING_LOG.md (39 DONE); AL:research/knowledge/CORPUS_MANIFEST.json",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "N2",
+   "area": "Knowledge base",
+   "component": "Master KB, source map, evidence map, contradictions, failed ideas, knowledge graph",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "AL:research/knowledge/NEXA_RESEARCH_KNOWLEDGE_BASE.md (+ 10 files, 39 source notes)",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "N3",
+   "area": "Knowledge base",
+   "component": "205-indicator research library",
+   "status": "NOT FOUND",
+   "emoji": "⚪",
+   "evidence": "No file in AL: or filesnexa/NEXA, nor in ~/Documents, ~/Desktop, ~/Downloads, references a 205-indicator library (searched 2026-10-02)",
+   "next_action": "User to supply location; until then it cannot be counted",
+   "dependency": "User input"
+  },
+  {
+   "id": "N4",
+   "area": "Knowledge base",
+   "component": "Mathematical knowledge base",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "AL:research/knowledge/MATHEMATICAL_KNOWLEDGE_BASE.md (§A–§M)",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "N5",
+   "area": "Knowledge base",
+   "component": "Statistical knowledge base",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "AL:research/knowledge/STATISTICAL_KNOWLEDGE_BASE.md (L1–L15)",
+   "next_action": "—",
+   "dependency": "—"
+  },
+  {
+   "id": "N6",
+   "area": "Research hypotheses",
+   "component": "40 hypotheses (13 fields each) — documented, none tested",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "AL:research/knowledge/RESEARCH_HYPOTHESIS_BACKLOG.md; filesnexa/NEXA/research/reports/NEXA_FUTURE_RESEARCH_BACKLOG.md (B1–B12)",
+   "next_action": "Approve a research phase; start with method gates + volatility layer",
+   "dependency": "Human approval; new frozen protocols"
+  },
+  {
+   "id": "O1",
+   "area": "Testing infrastructure",
+   "component": "pytest suite + ruff + MQL5 invariants/safety tests + V2 adversarial suite (70/70) + tester verify",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "628 passed, ruff clean (2026-10-04, incl. 9 D45 tests, 9 parity-oracle tests from B-PARITY-LIQ/EDGE/TOL, 4 D46 tests, 6 S11 tests, 8 D-TZ tests, 6 C4 tests and 8 S13 tests; 587 after D45; 546 at the 2026-10-02 audit); test_nexa_mql5_invariants.py; test_nexa_position_mgmt_fix.py; test_nexa_stale_bar_guard.py; test_nexa_risk_s11_exposure.py; test_nexa_dtz_clock.py; test_nexa_risk_c4_budget.py; test_nexa_s13_usd_composite.py; test_nexa_mql5_safety.py; reports/adversarial_v2_final",
+   "next_action": "Note: safety/parity tests pin tester evidence that goes stale if MQL5 sources change",
+   "dependency": "—"
+  },
+  {
+   "id": "P1",
+   "area": "Production readiness",
+   "component": "Promotion state",
+   "status": "BLOCKED",
+   "emoji": "🔴",
+   "evidence": "NEXA_BUILD_MANIFEST.json promotion_state RESEARCH_ONLY; PROGRESS.md 'No model. No demonstrated edge.'",
+   "next_action": "Nothing to promote; requires a validated edge + model + shadow mode + promotion gate",
+   "dependency": "Demonstrated edge (none; cap-neutral Gate 8 NEGATIVE_EXPECTANCY 2026-10-03), D2, safety decisions"
+  },
+  {
+   "id": "Q1",
+   "area": "Engineering safety",
+   "component": "D-TZ fixed InpGMTOffset=2 (wrong during US DST)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "FIXED 2026-10-03 (human-approved option A): NEXA_Common.mqh bbf22ee9… adds +1 h inside US DST (same explicit rule as nexa_time.py; InpGMTOffset = standard-time offset; no input added); oracle mirror nexa_parity.py 728c4631…; build/NEXA_EA_DTZ.ex5 53439394… (compile 0/0, NOT deployed); compiled clock = nexa_time on 271,690/271,690 hours 2000–2030; 980,197 journalled session tags = true clock (0 mismatches); window-B parity PASS on all 4 symbols; filesnexa/NEXA/research/engfix/DTZ_REPORT.md; NEXA_DEFECT_MATRIX.md D48 (was NEXA_PRELIVE_SAFETY_AUDIT S12). Changes frozen feature VALUES in US-DST months: earlier NEXA evidence (Gate 8, D45/D46/S11 regressions, stored parity report) used the old fixed clock",
+   "next_action": "Ships with the next approved deployment (B2); no separate action",
+   "dependency": "Deployment decision (B2)"
+  },
+  {
+   "id": "Q2",
+   "area": "Engineering safety",
+   "component": "S13 UsdComposite reads other symbols by shift (no time alignment)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "FIXED 2026-10-04 (human-approved option B): UsdCompositeDirection reads each basket symbol by TIME (CopyRates; last bar at or before the decision bar and 10 bars earlier; stale / degenerate symbols skipped); vote rule unchanged; NEXA_Intelligence.mqh 81641c4e…; build/NEXA_EA_S13.ex5 dec57013… (compile 0/0, NOT deployed); regression 12/12 windows: 995,081 rows, 0 differ outside f29 (trading identical), f29 changed on 15.05 % of decisions; f29 now parity-COMPARED: window B PASS, 44 features; filesnexa/NEXA/research/engfix/S13_REPORT.md; NEXA_DEFECT_MATRIX.md D50 (was NEXA_PRELIVE_SAFETY_AUDIT S13)",
+   "next_action": "Ships with the next approved deployment (B2); existing journals keep the old positional f29",
+   "dependency": "Deployment decision (B2)"
+  },
+  {
+   "id": "Q3",
+   "area": "Engineering safety",
+   "component": "Multi-instance lock contention & requote/freeze-level paths untested in tester",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "NEXA_PRELIVE_SAFETY_AUDIT ('Not verifiable in the tester')",
+   "next_action": "Multi-chart demo forward check",
+   "dependency": "Human approval; B2 deployment"
+  },
+  {
+   "id": "Q4",
+   "area": "Engineering safety",
+   "component": "Off-machine publication of V2/8E anchors and heads (R1 residual)",
+   "status": "COMPLETE",
+   "emoji": "🟢",
+   "evidence": "Published 2026-10-02 as the private claude.ai record NEXA Registry Checkpoints (https://claude.ai/artifact/6o1hnw9docUUW48gZ5Wf59, version 1, server-side version history): V2 anchor 6090be68… + full ledger, head seq 6 bbd9a28e…; 8E anchor 6468fdea…, heads seq 3, 2163, 2169, 2170 9f7249a2…; all 19 hashes verified against the ledgers and witness files before publishing. Earlier copy: the 2026-10-02 conversation transcript. Limit: no independent copy of the 8E seq-3 head exists from before 2026-10-01",
+   "next_action": "Republish the record (same URL) after every new V2 event, and take every future checkpoint from it, never from the local ledger. Optional second independent copy: email to self or signed Git tag",
+   "dependency": "—"
+  },
+  {
+   "id": "Q5",
+   "area": "Engineering safety",
+   "component": "Documentation drift",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "V2_OPENING_CHECKLIST.md §B still expects NEXA_Risk = e706d453 (now a43d8328, approved: correlation fix 2026-09-29 + S11 + C4 2026-10-03); NEXA_BUILD_MANIFEST.json top-level fields dated 2026-09-20 ('No dataset exists')",
+   "next_action": "Update the two NON-pinned docs (checklist is not in the V2 pin set — verified)",
+   "dependency": "Human approval to edit docs"
+  },
+  {
+   "id": "Q6",
+   "area": "Engineering safety",
+   "component": "D-M1-GAPS (intraday M1 gaps in DEV)",
+   "status": "PENDING",
+   "emoji": "🟡",
+   "evidence": "PROGRESS.md 2026-10-01; runs_8e/m1_gap_audit.txt",
+   "next_action": "Document handling; sensitivity shows no sign change",
+   "dependency": "—"
+  }
+ ],
+ "recommended_order": [
+  {
+   "step": "0",
+   "title": "✅ DONE 2026-10-02 (8E)",
+   "action": "RESEARCH_8E_V1: Route A approved and run (VAL 2,160 + pinned selection of 6 groups + analysis), then formally CLOSED as REJECTED at seq 2170 9f7249a2…. No edge found.",
+   "items": "L1, L2, L3",
+   "dependency": "—"
+  },
+  {
+   "step": "1",
+   "title": "✅ DONE 2026-10-02 (registry integrity)",
+   "action": "V2 anchor 6090be68… / head seq 6 bbd9a28e… and 8E anchor 6468fdea… / heads through seq 2170 9f7249a2… published off-machine as the private claude.ai record NEXA Registry Checkpoints (https://claude.ai/artifact/6o1hnw9docUUW48gZ5Wf59). Ongoing: republish after every new V2 event; optional email or signed Git tag copy.",
+   "items": "Q4",
+   "dependency": "—"
+  },
+  {
+   "step": "2",
+   "title": "✅ DONE 2026-10-03 (B-EXPOSURE-CAP)",
+   "action": "Option B run: tester-only cap-neutral campaign (48/48 runs verified). Gate 8 NEGATIVE_EXPECTANCY: net −0.318R/trade, 95 % CI [−0.384, −0.250], n = 1,902. Production cap UNCHANGED; a change is not justified.",
+   "items": "C3",
+   "dependency": "—"
+  },
+  {
+   "step": "3",
+   "title": "Other frozen-file / policy decisions",
+   "action": "S14 deviation; schema v1.1. (B-PARITY-TOL decided 2026-10-03: option A; S11 and D-TZ fixed 2026-10-03: option A; C4 fixed 2026-10-03: option B; S13 fixed 2026-10-04: option B.)",
+   "items": "E3, A1",
+   "dependency": "Human"
+  },
+  {
+   "step": "4",
+   "title": "Unblocked engineering",
+   "action": "Feature parity DONE 2026-10-03: B-PARITY-LIQ and B-PARITY-EDGE resolved (oracle RC1, RC2, EDGE-1 fixed; RC3 and EDGE-2 accepted ties) and B-PARITY-TOL decided (option A) → window-B contract PASS on all 4 symbols. Stored window-B parity reports replaced with the PASS result. The Friday-to-Monday evaluation found by EDGE-1 is fixed in source (D46 stale-bar guard). With approval, fix documentation drift (V2 checklist hash, build-manifest header).",
+   "items": "F3, Q5",
+   "dependency": "None (docs need approval)"
+  },
+  {
+   "step": "5",
+   "title": "Research method gates (research copies only)",
+   "action": "Apply KB hypotheses H-DELAY-PARITY, H-COST-SHRINK, H-SEARCH-DEFLATE, H-NOISE-OBJ, H-HIT-PROB to existing NEXA artefacts. No frozen file touched.",
+   "items": "N6",
+   "dependency": "Human approval of a research phase"
+  },
+  {
+   "step": "6",
+   "title": "V2 opening",
+   "action": "If approved: 'OPEN V2' → DEV/VAL per checklist → seal selection before 2027-01-04 → collect 2027 OOS → score once after 2028-01-03.",
+   "items": "K1",
+   "dependency": "Steps 1 + explicit human OPEN V2"
+  },
+  {
+   "step": "7",
+   "title": "✅ NEXA's own validation chain: Gate 8 DONE 2026-10-03",
+   "action": "The cap-neutral campaign produced 1,902 resolved trades; Gate 8 = NEGATIVE_EXPECTANCY. Gate 9 meta-label and calibration are not warranted for this rule set.",
+   "items": "F2, H2, D2",
+   "dependency": "—"
+  },
+  {
+   "step": "8",
+   "title": "Data",
+   "action": "Approve post-freeze tick logging (NEXA_TickLogger); decide NAS100 history; record execution logs once demo forward testing is approved.",
+   "items": "I2, I3",
+   "dependency": "Human approval; disk (7.2 GiB free)"
+  },
+  {
+   "step": "9",
+   "title": "Volatility / risk-layer research",
+   "action": "H-VOL-1..4, H-ROUGH-1, H-VR-SCALE, H-GAP-VOL, H-VAR-TRIGGER, H-TAIL-SIM on existing bars (strongest evidence prior).",
+   "items": "N6",
+   "dependency": "Step 5 gates"
+  },
+  {
+   "step": "10",
+   "title": "Deployment and forward check",
+   "action": "Redeploy current verified build (now incl. the D45 position-management fix, the D46 stale-bar guard, the S11 exposure fail-closed fix, the D-TZ DST-aware clock, the C4 daily-loss budget and the S13 time-aligned USD composite; build/NEXA_EA_S13.ex5 dec57013…); multi-chart demo forward check (lock contention, requotes, freeze levels).",
+   "items": "B2, Q3",
+   "dependency": "Step 3 decided; human deployment approval"
+  },
+  {
+   "step": "11",
+   "title": "Production",
+   "action": "Only after a PASS_CANDIDATE (V2 OOS 2028) or other validated edge: tester replica → shadow mode → promotion gate, NEXA_Risk unchanged.",
+   "items": "P1",
+   "dependency": "All of the above"
+  }
+ ],
+ "definition_of_done": [
+  {
+   "criterion": "A frozen campaign yields a PASS_CANDIDATE on its prospective OOS (no re-tuning)",
+   "current": "Not yet — V2 OOS cannot be scored before 2028-01-03; 8E REJECTED 2026-10-02 (no pick passes DSR on VAL); factory 0 survivors"
+  },
+  {
+   "criterion": "The candidate is replicated in the MT5 Strategy Tester with the live EA (parity within an approved tolerance)",
+   "current": "Not yet — no candidate exists. The parity half is met: window-B contract PASS on all 4 symbols under the approved tolerance (2026-10-03)"
+  },
+  {
+   "criterion": "NEXA itself produces ≥200 resolved trades → labels → Gate 8 stats pass (expectancy CI > 0 after stress costs, DSR/PBO)",
+   "current": "No — the cap-neutral campaign produced 1,902 resolved trades (2026-10-03) and Gate 8 returned NEGATIVE_EXPECTANCY (−0.318R/trade)"
+  },
+  {
+   "criterion": "Optional ML: a veto-only meta-label beats a random-veto null OOS; calibrated (Brier skill > 0)",
+   "current": "Not yet — no model"
+  },
+  {
+   "criterion": "All engineering safety items resolved or explicitly accepted (S11, D-TZ, S13, S14, D-DAYLOSS-TRIGGER, D-EXEC-ENTRYBAR)",
+   "current": "Not yet — S11, D-TZ, D-DAYLOSS-TRIGGER (C4) and S13 fixed in source 2026-10-03/04 (human-approved, D47–D50); S14 still open, human decision (D-EXEC-ENTRYBAR no longer blocks 8E, which is closed; still open for future STOP-entry campaigns). D45 position-management defect and D46 stale-bar evaluation fixed in source 2026-10-03 (not deployed)"
+  },
+  {
+   "criterion": "NEXA_Risk.mqh limits unchanged except by explicit human authorisation; invariant tests green",
+   "current": "Yes, currently: limits and defaults unchanged; NEXA_Risk.mqh changed only by human-authorised fixes (now a43d8328 after S11 and C4, 2026-10-03); 628 tests pass"
+  },
+  {
+   "criterion": "Current verified build deployed; multi-chart demo forward check passed; execution logs recorded",
+   "current": "Not yet — terminal runs the stale 2026-09-27 build"
+  },
+  {
+   "criterion": "Shadow mode + promotion gate passed; promotion state moves from RESEARCH_ONLY",
+   "current": "Not yet — RESEARCH_ONLY"
+  },
+  {
+   "criterion": "Monitoring / strategy-retirement rule pre-declared (backlog B11)",
+   "current": "Not yet"
+  },
+  {
+   "criterion": "Registry anchors and heads published off-machine; evidence reproducible",
+   "current": "Yes, as of 2026-10-02 (claude.ai record https://claude.ai/artifact/6o1hnw9docUUW48gZ5Wf59); must be republished after every new V2 event"
+  }
+ ]
+}

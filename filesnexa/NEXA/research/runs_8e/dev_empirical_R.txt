@@ -1,0 +1,45 @@
+DEV 2018-2022, baseline Donchian (L0), non-overlapping trades, NET of spread/commission/slippage/swap:
+sym                       EURUSD     GBPUSD     XAUUSD
+trades            min    881.000    900.000    812.000
+                  max  14089.000  14356.000  13650.000
+exp               min     -0.769     -0.731     -0.716
+                  max     -0.130     -0.059     -0.118
+p95               min      1.912      1.934      1.925
+                  max      4.929      4.957      4.924
+max               min      3.009      3.274      2.390
+                  max      8.831     16.900     27.232
+mfe_p99           min      3.908      3.989      4.379
+                  max      7.075      7.305      7.457
+mfe_max           min      6.669      8.817      6.475
+                  max     12.603     51.916     32.899
+share_mfe_ge_24_5 min      0.000      0.000      0.000
+                  max      0.000      0.000      0.000
+day_R_max         min      5.797      7.538      6.532
+                  max     16.240     18.238     29.139
+day_R_p99         min      3.883      3.932      3.223
+                  max      9.511     11.196     11.199
+share_day_ge_24_5 min      0.000      0.000      0.000
+                  max      0.000      0.000      0.001
+trades_per_day    min      1.264      1.269      1.251
+                  max      9.643      9.813      9.722
+
+net R per trade is capped by the frozen exit grid: max observed 27.232 (target k in {2,3,5})
+best single-day aggregate net R in ANY baseline config (DEV): 29.14 | configs with any day >= 24.5R: 2 of 72
+
+all 2160 DEV trials: share with positive net expectancy: 0.095 | with >=200 trades and exp>0: 36
+        count   mean    std    min    25%    50%    75%    max
+symbol                                                        
+EURUSD  684.0 -0.315  0.306 -1.116 -0.526 -0.269 -0.112  0.599
+GBPUSD  672.0 -0.304  0.287 -1.335 -0.444 -0.281 -0.107  0.460
+XAUUSD  660.0 -0.264  0.237 -1.029 -0.456 -0.221 -0.115  0.357
+
+top DEV trials (n>=30; exploration only, NOT a selection):
+       symbol   tf  dc_n       entry_mode  target_r    variant    n  exp_net_r  win_rate  lower
+1766  GBPUSD   H1    55  close_next_open         3    vei_1.3   47      0.432     0.404  0.018
+1856  GBPUSD   H1    55  close_next_open         5    vei_1.3   40      0.422     0.350 -0.107
+376   EURUSD  M15    20  stop_at_channel         3     L5_ofi   66      0.392     0.379 -0.005
+1796  GBPUSD   H1    55  close_next_open         3    qb_0.99  100      0.389     0.400  0.092
+375   XAUUSD  M15    20  stop_at_channel         3     L5_ofi   52      0.357     0.404 -0.049
+778   EURUSD   H1    55  close_next_open         5     L4_mom   48      0.356     0.333 -0.173
+1048  EURUSD   H1    55  stop_at_channel         5     L4_mom   37      0.344     0.297 -0.266
+775   EURUSD   H1    55  close_next_open         5  L3_ema200   50      0.334     0.340 -0.155

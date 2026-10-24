@@ -1,0 +1,4 @@
+run=REG_S11_GBPUSD_A2025Q1
+start=2026-10-03 21:05:12
+end=2026-10-03 21:05:57
+expert=NEXA_EngFix\NEXA_EA_S11 symbol=GBPUSD period=M1 model=0 from=2025.01.01 to=2025.04.01 deposit=200 leverage=200 delay=250

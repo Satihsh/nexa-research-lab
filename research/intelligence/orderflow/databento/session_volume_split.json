@@ -1,0 +1,23 @@
+{
+ "sessions": 257,
+ "volume_share_median": {
+  "Asia": 0.138,
+  "London": 0.267,
+  "NY": 0.584
+ },
+ "volume_share_p5": {
+  "Asia": 0.086,
+  "London": 0.179,
+  "NY": 0.458
+ },
+ "volume_share_p95": {
+  "Asia": 0.224,
+  "London": 0.362,
+  "NY": 0.713
+ },
+ "total_share": {
+  "Asia": 0.144,
+  "London": 0.267,
+  "NY": 0.589
+ }
+}

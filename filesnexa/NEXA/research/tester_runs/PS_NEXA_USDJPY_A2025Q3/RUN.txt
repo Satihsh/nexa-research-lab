@@ -1,0 +1,4 @@
+run=PS_NEXA_USDJPY_A2025Q3
+start=2026-09-27 18:43:48
+end=2026-09-27 18:44:54
+expert=Advisors\NEXA_EA symbol=USDJPY period=M1 model=0 from=2025.07.01 to=2025.10.01 deposit=50000 leverage=200 delay=250

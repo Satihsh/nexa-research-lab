@@ -1,0 +1,4 @@
+run=PS_BARS_GBPUSD_A2025Q4
+start=2026-09-27 19:28:11
+end=2026-09-27 19:28:37
+expert=Advisors\NEXA_BarExport symbol=GBPUSD period=M1 model=0 from=2025.10.01 to=2026.01.01 deposit=50000 leverage=200 delay=250

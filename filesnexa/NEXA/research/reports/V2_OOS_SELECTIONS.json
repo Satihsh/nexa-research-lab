@@ -1,0 +1,162 @@
+{
+ "sealed_utc": "2026-10-11T23:50:07.573753+00:00",
+ "selections": [
+  {
+   "group": [
+    "F1_MACRO_EVENT",
+    "H1b_direction",
+    "EURUSD"
+   ],
+   "trial_id": "6f648b80abf49dec4596",
+   "seq": 11432
+  },
+  {
+   "group": [
+    "F1_MACRO_EVENT",
+    "H1b_direction",
+    "GBPUSD"
+   ],
+   "trial_id": "9b095334a9d0c591ee8f",
+   "seq": 11433
+  },
+  {
+   "group": [
+    "F1_MACRO_EVENT",
+    "H1b_direction",
+    "USDJPY"
+   ],
+   "trial_id": "b4bd68ad9bd91daffbc3",
+   "seq": 11434
+  },
+  {
+   "group": [
+    "F1_MACRO_EVENT",
+    "H1b_direction",
+    "XAUUSD"
+   ],
+   "trial_id": "c66a69f5fe49e4563194",
+   "seq": 11435
+  },
+  {
+   "group": [
+    "F2_XAU_SESSION_BREAKOUT",
+    "continuation",
+    "XAUUSD"
+   ],
+   "trial_id": "a9e087389af0b20041e2",
+   "seq": 11436
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3a_revisit",
+    "EURUSD"
+   ],
+   "trial_id": "8618d751886e4f68e5fb",
+   "seq": 11437
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3a_revisit",
+    "GBPUSD"
+   ],
+   "trial_id": "f3bb7e03c5db13d0a29f",
+   "seq": 11438
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3a_revisit",
+    "USDJPY"
+   ],
+   "trial_id": "6f8ef83c21675ed192d2",
+   "seq": 11439
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3a_revisit",
+    "XAUUSD"
+   ],
+   "trial_id": "18f9e0164915e5760b3b",
+   "seq": 11440
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3b_limit_expectancy",
+    "EURUSD"
+   ],
+   "trial_id": "8ef575271f9ab285b523",
+   "seq": 11441
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3b_limit_expectancy",
+    "GBPUSD"
+   ],
+   "trial_id": "5e80dd04f61e5bcc6d20",
+   "seq": 11442
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3b_limit_expectancy",
+    "USDJPY"
+   ],
+   "trial_id": "2e53c4a29af62d5dbcb9",
+   "seq": 11443
+  },
+  {
+   "group": [
+    "F3_FVG_RETRACEMENT",
+    "H3b_limit_expectancy",
+    "XAUUSD"
+   ],
+   "trial_id": "46460e055c605ba3a429",
+   "seq": 11444
+  },
+  {
+   "group": [
+    "F5_ASIAN_MEAN_REVERSION",
+    "reversion",
+    "EURUSD"
+   ],
+   "trial_id": "b00af8f06579a1d4af29",
+   "seq": 11445
+  },
+  {
+   "group": [
+    "F5_ASIAN_MEAN_REVERSION",
+    "reversion",
+    "GBPUSD"
+   ],
+   "trial_id": "95d7f9993ab5c3f37849",
+   "seq": 11446
+  },
+  {
+   "group": [
+    "F5_ASIAN_MEAN_REVERSION",
+    "reversion",
+    "USDJPY"
+   ],
+   "trial_id": "808c2075b301f5694c54",
+   "seq": 11447
+  },
+  {
+   "group": [
+    "F5_ASIAN_MEAN_REVERSION",
+    "reversion",
+    "XAUUSD"
+   ],
+   "trial_id": "941c0449216cb930ad43",
+   "seq": 11448
+  }
+ ],
+ "head": {
+  "seq": 11448,
+  "entry_sha256": "477b72c463404fa9aa6bd1abddba2bcd9c5b81eb47bfdcf6b3eedfe2cce60d8d"
+ }
+}

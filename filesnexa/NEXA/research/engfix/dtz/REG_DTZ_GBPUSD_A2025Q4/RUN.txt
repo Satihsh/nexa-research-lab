@@ -1,0 +1,4 @@
+run=REG_DTZ_GBPUSD_A2025Q4
+start=2026-10-03 22:00:27
+end=2026-10-03 22:01:22
+expert=NEXA_EngFix\NEXA_EA_DTZ symbol=GBPUSD period=M1 model=0 from=2025.10.01 to=2026.01.01 deposit=200 leverage=200 delay=250

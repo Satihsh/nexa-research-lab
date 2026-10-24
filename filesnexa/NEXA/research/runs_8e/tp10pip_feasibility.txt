@@ -1,0 +1,16 @@
+10-pip take-profit, $200 start, 1% risk incl. all costs, broker lot grid, ALL 10 trades win (upper bound), compounding:
+  XAUUSD: TP 1 price; max 10/10-win day return +21.86% (at stop 0.02 = 0.02x TP, i.e. TP = 50.00R); cost share of gross TP 30.6%; target +24.5% NOT REACHABLE even with 10/10 wins
+      net TP in R = 2.98; breakeven win rate = 25.1%; min winners in 10 for +24.5% (start-equity basis) = 9
+  NAS100: TP 10 price; max 10/10-win day return +40.80% (at stop 0.2 = 0.02x TP, i.e. TP = 50.00R); cost share of gross TP 20.0%; target +24.5% REACHABLE ONLY IF ALL 10 WIN
+      net TP in R = 3.64; breakeven win rate = 21.6%; min winners in 10 for +24.5% (start-equity basis) = 8
+  EURUSD: TP 0.001 price; max 10/10-win day return +131.13% (at stop 2e-05 = 0.02x TP, i.e. TP = 50.00R); cost share of gross TP 8.3%; target +24.5% REACHABLE ONLY IF ALL 10 WIN
+      net TP in R = 29.91; breakeven win rate = 3.2%; min winners in 10 for +24.5% (start-equity basis) = 2
+  GBPUSD: TP 0.001 price; max 10/10-win day return +89.73% (at stop 2e-05 = 0.02x TP, i.e. TP = 50.00R); cost share of gross TP 11.2%; target +24.5% REACHABLE ONLY IF ALL 10 WIN
+      net TP in R = 15.56; breakeven win rate = 6.0%; min winners in 10 for +24.5% (start-equity basis) = 3
+
+NOTE: the optimum above sits at stops far below any noise level (2 points) - arithmetic bound only.
+Largest stop at which 10/10 winning 10-pip trades still reach +24.5% ($200, real grid/costs), and the driftless probability of 10/10:
+  XAUUSD: none (target unreachable at any stop)
+  NAS100: max stop 1.33 pips (1.3326); driftless P(TP before stop) per trade 0.118; P(10 of 10) 5.05e-10
+  EURUSD: max stop 2.96 pips (0.0002957); driftless P(TP before stop) per trade 0.228; P(10 of 10) 3.83e-07
+  GBPUSD: max stop 2.51 pips (0.00025099); driftless P(TP before stop) per trade 0.201; P(10 of 10) 1.06e-07

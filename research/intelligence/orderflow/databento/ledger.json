@@ -1,0 +1,281 @@
+[
+  {
+    "token": "e5a2f8c065b1",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6E.v.0"
+      ],
+      "start": "2026-09-01",
+      "end": "2026-10-01"
+    },
+    "cost_usd_est": 0.797308802605,
+    "billable_bytes": 30575136,
+    "records_est": 636982,
+    "status": "done",
+    "reserved_at": "2026-10-11T06:42:46+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6E.v.0_2026-09-01_2026-10-01.dbn.zst",
+    "done_at": "2026-10-11T06:43:04+00:00",
+    "file_bytes": 12813820
+  },
+  {
+    "token": "bea9cfe76a60",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6E.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-09-01"
+    },
+    "cost_usd_est": 11.633970379829,
+    "billable_bytes": 446138592,
+    "records_est": 9294554,
+    "status": "rejected_unbilled",
+    "reserved_at": "2026-10-11T07:10:07+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6E.v.0_2025-09-01_2026-09-01.dbn.zst",
+    "failed_at": "2026-10-11T07:10:08+00:00",
+    "error": "BentoClientError: 402 account_insufficient_funds\nYou don't have sufficient budget to create the request.\ndocumentation: https://databento.com/docs/portal/billing",
+    "note": "402 account_insufficient_funds = Databento monthly limit; user confirmed in portal credit unchanged at 124.20 (2026-10-11); not counted"
+  },
+  {
+    "token": "bea9cfe76a60",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6E.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-09-01"
+    },
+    "cost_usd_est": 11.633970379829,
+    "billable_bytes": 446138592,
+    "records_est": 9294554,
+    "status": "done",
+    "reserved_at": "2026-10-11T07:15:22+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6E.v.0_2025-09-01_2026-09-01.dbn.zst",
+    "done_at": "2026-10-11T07:16:02+00:00",
+    "file_bytes": 188224316
+  },
+  {
+    "token": "6a890e0b1a42",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6B.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-10-01"
+    },
+    "cost_usd_est": 5.521340489388,
+    "billable_bytes": 211731936,
+    "records_est": 4411082,
+    "status": "rejected_unbilled",
+    "reserved_at": "2026-10-11T08:04:29+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6B.v.0_2025-09-01_2026-10-01.dbn.zst",
+    "failed_at": "2026-10-11T08:04:30+00:00",
+    "error": "BentoClientError: 402 account_insufficient_funds\nYou don't have sufficient budget to create the request.\ndocumentation: https://databento.com/docs/portal/billing",
+    "note": "402 = Databento monthly limit; user raised limit and confirmed credit unchanged at 112.57 (2026-10-11); not counted"
+  },
+  {
+    "token": "275ed221602c",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6J.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-10-01"
+    },
+    "cost_usd_est": 10.171275436878,
+    "billable_bytes": 390047280,
+    "records_est": 8125985,
+    "status": "rejected_unbilled",
+    "reserved_at": "2026-10-11T08:04:41+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6J.v.0_2025-09-01_2026-10-01.dbn.zst",
+    "failed_at": "2026-10-11T08:04:42+00:00",
+    "error": "BentoClientError: 402 account_insufficient_funds\nYou don't have sufficient budget to create the request.\ndocumentation: https://databento.com/docs/portal/billing",
+    "note": "402 = Databento monthly limit; user raised limit and confirmed credit unchanged at 112.57 (2026-10-11); not counted"
+  },
+  {
+    "token": "86f5cb97ca0e",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "GC.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-10-01"
+    },
+    "cost_usd_est": 39.940342962742,
+    "billable_bytes": 1531629168,
+    "records_est": 31908941,
+    "status": "rejected_unbilled",
+    "reserved_at": "2026-10-11T08:04:47+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_GC.v.0_2025-09-01_2026-10-01.dbn.zst",
+    "failed_at": "2026-10-11T08:04:48+00:00",
+    "error": "BentoClientError: 402 account_insufficient_funds\nYou don't have sufficient budget to create the request.\ndocumentation: https://databento.com/docs/portal/billing",
+    "note": "402 = Databento monthly limit; user raised limit and confirmed credit unchanged at 112.57 (2026-10-11); not counted"
+  },
+  {
+    "token": "6a890e0b1a42",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6B.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-10-01"
+    },
+    "cost_usd_est": 5.521340489388,
+    "billable_bytes": 211731936,
+    "records_est": 4411082,
+    "status": "done",
+    "reserved_at": "2026-10-11T08:14:01+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6B.v.0_2025-09-01_2026-10-01.dbn.zst",
+    "done_at": "2026-10-11T08:14:34+00:00",
+    "file_bytes": 91690150
+  },
+  {
+    "token": "275ed221602c",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6J.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-10-01"
+    },
+    "cost_usd_est": 10.171275436878,
+    "billable_bytes": 390047280,
+    "records_est": 8125985,
+    "status": "done",
+    "reserved_at": "2026-10-11T08:14:38+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6J.v.0_2025-09-01_2026-10-01.dbn.zst",
+    "done_at": "2026-10-11T08:15:17+00:00",
+    "file_bytes": 162547704
+  },
+  {
+    "token": "86f5cb97ca0e",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "GC.v.0"
+      ],
+      "start": "2025-09-01",
+      "end": "2026-10-01"
+    },
+    "cost_usd_est": 39.940342962742,
+    "billable_bytes": 1531629168,
+    "records_est": 31908941,
+    "status": "done",
+    "reserved_at": "2026-10-11T08:15:22+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_GC.v.0_2025-09-01_2026-10-01.dbn.zst",
+    "done_at": "2026-10-11T08:17:25+00:00",
+    "file_bytes": 634340319
+  },
+  {
+    "token": "4cbf1c2e4ad1",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6E.v.0"
+      ],
+      "start": "2022-10-01",
+      "end": "2025-09-01"
+    },
+    "cost_usd_est": 49.88277053833,
+    "billable_bytes": 1912900608,
+    "records_est": 39852096,
+    "status": "rejected_unbilled",
+    "reserved_at": "2026-10-11T08:41:06+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6E.v.0_2022-10-01_2025-09-01.dbn.zst",
+    "failed_at": "2026-10-11T08:41:07+00:00",
+    "error": "BentoClientError: 402 account_insufficient_funds\nYou don't have sufficient budget to create the request.\ndocumentation: https://databento.com/docs/portal/billing",
+    "note": "402 = Databento monthly limit; user raised limit, credit unchanged 56.94 (2026-10-11)"
+  },
+  {
+    "token": "4cbf1c2e4ad1",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "trades",
+      "stype_in": "continuous",
+      "symbols": [
+        "6E.v.0"
+      ],
+      "start": "2022-10-01",
+      "end": "2025-09-01"
+    },
+    "cost_usd_est": 49.88277053833,
+    "billable_bytes": 1912900608,
+    "records_est": 39852096,
+    "status": "done",
+    "reserved_at": "2026-10-11T08:48:19+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_trades_6E.v.0_2022-10-01_2025-09-01.dbn.zst",
+    "done_at": "2026-10-11T08:51:45+00:00",
+    "file_bytes": 796506303
+  },
+  {
+    "token": "e8364a16718d",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "ohlcv-1m",
+      "stype_in": "continuous",
+      "symbols": [
+        "NQ.v.0"
+      ],
+      "start": "2023-02-18",
+      "end": "2026-10-10"
+    },
+    "cost_usd_est": 4.707832634449,
+    "billable_bytes": 72214240,
+    "records_est": 1289540,
+    "status": "rejected_unbilled",
+    "reserved_at": "2026-10-13T15:12:40+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_ohlcv-1m_NQ.v.0_2023-02-18_2026-10-10.dbn.zst",
+    "failed_at": "2026-10-13T15:12:44+00:00",
+    "error": "BentoClientError: 402 account_insufficient_funds\nYou don't have sufficient budget to create the request.\ndocumentation: https://databento.com/docs/portal/billing",
+    "note": "402 account_insufficient_funds before any job was created; user 2026-10-13: balance shows USD 5, 'I didnt change anything' -> not billed; not counted"
+  },
+  {
+    "token": "e8364a16718d",
+    "req": {
+      "dataset": "GLBX.MDP3",
+      "schema": "ohlcv-1m",
+      "stype_in": "continuous",
+      "symbols": [
+        "NQ.v.0"
+      ],
+      "start": "2023-02-18",
+      "end": "2026-10-10"
+    },
+    "cost_usd_est": 4.707832634449,
+    "billable_bytes": 72214240,
+    "records_est": 1289540,
+    "status": "done",
+    "reserved_at": "2026-10-13T15:26:46+00:00",
+    "path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/GLBX.MDP3_ohlcv-1m_NQ.v.0_2023-02-18_2026-10-10.dbn.zst",
+    "done_at": "2026-10-13T15:30:01+00:00",
+    "file_bytes": 25584097
+  }
+]

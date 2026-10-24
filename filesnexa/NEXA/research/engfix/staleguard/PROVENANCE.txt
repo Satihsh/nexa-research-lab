@@ -1,0 +1,4 @@
+label=ENGINEERING REGRESSION -- NOT RESEARCH EVIDENCE
+stale_ex5=fd2fe06e0dddb683f825fcfaf4608a7e7518e27b9b3f0afb174ead6858c07bf7
+source_NEXA_EA.mq5=3edcec11a6eabbfbcba3625369c4de205bc114fdfe0cfb144c4d55e123027488
+baseline=regression/REG_PMFIX_GBPUSD_<W> (D45 build 28e8d925, source 10b62623)

@@ -1,0 +1,278 @@
+{
+ "label": "ENGINEERING REGRESSION -- NOT RESEARCH EVIDENCE",
+ "sources": {
+  "NEXA_EA.mq5": "3edcec11a6eabbfbcba3625369c4de205bc114fdfe0cfb144c4d55e123027488",
+  "NEXA_Risk.mqh": "7fd5692a2bd3aec7443185f914be320158cfe55bcddcf370db059a6da0d908d1"
+ },
+ "stale_ex5": "fd2fe06e0dddb683f825fcfaf4608a7e7518e27b9b3f0afb174ead6858c07bf7",
+ "baseline": "regression/REG_PMFIX_GBPUSD_<W> (D45 build 28e8d925, source 10b62623)",
+ "stale_max_sec": 21600,
+ "windows": {
+  "A2024Q1": {
+   "base_rows": 89701,
+   "new_rows": 89701,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 13,
+   "flagged_stale": 13,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 13
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 20,
+   "opens_new": 20,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 0.28
+  },
+  "A2024Q2": {
+   "base_rows": 91371,
+   "new_rows": 91371,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 13,
+   "flagged_stale": 13,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 13
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 96,
+   "opens_new": 96,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 0.23
+  },
+  "A2024Q3": {
+   "base_rows": 92422,
+   "new_rows": 92422,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 14,
+   "flagged_stale": 14,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 14
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 32,
+   "opens_new": 32,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 1.92
+  },
+  "A2024Q4": {
+   "base_rows": 90939,
+   "new_rows": 90939,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 14,
+   "flagged_stale": 14,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 14
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 20,
+   "opens_new": 20,
+   "stale_lag_hours_min": 26.08,
+   "max_lag_hours_not_stale": 0.05
+  },
+  "A2025Q1": {
+   "base_rows": 88316,
+   "new_rows": 88316,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 14,
+   "flagged_stale": 14,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 14
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 20,
+   "opens_new": 20,
+   "stale_lag_hours_min": 26.08,
+   "max_lag_hours_not_stale": 0.05
+  },
+  "A2025Q2": {
+   "base_rows": 91416,
+   "new_rows": 91416,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 13,
+   "flagged_stale": 13,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 13
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 90,
+   "opens_new": 90,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 0.04
+  },
+  "A2025Q3": {
+   "base_rows": 92568,
+   "new_rows": 92568,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 13,
+   "flagged_stale": 13,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 13
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 20,
+   "opens_new": 20,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 1.08
+  },
+  "A2025Q4": {
+   "base_rows": 90955,
+   "new_rows": 90955,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 14,
+   "flagged_stale": 14,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 14
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 20,
+   "opens_new": 20,
+   "stale_lag_hours_min": 26.1,
+   "max_lag_hours_not_stale": 0.03
+  },
+  "A2026Q1": {
+   "base_rows": 88288,
+   "new_rows": 88288,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 14,
+   "flagged_stale": 14,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 14
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 25,
+   "opens_new": 25,
+   "stale_lag_hours_min": 26.1,
+   "max_lag_hours_not_stale": 0.13
+  },
+  "A2026Q2": {
+   "base_rows": 91194,
+   "new_rows": 91194,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 13,
+   "flagged_stale": 13,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 13
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 104,
+   "opens_new": 104,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 0.17
+  },
+  "A2026Q3": {
+   "base_rows": 58918,
+   "new_rows": 58918,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 8,
+   "flagged_stale": 8,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 8
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 57,
+   "opens_new": 57,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 0.28
+  },
+  "B": {
+   "base_rows": 29312,
+   "new_rows": 29312,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "expected_stale": 4,
+   "flagged_stale": 4,
+   "flagged_equals_expected": true,
+   "base_reasons_on_stale_rows": {
+    "NO_TRADE_SPREAD_TAX": 4
+   },
+   "rows_differing_outside_stale": 0,
+   "columns_differing_on_stale_rows": [
+    "reason"
+   ],
+   "opens_base": 21,
+   "opens_new": 21,
+   "stale_lag_hours_min": 48.1,
+   "max_lag_hours_not_stale": 0.16
+  }
+ },
+ "summary": {
+  "runs": 12,
+  "all_test_passed": true,
+  "all_comparable": true,
+  "all_flagged_equals_expected": true,
+  "expected_stale_total": 147,
+  "flagged_stale_total": 147,
+  "rows_differing_outside_stale_total": 0,
+  "columns_differing_on_stale_rows": [
+   "reason"
+  ],
+  "opens_identical": true,
+  "trade_rows_identical": true
+ }
+}

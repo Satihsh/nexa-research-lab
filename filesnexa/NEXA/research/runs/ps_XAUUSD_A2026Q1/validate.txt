@@ -1,0 +1,20 @@
+NEXA dataset validation gate
+======================================================================
+rows                 : 84183
+episodes             : 1
+resolved episodes    : 1
+trainable episodes   : 1
+class balance        : {'win': 0, 'loss': 1, 'minority_fraction': 0.0}
+symbols              : ['XAUUSD']
+timeframes           : ['M1']
+regime buckets       : 1
+date range           : 2026-02-02 15:54:00 .. 2026-02-02 16:49:00
+max label span (bars): 55
+embargo (bars)       : 480
+walk-forward folds   : 0
+STATUS               : FAIL
+----------------------------------------------------------------------
+[ERROR] CLASS_IMBALANCE: minority class is 0.0% of trainable episodes, below 5%; a model can beat this by always predicting the majority n=0
+[ERROR] INSUFFICIENT_SAMPLE: 1 trainable episodes is below the minimum 200; a model fitted here memorises the sample n=1
+[WARN] NARROW_REGIME_COVERAGE: episodes span only 1 (trend,volatility) bucket(s); nothing can be claimed about regimes absent from the sample n=1
+[ERROR] CANNOT_SPLIT: cannot build 5 walk-forward folds from 1 episodes n=0

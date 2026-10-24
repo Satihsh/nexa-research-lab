@@ -1,0 +1,4 @@
+run=ENGFIX_mut_M6_ignore_pending_close_order
+start=2026-10-03 13:54:26
+end=2026-10-03 13:54:41
+expert=NEXA_EngFix\NEXA_PMMut6 symbol=EURUSD period=M1 model=2 from=2024.01.08 to=2024.01.12 deposit=50000 leverage=200 delay=0

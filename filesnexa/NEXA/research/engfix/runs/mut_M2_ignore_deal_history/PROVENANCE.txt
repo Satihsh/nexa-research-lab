@@ -1,0 +1,5 @@
+label=ENGINEERING REGRESSION -- not research evidence
+unit=NEXA_PMMut2
+mqh=build/mut/M2_ignore_deal_history/NEXA_PositionMgmt.mqh
+mqh_sha256=47a232e95f2be7d86d584bfa066e281e3bc1da08ed2096939895a3d596aac7b0
+harness_ex5_sha256=5516330cbd04de381145a6a7da5eed138c0eebc22715e7c46c65b7864d7fd6fb

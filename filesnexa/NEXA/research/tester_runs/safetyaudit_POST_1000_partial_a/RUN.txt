@@ -1,0 +1,4 @@
+run=safetyaudit_POST_1000_partial_a
+start=2026-09-29 17:49:25
+end=2026-09-29 17:50:10
+expert=Advisors\NEXA_EA_AUDIT_POST symbol=EURUSD period=M1 model=0 from=2024.01.01 to=2024.04.01 deposit=1000 leverage=200 delay=250

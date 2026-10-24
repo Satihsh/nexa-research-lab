@@ -1,0 +1,228 @@
+{
+ "costs": {
+  "commission_per_lot_side_usd": 3.5,
+  "latency_ms": 250,
+  "slippage": {
+   "event_multiplier": 3.0,
+   "points": 0.0,
+   "spread_frac": 0.5
+  },
+  "spread": "per-bar recorded spread (M1) or tick ask-bid",
+  "swap": "contracts.json swap_long/short on positions crossing server 00:00"
+ },
+ "data": {
+  "m1": {
+   "EURUSD": {
+    "canonical_file": "PEPPERSTONE_EURUSD_M1_canonical.csv.gz",
+    "canonical_sha256": "0ed4163dc1ab96cf9c0a901e817c7d051af6764b3f3ea9935f13998f989b3c95",
+    "first_utc": "2017-06-30 19:59:00+00:00",
+    "last_utc": "2026-09-25 20:53:00+00:00",
+    "rows": 3431479
+   },
+   "GBPUSD": {
+    "canonical_file": "PEPPERSTONE_GBPUSD_M1_canonical.csv.gz",
+    "canonical_sha256": "1d5bc487446d140b3a64620c469fbce181e80b1d763b8c39de1261e04fb4d115",
+    "first_utc": "2017-06-30 19:59:00+00:00",
+    "last_utc": "2026-09-25 20:53:00+00:00",
+    "rows": 3430239
+   },
+   "USDJPY": {
+    "canonical_file": "PEPPERSTONE_USDJPY_M1_canonical.csv.gz",
+    "canonical_sha256": "3e19452142ab2a27f70dd85788215449606fdb87757d2722bbcd66b900289b0f",
+    "first_utc": "2017-06-30 19:59:00+00:00",
+    "last_utc": "2026-09-25 20:53:00+00:00",
+    "rows": 3431603
+   },
+   "XAGUSD": {
+    "canonical_file": "PEPPERSTONE_XAGUSD_M1_canonical.csv.gz",
+    "canonical_sha256": "12d46b037616f5d6b02f6b4bc150e9c35a28a33822b5c6ff28debc138327a15a",
+    "first_utc": "2017-12-29 20:54:00+00:00",
+    "last_utc": "2023-12-29 21:24:00+00:00",
+    "rows": 2109571
+   },
+   "XAUUSD": {
+    "canonical_file": "PEPPERSTONE_XAUUSD_M1_canonical.csv.gz",
+    "canonical_sha256": "67da3f063ee296e3c0d650f5e1031fffd8680bb6b65f65172659934faf21a790",
+    "first_utc": "2017-12-29 20:54:00+00:00",
+    "last_utc": "2026-09-25 20:53:00+00:00",
+    "rows": 3090547
+   }
+  },
+  "nexa_dna_f13_f14": {
+   "report_sha256": "95bee3ca2aab4c6979d23578adc2bd4dbadeab21cc93680b7628e545b95a29f5",
+   "tester_sha256sums_sha256": "baa15293d6bd4240810a498812f81a87f036d8538cb95add90aa0275a950a6f0"
+  }
+ },
+ "design_doc": "research/reports/RESEARCH_DESIGN_SIX_FAMILIES.md",
+ "environment": {
+  "execution_module_sha256": "302188bad2e46381daffc15dc09530e3bf2bf88dfa73950417be6853717921ae",
+  "time_convention": {
+   "clock": "PEPPERSTONE_NY_CLOSE",
+   "evidence_sha256": "6da7930744d9451f94a75593b1644cf4e7d5960e550754cdc33492b44764d739",
+   "module_sha256": "3a39f33b2c4e115c59f435d099f69c1931e73bb5af7ffeff72e8a7cb35745760"
+  }
+ },
+ "execution": {
+  "ambiguous_bar": "STOP_FIRST",
+  "bar_latency": "next bar open",
+  "engine": "nexa_execution",
+  "gap": "fill at bar open",
+  "limit_fill": "trade-through by 1 point (touch is not a fill)"
+ },
+ "experiment": "F3_FVG_RETRACEMENT",
+ "extra_nulls": [
+  "matched_zone"
+ ],
+ "failure_criteria": [
+  "OOS E[R] CI includes 0",
+  "fails any null after BH-FDR",
+  "E[R] < 0 at spread x2 or latency 500 ms",
+  "PBO >= 0.5",
+  "DSR < 0.95",
+  "unstable parameter surface",
+  "OOS/IS degradation < 0.5 or sign flip",
+  "leave-one-out flips sign",
+  "fewer than 200 OOS-eligible trades"
+ ],
+ "family": "fvg_retracement",
+ "frozen_utc": "2026-09-27T15:45:48+00:00",
+ "grid": {
+  "entry": [
+   "edge",
+   "mid"
+  ],
+  "min_size_atr": [
+   0.1,
+   0.25,
+   0.5
+  ],
+  "target_r": [
+   1,
+   2,
+   3
+  ],
+  "timeframe": [
+   "M5",
+   "M15"
+  ],
+  "validity_bars": [
+   12,
+   48
+  ]
+ },
+ "hypothesis": "H3a: FVG zones are revisited more than matched non-FVG zones; H3b: filled limit entries at FVG zones earn E[R]>0 net and beat matched zones (E[R] per PLACED order reported)",
+ "labels": {
+  "type": "H3a touched-within-N; H3b triple_barrier on filled orders"
+ },
+ "metrics": [
+  "win_rate",
+  "loss_rate",
+  "expectancy_r_ci",
+  "median_r",
+  "profit_factor",
+  "max_drawdown_r",
+  "mae_r",
+  "mfe_r",
+  "sharpe_per_trade_if_n>=100_nonoverlap",
+  "sortino",
+  "trades_per_week",
+  "exposure",
+  "spread_cost_r",
+  "commission_r",
+  "slippage_r",
+  "latency_ms",
+  "fill_probability",
+  "regime_stability",
+  "parameter_stability",
+  "oos_expectancy",
+  "degradation_oos_over_is"
+ ],
+ "nulls": [
+  "timing",
+  "direction",
+  "circular_shift"
+ ],
+ "periods": {
+  "DEV": [
+   "2018-01-01",
+   "2022-12-31"
+  ],
+  "FORWARD": "data after freeze via NEXA_TickLogger",
+  "OOS": [
+   "2025-01-01",
+   "2026-08-27"
+  ],
+  "REAL_TICK_EXECUTION_CHECK": [
+   "2026-08-28",
+   "2026-09-25"
+  ],
+  "VAL": [
+   "2023-01-01",
+   "2024-12-31"
+  ],
+  "WF_YEARS": [
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ]
+ },
+ "robustness": {
+  "cost_shocks": {
+   "commission_x": [
+    1.5
+   ],
+   "slippage_plus_spread": [
+    1
+   ],
+   "spread_x": [
+    1.5,
+    2,
+    3
+   ]
+  },
+  "holdouts": [
+   "leave-one-year-out",
+   "leave-one-symbol-out"
+  ],
+  "latency_ms": [
+   250,
+   500,
+   1000
+  ],
+  "missed_fill_drop": [
+   0.1,
+   0.25
+  ],
+  "sensitivity_rule": ">= 70% of neighbouring grid cells keep E[R] > 0 and CI sign"
+ },
+ "sensitivity": {
+  "fill_rule": [
+   "touch",
+   "through_1pt",
+   "through_2pt"
+  ]
+ },
+ "sha256": "1c1768690a4eab46d41bccf3f2de1116ebe1b6fa1b7fe9aa6d1014b28efe9f56",
+ "status": "ACTIVE",
+ "symbols": [
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "XAUUSD"
+ ],
+ "tests": {
+  "alpha": 0.05,
+  "bootstrap": "stationary block, block = max hold, 5000 draws, seeded",
+  "dsr_min": 0.95,
+  "fdr_q": 0.1,
+  "min_trades_promote": 200,
+  "min_trades_report": 30,
+  "null_permutations": 5000,
+  "null_rule": "intersection-union: every null p <= alpha",
+  "pbo_max": 0.5
+ },
+ "time_convention": "PEPPERSTONE_NY_CLOSE via nexa_time",
+ "version": 1
+}

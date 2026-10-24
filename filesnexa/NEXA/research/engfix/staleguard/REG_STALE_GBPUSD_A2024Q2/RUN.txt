@@ -1,0 +1,4 @@
+run=REG_STALE_GBPUSD_A2024Q2
+start=2026-10-03 20:16:59
+end=2026-10-03 20:17:44
+expert=NEXA_EngFix\NEXA_EA_STALE symbol=GBPUSD period=M1 model=0 from=2024.04.01 to=2024.07.01 deposit=200 leverage=200 delay=250

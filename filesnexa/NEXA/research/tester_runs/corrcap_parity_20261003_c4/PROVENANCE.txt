@@ -1,0 +1,4 @@
+nexa_risk_sha256=a43d8328178550657fe3af51717896d71accbd28fb43f5e0b0df825483e3a244
+harness_ex5_sha256=b0a888751ece388008e0721293fad790f4ee5060516bf5bb7b81b0524e1adf6a
+fixtures_sha256=816285c23850efbd513936a54e22cd3f70aaefac50c7f76679e377a1e2f7d7b0
+note=re-run after the human-approved C4 change to NEXA_Risk.mqh (2026-10-03)

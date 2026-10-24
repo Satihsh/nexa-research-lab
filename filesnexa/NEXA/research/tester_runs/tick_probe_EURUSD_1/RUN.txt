@@ -1,0 +1,4 @@
+run=tick_probe_EURUSD_1
+start=2026-10-01 13:36:35
+end=2026-10-01 13:37:01
+expert=Advisors\NEXA_TickProbe symbol=EURUSD period=M1 model=4 from=2026.09.24 to=2026.09.25 deposit=200 leverage=100 delay=0

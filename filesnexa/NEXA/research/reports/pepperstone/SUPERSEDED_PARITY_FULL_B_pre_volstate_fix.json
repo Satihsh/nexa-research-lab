@@ -1,0 +1,142 @@
+{
+ "GBPUSD_B": {
+  "decisions": 29246,
+  "pre_feature_veto_excluded": 719,
+  "compared_rows": 28527,
+  "contract_status": "FAIL",
+  "mismatch_rate_by_feature": {
+   "displacementATR": 0.25127,
+   "displacementDown": 0.00011,
+   "displacementUp": 4e-05,
+   "htfAlignment": 4e-05,
+   "liqBarsBeyond": 0.00845,
+   "liqBarsSinceReclaim": 0.00375,
+   "liqDisplacementAfter": 0.00182,
+   "liqEventActive": 0.00182,
+   "liqExcursionATR": 0.02149,
+   "liqFvgAfter": 0.00046,
+   "liqLevel": 0.00529,
+   "liqMssAfter": 0.00091,
+   "liqResolution": 0.00182,
+   "liqResponseDirection": 0.00182,
+   "liqSetup": 0.00182,
+   "liqState": 0.00782,
+   "liqSweepDirection": 0.00782,
+   "liqWickBodyRatio": 0.01521,
+   "spreadATRRatio": 0.52249,
+   "trendH1": 0.00014,
+   "trendM15": 4e-05,
+   "trendM5": 0.00021,
+   "volState": 0.04203
+  },
+  "continuous_within_journal_precision": 22656,
+  "continuous_beyond_precision": {
+   "liqExcursionATR": 223,
+   "liqWickBodyRatio": 241
+  }
+ },
+ "EURUSD_B": {
+  "decisions": 29282,
+  "pre_feature_veto_excluded": 719,
+  "compared_rows": 28563,
+  "contract_status": "FAIL",
+  "mismatch_rate_by_feature": {
+   "displacementATR": 0.22683,
+   "displacementDown": 0.00011,
+   "displacementUp": 4e-05,
+   "htfAlignment": 0.00011,
+   "isMSS_down": 7e-05,
+   "isMSS_up": 4e-05,
+   "liqBarsBeyond": 0.00844,
+   "liqBarsSinceReclaim": 0.00823,
+   "liqDisplacementAfter": 0.00655,
+   "liqEventActive": 0.00655,
+   "liqExcursionATR": 0.01954,
+   "liqFvgAfter": 0.00046,
+   "liqLevel": 0.0056,
+   "liqMssAfter": 0.00046,
+   "liqResolution": 0.00655,
+   "liqResponseDirection": 0.00655,
+   "liqSetup": 0.00655,
+   "liqState": 0.00844,
+   "liqSweepDirection": 0.00844,
+   "liqWickBodyRatio": 0.01807,
+   "spreadATRRatio": 0.04877,
+   "trendH1": 0.00018,
+   "trendM15": 0.00011,
+   "trendM5": 0.00014,
+   "volState": 0.04264
+  },
+  "continuous_within_journal_precision": 8479,
+  "continuous_beyond_precision": {
+   "liqExcursionATR": 241,
+   "liqWickBodyRatio": 226
+  }
+ },
+ "USDJPY_B": {
+  "decisions": 29082,
+  "pre_feature_veto_excluded": 719,
+  "compared_rows": 28363,
+  "contract_status": "FAIL",
+  "mismatch_rate_by_feature": {
+   "displacementATR": 0.25858,
+   "htfAlignment": 0.00011,
+   "liqBarsBeyond": 0.00508,
+   "liqBarsSinceReclaim": 0.00448,
+   "liqDisplacementAfter": 0.00275,
+   "liqEventActive": 0.00275,
+   "liqExcursionATR": 0.01431,
+   "liqFvgAfter": 0.00183,
+   "liqLevel": 0.00314,
+   "liqMssAfter": 0.00092,
+   "liqResolution": 0.00275,
+   "liqResponseDirection": 0.00275,
+   "liqSetup": 0.00275,
+   "liqState": 0.00508,
+   "liqSweepDirection": 0.00508,
+   "liqWickBodyRatio": 0.01019,
+   "spreadATRRatio": 0.65469,
+   "trendH1": 0.00021,
+   "trendM15": 0.00018,
+   "trendM5": 7e-05,
+   "volState": 0.04531
+  },
+  "continuous_within_journal_precision": 26340,
+  "continuous_beyond_precision": {
+   "liqExcursionATR": 144,
+   "liqWickBodyRatio": 114
+  }
+ },
+ "XAUUSD_B": {
+  "decisions": 27894,
+  "pre_feature_veto_excluded": 659,
+  "compared_rows": 27235,
+  "contract_status": "FAIL",
+  "mismatch_rate_by_feature": {
+   "displacementATR": 0.32289,
+   "liqBarsBeyond": 0.0054,
+   "liqBarsSinceReclaim": 0.00485,
+   "liqDisplacementAfter": 0.00173,
+   "liqEventActive": 0.00173,
+   "liqExcursionATR": 0.01751,
+   "liqFvgAfter": 0.00143,
+   "liqLevel": 0.00411,
+   "liqMssAfter": 0.00048,
+   "liqResolution": 0.00173,
+   "liqResponseDirection": 0.00173,
+   "liqSetup": 0.00191,
+   "liqState": 0.00521,
+   "liqSweepDirection": 0.00521,
+   "liqWickBodyRatio": 0.01678,
+   "spreadATRRatio": 0.87729,
+   "trendH1": 7e-05,
+   "trendM15": 7e-05,
+   "volState": 0.04182
+  },
+  "continuous_within_journal_precision": 33336,
+  "continuous_beyond_precision": {
+   "liqExcursionATR": 147,
+   "liqWickBodyRatio": 138
+  }
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "note": "dna.csv files gzip-compressed losslessly on 2026-10-03; each decompressed file was hashed and matched csv_sha256 before the original was removed. Restore with: gunzip -k REG_*/dna.csv.gz",
+ "files": {
+  "REG_PMFIX_GBPUSD_A2024Q1/dna.csv": {
+   "csv_sha256": "708239cc9b09df227bd6136e53768a4b162e1d699a68414d34653e964e25f9d1",
+   "csv_bytes": 71813874,
+   "gz_sha256": "04c57e6c408eb211bbe69b572b93ac6f8649012af1a0a56427e53f49f2545d46",
+   "gz_bytes": 3810063
+  },
+  "REG_PMFIX_GBPUSD_A2024Q2/dna.csv": {
+   "csv_sha256": "1561e5ccf0d6f9ee7dd0cbd3fca48035a31078506e15b3e413259afdd7d8c0c7",
+   "csv_bytes": 73073037,
+   "gz_sha256": "58b283fa90981d67e1b52425aa3621ca0b98e524564ff51bcb9b65e6c2e2707b",
+   "gz_bytes": 3809305
+  },
+  "REG_PMFIX_GBPUSD_A2024Q3/dna.csv": {
+   "csv_sha256": "62a11a61a3f3d8b3510d9ddc4ef9655bebeb0fa0d4f2a131959dc7164d284bc2",
+   "csv_bytes": 74137448,
+   "gz_sha256": "daba9556b086f0678bb32069f56fad01f47fd5211d9166e9ba139d1837dfd9be",
+   "gz_bytes": 3819766
+  },
+  "REG_PMFIX_GBPUSD_A2024Q4/dna.csv": {
+   "csv_sha256": "4df56657d9c4db2e6c7c8b268b448c5d8862592018b5c404d1ca0b113dea9c96",
+   "csv_bytes": 73069815,
+   "gz_sha256": "e3f06336394d58f99cddd2cc41181ef362fd29586a06da83cbb3069672a62c24",
+   "gz_bytes": 3799810
+  },
+  "REG_PMFIX_GBPUSD_A2025Q1/dna.csv": {
+   "csv_sha256": "272d378e0f2783c97151b4b2c879b739aad3eac1969a8d0bb703333780918432",
+   "csv_bytes": 70976336,
+   "gz_sha256": "76fc0601b9961453f533e9540c59b13b57e9d6014d9b3d2f578d3b1508d3692a",
+   "gz_bytes": 3684303
+  },
+  "REG_PMFIX_GBPUSD_A2025Q2/dna.csv": {
+   "csv_sha256": "a172c7dcb1d74620bbb203a714f3d3ab1d4be0385fee6dc1b36d6efabd3360dc",
+   "csv_bytes": 73451944,
+   "gz_sha256": "667f3bf920b12c20e3e7780855ad4b7e7c51d9799c927a15d33158a6a870e1a8",
+   "gz_bytes": 3859018
+  },
+  "REG_PMFIX_GBPUSD_A2025Q3/dna.csv": {
+   "csv_sha256": "25ffdb7405ac9b202140780435dfbd924aee47bc665145a45c8638f862888a6f",
+   "csv_bytes": 74378305,
+   "gz_sha256": "8c74ba25d84fdf5d82c9e3bb5ed4bc58ebc10af91cf8934e21788bb53022025b",
+   "gz_bytes": 3806910
+  },
+  "REG_PMFIX_GBPUSD_A2025Q4/dna.csv": {
+   "csv_sha256": "b26a78a1d790b38e2afd637b2edbd61c0b6bdc8ccd77fff1a4eaf03d949acc14",
+   "csv_bytes": 73148418,
+   "gz_sha256": "a48a125930577c4e48a6e69bbf7907531b356f144e9c6f5b5aac254487534a07",
+   "gz_bytes": 3667254
+  },
+  "REG_PMFIX_GBPUSD_A2026Q1/dna.csv": {
+   "csv_sha256": "2bc2d989765231f291152f8b49959392b526f66d822280ddcbcd2eee6987d6ce",
+   "csv_bytes": 71029287,
+   "gz_sha256": "28de90982bacecc85d0980bc50f6068f0880b8158c5163c4788b3c4b7e7be16c",
+   "gz_bytes": 3624560
+  },
+  "REG_PMFIX_GBPUSD_A2026Q2/dna.csv": {
+   "csv_sha256": "348608f3b4d133692a20acb8be80cfa5da70bb0e84998d8cce06704a0bfd0eee",
+   "csv_bytes": 73286297,
+   "gz_sha256": "9e8a06943a54d66f1531804b8c57630fb41970b47a19b539bd70a2ac906deb3d",
+   "gz_bytes": 3690565
+  },
+  "REG_PMFIX_GBPUSD_A2026Q3/dna.csv": {
+   "csv_sha256": "247c6ace202450af8246829267d56943820c2a36f3c475a0b49b7bedad4f74d0",
+   "csv_bytes": 47307567,
+   "gz_sha256": "fcc4acd341849afe8226f65c0711388a06592d35a2d7fefe68aaa0537978d30e",
+   "gz_bytes": 2313536
+  },
+  "REG_PMFIX_GBPUSD_B/dna.csv": {
+   "csv_sha256": "d60c9f8330f97e19c93e9def906533b310408e99369f1b1514ba8cb3ebc43719",
+   "csv_bytes": 23482513,
+   "gz_sha256": "94a571b1231baf1a7c027438c1c35ea857986682a57239d7cd56fe730dd20497",
+   "gz_bytes": 1233494
+  },
+  "REG_PRE_GBPUSD_A2024Q1/dna.csv": {
+   "csv_sha256": "09309b6ef5253898284c98cdbf6082c3d8160d52a66b571d4bd61c57802912be",
+   "csv_bytes": 71812304,
+   "gz_sha256": "c96a05641099c2ee2849cd9746eed3e31616cc3e312d50d28a98e6a9480feb8d",
+   "gz_bytes": 3810012
+  },
+  "REG_PRE_GBPUSD_A2024Q2/dna.csv": {
+   "csv_sha256": "3263e96d1852c80c5891b4197954f19ba63455088c7fa144b0963c1fba54729a",
+   "csv_bytes": 73046641,
+   "gz_sha256": "c737801f4b80130d4d6bd495c4eaf6cbc87ac2def321511153a3c39998fab695",
+   "gz_bytes": 3806003
+  },
+  "REG_PRE_GBPUSD_A2024Q3/dna.csv": {
+   "csv_sha256": "f3397c880e11a0ea33f363e80d6f5d146489b094fa64342abbd815521bec2a41",
+   "csv_bytes": 74128834,
+   "gz_sha256": "01f471ca0f0325f68523f001b37f8f224c77722b0d6f3d42abbae5cdc229928b",
+   "gz_bytes": 3819280
+  },
+  "REG_PRE_GBPUSD_A2024Q4/dna.csv": {
+   "csv_sha256": "bd1a4a497a569d57a447ad4fcb9808c207541f7c32217292d3857a5e1909e771",
+   "csv_bytes": 73069179,
+   "gz_sha256": "8496a4471c3da609be52f6f7a79be1dda76651130001bd57acea9880f883f637",
+   "gz_bytes": 3799388
+  },
+  "REG_PRE_GBPUSD_A2025Q1/dna.csv": {
+   "csv_sha256": "c6cd55b003774a79a24c9cf2e1cafb542ccbf3e186e326af647d184dcbb12ed5",
+   "csv_bytes": 70973985,
+   "gz_sha256": "7da31ce3ca021b960357fa0fb0610e6669d1b8a94a366999861a086743fc88dc",
+   "gz_bytes": 3684173
+  },
+  "REG_PRE_GBPUSD_A2025Q2/dna.csv": {
+   "csv_sha256": "87cf4d5d67a0e69c3aa83b7a0ca746d00d831b0487b4f3f82645fa84e7b4bc73",
+   "csv_bytes": 73443639,
+   "gz_sha256": "63da028202dc763b03af00dc23939e5b03ceef2c83b2b20bb1d27966579579ee",
+   "gz_bytes": 3858213
+  },
+  "REG_PRE_GBPUSD_A2025Q3/dna.csv": {
+   "csv_sha256": "3bbba97cc04255cf75e4278ee64ace75d081edaccb8f4381b7487607376537b2",
+   "csv_bytes": 74376734,
+   "gz_sha256": "1c9d67fb6fd9d2c547dfbdf4c96fd74a543f5f247e79279f27a9e2c1f110ead9",
+   "gz_bytes": 3806827
+  },
+  "REG_PRE_GBPUSD_A2025Q4/dna.csv": {
+   "csv_sha256": "97dbc95e57b2bf08c95290d05c48aaaaa43fde42d079e7a927677c4e791cac8e",
+   "csv_bytes": 73148418,
+   "gz_sha256": "121ed09bc73c17b86aee9eb184c538cf830abc261d83ea8444d4b16b44da6dc3",
+   "gz_bytes": 3667238
+  },
+  "REG_PRE_GBPUSD_A2026Q1/dna.csv": {
+   "csv_sha256": "3de92715929ea3c11f760c037f419505173a561409bf41b3c280e36056ba7237",
+   "csv_bytes": 71026931,
+   "gz_sha256": "5bfbd9f92d6a9b314d1416f6026f6b0330dd88d088da8db174346339555ee33b",
+   "gz_bytes": 3624392
+  },
+  "REG_PRE_GBPUSD_A2026Q2/dna.csv": {
+   "csv_sha256": "ca82b85c73136fb53e3c87bac6e9d5da16b7906a87fa46452a79964940baf425",
+   "csv_bytes": 73231950,
+   "gz_sha256": "e8f2c350ba3ae1f55476d111a376f43650df52201b01ceee595029dcb2261900",
+   "gz_bytes": 3684974
+  },
+  "REG_PRE_GBPUSD_A2026Q3/dna.csv": {
+   "csv_sha256": "9d3450047565289baf00f3d599f4e0478ee5379f757da2aabaab8d4affe2c2c0",
+   "csv_bytes": 47305998,
+   "gz_sha256": "f67817f3c14baa88382d7f6bb6f5135567ea988799f46c38c36f60a37dd1b318",
+   "gz_bytes": 2313423
+  },
+  "REG_PRE_GBPUSD_B/dna.csv": {
+   "csv_sha256": "76b330c6493f239ffa5b2351c89b32abac8abcc683db11bb3d3a5107062fa791",
+   "csv_bytes": 23480154,
+   "gz_sha256": "ff94ce70dc211dfa5431b86e3872e53d6e4826ac9643e477a1372a5283666f95",
+   "gz_bytes": 1233267
+  }
+ }
+}

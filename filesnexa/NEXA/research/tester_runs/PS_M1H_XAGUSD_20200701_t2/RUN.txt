@@ -1,0 +1,4 @@
+run=PS_M1H_XAGUSD_20200701_t2
+start=2026-09-27 23:32:03
+end=2026-09-27 23:32:28
+expert=Advisors\NEXA_BarExport symbol=XAGUSD period=M1 model=2 from=2020.07.01 to=2021.01.01 deposit=50000 leverage=200 delay=0

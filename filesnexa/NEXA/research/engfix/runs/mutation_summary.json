@@ -1,0 +1,91 @@
+{
+ "M1_current_stop_denominator": {
+  "compiled": true,
+  "ran": true,
+  "failing_checks": [
+   "T02_after_BE_r_still_known",
+   "T02_after_BE_initial_risk_kept",
+   "T02_after_BE_r_vs_initial_risk",
+   "T03_partial_volume_half",
+   "T03_remaining_volume",
+   "T04_partial_exactly_once",
+   "T05_remainder_r_known",
+   "T05_remainder_initial_risk",
+   "T06_no_retrigger_after_dip",
+   "T07_time_exit_after_BE",
+   "T07_time_exit_r_known_after_BE",
+   "T08_remainder_closes_at_TP",
+   "T08_remainder_volume_at_TP",
+   "T11_lost_flag_no_duplicate_history_authoritative",
+   "T11_legacy_flag_without_exit_partial_allowed",
+   "T12_failed_send_recorded_not_executed",
+   "T12_retry_after_window",
+   "T12b_pending_order_blocks_resend_after_window",
+   "X01_sell_partial_half",
+   "X03_min_lot_not_splittable"
+  ],
+  "killed": true,
+  "runner": "mut_M1_current_stop_denominator: 27 PASS, 20 FAIL"
+ },
+ "M2_ignore_deal_history": {
+  "compiled": true,
+  "ran": true,
+  "failing_checks": [
+   "T04_partial_exactly_once",
+   "T06_no_retrigger_after_dip",
+   "T11_lost_flag_no_duplicate_history_authoritative",
+   "T11_legacy_flag_with_exit_no_duplicate",
+   "T12_unreadable_history_blocks_send",
+   "T12_volume_unchanged_after_block",
+   "T12b_late_execution_still_exactly_once"
+  ],
+  "killed": true,
+  "runner": "mut_M2_ignore_deal_history: 40 PASS, 7 FAIL"
+ },
+ "M3_ignore_inflight_window": {
+  "compiled": true,
+  "ran": true,
+  "failing_checks": [
+   "T12_no_resend_inside_inflight_window",
+   "T12_retry_after_window",
+   "X06_partial_handled_window_edge"
+  ],
+  "killed": true,
+  "runner": "mut_M3_ignore_inflight_window: 44 PASS, 3 FAIL"
+ },
+ "M4_no_time_exit_after_breakeven": {
+  "compiled": true,
+  "ran": true,
+  "failing_checks": [
+   "T07_time_exit_after_BE"
+  ],
+  "killed": true,
+  "runner": "mut_M4_no_time_exit_after_breakeven: 46 PASS, 1 FAIL"
+ },
+ "M6_ignore_pending_close_order": {
+  "compiled": true,
+  "ran": true,
+  "failing_checks": [
+   "T12b_pending_order_blocks_resend_after_window",
+   "T12b_late_execution_still_exactly_once",
+   "X06_partial_handled_pending_order_any_age"
+  ],
+  "killed": true,
+  "runner": "mut_M6_ignore_pending_close_order: 44 PASS, 3 FAIL"
+ },
+ "M5_partial_closes_whole_position": {
+  "compiled": true,
+  "ran": true,
+  "failing_checks": [
+   "T03_partial_volume_half",
+   "T03_remaining_volume",
+   "T08_remainder_volume_at_TP",
+   "X01_sell_partial_half",
+   "X03_min_lot_not_splittable",
+   "X05_partial_volume_rule_0_03",
+   "X05_partial_volume_rule_0_02"
+  ],
+  "killed": true,
+  "runner": "mut_M5_partial_closes_whole_position: 40 PASS, 7 FAIL"
+ }
+}

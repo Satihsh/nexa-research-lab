@@ -1,0 +1,4 @@
+run=PS_FH1_EURUSD_2020_t1
+start=2026-09-27 20:57:10
+end=2026-09-27 20:57:25
+expert=Advisors\NEXA_BarExport symbol=EURUSD period=H1 model=2 from=2020.01.01 to=2023.01.01 deposit=50000 leverage=200 delay=0

@@ -1,0 +1,1 @@
+expect bd818dc86eead94b (source: QC backtest 04ad355eb4134931d1b5984cf46e8183 'H-LVN NQ run1', project 38194073, hash 8e50dfbb)

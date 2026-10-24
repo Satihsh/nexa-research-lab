@@ -1,0 +1,1107 @@
+{
+ "hypothesis": "OF-16",
+ "prereg": [
+  "PREREG_OF_COMMON.md",
+  "PREREG_OF16_OPEN_LOCATION.md"
+ ],
+ "stage": "disc",
+ "splits_opened": [
+  "discovery"
+ ],
+ "symbols": {
+  "XAUUSD": {
+   "audit": {
+    "rows_raw": 3090547,
+    "rows_status_not_ok": 0,
+    "rows_duplicate_time_server": 0,
+    "utc_check_rows": 3090547,
+    "utc_mismatch_rows": 0,
+    "utc_mismatch_rate": 0.0,
+    "utc_nat_rows": 0,
+    "rows_weekend_server_day": 0,
+    "server_days": 2255,
+    "thin_days": 0,
+    "nonfinite_or_bad_hl_days": 0,
+    "median_bars": 1378.0,
+    "first_eval_day": "2018-01-02",
+    "evalmask_start": 1
+   },
+   "profile_proxy_valid": true,
+   "cells": {
+    "primary:A2|profile:A0": {
+     "n_days": 1270,
+     "n_above": 392,
+     "n_below": 349,
+     "n_inside": 529,
+     "share_outside": 0.5834645669291338,
+     "per_split": {
+      "discovery": {
+       "theta": -0.00918316384540998,
+       "ci95": [
+        -0.043026907226825804,
+        0.024136714878571667
+       ],
+       "p_one_sided": 0.7321339330334833,
+       "B_finite": 2000,
+       "n_outside": 741,
+       "hit_rate_H": 0.49122807017543857,
+       "pi_up": 0.5070866141732283
+      }
+     },
+     "pooled": {
+      "theta": -0.00918316384540998,
+      "ci95": [
+       -0.043026907226825804,
+       0.024136714878571667
+      ],
+      "p_one_sided": 0.7321339330334833,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.49122807017543857,
+      "ci95": [
+       0.4571736967606235,
+       0.524415202997839
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     }
+    },
+    "primary:A2|profile:anchored": {
+     "n_days": 1270,
+     "n_above": 428,
+     "n_below": 373,
+     "n_inside": 469,
+     "share_outside": 0.6307086614173228,
+     "per_split": {
+      "discovery": {
+       "theta": -0.009849892358960744,
+       "ci95": [
+        -0.04476809253477409,
+        0.022072077706021657
+       ],
+       "p_one_sided": 0.7586206896551724,
+       "B_finite": 2000,
+       "n_outside": 801,
+       "hit_rate_H": 0.49063670411985016,
+       "pi_up": 0.5070866141732283
+      }
+     },
+     "pooled": {
+      "theta": -0.009849892358960744,
+      "ci95": [
+       -0.04476809253477409,
+       0.022072077706021657
+      ],
+      "p_one_sided": 0.7586206896551724,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.49063670411985016,
+      "ci95": [
+       0.45500995481408846,
+       0.522730784357793
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9661169415292354
+    },
+    "secondary:A1|profile:A0": {
+     "n_days": 1270,
+     "n_above": 335,
+     "n_below": 315,
+     "n_inside": 620,
+     "share_outside": 0.5118110236220472,
+     "per_split": {
+      "discovery": {
+       "theta": -0.03992731677771045,
+       "ci95": [
+        -0.08047140484806535,
+        -0.0007885589003542964
+       ],
+       "p_one_sided": 0.9765117441279361,
+       "B_finite": 2000,
+       "n_outside": 650,
+       "hit_rate_H": 0.46,
+       "pi_up": 0.49763779527559054
+      }
+     },
+     "pooled": {
+      "theta": -0.03992731677771045,
+      "ci95": [
+       -0.08047140484806535,
+       -0.0007885589003542964
+      ],
+      "p_one_sided": 0.9765117441279361,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.46,
+      "ci95": [
+       0.41965168880311443,
+       0.4992392502378947
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9765117441279361
+    },
+    "secondary:A1|profile:anchored": {
+     "n_days": 1270,
+     "n_above": 329,
+     "n_below": 310,
+     "n_inside": 631,
+     "share_outside": 0.5031496062992126,
+     "per_split": {
+      "discovery": {
+       "theta": -0.01636168718346821,
+       "ci95": [
+        -0.05617268850547102,
+        0.022383240702147988
+       ],
+       "p_one_sided": 0.7896051974012993,
+       "B_finite": 2000,
+       "n_outside": 639,
+       "hit_rate_H": 0.4835680751173709,
+       "pi_up": 0.49763779527559054
+      }
+     },
+     "pooled": {
+      "theta": -0.01636168718346821,
+      "ci95": [
+       -0.05617268850547102,
+       0.022383240702147988
+      ],
+      "p_one_sided": 0.7896051974012993,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.4835680751173709,
+      "ci95": [
+       0.4442558602388324,
+       0.5223724044658437
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9661169415292354
+    }
+   },
+   "excluded_primary_anchor": {
+    "prev_not_valid": 1,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_cell": "primary:A2|profile:A0",
+   "primary_secondary": {
+    "Y2_barrier_rate": 0.41700404858299595,
+    "Y2_minus_0.5": -0.08299595141700405,
+    "Y2_minus_drift_base": -0.08340718543785267,
+    "Y2_unresolved_share": 0.16194331983805668,
+    "Y2_rate_among_resolved": 0.4975845410628019,
+    "magnitude_mean_signed_move_sigma": 0.03406730066428796,
+    "median_roundtrip_cost_sigma": 0.017305997541119472
+   },
+   "N2_volume_free": {
+    "theta16_N2": -0.018304158261209066,
+    "diff_VA_minus_N2": {
+     "theta": 0.009120994415799086,
+     "ci95": [
+      -0.012848240729487148,
+      0.035579443564462035
+     ],
+     "p_one_sided": 0.19390304847576212,
+     "B_finite": 2000
+    },
+    "volume_adds_information": false
+   },
+   "robustness": {
+    "above_only": {
+     "theta": -0.0019845733569017563,
+     "ci95": [
+      -0.043410202133824134,
+      0.03957093608556379
+     ],
+     "p_one_sided": 0.5612193903048476,
+     "B_finite": 2000
+    },
+    "below_only": {
+     "theta": -0.017268686686370507,
+     "ci95": [
+      -0.061318892126055916,
+      0.021362127921773097
+     ],
+     "p_one_sided": 0.8340829585207397,
+     "B_finite": 2000
+    },
+    "excl_friday_to_monday": {
+     "theta": -0.03056536954204816,
+     "ci95": [
+      -0.07297955674525781,
+      0.010587498611059626
+     ],
+     "p_one_sided": 0.9315342328835582,
+     "B_finite": 2000
+    },
+    "sigma_scaled_bins": {
+     "theta": -0.018853390452630212,
+     "ci95": [
+      -0.05225112044350428,
+      0.012057115628558676
+     ],
+     "p_one_sided": 0.8970514742628686,
+     "B_finite": 2000
+    },
+    "per_year": {
+     "shares": {
+      "2018": 0.36010182828049075,
+      "2019": 1.997454292987735,
+      "2020": -1.0803054848414722,
+      "2021": 0.5278870631798199,
+      "2022": -0.8051376996065729
+     },
+     "max_abs_share": 1.997454292987735,
+     "flag_year_gt_50pct": true
+    },
+    "per_year_theta": {
+     "2018": -0.019940615721206447,
+     "2019": -0.09651975931045695,
+     "2020": 0.0379018071325764,
+     "2021": -0.024475524475524476,
+     "2022": 0.03673186508547664
+    }
+   },
+   "excluded_secondary_anchor": {
+    "prev_not_valid": 1,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_disc_p_BH": 0.952023988005997
+  },
+  "EURUSD": {
+   "audit": {
+    "rows_raw": 3431479,
+    "rows_status_not_ok": 0,
+    "rows_duplicate_time_server": 0,
+    "utc_check_rows": 3431479,
+    "utc_mismatch_rows": 0,
+    "utc_mismatch_rate": 0.0,
+    "utc_nat_rows": 0,
+    "rows_weekend_server_day": 487,
+    "server_days": 2395,
+    "thin_days": 0,
+    "nonfinite_or_bad_hl_days": 0,
+    "median_bars": 1436.0,
+    "first_eval_day": "2017-07-03",
+    "evalmask_start": 1
+   },
+   "profile_proxy_valid": true,
+   "cells": {
+    "primary:A1|profile:A0": {
+     "n_days": 1405,
+     "n_above": 406,
+     "n_below": 420,
+     "n_inside": 579,
+     "share_outside": 0.5879003558718862,
+     "per_split": {
+      "discovery": {
+       "theta": -0.031953504002481606,
+       "ci95": [
+        -0.06152783621616411,
+        0.004059352680549807
+       ],
+       "p_one_sided": 0.952023988005997,
+       "B_finite": 2000,
+       "n_outside": 826,
+       "hit_rate_H": 0.4685230024213075,
+       "pi_up": 0.4718861209964413
+      }
+     },
+     "pooled": {
+      "theta": -0.031953504002481606,
+      "ci95": [
+       -0.06152783621616411,
+       0.004059352680549807
+      ],
+      "p_one_sided": 0.952023988005997,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.4685230024213075,
+      "ci95": [
+       0.43905323859173034,
+       0.5054614939200927
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     }
+    },
+    "primary:A1|profile:anchored": {
+     "n_days": 1405,
+     "n_above": 389,
+     "n_below": 408,
+     "n_inside": 608,
+     "share_outside": 0.5672597864768684,
+     "per_split": {
+      "discovery": {
+       "theta": -0.01760873739155282,
+       "ci95": [
+        -0.04871813489761831,
+        0.01876011598787401
+       ],
+       "p_one_sided": 0.8050974512743628,
+       "B_finite": 2000,
+       "n_outside": 797,
+       "hit_rate_H": 0.48306148055207027,
+       "pi_up": 0.4718861209964413
+      }
+     },
+     "pooled": {
+      "theta": -0.01760873739155282,
+      "ci95": [
+       -0.04871813489761831,
+       0.01876011598787401
+      ],
+      "p_one_sided": 0.8050974512743628,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.48306148055207027,
+      "ci95": [
+       0.45240665627271087,
+       0.5199575065403974
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9661169415292354
+    },
+    "secondary:A2|profile:A0": {
+     "n_days": 1405,
+     "n_above": 438,
+     "n_below": 465,
+     "n_inside": 502,
+     "share_outside": 0.6427046263345195,
+     "per_split": {
+      "discovery": {
+       "theta": -0.002608150766720686,
+       "ci95": [
+        -0.032427753623023414,
+        0.03034112688548131
+       ],
+       "p_one_sided": 0.511744127936032,
+       "B_finite": 2000,
+       "n_outside": 903,
+       "hit_rate_H": 0.4983388704318937,
+       "pi_up": 0.46832740213523133
+      }
+     },
+     "pooled": {
+      "theta": -0.002608150766720686,
+      "ci95": [
+       -0.032427753623023414,
+       0.03034112688548131
+      ],
+      "p_one_sided": 0.511744127936032,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.4983388704318937,
+      "ci95": [
+       0.46881181631372354,
+       0.5316749002159262
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9661169415292354
+    },
+    "secondary:A2|profile:anchored": {
+     "n_days": 1405,
+     "n_above": 460,
+     "n_below": 510,
+     "n_inside": 435,
+     "share_outside": 0.6903914590747331,
+     "per_split": {
+      "discovery": {
+       "theta": -0.005756319477565444,
+       "ci95": [
+        -0.03474187754303961,
+        0.022050237605978896
+       ],
+       "p_one_sided": 0.6621689155422289,
+       "B_finite": 2000,
+       "n_outside": 970,
+       "hit_rate_H": 0.49587628865979383,
+       "pi_up": 0.46832740213523133
+      }
+     },
+     "pooled": {
+      "theta": -0.005756319477565444,
+      "ci95": [
+       -0.03474187754303961,
+       0.022050237605978896
+      ],
+      "p_one_sided": 0.6621689155422289,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.49587628865979383,
+      "ci95": [
+       0.4674850746501798,
+       0.5239096895060198
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9661169415292354
+    }
+   },
+   "excluded_primary_anchor": {
+    "prev_not_valid": 1,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_cell": "primary:A1|profile:A0",
+   "primary_secondary": {
+    "Y2_barrier_rate": 0.4612590799031477,
+    "Y2_minus_0.5": -0.038740920096852316,
+    "Y2_minus_drift_base": -0.03921742652064143,
+    "Y2_unresolved_share": 0.06416464891041163,
+    "Y2_rate_among_resolved": 0.49288486416558863,
+    "magnitude_mean_signed_move_sigma": -0.0190895891847268,
+    "median_roundtrip_cost_sigma": 0.01658262804610699
+   },
+   "N2_volume_free": {
+    "theta16_N2": -0.022925278402198414,
+    "diff_VA_minus_N2": {
+     "theta": -0.009028225600283192,
+     "ci95": [
+      -0.036594287326780876,
+      0.018119853321967243
+     ],
+     "p_one_sided": 0.7171414292853573,
+     "B_finite": 2000
+    },
+    "volume_adds_information": false
+   },
+   "robustness": {
+    "above_only": {
+     "theta": -0.045777746612204843,
+     "ci95": [
+      -0.07961224512250135,
+      0.0011351985732085733
+     ],
+     "p_one_sided": 0.9720139930034982,
+     "B_finite": 2000
+    },
+    "below_only": {
+     "theta": -0.01859006947974914,
+     "ci95": [
+      -0.05700561051254753,
+      0.019693422740575735
+     ],
+     "p_one_sided": 0.8030984507746127,
+     "B_finite": 2000
+    },
+    "excl_friday_to_monday": {
+     "theta": -0.03536917235647827,
+     "ci95": [
+      -0.0690151749056517,
+      0.005621932088173032
+     ],
+     "p_one_sided": 0.9540229885057471,
+     "B_finite": 2000
+    },
+    "sigma_scaled_bins": {
+     "theta": -0.03157957619669388,
+     "ci95": [
+      -0.06130070639621072,
+      0.005197625468743649
+     ],
+     "p_one_sided": 0.9485257371314343,
+     "B_finite": 2000
+    },
+    "per_year": {
+     "shares": {
+      "2017": 0.1008818056791522,
+      "2018": 0.07364560580319822,
+      "2019": 0.10727287436291566,
+      "2020": -0.010651781139605764,
+      "2021": 0.4487231345899738,
+      "2022": 0.28012836070436586
+     },
+     "max_abs_share": 0.4487231345899738,
+     "flag_year_gt_50pct": false
+    },
+    "per_year_theta": {
+     "2017": -0.04575163398692815,
+     "2018": -0.012035845369178693,
+     "2019": -0.018863761720904596,
+     "2020": -0.000534188034188057,
+     "2021": -0.08012820512820518,
+     "2022": -0.047470547470547506
+    }
+   },
+   "excluded_secondary_anchor": {
+    "prev_not_valid": 1,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_disc_p_BH": 0.952023988005997
+  },
+  "GBPUSD": {
+   "audit": {
+    "rows_raw": 3430239,
+    "rows_status_not_ok": 0,
+    "rows_duplicate_time_server": 0,
+    "utc_check_rows": 3430239,
+    "utc_mismatch_rows": 0,
+    "utc_mismatch_rate": 0.0,
+    "utc_nat_rows": 0,
+    "rows_weekend_server_day": 492,
+    "server_days": 2395,
+    "thin_days": 2,
+    "nonfinite_or_bad_hl_days": 0,
+    "median_bars": 1436.0,
+    "first_eval_day": "2017-07-03",
+    "evalmask_start": 1
+   },
+   "profile_proxy_valid": false,
+   "cells": {
+    "primary:A1|profile:A0": {
+     "n_days": 1402,
+     "n_above": 388,
+     "n_below": 398,
+     "n_inside": 616,
+     "share_outside": 0.5606276747503567,
+     "per_split": {
+      "discovery": {
+       "theta": -0.006597263814325625,
+       "ci95": [
+        -0.040059931002647216,
+        0.031106458682013234
+       ],
+       "p_one_sided": 0.5792103948025987,
+       "B_finite": 2000,
+       "n_outside": 786,
+       "hit_rate_H": 0.49363867684478374,
+       "pi_up": 0.4814550641940086
+      }
+     },
+     "pooled": {
+      "theta": -0.006597263814325625,
+      "ci95": [
+       -0.040059931002647216,
+       0.031106458682013234
+      ],
+      "p_one_sided": 0.5792103948025987,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.49363867684478374,
+      "ci95": [
+       0.4604393950517583,
+       0.5319693094629157
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     }
+    },
+    "primary:A1|profile:anchored": {
+     "n_days": 1402,
+     "n_above": 387,
+     "n_below": 380,
+     "n_inside": 635,
+     "share_outside": 0.5470756062767475,
+     "per_split": {
+      "discovery": {
+       "theta": -0.03046960293267024,
+       "ci95": [
+        -0.06236833882583378,
+        0.007890569184533446
+       ],
+       "p_one_sided": 0.9260369815092454,
+       "B_finite": 2000,
+       "n_outside": 767,
+       "hit_rate_H": 0.46936114732724904,
+       "pi_up": 0.4814550641940086
+      }
+     },
+     "pooled": {
+      "theta": -0.03046960293267024,
+      "ci95": [
+       -0.06236833882583378,
+       0.007890569184533446
+      ],
+      "p_one_sided": 0.9260369815092454,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.46936114732724904,
+      "ci95": [
+       0.43764804780029876,
+       0.5079580887747616
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9765117441279361
+    },
+    "secondary:A2|profile:A0": {
+     "n_days": 1402,
+     "n_above": 455,
+     "n_below": 450,
+     "n_inside": 497,
+     "share_outside": 0.645506419400856,
+     "per_split": {
+      "discovery": {
+       "theta": 0.01283722543170375,
+       "ci95": [
+        -0.021967628932568452,
+        0.047305091003111796
+       ],
+       "p_one_sided": 0.24437781109445278,
+       "B_finite": 2000,
+       "n_outside": 905,
+       "hit_rate_H": 0.512707182320442,
+       "pi_up": 0.4764621968616263
+      }
+     },
+     "pooled": {
+      "theta": 0.01283722543170375,
+      "ci95": [
+       -0.021967628932568452,
+       0.047305091003111796
+      ],
+      "p_one_sided": 0.24437781109445278,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.512707182320442,
+      "ci95": [
+       0.4777645202465715,
+       0.5481130407374093
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.7331334332833583
+    },
+    "secondary:A2|profile:anchored": {
+     "n_days": 1402,
+     "n_above": 508,
+     "n_below": 525,
+     "n_inside": 369,
+     "share_outside": 0.7368045649072753,
+     "per_split": {
+      "discovery": {
+       "theta": -0.003775549519218107,
+       "ci95": [
+        -0.034026080951511106,
+        0.030195290531499178
+       ],
+       "p_one_sided": 0.5392303848075962,
+       "B_finite": 2000,
+       "n_outside": 1033,
+       "hit_rate_H": 0.49661181026137463,
+       "pi_up": 0.4764621968616263
+      }
+     },
+     "pooled": {
+      "theta": -0.003775549519218107,
+      "ci95": [
+       -0.034026080951511106,
+       0.030195290531499178
+      ],
+      "p_one_sided": 0.5392303848075962,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.49661181026137463,
+      "ci95": [
+       0.4659556988428857,
+       0.5310107682562665
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.9661169415292354
+    }
+   },
+   "excluded_primary_anchor": {
+    "prev_not_valid": 4,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_cell": "primary:A1|profile:A0",
+   "primary_secondary": {
+    "Y2_barrier_rate": 0.4402035623409669,
+    "Y2_minus_0.5": -0.059796437659033086,
+    "Y2_minus_drift_base": -0.06003237831814239,
+    "Y2_unresolved_share": 0.08015267175572519,
+    "Y2_rate_among_resolved": 0.4785615491009682,
+    "magnitude_mean_signed_move_sigma": 0.0030089713853924684,
+    "median_roundtrip_cost_sigma": 0.016989780710963003
+   },
+   "N2_volume_free": {
+    "theta16_N2": -0.03240671221563181,
+    "diff_VA_minus_N2": {
+     "theta": 0.02580944840130618,
+     "ci95": [
+      0.0019547077748644347,
+      0.05425582352913786
+     ],
+     "p_one_sided": 0.018490754622688656,
+     "B_finite": 2000
+    },
+    "volume_adds_information": true
+   },
+   "robustness": {
+    "above_only": {
+     "theta": -0.007228260070297255,
+     "ci95": [
+      -0.049852853993367564,
+      0.03819219583306095
+     ],
+     "p_one_sided": 0.5767116441779111,
+     "B_finite": 2000
+    },
+    "below_only": {
+     "theta": -0.005982121735639714,
+     "ci95": [
+      -0.04278826279065428,
+      0.03731839964723516
+     ],
+     "p_one_sided": 0.5442278860569715,
+     "B_finite": 2000
+    },
+    "excl_friday_to_monday": {
+     "theta": -0.0037060186770783497,
+     "ci95": [
+      -0.04286029528447387,
+      0.039565920053379625
+     ],
+     "p_one_sided": 0.5047476261869065,
+     "B_finite": 2000
+    },
+    "sigma_scaled_bins": {
+     "theta": -0.004711553469598178,
+     "ci95": [
+      -0.03754699248418412,
+      0.031720396585952416
+     ],
+     "p_one_sided": 0.5407296351824088,
+     "B_finite": 2000
+    },
+    "per_year": {
+     "shares": {
+      "2017": 0.8213204951856939,
+      "2018": 0.9713892709766155,
+      "2019": -1.3070151306740012,
+      "2020": -0.23576341127922973,
+      "2021": 2.135625859697385,
+      "2022": -1.3855570839064633
+     },
+     "max_abs_share": 2.135625859697385,
+     "flag_year_gt_50pct": true
+    },
+    "per_year_theta": {
+     "2017": -0.0916179337231969,
+     "2018": -0.03504774305555555,
+     "2019": 0.04651973401973396,
+     "2020": 0.007380457380457378,
+     "2021": -0.07536382536382535,
+     "2022": 0.048329117294634544
+    }
+   },
+   "excluded_secondary_anchor": {
+    "prev_not_valid": 4,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_disc_p_BH": null
+  },
+  "USDJPY": {
+   "audit": {
+    "rows_raw": 3431603,
+    "rows_status_not_ok": 0,
+    "rows_duplicate_time_server": 0,
+    "utc_check_rows": 3431603,
+    "utc_mismatch_rows": 0,
+    "utc_mismatch_rate": 0.0,
+    "utc_nat_rows": 0,
+    "rows_weekend_server_day": 490,
+    "server_days": 2395,
+    "thin_days": 0,
+    "nonfinite_or_bad_hl_days": 0,
+    "median_bars": 1436.0,
+    "first_eval_day": "2017-07-03",
+    "evalmask_start": 1
+   },
+   "profile_proxy_valid": true,
+   "cells": {
+    "primary:A1|profile:A0": {
+     "n_days": 1405,
+     "n_above": 478,
+     "n_below": 394,
+     "n_inside": 533,
+     "share_outside": 0.6206405693950178,
+     "per_split": {
+      "discovery": {
+       "theta": 0.016463155832707577,
+       "ci95": [
+        -0.016226123966759477,
+        0.04800876723632384
+       ],
+       "p_one_sided": 0.1634182908545727,
+       "B_finite": 2000,
+       "n_outside": 872,
+       "hit_rate_H": 0.518348623853211,
+       "pi_up": 0.5195729537366548
+      }
+     },
+     "pooled": {
+      "theta": 0.016463155832707577,
+      "ci95": [
+       -0.016226123966759477,
+       0.04800876723632384
+      ],
+      "p_one_sided": 0.1634182908545727,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.518348623853211,
+      "ci95": [
+       0.48580029731774904,
+       0.5503531972686164
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     }
+    },
+    "primary:A1|profile:anchored": {
+     "n_days": 1405,
+     "n_above": 483,
+     "n_below": 380,
+     "n_inside": 542,
+     "share_outside": 0.6142348754448399,
+     "per_split": {
+      "discovery": {
+       "theta": 0.01446580042308757,
+       "ci95": [
+        -0.02089855176581607,
+        0.04556913888799571
+       ],
+       "p_one_sided": 0.22638680659670166,
+       "B_finite": 2000,
+       "n_outside": 863,
+       "hit_rate_H": 0.5168018539976825,
+       "pi_up": 0.5195729537366548
+      }
+     },
+     "pooled": {
+      "theta": 0.01446580042308757,
+      "ci95": [
+       -0.02089855176581607,
+       0.04556913888799571
+      ],
+      "p_one_sided": 0.22638680659670166,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.5168018539976825,
+      "ci95": [
+       0.481859375329079,
+       0.550117864097571
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.7331334332833583
+    },
+    "secondary:A2|profile:A0": {
+     "n_days": 1405,
+     "n_above": 487,
+     "n_below": 420,
+     "n_inside": 498,
+     "share_outside": 0.6455516014234876,
+     "per_split": {
+      "discovery": {
+       "theta": 0.014749653740970805,
+       "ci95": [
+        -0.018390478744689083,
+        0.04682777617343828
+       ],
+       "p_one_sided": 0.1969015492253873,
+       "B_finite": 2000,
+       "n_outside": 907,
+       "hit_rate_H": 0.5170893054024256,
+       "pi_up": 0.5316725978647687
+      }
+     },
+     "pooled": {
+      "theta": 0.014749653740970805,
+      "ci95": [
+       -0.018390478744689083,
+       0.04682777617343828
+      ],
+      "p_one_sided": 0.1969015492253873,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.5170893054024256,
+      "ci95": [
+       0.4844197058429428,
+       0.5506016306319094
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.7331334332833583
+    },
+    "secondary:A2|profile:anchored": {
+     "n_days": 1405,
+     "n_above": 535,
+     "n_below": 464,
+     "n_inside": 406,
+     "share_outside": 0.7110320284697509,
+     "per_split": {
+      "discovery": {
+       "theta": 0.013264510061663078,
+       "ci95": [
+        -0.017010084090490124,
+        0.03974952085334276
+       ],
+       "p_one_sided": 0.20339830084957522,
+       "B_finite": 2000,
+       "n_outside": 999,
+       "hit_rate_H": 0.5155155155155156,
+       "pi_up": 0.5316725978647687
+      }
+     },
+     "pooled": {
+      "theta": 0.013264510061663078,
+      "ci95": [
+       -0.017010084090490124,
+       0.03974952085334276
+      ],
+      "p_one_sided": 0.20339830084957522,
+      "B_finite": 2000
+     },
+     "pooled_hit_rate_H": {
+      "theta": 0.5155155155155156,
+      "ci95": [
+       0.4849984939759036,
+       0.5423737171129609
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "disc_p_BH_secondary_family": 0.7331334332833583
+    }
+   },
+   "excluded_primary_anchor": {
+    "prev_not_valid": 1,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_cell": "primary:A1|profile:A0",
+   "primary_secondary": {
+    "Y2_barrier_rate": 0.44724770642201833,
+    "Y2_minus_0.5": -0.05275229357798167,
+    "Y2_minus_drift_base": -0.05463776159848509,
+    "Y2_unresolved_share": 0.13302752293577982,
+    "Y2_rate_among_resolved": 0.5158730158730159,
+    "magnitude_mean_signed_move_sigma": 0.014464714164894123,
+    "median_roundtrip_cost_sigma": 0.02128031929287223
+   },
+   "N2_volume_free": {
+    "theta16_N2": 0.01068714028381879,
+    "diff_VA_minus_N2": {
+     "theta": 0.0057760155488887875,
+     "ci95": [
+      -0.015396171952800861,
+      0.030807404555995944
+     ],
+     "p_one_sided": 0.2768615692153923,
+     "B_finite": 2000
+    },
+    "volume_adds_information": false
+   },
+   "robustness": {
+    "above_only": {
+     "theta": 0.028544201075060713,
+     "ci95": [
+      -0.006129035182482813,
+      0.06224863207473132
+     ],
+     "p_one_sided": 0.05297351324337831,
+     "B_finite": 2000
+    },
+    "below_only": {
+     "theta": 0.0018064562747258576,
+     "ci95": [
+      -0.03916363976324257,
+      0.042296618907451664
+     ],
+     "p_one_sided": 0.46276861569215394,
+     "B_finite": 2000
+    },
+    "excl_friday_to_monday": {
+     "theta": 0.018503316068878686,
+     "ci95": [
+      -0.018938679818404747,
+      0.055041255414141205
+     ],
+     "p_one_sided": 0.17091454272863568,
+     "B_finite": 2000
+    },
+    "sigma_scaled_bins": {
+     "theta": 0.015678698525673617,
+     "ci95": [
+      -0.017855355809611912,
+      0.046614629987922145
+     ],
+     "p_one_sided": 0.18990504747626186,
+     "B_finite": 2000
+    },
+    "per_year": {
+     "shares": {
+      "2017": -0.10312345066931086,
+      "2018": 0.501983143282102,
+      "2019": -0.7409519087754088,
+      "2020": 0.7744174516608823,
+      "2021": -0.046355974219137286,
+      "2022": 0.6140307387208724
+     },
+     "max_abs_share": 0.7744174516608823,
+     "flag_year_gt_50pct": true
+    },
+    "per_year_theta": {
+     "2017": -0.02,
+     "2018": 0.041367898510755646,
+     "2019": -0.0671426143124256,
+     "2020": 0.0696252465483235,
+     "2021": -0.000838264299802747,
+     "2022": 0.043672811884732425
+    }
+   },
+   "excluded_secondary_anchor": {
+    "prev_not_valid": 1,
+    "sigma_undefined": 20,
+    "no_anchor_bar": 0,
+    "no_prev_anchored_profile": 0
+   },
+   "primary_disc_p_BH": 0.49025487256371814
+  }
+ }
+}

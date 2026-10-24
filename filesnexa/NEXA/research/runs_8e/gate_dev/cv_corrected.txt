@@ -1,0 +1,2 @@
+start $200: streams 1774, target-hit days total 0, max single-day return +12.71%, share final>start 0.061, positive-exp streams 0.081
+start $10,000: streams 1774, target-hit days total 0, max single-day return +20.17%, share final>start 0.066, positive-exp streams 0.081

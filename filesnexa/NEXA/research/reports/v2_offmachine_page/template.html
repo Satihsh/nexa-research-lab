@@ -1,0 +1,174 @@
+<title>NEXA Registry Checkpoints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a single-column ledger sheet; one block per campaign, rows of seq / event / head */
+:root {
+  --bg: #f5f6f4;
+  --sheet: #ffffff;
+  --fg: #1d2421;
+  --muted: #5b6661;
+  --rule: #d5dad6;
+  --accent: #2f6b5a;
+  --reject: #9a3b2c;
+  --frozen: #3c4a63;
+  --open: #8a5a00;
+  --code-bg: #eef1ee;
+  --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121614; --sheet: #1a201d; --fg: #e3e8e5; --muted: #9aa7a1; --rule: #2e3833;
+    --accent: #7cc3ac; --reject: #e08a79; --frozen: #9fb2d6; --open: #e3b25c; --code-bg: #222a26; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121614; --sheet: #1a201d; --fg: #e3e8e5; --muted: #9aa7a1; --rule: #2e3833;
+  --accent: #7cc3ac; --reject: #e08a79; --frozen: #9fb2d6; --open: #e3b25c; --code-bg: #222a26; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 920px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 56px; display: grid; gap: 28px; }
+header { display: grid; gap: 8px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 30px; line-height: 1.15; margin: 0; font-weight: 600; text-wrap: balance; }
+.lede { margin: 0; max-width: 68ch; color: var(--muted); }
+.sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding-inline: 20px; padding-block: 20px 22px; display: grid; gap: 16px; min-width: 0; }
+.sheet-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+h2 { margin: 0; font-size: 19px; font-weight: 600; }
+.campaign { font: 500 13px/1.3 var(--mono); color: var(--muted); }
+.state { font: 600 12px/1 var(--mono); letter-spacing: .06em; padding: 5px 8px; border-radius: 4px; border: 1px solid currentColor; }
+.state.rejected { color: var(--reject); }
+.state.frozen { color: var(--frozen); }
+.state.open { color: var(--open); }
+dl.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; margin: 0; }
+dl.kv dt { color: var(--muted); font-size: 13px; padding-top: 2px; }
+dl.kv dd { margin: 0; min-width: 0; }
+.hash { font-family: var(--mono); font-size: 13px; word-break: break-all; font-variant-numeric: tabular-nums; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font: 500 11px/1.2 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); padding: 6px 10px 6px 0; border-bottom: 1px solid var(--rule); }
+td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; font-variant-numeric: tabular-nums; }
+td.seq { font-family: var(--mono); white-space: nowrap; }
+td.ev { font-family: var(--mono); white-space: nowrap; }
+td.h { font-family: var(--mono); word-break: break-all; min-width: 18ch; }
+td.t { font-family: var(--mono); white-space: nowrap; color: var(--muted); }
+tr.final td { font-weight: 500; }
+tr.final td.seq, tr.final td.ev { color: var(--accent); }
+.cp { display: grid; gap: 8px; }
+.cp-label { font-size: 13px; color: var(--muted); }
+.cp-line { display: flex; gap: 10px; align-items: flex-start; }
+.cp-line code { flex: 1 1 auto; min-width: 0; display: block; background: var(--code-bg); border-radius: 4px; padding: 10px 12px; font: 12.5px/1.5 var(--mono); word-break: break-all; }
+button.copy { flex: none; font: 500 12px/1 var(--sans); color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 4px; padding: 8px 10px; cursor: pointer; }
+button.copy:hover { background: var(--code-bg); }
+button.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.notes { display: grid; gap: 8px; font-size: 14px; max-width: 72ch; }
+.notes p { margin: 0; }
+.notes strong { font-weight: 600; }
+@media (max-width: 520px) {
+  h1 { font-size: 25px; }
+  dl.kv { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  dl.kv dd { margin-bottom: 8px; }
+  .cp-line { flex-direction: column; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Off-machine record · updated {{UPDATED}} UTC</div>
+    <h1>NEXA Registry Checkpoints</h1>
+    <p class="lede">Campaign anchors and ledger heads for the NEXA research registries, copied here so they live outside the research Mac. Any later registry call should take its checkpoint from this record, not from the local ledger. Each value below was verified against the local ledger and its external witness immediately before publishing.</p>
+  </header>
+
+  <section class="sheet" aria-labelledby="v2-title">
+    <div class="sheet-head">
+      <h2 id="v2-title">V2: Six Families</h2>
+      <span class="campaign">PHASE3_SIX_FAMILIES_V2</span>
+      <span class="state open">OPEN · EVALUATING</span>
+    </div>
+    <dl class="kv">
+      <dt>Anchor</dt><dd class="hash">6090be68184af7643f82b680d144a1b9e1622b3bbceebfb872729b97b9d9324c</dd>
+      <dt>Current head</dt><dd class="hash">seq {{SEQ}} · {{HEAD}}</dd>
+      <dt>Anchor check</dt><dd>Equals sha256 of <span class="hash">registry_v2/campaign.json</span></dd>
+      <dt>OOS selection deadline</dt><dd class="hash">before 2027-01-04T00:00:00Z (registry-enforced)</dd>
+    </dl>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Seq</th><th>Event</th><th>Entry sha256</th><th>UTC</th></tr></thead>
+        <tbody>
+          <tr><td class="seq">0</td><td class="ev">CAMPAIGN_FROZEN</td><td class="h">f2914c8e4f69cea04ba4dfa3256db9677a951e4c98b18218eafeb2876b08b57a</td><td class="t">2026-09-29 07:04:30</td></tr>
+          <tr><td class="seq">1</td><td class="ev">BUILDER_CERTIFIED</td><td class="h">8a7802031344961865be6c24a9960ced2af66e5ada67ba14cb7c0a0cfc4b1ad5</td><td class="t">2026-09-29 07:04:41</td></tr>
+          <tr><td class="seq">2</td><td class="ev">BUILDER_CERTIFIED</td><td class="h">ca4f035f859fe5b078f5b1804899a8cf293ecbc744d88315fc88ef94a7e19e17</td><td class="t">2026-09-29 07:04:42</td></tr>
+          <tr><td class="seq">3</td><td class="ev">BUILDER_CERTIFIED</td><td class="h">585b706cbec6565e61775f5d512219b79f60dab52cb3fcf4e0432c259c6a9a94</td><td class="t">2026-09-29 07:04:44</td></tr>
+          <tr><td class="seq">4</td><td class="ev">BUILDER_CERTIFIED</td><td class="h">c719075a63387280206b7b2d7ec02fe16ff217272c67f7171d3a4f7be2454cf1</td><td class="t">2026-09-29 07:04:45</td></tr>
+          <tr><td class="seq">5</td><td class="ev">BUILDER_CERTIFIED</td><td class="h">a5529e17444b688d5f65e338a49a5064549a4f7086e5bdaf6601d7568c36f6eb</td><td class="t">2026-09-29 07:04:52</td></tr>
+          <tr><td class="seq">6</td><td class="ev">BUILDER_CERTIFIED</td><td class="h">bbd9a28ed6bc7e0b20f3fca9f9ba1fe437f4bd39dc9c1e99ed73fb7505be5b2b</td><td class="t">2026-09-29 07:04:52</td></tr>
+          <tr{{OPENCLASS}}><td class="seq">7</td><td class="ev">EVALUATION_OPENED</td><td class="h">df1f54cd847a7b08f4ab8b4f108a9306b651af77ae487f47d0b744d2561a2906</td><td class="t">2026-10-11 15:57:24</td></tr>
+{{ROWS}}        </tbody>
+      </table>
+    </div>
+    <div class="cp">
+      <div class="cp-label">Checkpoint line (paste this into any other record)</div>
+      <div class="cp-line">
+        <code id="cp-v2">NEXA-CHECKPOINT campaign=PHASE3_SIX_FAMILIES_V2 anchor=6090be68184af7643f82b680d144a1b9e1622b3bbceebfb872729b97b9d9324c seq={{SEQ}} head={{HEAD}} state=OPEN</code>
+        <button class="copy" type="button" data-target="cp-v2">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" aria-labelledby="e8-title">
+    <div class="sheet-head">
+      <h2 id="e8-title">8E: Eight Engines</h2>
+      <span class="campaign">RESEARCH_8E_V1</span>
+      <span class="state rejected">REJECTED · TERMINAL</span>
+    </div>
+    <dl class="kv">
+      <dt>Anchor</dt><dd class="hash">6468fdea1eb4063e6658ade37fdc7c137693f8b626c6a641dcd29af885517ccf</dd>
+      <dt>Final head</dt><dd class="hash">seq 2170 · 9f7249a235b41c2452703c2e7baf3b2617cb1fe32b2a66e5d8655067e505d575</dd>
+      <dt>Anchor check</dt><dd>Equals sha256 of <span class="hash">registry_8e/campaign.json</span></dd>
+    </dl>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Seq</th><th>Event</th><th>Entry sha256</th><th>UTC</th></tr></thead>
+        <tbody>
+          <tr><td class="seq">3</td><td class="ev">EVALUATION_OPENED</td><td class="h">1e84a047e1ccf88d128c3a7bd59cb9fc3524c1b3e6718771ef3cea653ed20489</td><td class="t">2026-10-01 05:20:02</td></tr>
+          <tr><td class="seq">2163</td><td class="ev">RESULT_RECORDED</td><td class="h">d838e2d66a4ec0afd0130280753e07107e01f5eb8fc31b4672c224a74bac0319</td><td class="t">2026-10-02 09:26:34</td></tr>
+          <tr><td class="seq">2169</td><td class="ev">OOS_SELECTED</td><td class="h">80eacbd8b113855eeb8573f45c801693387acedf20e7737d6c7fabca7eefaa5c</td><td class="t">2026-10-02 09:27:06</td></tr>
+          <tr class="final"><td class="seq">2170</td><td class="ev">CAMPAIGN_REJECTED</td><td class="h">9f7249a235b41c2452703c2e7baf3b2617cb1fe32b2a66e5d8655067e505d575</td><td class="t">2026-10-02 09:56:27</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cp">
+      <div class="cp-label">Checkpoint line (paste this into any other record)</div>
+      <div class="cp-line">
+        <code id="cp-8e">NEXA-CHECKPOINT campaign=RESEARCH_8E_V1 anchor=6468fdea1eb4063e6658ade37fdc7c137693f8b626c6a641dcd29af885517ccf seq=2170 head=9f7249a235b41c2452703c2e7baf3b2617cb1fe32b2a66e5d8655067e505d575 state=REJECTED</code>
+        <button class="copy" type="button" data-target="cp-8e">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes" aria-label="Notes">
+    <p><strong>V2 opened 2026-10-11 15:57:24 UTC (seq 7).</strong> Opened on the owner's explicit instruction "OPEN V2 with option B". Option B means no live F1 calendar first-print logger is built, so F1 is expected to end NOT_DEMONSTRATED at OOS; F2, F3 and F5 are unaffected. The opening was preceded by the read-only pre-open audit (42 pins verified, 634 tests pass) and used the seq 6 checkpoint from this page. This page must be republished after every further V2 registry event, and the next call must take its checkpoint from here.</p>
+    <p><strong>What the 8E rows mean.</strong> Seq 3 opened evaluation. Seq 4 to 2163 hold the 2,160 single-query validation results. Seq 2164 to 2169 seal one selection per group. Seq 2170 closes the campaign as rejected: no edge found on validation data that had already been seen, so no profitability claim follows.</p>
+    <p><strong>Limit of this record.</strong> Every value was read from this Mac's ledger and checked against its witness file at publish time. The 8E seq 3 head had no earlier independent copy, so this page cannot prove the history before 2026-10-01. For a second independent copy, paste the two checkpoint lines into an email to yourself or a signed Git tag.</p>
+  </section>
+</div>
+
+<script>
+document.querySelectorAll("button.copy").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function selectIt() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = "Selected";
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { btn.textContent = "Copied"; }, selectIt);
+    } catch (e) { selectIt(); }
+    setTimeout(function () { btn.textContent = "Copy"; }, 1800);
+  });
+});
+</script>

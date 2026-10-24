@@ -1,0 +1,28 @@
+Sensitivity of DEV expectancy to the loss-tail artifacts (non-overlapping trades, 72 bases x 8 variants with n>=30):
+                     n  share_gross_lt_m15  share_delayed_entry  share_cost_gt1  S0_asis  S1_prompt_entries  S2_loss_capped_m15  S3_cost_le_1  S4_all
+variant                                                                                                                                              
+A_mom         3871.208               0.023                0.001           0.012   -0.289             -0.286              -0.265        -0.275  -0.258
+A_quoteburst   521.250               0.045                0.000           0.009   -0.269             -0.269              -0.236        -0.267  -0.236
+A_vei         1028.972               0.033                0.000           0.014   -0.279             -0.278              -0.252        -0.277  -0.252
+L0_baseline   4886.514               0.054                0.001           0.013   -0.410             -0.406              -0.361        -0.394  -0.353
+L4_mom         165.344               0.004                0.000           0.015   -0.106             -0.105              -0.102        -0.100  -0.098
+L5_ofi          55.583               0.003                0.000           0.006    0.052              0.052               0.054         0.057   0.059
+qb_0.99        300.917               0.049                0.000           0.010   -0.260             -0.260              -0.224        -0.256  -0.222
+vei_1.3        460.792               0.037                0.000           0.010   -0.208             -0.208              -0.180        -0.205  -0.178
+
+share of configs with positive expectancy under each treatment:
+              S0_asis  S1_prompt_entries  S2_loss_capped_m15  S3_cost_le_1  S4_all
+variant                                                                           
+A_mom           0.000              0.000               0.000         0.000   0.000
+A_quoteburst    0.125              0.125               0.125         0.139   0.139
+A_vei           0.028              0.028               0.028         0.028   0.028
+L0_baseline     0.000              0.000               0.000         0.000   0.000
+L4_mom          0.230              0.230               0.230         0.230   0.230
+L5_ofi          0.583              0.583               0.583         0.611   0.611
+qb_0.99         0.222              0.222               0.236         0.236   0.236
+vei_1.3         0.153              0.153               0.167         0.153   0.167
+
+where do the < -1.5R gross losses come from (mean over configs):
+share_lt_m15_given_delayed        0.0612
+share_lt_m15_given_prompt         0.0334
+gross_lt_m15_SL_prompt_costle1    0.0330

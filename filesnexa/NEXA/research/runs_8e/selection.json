@@ -1,0 +1,200 @@
+{
+ "picks": {
+  "E8_STACK|C_stack|EURUSD": {
+   "trial_id": "a96a7b1dff0882a9c72a",
+   "config": {
+    "dc_n": 20,
+    "entry_mode": "close_next_open",
+    "target_r": 2,
+    "tf": "H1",
+    "variant": "L0_baseline"
+   },
+   "val": {
+    "avg_loss_r": -1.0902862774354067,
+    "avg_win_r": 1.874307391129861,
+    "comm_r_mean": 0.06462551594850634,
+    "cost_r_mean": 0.11179732472670836,
+    "cost_share_of_gross": 0.18153436778671805,
+    "exp_gross_r": -0.06620197328355484,
+    "exp_net_r": -0.15888878914024432,
+    "lower": -0.22052846124706216,
+    "mae_r_mean": 1.1507944195637942,
+    "max_dd_r": 247.21362408170543,
+    "median_r": -1.0532686180812432,
+    "mfe_r_mean": 1.250987650565383,
+    "n": 1531,
+    "profit_factor": 0.787509948875942,
+    "sharpe_per_trade": -0.1135008478547977,
+    "slip_r_mean": 0.018849542144211473,
+    "spread_r_mean": 0.01911050887001894,
+    "swap_r_mean": 0.009211757763971618,
+    "trades_per_active_day": 1.7678983833718245,
+    "win_rate": 0.31417374265186154
+   }
+  },
+  "E8_STACK|C_stack|GBPUSD": {
+   "trial_id": "365268775dca67dd38b1",
+   "config": {
+    "dc_n": 55,
+    "entry_mode": "close_next_open",
+    "target_r": 3,
+    "tf": "M15",
+    "variant": "L5_ofi"
+   },
+   "val": {
+    "avg_loss_r": -1.044673923509574,
+    "avg_win_r": 2.6193322948257274,
+    "comm_r_mean": 0.07452243506512572,
+    "cost_r_mean": 0.16925700549989967,
+    "cost_share_of_gross": 0.15428051539559157,
+    "exp_gross_r": 0.5219239426353877,
+    "exp_net_r": 0.3987224655316052,
+    "lower": -0.10089299386528891,
+    "mae_r_mean": 0.9627878512217911,
+    "max_dd_r": 6.499066213242201,
+    "median_r": -1.0618409923730954,
+    "mfe_r_mean": 1.8388899277842388,
+    "n": 33,
+    "profit_factor": 1.6297582942598636,
+    "sharpe_per_trade": 0.21282248965239162,
+    "slip_r_mean": 0.04516684447873513,
+    "spread_r_mean": 0.04605552839611721,
+    "swap_r_mean": 0.0035121975599216202,
+    "trades_per_active_day": 1.03125,
+    "win_rate": 0.3939393939393939
+   }
+  },
+  "E8_STACK|C_stack|XAUUSD": {
+   "trial_id": "e61b9bece4ac72cd953e",
+   "config": {
+    "dc_n": 20,
+    "entry_mode": "close_next_open",
+    "target_r": 5,
+    "tf": "H1",
+    "variant": "A_quoteburst"
+   },
+   "val": {
+    "avg_loss_r": -1.0094310478820339,
+    "avg_win_r": 3.195087623284658,
+    "comm_r_mean": 0.010277344500888162,
+    "cost_r_mean": 0.12026584689051374,
+    "cost_share_of_gross": 0.11660272275582594,
+    "exp_gross_r": 0.37290496344255486,
+    "exp_net_r": 0.26656715580536977,
+    "lower": 0.020185446561394812,
+    "mae_r_mean": 1.1989097506366024,
+    "max_dd_r": 12.485650653627978,
+    "median_r": -1.008108624797005,
+    "mfe_r_mean": 1.8886139187413185,
+    "n": 201,
+    "profit_factor": 1.3791385994070604,
+    "sharpe_per_trade": 0.12303991101676742,
+    "slip_r_mean": 0.013007300588003616,
+    "spread_r_mean": 0.013928039253328665,
+    "swap_r_mean": 0.0830531625482933,
+    "trades_per_active_day": 1.0578947368421052,
+    "win_rate": 0.3034825870646766
+   }
+  },
+  "E8_THRESH|C_thresh|EURUSD": {
+   "trial_id": "6d1140416f5c4f71c6ee",
+   "config": {
+    "dc_n": 55,
+    "entry_mode": "close_next_open",
+    "target_r": 3,
+    "tf": "M15",
+    "variant": "vei_1.5"
+   },
+   "val": {
+    "avg_loss_r": -1.092987452809656,
+    "avg_win_r": 2.4554538118325007,
+    "comm_r_mean": 0.07155441312553222,
+    "cost_r_mean": 0.11902305447213292,
+    "cost_share_of_gross": 0.13833883890507523,
+    "exp_gross_r": 0.19171002072449123,
+    "exp_net_r": 0.08982630207106312,
+    "lower": -0.12993903597400758,
+    "mae_r_mean": 1.1642988503322809,
+    "max_dd_r": 15.79070572530847,
+    "median_r": -1.0557880441264251,
+    "mfe_r_mean": 1.4488217491146294,
+    "n": 147,
+    "profit_factor": 1.123276303639379,
+    "sharpe_per_trade": 0.05105381681815275,
+    "slip_r_mean": 0.016974053196132356,
+    "spread_r_mean": 0.01713933581870487,
+    "swap_r_mean": 0.013355252331763469,
+    "trades_per_active_day": 1.348623853211009,
+    "win_rate": 0.3333333333333333
+   }
+  },
+  "E8_THRESH|C_thresh|GBPUSD": {
+   "trial_id": "2268b5c1a3ef30ea8672",
+   "config": {
+    "dc_n": 20,
+    "entry_mode": "close_next_open",
+    "target_r": 3,
+    "tf": "H1",
+    "variant": "vei_1.3"
+   },
+   "val": {
+    "avg_loss_r": -1.0567758864883425,
+    "avg_win_r": 2.556732785711877,
+    "comm_r_mean": 0.03118118981768644,
+    "cost_r_mean": 0.13913221105414175,
+    "cost_share_of_gross": 0.14319884460475904,
+    "exp_gross_r": 0.3545423255493835,
+    "exp_net_r": 0.2635445898925071,
+    "lower": -0.12341847660081952,
+    "mae_r_mean": 1.1013283051583946,
+    "max_dd_r": 5.932905552597493,
+    "median_r": -1.0265420865004136,
+    "mfe_r_mean": 1.684727580983448,
+    "n": 52,
+    "profit_factor": 1.3929711014253183,
+    "sharpe_per_trade": 0.14397342226817345,
+    "slip_r_mean": 0.04790082266934527,
+    "spread_r_mean": 0.04813447539726534,
+    "swap_r_mean": 0.011915723169844657,
+    "trades_per_active_day": 1.1304347826086956,
+    "win_rate": 0.36538461538461536
+   }
+  },
+  "E8_THRESH|C_thresh|XAUUSD": {
+   "trial_id": "c890c1995bea2a071515",
+   "config": {
+    "dc_n": 55,
+    "entry_mode": "close_next_open",
+    "target_r": 5,
+    "tf": "H1",
+    "variant": "qb_0.995"
+   },
+   "val": {
+    "avg_loss_r": -1.0207502571470264,
+    "avg_win_r": 3.374669037582039,
+    "comm_r_mean": 0.009841822985592092,
+    "cost_r_mean": 0.16418952155292968,
+    "cost_share_of_gross": 0.10291667143831511,
+    "exp_gross_r": 1.0725774085135602,
+    "exp_net_r": 0.9233775078292912,
+    "lower": 0.3973693295112012,
+    "mae_r_mean": 1.1244095916951933,
+    "max_dd_r": 4.49235093487431,
+    "median_r": -1.0034510410604003,
+    "mfe_r_mean": 2.594828839352798,
+    "n": 52,
+    "profit_factor": 2.6220533688394543,
+    "sharpe_per_trade": 0.37057777608843523,
+    "slip_r_mean": 0.013043324677129849,
+    "spread_r_mean": 0.014989620868660363,
+    "swap_r_mean": 0.12631475302154732,
+    "trades_per_active_day": 1.04,
+    "win_rate": 0.4423076923076923
+   }
+  }
+ },
+ "head": {
+  "seq": 2169,
+  "entry_sha256": "80eacbd8b113855eeb8573f45c801693387acedf20e7737d6c7fabca7eefaa5c"
+ }
+}

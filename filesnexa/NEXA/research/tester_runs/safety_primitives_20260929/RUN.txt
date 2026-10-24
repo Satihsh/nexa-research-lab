@@ -1,0 +1,4 @@
+run=safety_primitives_20260929
+start=2026-09-29 17:24:56
+end=2026-09-29 17:25:11
+expert=Advisors\NEXA_SafetyTest symbol=EURUSD period=M1 model=2 from=2024.01.08 to=2024.01.12 deposit=50000 leverage=200 delay=0

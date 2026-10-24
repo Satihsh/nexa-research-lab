@@ -1,0 +1,55 @@
+{
+ "verdict": "INSUFFICIENT_SAMPLE",
+ "reasons": [
+  "n=0 < min_trades=30"
+ ],
+ "metrics": {
+  "n": 0
+ },
+ "expectancy_ci": {},
+ "shocked_expectancy_ci": {},
+ "monte_carlo": {},
+ "breakeven_cost_r": NaN,
+ "config": {
+  "min_trades": 30,
+  "n_boot": 5000,
+  "n_mc": 5000,
+  "ci": 0.95,
+  "block": 1,
+  "cost_shock_r": 0.05,
+  "risk_per_trade": 0.003,
+  "ruin_drawdown": 0.1,
+  "seed": 20260927
+ },
+ "source": "broker result_r on CLOSE rows (net of costs as the tester realised them)",
+ "events": {
+  "DECISION": 7012
+ },
+ "reasons_top": {
+  "NO_TRADE_NO_QUALIFIED_LIQUIDITY_EVENT_state0": 5056,
+  "NO_TRADE_NO_QUALIFIED_LIQUIDITY_EVENT_state2": 222,
+  "NO_TRADE_INSUFFICIENT_TARGET_ROOM": 88,
+  "NO_TRADE_NO_QUALIFIED_LIQUIDITY_EVENT_state3": 73,
+  "NO_TRADE_PORTFOLIO_CURRENCY_EXPOSURE_CAP": 43,
+  "NO_TRADE_SPREAD_TAX_15.6PCT": 25,
+  "NO_TRADE_SPREAD_TAX_15.1PCT": 20,
+  "NO_TRADE_SPREAD_TAX_15.4PCT": 16,
+  "NO_TRADE_SPREAD_TAX_15.3PCT": 16,
+  "NO_TRADE_SPREAD_TAX_16.2PCT": 15,
+  "NO_TRADE_SPREAD_TAX_17.4PCT": 15,
+  "NO_TRADE_SPREAD_TAX_17.5PCT": 15,
+  "NO_TRADE_SPREAD_TAX_20.7PCT": 15,
+  "NO_TRADE_SPREAD_TAX_26.4PCT": 15,
+  "NO_TRADE_SPREAD_TAX_16.0PCT": 14,
+  "NO_TRADE_SPREAD_TAX_23.3PCT": 14,
+  "NO_TRADE_SPREAD_TAX_17.3PCT": 13,
+  "NO_TRADE_SPREAD_TAX_25.5PCT": 13,
+  "NO_TRADE_SPREAD_TAX_20.1PCT": 13,
+  "NO_TRADE_SPREAD_TAX_15.8PCT": 13,
+  "NO_TRADE_SPREAD_TAX_15.9PCT": 12,
+  "NO_TRADE_SPREAD_TAX_21.5PCT": 12,
+  "NO_TRADE_SPREAD_TAX_20.4PCT": 12,
+  "NO_TRADE_SPREAD_TAX_16.6PCT": 12,
+  "NO_TRADE_SPREAD_TAX_38.9PCT": 12
+ }
+}

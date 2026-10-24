@@ -1,0 +1,4 @@
+run=PS_PROBE3M_NEXA_GBPUSD
+start=2026-09-27 18:09:10
+end=2026-09-27 18:10:06
+expert=Advisors\NEXA_EA symbol=GBPUSD period=M1 model=0 from=2026.05.01 to=2026.08.01 deposit=50000 leverage=200 delay=250

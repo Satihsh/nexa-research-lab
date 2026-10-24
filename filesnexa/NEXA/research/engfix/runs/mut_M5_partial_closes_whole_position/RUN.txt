@@ -1,0 +1,4 @@
+run=ENGFIX_mut_M5_partial_closes_whole_position
+start=2026-10-03 13:54:43
+end=2026-10-03 13:54:58
+expert=NEXA_EngFix\NEXA_PMMut5 symbol=EURUSD period=M1 model=2 from=2024.01.08 to=2024.01.12 deposit=50000 leverage=200 delay=0

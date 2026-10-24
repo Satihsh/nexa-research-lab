@@ -1,0 +1,4 @@
+run=REG_DTZ_USDJPY_B
+start=2026-10-03 22:05:07
+end=2026-10-03 22:05:42
+expert=NEXA_EngFix\NEXA_EA_DTZ symbol=USDJPY period=M1 model=4 from=2026.08.28 to=2026.09.26 deposit=200 leverage=200 delay=250

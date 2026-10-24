@@ -1,0 +1,4 @@
+run=PS_NEXA_EURUSD_A2024Q3
+start=2026-09-27 18:27:31
+end=2026-09-27 18:28:37
+expert=Advisors\NEXA_EA symbol=EURUSD period=M1 model=0 from=2024.07.01 to=2024.10.01 deposit=50000 leverage=200 delay=250

@@ -1,0 +1,8 @@
+SUPERSEDED PRE-OPENING FREEZE: never opened, no results. Ledger: 7 events (CAMPAIGN_FROZEN + 6 BUILDER_CERTIFIED),
+last published head seq 6 e1abbb3360f7c942a35e8b0dab720fb7534e8e8761442d0058d5d54f5891645e.
+Anchor faac4c8656ceed42c97849049cd3e8379936ed33a340844772e01849346033c0 (frozen 2026-09-29). Directory preserved byte-for-byte (tree sha256 3cefba894104c4b3ebda937c77bd4a5e9a3f3bca33a349209dc3ce648b8fabd5);
+witness ~/.nexa_registry_witness/faac4c8656ceed42c97849049cd3e8379936ed33a340844772e01849346033c0.jsonl preserved unmodified (sha256 8627d29a14a6c610515ba8471bf78e221925266c4978a2bf3ee2532ea2d54d66).
+Reason: the final adversarial audit (A30b) found that a missing protocol file raised FileNotFoundError instead of
+RegistryError (fails, but not cleanly closed). nexa_registry2.py was hardened (file-read, pinned-path, record-argument
+and parse_utc handling), which changes the pinned code hash. Protocols, periods, universe and counts unchanged.
+Superseded by the final V2 freeze in research/reports/PHASE3_V2_MANIFEST.md. MUST NEVER BE OPENED.

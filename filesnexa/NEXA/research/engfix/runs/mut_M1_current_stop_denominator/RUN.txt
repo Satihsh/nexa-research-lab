@@ -1,0 +1,4 @@
+run=ENGFIX_mut_M1_current_stop_denominator
+start=2026-10-03 13:52:59
+end=2026-10-03 13:53:14
+expert=NEXA_EngFix\NEXA_PMMut1 symbol=EURUSD period=M1 model=2 from=2024.01.08 to=2024.01.12 deposit=50000 leverage=200 delay=0

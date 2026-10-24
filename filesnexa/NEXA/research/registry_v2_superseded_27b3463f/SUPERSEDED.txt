@@ -1,0 +1,9 @@
+SUPERSEDED — never opened, no results, no builders registered (ledger: 1 event, CAMPAIGN_FROZEN).
+Anchor 27b3463f5b2aa7f913701ba485946298bb128322321446631ddb406387b8485b, frozen 2026-09-28.
+Reason: the adversarial scratch-copy tests found 3 registry defects before any use:
+  A6d  ledger-tail truncation + results wipe reset the VAL budget (FAIL-OPEN)
+  A10b register_builder trusted a caller-supplied certificate dict (forged 'passed' accepted)
+  X1   malformed ledger raised KeyError instead of RegistryError
+nexa_registry2.py was hardened (external witness, internal certification, robust parsing), which
+changes the pinned code hash, so this freeze can no longer verify. Superseded by the re-freeze
+recorded in PROGRESS.md. Kept for audit; must never be opened.

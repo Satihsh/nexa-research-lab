@@ -1,0 +1,8 @@
+# Deviations: H-SWEEP, H-ORB5, H-LVN-SPEED (logged before any run)
+
+| # | When (UTC) | What | Effect on results |
+|---|---|---|---|
+| D-1 | 2026-10-20 23:41 | Unit tests ran with `run_tests.py` (plain test_* functions) because pytest is not installed and installs need user approval. Same tests, same pass rule. | None |
+| D-2 | 2026-10-20 23:45 | The QuantConnect MCP server now refuses compile / read_file / backtest without a paid "Assistant node" (it worked on 2026-10-18). No purchase (user rule: $0). Project NEXA/SWEEP_NQ (38193433) was created before the refusal. **Runs move to the LEAN CLI (`lean cloud …`) with the user's own login.** The editor-hash check becomes: `lean cloud pull` the project, then sha256 of the pulled main.py must equal PREREG_HASHES.txt. | None on the rules; stronger hash check |
+| D-3 | 2026-10-21T00:08 | Runs via the QuantConnect website with the user's own login (built-in browser; the API token is paid too). Editor hash = sha256 of the file returned by the site's /api/v2/files/read, computed in-page: SWEEP_NQ 38193433 bb1ac624…, ORB5_NQ 38194041 bb219a99…, LVN_NQ 38194073 8e50dfbb… = PREREG_HASHES.txt. ES runs: the MODE line is edited in the same project and its hash checked against the frozen main_es.py before the run. | None |
+| D-4 | 2026-10-21 (after the runs, before the report) | ORB5 random-direction placebo found to be biased against itself (a trade against the first candle usually has a tiny stop, so costs are a larger share of R). Reported as a caveat; the verdict does not use it (the primary mean is negative). A fair control would give the random trade the real trade's R. | None on verdicts |

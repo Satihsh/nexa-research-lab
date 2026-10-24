@@ -1,0 +1,158 @@
+{
+ "blocked_reason": "no second synchronous tick feed with a common clock; needs a second broker login + parallel logging",
+ "costs": {
+  "commission_per_lot_side_usd": 3.5,
+  "latency_ms": 250,
+  "slippage": {
+   "event_multiplier": 3.0,
+   "points": 0.0,
+   "spread_frac": 0.5
+  },
+  "spread": "per-bar recorded spread (M1) or tick ask-bid",
+  "swap": "contracts.json swap_long/short on positions crossing server 00:00"
+ },
+ "data": {
+  "second_feed": null
+ },
+ "design_doc": "research/reports/RESEARCH_DESIGN_SIX_FAMILIES.md",
+ "environment": {
+  "execution_module_sha256": "302188bad2e46381daffc15dc09530e3bf2bf88dfa73950417be6853717921ae",
+  "time_convention": {
+   "clock": "PEPPERSTONE_NY_CLOSE",
+   "evidence_sha256": "6da7930744d9451f94a75593b1644cf4e7d5960e550754cdc33492b44764d739",
+   "module_sha256": "3a39f33b2c4e115c59f435d099f69c1931e73bb5af7ffeff72e8a7cb35745760"
+  }
+ },
+ "execution": {
+  "ambiguous_bar": "STOP_FIRST",
+  "bar_latency": "next bar open",
+  "engine": "nexa_execution",
+  "gap": "fill at bar open",
+  "limit_fill": "trade-through by 1 point (touch is not a fill)"
+ },
+ "experiment": "F4_CROSS_FEED_LATENCY",
+ "failure_criteria": [
+  "OOS E[R] CI includes 0",
+  "fails any null after BH-FDR",
+  "E[R] < 0 at spread x2 or latency 500 ms",
+  "PBO >= 0.5",
+  "DSR < 0.95",
+  "unstable parameter surface",
+  "OOS/IS degradation < 0.5 or sign flip",
+  "leave-one-out flips sign",
+  "fewer than 200 OOS-eligible trades"
+ ],
+ "family": "latency_lead_lag",
+ "frozen_utc": "2026-09-27T15:45:48+00:00",
+ "grid": {
+  "hold_s": [
+   1,
+   5
+  ],
+  "sample_ms": [
+   50,
+   100,
+   250,
+   1000
+  ],
+  "threshold_q": [
+   0.95,
+   0.99
+  ]
+ },
+ "hypothesis": "L1 observed lead / L2 executable lead / L3 post-cost edge (never merged)",
+ "labels": {
+  "type": "executable P/L at hold"
+ },
+ "metrics": [
+  "win_rate",
+  "loss_rate",
+  "expectancy_r_ci",
+  "median_r",
+  "profit_factor",
+  "max_drawdown_r",
+  "mae_r",
+  "mfe_r",
+  "sharpe_per_trade_if_n>=100_nonoverlap",
+  "sortino",
+  "trades_per_week",
+  "exposure",
+  "spread_cost_r",
+  "commission_r",
+  "slippage_r",
+  "latency_ms",
+  "fill_probability",
+  "regime_stability",
+  "parameter_stability",
+  "oos_expectancy",
+  "degradation_oos_over_is"
+ ],
+ "nulls": [
+  "timing",
+  "direction",
+  "circular_shift"
+ ],
+ "periods": {
+  "DEV": [
+   "2026-08-28",
+   "2026-09-11"
+  ],
+  "FORWARD": ">= 4 weeks logged after freeze (true OOS)",
+  "OOS": [
+   "2026-09-21",
+   "2026-09-25"
+  ],
+  "VAL": [
+   "2026-09-14",
+   "2026-09-18"
+  ]
+ },
+ "robustness": {
+  "cost_shocks": {
+   "commission_x": [
+    1.5
+   ],
+   "slippage_plus_spread": [
+    1
+   ],
+   "spread_x": [
+    1.5,
+    2,
+    3
+   ]
+  },
+  "holdouts": [
+   "leave-one-year-out",
+   "leave-one-symbol-out"
+  ],
+  "latency_ms": [
+   250,
+   500,
+   1000
+  ],
+  "missed_fill_drop": [
+   0.1,
+   0.25
+  ],
+  "sensitivity_rule": ">= 70% of neighbouring grid cells keep E[R] > 0 and CI sign"
+ },
+ "sha256": "b6d6c4c2fa0701e8a71e9f1b4afbefac2bb45289bfe62d2f36cd4ed403912082",
+ "status": "BLOCKED",
+ "symbols": [
+  "EURUSD",
+  "XAUUSD"
+ ],
+ "tests": {
+  "alpha": 0.05,
+  "bootstrap": "stationary block, block = max hold, 5000 draws, seeded",
+  "dsr_min": 0.95,
+  "fdr_q": 0.1,
+  "min_trades_promote": 200,
+  "min_trades_report": 30,
+  "null_permutations": 5000,
+  "null_rule": "intersection-union: every null p <= alpha",
+  "pbo_max": 0.5
+ },
+ "time_convention": "PEPPERSTONE_NY_CLOSE via nexa_time",
+ "version": 1
+}

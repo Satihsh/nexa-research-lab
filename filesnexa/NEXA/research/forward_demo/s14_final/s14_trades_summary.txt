@@ -1,0 +1,24 @@
+EURUSD 2026.10.14 12:10:00 dir +1 grossR -0.999 netR -1.265 risk $0.30 comm $0.08 slip 0.0
+EURUSD 2026.10.14 21:50:00 dir +1 grossR -0.999 netR -1.349 risk $0.40 comm $0.14 slip 0.0
+EURUSD 2026.10.15 09:17:00 dir -1 grossR +0.000 netR -0.174 risk $0.46 comm $0.08 slip 0.0
+EURUSD 2026.10.15 11:17:00 dir +1 grossR -0.400 netR -0.471 risk $1.13 comm $0.08 slip 0.0
+EURUSD 2026.10.16 11:28:00 dir +1 grossR +0.000 netR -0.259 risk $0.54 comm $0.14 slip 0.0
+EURUSD 2026.10.16 12:46:00 dir +1 grossR -1.011 netR -1.281 risk $0.52 comm $0.14 slip 0.0
+EURUSD 2026.10.16 12:50:00 dir +1 grossR +0.000 netR -0.250 risk $0.56 comm $0.14 slip 0.0
+EURUSD 2026.10.16 17:07:00 dir +1 grossR +0.000 netR -0.222 risk $0.36 comm $0.08 slip 0.0
+GBPUSD 2026.10.12 19:59:00 dir +1 grossR -0.599 netR -0.859 risk $0.54 comm $0.14 slip 0.0
+GBPUSD 2026.10.15 12:47:00 dir -1 grossR +3.384 netR +3.285 risk $0.81 comm $0.08 slip 0.0
+GBPUSD 2026.10.15 21:45:01 dir -1 grossR +0.284 netR +0.110 risk $0.46 comm $0.08 slip 0.0
+USDJPY 2026.10.16 20:21:00 dir -1 grossR -0.120 netR -0.228 risk $0.74 comm $0.08 slip 0.0
+XAUUSD 2026.10.12 14:15:00 dir -1 grossR -0.999 netR -1.062 risk $1.28 comm $0.08 slip 0.0
+XAUUSD 2026.10.12 14:22:00 dir -1 grossR +0.000 netR -0.054 risk $1.47 comm $0.08 slip 0.0
+XAUUSD 2026.10.12 16:42:00 dir -1 grossR -1.000 netR -1.060 risk $1.33 comm $0.08 slip 0.0
+XAUUSD 2026.10.13 21:01:00 dir -1 grossR -1.003 netR -1.059 risk $1.43 comm $0.08 slip 0.0
+XAUUSD 2026.10.14 09:56:00 dir +1 grossR +0.000 netR -0.043 risk $1.84 comm $0.08 slip 0.0
+XAUUSD 2026.10.14 13:22:00 dir +1 grossR -1.001 netR -1.057 risk $1.43 comm $0.08 slip 0.0
+XAUUSD 2026.10.14 13:43:00 dir +1 grossR +0.000 netR -0.047 risk $1.70 comm $0.08 slip 0.0
+
+N=19 gross mean -0.235R sum -4.46R | net mean -0.387R sum -7.34R
+wins 2 breakeven 7 losses 10
+slippage: all zero
+mean commission as R: 0.152

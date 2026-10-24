@@ -1,0 +1,4 @@
+run=REG_PRE_GBPUSD_B
+start=2026-10-03 14:12:50
+end=2026-10-03 14:13:25
+expert=NEXA_EngFix\NEXA_EA_PRE symbol=GBPUSD period=M1 model=4 from=2026.08.28 to=2026.09.26 deposit=200 leverage=200 delay=250

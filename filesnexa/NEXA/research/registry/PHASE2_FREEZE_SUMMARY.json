@@ -1,0 +1,94 @@
+{
+ "campaign": {
+  "campaign": "PHASE3_SIX_FAMILIES_V1",
+  "correction": {
+   "campaign": "Benjamini-Hochberg q=0.10 over all primary tests (experiment x symbol)",
+   "config": "intersection-union over timing/direction/circular-shift nulls (+ family nulls)",
+   "dsr_trials": "declared_trials_active + legacy_trials",
+   "experiment": "PBO (CSCV) across grid + parameter-surface stability"
+  },
+  "declared_trials_active": 807,
+  "dsr_trial_count": 915,
+  "experiments": [
+   {
+    "declared_trials": 216,
+    "experiment": "F1_MACRO_EVENT",
+    "sha256": "c462db9027dcc9c33eb25c6a2ff160155bdb01afdc53f57be78efb2d68e55094",
+    "status": "ACTIVE",
+    "version": 1
+   },
+   {
+    "declared_trials": 24,
+    "experiment": "F2_XAU_SESSION_BREAKOUT",
+    "sha256": "b49706d36550aa99196c91808e9527594d1b3a8c5114c561dc96c9afe4a211b8",
+    "status": "ACTIVE",
+    "version": 1
+   },
+   {
+    "declared_trials": 288,
+    "experiment": "F3_FVG_RETRACEMENT",
+    "sha256": "1c1768690a4eab46d41bccf3f2de1116ebe1b6fa1b7fe9aa6d1014b28efe9f56",
+    "status": "ACTIVE",
+    "version": 1
+   },
+   {
+    "declared_trials": 32,
+    "experiment": "F4_CROSS_FEED_LATENCY",
+    "sha256": "b6d6c4c2fa0701e8a71e9f1b4afbefac2bb45289bfe62d2f36cd4ed403912082",
+    "status": "BLOCKED",
+    "version": 1
+   },
+   {
+    "declared_trials": 144,
+    "experiment": "F5_ASIAN_MEAN_REVERSION",
+    "sha256": "2c5c50e480e77ae04c8bd8a78df263d45b6a82f748130bc4cc6fc2b9e1d16a7a",
+    "status": "ACTIVE",
+    "version": 1
+   },
+   {
+    "declared_trials": 135,
+    "experiment": "F6_TICK_QUOTE_IMBALANCE",
+    "sha256": "c81063525fe810f2169081c8463ad80c569e2d968177ce00334d36d0857aa538",
+    "status": "ACTIVE",
+    "version": 1
+   }
+  ],
+  "legacy_trials": 108,
+  "primary_tests": 18,
+  "state": "FROZEN",
+  "sha256": "9b5b78738950d3b840fa8903bd6ad48042fb9abe6058f960687e33a23dea495c"
+ },
+ "protocols": {
+  "F1_MACRO_EVENT": {
+   "sha256": "c462db9027dcc9c33eb25c6a2ff160155bdb01afdc53f57be78efb2d68e55094",
+   "status": "ACTIVE",
+   "declared_trials": 216
+  },
+  "F2_XAU_SESSION_BREAKOUT": {
+   "sha256": "b49706d36550aa99196c91808e9527594d1b3a8c5114c561dc96c9afe4a211b8",
+   "status": "ACTIVE",
+   "declared_trials": 24
+  },
+  "F3_FVG_RETRACEMENT": {
+   "sha256": "1c1768690a4eab46d41bccf3f2de1116ebe1b6fa1b7fe9aa6d1014b28efe9f56",
+   "status": "ACTIVE",
+   "declared_trials": 288
+  },
+  "F4_CROSS_FEED_LATENCY": {
+   "sha256": "b6d6c4c2fa0701e8a71e9f1b4afbefac2bb45289bfe62d2f36cd4ed403912082",
+   "status": "BLOCKED",
+   "declared_trials": 32
+  },
+  "F5_ASIAN_MEAN_REVERSION": {
+   "sha256": "2c5c50e480e77ae04c8bd8a78df263d45b6a82f748130bc4cc6fc2b9e1d16a7a",
+   "status": "ACTIVE",
+   "declared_trials": 144
+  },
+  "F6_TICK_QUOTE_IMBALANCE": {
+   "sha256": "c81063525fe810f2169081c8463ad80c569e2d968177ce00334d36d0857aa538",
+   "status": "ACTIVE",
+   "declared_trials": 135
+  }
+ },
+ "ledger_valid": true
+}

@@ -1,0 +1,1 @@
+Inputs (recreate to re-run): PEPPERSTONE_NEXA_TradeDNA_<SYM>_B.csv = gzip -cd ../REG_S13_<SYM>_B/dna.csv.gz; bar files = symlinks to data/pepperstone/tester/PEPPERSTONE_<SYM>_<TF>_tester_B(.iso).csv (all four symbols M1 needed for f29)

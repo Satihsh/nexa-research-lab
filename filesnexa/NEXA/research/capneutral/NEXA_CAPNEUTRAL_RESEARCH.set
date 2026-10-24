@@ -1,0 +1,36 @@
+; =====================================================================
+; CAP-NEUTRAL RESEARCH — NOT PRODUCTION CONFIGURATION
+; =====================================================================
+; DRAFT 2026-10-02. Approved option: B-EXPOSURE-CAP option B (tester only).
+; Plan: research/capneutral/CAPNEUTRAL_RESEARCH_PLAN.md
+;
+; Use: Strategy Tester only, via research/capneutral/run_capneutral_batch.sh,
+; which turns the active lines below into the [TesterInputs] block of each run.
+; NEVER load this file on a live or demo chart. The production default of
+; InpMaxSameCurrencyNet stays 2 in NEXA_Risk.mqh (approved hash 7fd5692a…),
+; which this file does not and cannot change.
+;
+; Exactly ONE value differs from production: InpMaxSameCurrencyNet.
+;   production: 2      -> cap = 2 x 0.01 lot   = 0.02 lots per currency
+;   this file : 10000  -> cap = 10000 x 0.01   = 100 lots per currency
+; 100 lots can never bind before the unchanged margin limit (InpMaxMarginUsagePct
+; = 50 % of free margin): at $50,000 and 1:200, 50 % of margin supports at most
+; about 50 lots of USDJPY (the cheapest of the four to margin), about 43 of
+; EURUSD, 37 of GBPUSD and 11 of XAUUSD. The cap is
+; therefore inert; every other hard limit below stays at its frozen value and is
+; written out explicitly so a cached tester setting cannot silently change it.
+; =====================================================================
+
+; ---- the single research override --------------------------------------
+InpMaxSameCurrencyNet=10000
+
+; ---- frozen hard-risk limits, pinned at their production values ---------
+InpRiskPercent=0.30
+InpHardRiskCeiling=1.00
+InpMaxDailyLossPct=2.00
+InpMaxDrawdownPct=10.00
+InpMaxTradesPerDay=10
+InpMaxSpreadATRRatio=0.15
+InpMaxMarginUsagePct=50.0
+InpMaxCorrelation=0.75
+InpCorrelationBars=100

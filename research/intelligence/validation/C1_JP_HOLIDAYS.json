@@ -1,0 +1,678 @@
+{
+"source": "~/NEXA-Agent-Lab/filesnexa/NEXA/data/pepperstone/calendar/canonical_v2/PEPPERSTONE_MT5_CALENDAR_canonical_v2.csv.gz",
+"rule": "MT5 calendar country_code=JP type=2 (holiday), date = time_server_text date; plus Dec 31-Jan 3 bank year-end; weekends excluded separately",
+"extra_year_end_added": [
+"2016-12-31",
+"2016-01-01",
+"2016-01-02",
+"2016-01-03",
+"2017-12-31",
+"2017-01-01",
+"2017-01-03",
+"2018-12-31",
+"2018-01-02",
+"2018-01-03",
+"2019-12-31",
+"2019-01-02",
+"2019-01-03",
+"2020-12-31",
+"2020-01-02",
+"2020-01-03",
+"2021-12-31",
+"2021-01-02",
+"2021-01-03",
+"2022-12-31",
+"2022-01-02",
+"2022-01-03",
+"2023-12-31",
+"2023-01-03",
+"2024-12-31",
+"2024-01-01",
+"2024-01-02",
+"2024-01-03",
+"2025-12-31",
+"2025-01-02",
+"2025-01-03",
+"2026-12-31",
+"2026-01-01",
+"2026-01-02",
+"2026-01-03",
+"2027-12-31",
+"2027-01-01",
+"2027-01-02",
+"2027-01-03"
+],
+"dates": {
+"2016-01-01": [
+"bank-year-end"
+],
+"2016-01-02": [
+"bank-year-end"
+],
+"2016-01-03": [
+"bank-year-end"
+],
+"2016-12-31": [
+"bank-year-end"
+],
+"2017-01-01": [
+"bank-year-end"
+],
+"2017-01-02": [
+"bank-year-end",
+"new-years-day"
+],
+"2017-01-03": [
+"bank-year-end"
+],
+"2017-01-09": [
+"coming-of-age-day"
+],
+"2017-02-11": [
+"national-foundation-day"
+],
+"2017-03-20": [
+"vernal-equinox-day"
+],
+"2017-04-29": [
+"showa-day"
+],
+"2017-05-03": [
+"constitution-memorial-day"
+],
+"2017-05-04": [
+"greenery-day"
+],
+"2017-05-05": [
+"childrens-day"
+],
+"2017-07-17": [
+"marine-day"
+],
+"2017-08-11": [
+"mountain-day"
+],
+"2017-09-18": [
+"respect-for-the-aged-day"
+],
+"2017-09-23": [
+"autumnal-equinox-day"
+],
+"2017-10-09": [
+"health-and-sports-day"
+],
+"2017-11-03": [
+"culture-day"
+],
+"2017-11-23": [
+"labour-thanksgiving-day"
+],
+"2017-12-23": [
+"the-emperors-birthday"
+],
+"2017-12-31": [
+"bank-year-end"
+],
+"2018-01-01": [
+"bank-year-end",
+"new-years-day"
+],
+"2018-01-02": [
+"bank-year-end"
+],
+"2018-01-03": [
+"bank-year-end"
+],
+"2018-01-08": [
+"coming-of-age-day"
+],
+"2018-02-12": [
+"national-foundation-day"
+],
+"2018-03-21": [
+"vernal-equinox-day"
+],
+"2018-04-30": [
+"showa-day"
+],
+"2018-05-03": [
+"constitution-memorial-day"
+],
+"2018-05-04": [
+"greenery-day"
+],
+"2018-05-05": [
+"childrens-day"
+],
+"2018-07-16": [
+"marine-day"
+],
+"2018-08-11": [
+"mountain-day"
+],
+"2018-09-17": [
+"respect-for-the-aged-day"
+],
+"2018-09-24": [
+"autumnal-equinox-day"
+],
+"2018-10-08": [
+"health-and-sports-day"
+],
+"2018-11-03": [
+"culture-day"
+],
+"2018-11-23": [
+"labour-thanksgiving-day"
+],
+"2018-12-24": [
+"the-emperors-birthday"
+],
+"2018-12-31": [
+"bank-year-end"
+],
+"2019-01-01": [
+"bank-year-end",
+"new-years-day"
+],
+"2019-01-02": [
+"bank-year-end"
+],
+"2019-01-03": [
+"bank-year-end"
+],
+"2019-01-14": [
+"coming-of-age-day"
+],
+"2019-02-11": [
+"national-foundation-day"
+],
+"2019-03-21": [
+"vernal-equinox-day"
+],
+"2019-04-29": [
+"showa-day"
+],
+"2019-04-30": [
+"national-holiday-2019-golden-week (NEXA addition: public record)"
+],
+"2019-05-01": [
+"enthronement-day-2019 (NEXA addition: public record)"
+],
+"2019-05-02": [
+"national-holiday-2019-golden-week (NEXA addition: public record)"
+],
+"2019-05-03": [
+"constitution-memorial-day"
+],
+"2019-05-04": [
+"greenery-day"
+],
+"2019-05-05": [
+"childrens-day"
+],
+"2019-05-06": [
+"childrens-day"
+],
+"2019-07-15": [
+"marine-day"
+],
+"2019-08-11": [
+"mountain-day"
+],
+"2019-08-12": [
+"mountain-day"
+],
+"2019-09-16": [
+"respect-for-the-aged-day"
+],
+"2019-09-23": [
+"autumnal-equinox-day"
+],
+"2019-10-14": [
+"health-and-sports-day"
+],
+"2019-10-22": [
+"enthronement-ceremony-day-2019 (NEXA addition: public record)"
+],
+"2019-11-03": [
+"culture-day"
+],
+"2019-11-04": [
+"culture-day"
+],
+"2019-11-23": [
+"labour-thanksgiving-day"
+],
+"2019-12-31": [
+"bank-year-end"
+],
+"2020-01-01": [
+"bank-year-end",
+"new-years-day"
+],
+"2020-01-02": [
+"bank-year-end"
+],
+"2020-01-03": [
+"bank-year-end"
+],
+"2020-01-13": [
+"coming-of-age-day"
+],
+"2020-02-11": [
+"national-foundation-day"
+],
+"2020-02-23": [
+"the-emperors-birthday"
+],
+"2020-02-24": [
+"the-emperors-birthday"
+],
+"2020-03-20": [
+"vernal-equinox-day"
+],
+"2020-04-29": [
+"showa-day"
+],
+"2020-05-03": [
+"constitution-memorial-day"
+],
+"2020-05-04": [
+"greenery-day"
+],
+"2020-05-05": [
+"childrens-day"
+],
+"2020-05-06": [
+"constitution-memorial-day"
+],
+"2020-07-23": [
+"marine-day"
+],
+"2020-07-24": [
+"health-and-sports-day"
+],
+"2020-08-10": [
+"mountain-day"
+],
+"2020-09-21": [
+"respect-for-the-aged-day"
+],
+"2020-09-22": [
+"autumnal-equinox-day"
+],
+"2020-11-03": [
+"culture-day"
+],
+"2020-11-23": [
+"labour-thanksgiving-day"
+],
+"2020-12-31": [
+"bank-year-end"
+],
+"2021-01-01": [
+"bank-year-end",
+"new-years-day"
+],
+"2021-01-02": [
+"bank-year-end"
+],
+"2021-01-03": [
+"bank-year-end"
+],
+"2021-01-11": [
+"coming-of-age-day"
+],
+"2021-02-11": [
+"national-foundation-day"
+],
+"2021-02-23": [
+"the-emperors-birthday"
+],
+"2021-03-20": [
+"vernal-equinox-day"
+],
+"2021-04-29": [
+"showa-day"
+],
+"2021-05-03": [
+"constitution-memorial-day"
+],
+"2021-05-04": [
+"greenery-day"
+],
+"2021-05-05": [
+"childrens-day"
+],
+"2021-07-22": [
+"marine-day"
+],
+"2021-07-23": [
+"health-and-sports-day"
+],
+"2021-08-08": [
+"mountain-day"
+],
+"2021-08-09": [
+"mountain-day"
+],
+"2021-09-20": [
+"respect-for-the-aged-day"
+],
+"2021-09-23": [
+"autumnal-equinox-day"
+],
+"2021-11-03": [
+"culture-day"
+],
+"2021-11-23": [
+"labour-thanksgiving-day"
+],
+"2021-12-31": [
+"bank-year-end"
+],
+"2022-01-01": [
+"bank-year-end",
+"new-years-day"
+],
+"2022-01-02": [
+"bank-year-end"
+],
+"2022-01-03": [
+"bank-year-end"
+],
+"2022-01-10": [
+"coming-of-age-day"
+],
+"2022-02-11": [
+"national-foundation-day"
+],
+"2022-02-23": [
+"the-emperors-birthday"
+],
+"2022-03-21": [
+"vernal-equinox-day"
+],
+"2022-04-29": [
+"showa-day"
+],
+"2022-05-03": [
+"constitution-memorial-day"
+],
+"2022-05-04": [
+"greenery-day"
+],
+"2022-05-05": [
+"childrens-day"
+],
+"2022-07-18": [
+"marine-day"
+],
+"2022-08-11": [
+"mountain-day"
+],
+"2022-09-19": [
+"respect-for-the-aged-day"
+],
+"2022-09-23": [
+"autumnal-equinox-day"
+],
+"2022-10-10": [
+"health-and-sports-day"
+],
+"2022-11-03": [
+"culture-day"
+],
+"2022-11-23": [
+"labour-thanksgiving-day"
+],
+"2022-12-31": [
+"bank-year-end"
+],
+"2023-01-01": [
+"bank-year-end",
+"new-years-day"
+],
+"2023-01-02": [
+"bank-year-end",
+"new-years-day"
+],
+"2023-01-03": [
+"bank-year-end"
+],
+"2023-01-09": [
+"coming-of-age-day"
+],
+"2023-02-11": [
+"national-foundation-day"
+],
+"2023-02-23": [
+"the-emperors-birthday"
+],
+"2023-03-21": [
+"vernal-equinox-day"
+],
+"2023-04-29": [
+"showa-day"
+],
+"2023-05-03": [
+"constitution-memorial-day"
+],
+"2023-05-04": [
+"greenery-day"
+],
+"2023-05-05": [
+"childrens-day"
+],
+"2023-07-17": [
+"marine-day"
+],
+"2023-08-11": [
+"mountain-day"
+],
+"2023-09-18": [
+"respect-for-the-aged-day"
+],
+"2023-09-23": [
+"autumnal-equinox-day"
+],
+"2023-10-09": [
+"health-and-sports-day"
+],
+"2023-11-03": [
+"culture-day"
+],
+"2023-11-23": [
+"labour-thanksgiving-day"
+],
+"2023-12-31": [
+"bank-year-end"
+],
+"2024-01-01": [
+"bank-year-end"
+],
+"2024-01-02": [
+"bank-year-end"
+],
+"2024-01-03": [
+"bank-year-end"
+],
+"2024-04-29": [
+"showa-day"
+],
+"2024-05-03": [
+"constitution-memorial-day"
+],
+"2024-05-04": [
+"greenery-day"
+],
+"2024-05-05": [
+"childrens-day"
+],
+"2024-05-06": [
+"childrens-day"
+],
+"2024-07-15": [
+"marine-day"
+],
+"2024-08-11": [
+"mountain-day"
+],
+"2024-08-12": [
+"mountain-day"
+],
+"2024-09-16": [
+"respect-for-the-aged-day"
+],
+"2024-09-22": [
+"autumnal-equinox-day"
+],
+"2024-09-23": [
+"autumnal-equinox-day"
+],
+"2024-10-14": [
+"health-and-sports-day"
+],
+"2024-11-03": [
+"culture-day"
+],
+"2024-11-04": [
+"culture-day"
+],
+"2024-11-23": [
+"labour-thanksgiving-day"
+],
+"2024-12-31": [
+"bank-year-end"
+],
+"2025-01-01": [
+"bank-year-end",
+"new-years-day"
+],
+"2025-01-02": [
+"bank-year-end"
+],
+"2025-01-03": [
+"bank-year-end"
+],
+"2025-01-13": [
+"coming-of-age-day"
+],
+"2025-02-11": [
+"national-foundation-day"
+],
+"2025-02-23": [
+"the-emperors-birthday"
+],
+"2025-02-24": [
+"the-emperors-birthday"
+],
+"2025-03-20": [
+"vernal-equinox-day"
+],
+"2025-04-29": [
+"showa-day"
+],
+"2025-05-03": [
+"constitution-memorial-day"
+],
+"2025-05-04": [
+"greenery-day"
+],
+"2025-05-05": [
+"childrens-day"
+],
+"2025-05-06": [
+"greenery-day"
+],
+"2025-07-21": [
+"marine-day"
+],
+"2025-08-11": [
+"mountain-day"
+],
+"2025-09-15": [
+"respect-for-the-aged-day"
+],
+"2025-09-23": [
+"autumnal-equinox-day"
+],
+"2025-10-13": [
+"health-and-sports-day"
+],
+"2025-11-03": [
+"culture-day"
+],
+"2025-11-23": [
+"labour-thanksgiving-day"
+],
+"2025-11-24": [
+"labour-thanksgiving-day"
+],
+"2025-12-31": [
+"bank-year-end"
+],
+"2026-01-01": [
+"bank-year-end"
+],
+"2026-01-02": [
+"bank-year-end"
+],
+"2026-01-03": [
+"bank-year-end"
+],
+"2026-04-29": [
+"showa-day"
+],
+"2026-05-03": [
+"constitution-memorial-day"
+],
+"2026-05-04": [
+"greenery-day"
+],
+"2026-05-05": [
+"childrens-day"
+],
+"2026-05-06": [
+"constitution-memorial-day"
+],
+"2026-07-20": [
+"marine-day"
+],
+"2026-08-11": [
+"mountain-day"
+],
+"2026-09-21": [
+"respect-for-the-aged-day"
+],
+"2026-09-22": [
+"citizens-holiday-2026 (NEXA addition: public record)"
+],
+"2026-09-23": [
+"autumnal-equinox-day"
+],
+"2026-12-31": [
+"bank-year-end"
+],
+"2027-01-01": [
+"bank-year-end"
+],
+"2027-01-02": [
+"bank-year-end"
+],
+"2027-01-03": [
+"bank-year-end"
+],
+"2027-12-31": [
+"bank-year-end"
+]
+},
+"nexa_additions": {
+"2019-04-30": "national-holiday-2019-golden-week (NEXA addition: public record)",
+"2019-05-01": "enthronement-day-2019 (NEXA addition: public record)",
+"2019-05-02": "national-holiday-2019-golden-week (NEXA addition: public record)",
+"2026-09-22": "citizens-holiday-2026 (NEXA addition: public record)",
+"2019-10-22": "enthronement-ceremony-day-2019 (NEXA addition: public record)"
+}
+}

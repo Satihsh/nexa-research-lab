@@ -1,0 +1,4 @@
+run=PS_FH1_XAUUSD_2017_t1
+start=2026-09-27 21:00:35
+end=2026-09-27 21:01:00
+expert=Advisors\NEXA_BarExport symbol=XAUUSD period=H1 model=2 from=2017.01.01 to=2020.01.01 deposit=50000 leverage=200 delay=0

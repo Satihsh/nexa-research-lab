@@ -1,0 +1,8 @@
+SUPERSEDED PRE-OPENING FREEZE: never opened, no results. Ledger: 7 events (CAMPAIGN_FROZEN + 6 BUILDER_CERTIFIED),
+last published head seq 6 a4fd88bd4282227831707d53c4aed5b6747d75efab8b1aadf509bb5ac8a72857.
+Anchor 88b7688b2af5317878f9d29b81b5094cf3e5d3c788edf39639043622e4aa7197 (frozen 2026-09-29 UTC). Directory preserved byte-for-byte (tree sha256 92cd9268ea72d69e2188d692e5ff966b2e33fac9f5d63824636f473539c22008);
+witness ~/.nexa_registry_witness/88b7688b2af5317878f9d29b81b5094cf3e5d3c788edf39639043622e4aa7197.jsonl preserved unmodified (sha256 4a558357a816a240c32306fb85b95263088a676d54e5f77289a5eec3d19a36ca).
+Reason: the evaluation driver (nexa_v2_runner.py: universe x period -> registry records, no free parameters) was
+added and pinned BEFORE opening so every future V2 result is produced by pinned code. Its adversarial audit had
+passed (70/70, 0 defects); nothing about its integrity was wrong. Protocols, periods, universe and counts unchanged.
+Superseded by the final V2 freeze in research/reports/PHASE3_V2_MANIFEST.md. MUST NEVER BE OPENED.

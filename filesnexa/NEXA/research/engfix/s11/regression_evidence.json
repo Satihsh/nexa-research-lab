@@ -1,0 +1,166 @@
+{
+ "label": "ENGINEERING REGRESSION -- NOT RESEARCH EVIDENCE",
+ "sources": {
+  "NEXA_EA.mq5": "3edcec11a6eabbfbcba3625369c4de205bc114fdfe0cfb144c4d55e123027488",
+  "NEXA_Risk.mqh": "1f684cdef889757ae1b5cbf6c6d72378891d8e9f65bf951f964658ff9fa5897b"
+ },
+ "s11_ex5": "7d37dc7d3424dec2395ce5f6a76f0340f3f912fefc7a21005ff1b2145fc04c64",
+ "baseline": "staleguard/REG_STALE_GBPUSD_<W> (D46 build fd2fe06e, NEXA_Risk 7fd5692a)",
+ "windows": {
+  "A2024Q1": {
+   "base_rows": 89701,
+   "new_rows": 89701,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 7,
+   "exposure_cap_blocks_new": 7,
+   "new_fail_closed_rows": 0,
+   "opens": 20
+  },
+  "A2024Q2": {
+   "base_rows": 91371,
+   "new_rows": 91371,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 95,
+   "exposure_cap_blocks_new": 95,
+   "new_fail_closed_rows": 0,
+   "opens": 96
+  },
+  "A2024Q3": {
+   "base_rows": 92422,
+   "new_rows": 92422,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 20,
+   "exposure_cap_blocks_new": 20,
+   "new_fail_closed_rows": 0,
+   "opens": 32
+  },
+  "A2024Q4": {
+   "base_rows": 90939,
+   "new_rows": 90939,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 6,
+   "exposure_cap_blocks_new": 6,
+   "new_fail_closed_rows": 0,
+   "opens": 20
+  },
+  "A2025Q1": {
+   "base_rows": 88316,
+   "new_rows": 88316,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 6,
+   "exposure_cap_blocks_new": 6,
+   "new_fail_closed_rows": 0,
+   "opens": 20
+  },
+  "A2025Q2": {
+   "base_rows": 91416,
+   "new_rows": 91416,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 20,
+   "exposure_cap_blocks_new": 20,
+   "new_fail_closed_rows": 0,
+   "opens": 90
+  },
+  "A2025Q3": {
+   "base_rows": 92568,
+   "new_rows": 92568,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 11,
+   "exposure_cap_blocks_new": 11,
+   "new_fail_closed_rows": 0,
+   "opens": 20
+  },
+  "A2025Q4": {
+   "base_rows": 90955,
+   "new_rows": 90955,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 3,
+   "exposure_cap_blocks_new": 3,
+   "new_fail_closed_rows": 0,
+   "opens": 20
+  },
+  "A2026Q1": {
+   "base_rows": 88288,
+   "new_rows": 88288,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 13,
+   "exposure_cap_blocks_new": 13,
+   "new_fail_closed_rows": 0,
+   "opens": 25
+  },
+  "A2026Q2": {
+   "base_rows": 91194,
+   "new_rows": 91194,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 11,
+   "exposure_cap_blocks_new": 11,
+   "new_fail_closed_rows": 0,
+   "opens": 104
+  },
+  "A2026Q3": {
+   "base_rows": 58918,
+   "new_rows": 58918,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 78,
+   "exposure_cap_blocks_new": 78,
+   "new_fail_closed_rows": 0,
+   "opens": 57
+  },
+  "B": {
+   "base_rows": 29312,
+   "new_rows": 29312,
+   "columns_equal": true,
+   "test_passed": true,
+   "comparable": true,
+   "rows_differing": 0,
+   "exposure_cap_blocks_base": 11,
+   "exposure_cap_blocks_new": 11,
+   "new_fail_closed_rows": 0,
+   "opens": 21
+  }
+ },
+ "summary": {
+  "runs": 12,
+  "all_test_passed": true,
+  "all_comparable": true,
+  "rows_compared": 995400,
+  "rows_differing_total": 0,
+  "exposure_cap_blocks_total": 281,
+  "exposure_cap_blocks_identical": true,
+  "new_fail_closed_rows_total": 0,
+  "opens_total": 525
+ }
+}

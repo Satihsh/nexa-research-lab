@@ -1,0 +1,4 @@
+run=PS_BARS_USDJPY_A2025Q2
+start=2026-09-27 19:20:35
+end=2026-09-27 19:21:00
+expert=Advisors\NEXA_BarExport symbol=USDJPY period=M1 model=0 from=2025.04.01 to=2025.07.01 deposit=50000 leverage=200 delay=250

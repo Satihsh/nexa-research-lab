@@ -1,0 +1,4 @@
+run=corrcap_parity_20260929
+start=2026-09-29 17:00:21
+end=2026-09-29 17:00:46
+expert=Advisors\NEXA_CorrCapTest symbol=EURUSD period=H1 model=2 from=2024.01.08 to=2024.01.09 deposit=50000 leverage=200 delay=0

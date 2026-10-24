@@ -1,0 +1,4 @@
+run=safetyaudit_PRE_50000_r3
+start=2026-09-29 17:35:35
+end=2026-09-29 17:35:50
+expert=Advisors\NEXA_EA_AUDIT_PRE symbol=EURUSD period=M1 model=0 from=2024.01.01 to=2024.04.01 deposit=50000 leverage=200 delay=250

@@ -1,0 +1,203 @@
+=== 1. EACH ENGINE INDEPENDENTLY (filter on Donchian base), DEV 2018-2022, mean over bases (24 per symbol) ===
+                      bases   n_med     exp  exp_max     win      pf         dd    cost  share_pos  share_p05  delta_sig      mi
+symbol engine                                                                                                                   
+EURUSD donchian_base     24  3698.0 -0.4339  -0.1301  0.2032  0.5636  1535.7071  0.1292     0.0000     0.0000        NaN  0.0000
+       ema200            24  2936.0 -0.3816  -0.1350  0.2125  0.6068  1045.4348  0.1273     0.0000     0.7083     0.0340  0.0008
+       mom               24  3054.5 -0.3144  -0.0967  0.2225  0.6441   958.5709  0.1281     0.0000     0.6250     0.0851  0.0026
+       ofi               24   547.0 -0.5306  -0.0597  0.1655  0.6045   176.7804  0.1254     0.0000     0.2500    -0.1544  0.0004
+       quoteburst        24   506.0 -0.3280   0.0292  0.2410  0.6204   126.8304  0.1007     0.0833     0.3750     0.0703  0.0007
+       sq                24   996.0 -0.3268   0.0324  0.2277  0.6509   304.2725  0.1404     0.0833     0.5833     0.0826  0.0009
+       td                24  3327.0 -0.4409  -0.1200  0.2029  0.5652  1406.2519  0.1298     0.0000     0.0000    -0.0098  0.0001
+       vei               24   781.5 -0.2918  -0.0693  0.2441  0.6921   167.6986  0.1127     0.0000     0.6250     0.1056  0.0015
+GBPUSD donchian_base     24  3714.0 -0.3932  -0.0595  0.2088  0.5843  1345.1377  0.1365     0.0000     0.0000        NaN  0.0000
+       ema200            24  2973.5 -0.3391  -0.0273  0.2182  0.6237   908.5251  0.1352     0.0000     0.5833     0.0375  0.0014
+       mom               24  3091.0 -0.2631  -0.0351  0.2306  0.6873   748.0839  0.1306     0.0000     0.7500     0.0960  0.0030
+       ofi               24   519.0 -0.5146   0.4600  0.1574  0.6056   168.6448  0.1825     0.0417     0.2500    -0.1650  0.0003
+       quoteburst        24   478.0 -0.2035   0.2427  0.2641  0.7361    84.2096  0.0984     0.2083     0.6667     0.1688  0.0014
+       sq                24  1017.5 -0.3346  -0.0855  0.2157  0.6598   296.7147  0.1365     0.0000     0.3750     0.0500  0.0002
+       td                24  3336.0 -0.3963  -0.0453  0.2086  0.5839  1172.2847  0.1363     0.0000     0.0000    -0.0082  0.0003
+       vei               24   807.5 -0.2490   0.0969  0.2430  0.7696   174.3121  0.1021     0.0833     0.6667     0.1308  0.0014
+XAUUSD donchian_base     24  3295.5 -0.4015  -0.1180  0.2025  0.6123  1242.3991  0.1579     0.0000     0.0000        NaN  0.0000
+       ema200            24  2696.5 -0.3622  -0.1105  0.2084  0.6355   889.2371  0.1602     0.0000     0.6667     0.0256  0.0007
+       mom               24  2741.5 -0.2907  -0.1144  0.2211  0.7025   720.8213  0.1586     0.0000     1.0000     0.0894  0.0029
+       ofi               24   423.0 -0.2934   0.1618  0.2053  0.6638   104.6738  0.1377     0.1667     0.2500     0.0668  0.0003
+       quoteburst        24   449.0 -0.2743   0.0451  0.2388  0.7222    81.7303  0.1318     0.0833     0.2500     0.0592  0.0005
+       sq                24   926.0 -0.3071  -0.0402  0.2208  0.6707   258.8822  0.1625     0.0000     0.5833     0.0772  0.0004
+       td                24  2920.5 -0.4242  -0.1494  0.1984  0.5901  1144.6631  0.1594     0.0000     0.0000    -0.0157  0.0004
+       vei               24   620.5 -0.2954  -0.0291  0.2425  0.7188   124.1013  0.1541     0.0000     0.2917     0.0402  0.0009
+
+(random-subset expected share p<0.05 under null = 0.05; 504 engine x base tests)
+all symbols:             share_p05  share_improve    exp
+engine                                     
+ema200          0.653          0.903 -0.361
+mom             0.792          0.917 -0.289
+ofi             0.250          0.431 -0.446
+quoteburst      0.431          0.847 -0.269
+sq              0.514          0.903 -0.323
+td              0.000          0.347 -0.420
+vei             0.528          0.931 -0.279
+
+=== 2. CUMULATIVE STACKS (non-overlapping trades), mean over 72 bases ===
+-- frozen (sq,vei,ema200,mom,ofi,qb,td)
+ level      added  n_med    exp   win  delta  share_delta_pos  bases_n_ge30
+     0       base 3603.5 -0.410 0.205    NaN            0.000            72
+     1         sq  946.0 -0.323 0.221  0.087            0.792            72
+     2        vei  151.5 -0.216 0.259  0.107            0.722            66
+     3     ema200  136.5 -0.138 0.278  0.078            0.875            63
+     4        mom  128.0 -0.087 0.288  0.051            0.819            61
+     5        ofi   22.5  0.052 0.313  0.220            0.403            36
+     6 quoteburst    5.5  0.046 0.310 -0.006            0.208             0
+     7         td    5.5  0.041 0.314 -0.005            0.167             0
+-- reverse
+ level      added  n_med    exp   win  delta  share_delta_pos  bases_n_ge30
+     0       base 3603.5 -0.410 0.205    NaN            0.000            72
+     1         td 3303.5 -0.420 0.203 -0.011            0.292            72
+     2 quoteburst  403.0 -0.270 0.250  0.151            0.972            72
+     3        ofi   39.0 -0.134 0.274  0.172            0.375            36
+     4        mom   37.5 -0.123 0.277  0.011            0.417            36
+     5     ema200   33.5 -0.106 0.279  0.017            0.333            36
+     6        vei   26.0 -0.158 0.273 -0.052            0.153            36
+     7         sq    5.5  0.041 0.314  0.199            0.431             0
+-- regime-first (ema200,vei,sq,mom,td,ofi,qb)
+ level      added  n_med    exp   win  delta  share_delta_pos  bases_n_ge30
+     0       base 3603.5 -0.410 0.205    NaN            0.000            72
+     1     ema200 2802.5 -0.361 0.213  0.049            0.833            72
+     2        vei  595.5 -0.221 0.254  0.140            0.931            72
+     3         sq  136.5 -0.138 0.278  0.083            0.667            63
+     4        mom  128.0 -0.087 0.288  0.051            0.819            61
+     5         td  106.5 -0.010 0.308  0.077            0.764            57
+     6        ofi   19.0  0.087 0.326  0.254            0.444            36
+     7 quoteburst    5.5  0.041 0.314 -0.046            0.167             0
+-- micro-first (ofi,qb,td,sq,vei,ema200,mom)
+ level      added  n_med    exp   win  delta  share_delta_pos  bases_n_ge30
+     0       base 3603.5 -0.410 0.205    NaN            0.000            72
+     1        ofi  427.5 -0.446 0.176 -0.037            0.458            36
+     2 quoteburst   49.0 -0.135 0.269  0.188            0.500            36
+     3         td   39.0 -0.134 0.274  0.001            0.250            36
+     4         sq    9.0 -0.030 0.289  0.104            0.319             6
+     5        vei    5.5 -0.030 0.297  0.000            0.250             0
+     6     ema200    5.5  0.012 0.308  0.042            0.167             0
+     7        mom    5.5  0.041 0.314  0.029            0.167             0
+-- momentum-first (mom,ema200,vei,sq,ofi,qb,td)
+ level      added  n_med    exp   win  delta  share_delta_pos  bases_n_ge30
+     0       base 3603.5 -0.410 0.205    NaN            0.000            72
+     1        mom 2878.0 -0.289 0.225  0.120            0.847            72
+     2     ema200 2387.5 -0.256 0.232  0.033            0.861            72
+     3        vei  563.5 -0.172 0.266  0.084            0.833            72
+     4         sq  128.0 -0.087 0.288  0.086            0.708            61
+     5        ofi   22.5  0.052 0.313  0.220            0.403            36
+     6 quoteburst    5.5  0.046 0.310 -0.006            0.208             0
+     7         td    5.5  0.041 0.314 -0.005            0.167             0
+
+=== 3. LEAVE-ONE-OUT from full stack (order-independent marginal), signal-level mean R ===
+            n_full_med  n_without_med  marginal_mean  share_helps
+drop                                                             
+ema200             5.5            5.5          0.049        0.167
+mom                5.5            5.5          0.028        0.167
+ofi                5.5           42.5          0.288        0.472
+quoteburst         5.5           19.0          0.013        0.208
+sq                 5.5           26.0          0.246        0.444
+td                 5.5            5.5          0.003        0.250
+vei                5.5            7.5         -0.002        0.292
+
+=== 4. REDUNDANCY (DEV signal level, k=all) ===
+                          corr    mi_ab  mi_a_win  cmi_a_given_b  mi_b_win  cmi_b_given_a
+a          b                                                                             
+ema200     mom        -0.01984  0.00096   0.00096        0.00121   0.00282        0.00306
+           ofi         0.00447  0.00024   0.00096        0.00109   0.00034        0.00046
+           quoteburst  0.03169  0.00138   0.00096        0.00117   0.00086        0.00106
+           td         -0.04463  0.00173   0.00096        0.00116   0.00026        0.00046
+mom        ofi         0.06547  0.01016   0.00282        0.00279   0.00034        0.00032
+           quoteburst  0.09630  0.00827   0.00282        0.00299   0.00086        0.00103
+           td          0.08166  0.00497   0.00282        0.00325   0.00026        0.00069
+ofi        quoteburst -0.00374  0.00023   0.00034        0.00035   0.00086        0.00087
+           td          0.00358  0.00022   0.00034        0.00044   0.00026        0.00036
+quoteburst td          0.01915  0.00048   0.00086        0.00110   0.00026        0.00050
+sq         ema200     -0.03317  0.00122   0.00050        0.00064   0.00096        0.00110
+           mom         0.04849  0.00198   0.00050        0.00052   0.00282        0.00284
+           ofi         0.00404  0.00007   0.00050        0.00062   0.00034        0.00045
+           quoteburst  0.01514  0.00073   0.00050        0.00061   0.00086        0.00097
+           td         -0.06460  0.00316   0.00050        0.00058   0.00026        0.00034
+           vei        -0.04423  0.00446   0.00050        0.00063   0.00125        0.00138
+vei        ema200      0.08408  0.00725   0.00125        0.00155   0.00096        0.00127
+           mom         0.01707  0.00126   0.00125        0.00129   0.00282        0.00285
+           ofi         0.00931  0.00035   0.00125        0.00133   0.00034        0.00042
+           quoteburst  0.33620  0.06134   0.00125        0.00107   0.00086        0.00068
+           td         -0.00913  0.00032   0.00125        0.00182   0.00026        0.00083
+
+=== 5. INCREMENTAL PREDICTIVE POWER (logistic, fit 2018-20, test 2021-22, target=win) ===
+full-model test AUC: mean 0.5561 median 0.5645 min 0.4724 max 0.6164
+            inc_auc_mean  inc_auc_med  share_inc_gt_0_01  auc_alone
+feature                                                            
+ema200            0.0011       0.0009             0.0139     0.5144
+mom               0.0063       0.0050             0.3889     0.5332
+ofi               0.0034       0.0020             0.0833     0.5294
+quoteburst        0.0018       0.0012             0.1250     0.5324
+sq               -0.0012       0.0000             0.0694     0.5127
+td               -0.0005      -0.0000             0.0000     0.4949
+vei               0.0036       0.0032             0.3194     0.5424
+
+=== 6. OFI PROXY continuous (direction-adjusted bar tick-rule ratio) ===
+       ratio_lo               ratio_hi                     mean_r                  win              
+symbol   EURUSD GBPUSD XAUUSD   EURUSD    GBPUSD    XAUUSD EURUSD GBPUSD XAUUSD EURUSD GBPUSD XAUUSD
+decile                                                                                              
+1         0.299  0.137  0.381    0.896     0.896     0.918 -0.583 -0.533 -0.576  0.174  0.183  0.169
+2         0.896  0.896  0.918    1.002     1.001     1.025 -0.470 -0.417 -0.465  0.196  0.201  0.182
+3         1.003  1.002  1.025    1.097     1.098     1.119 -0.425 -0.407 -0.424  0.205  0.205  0.193
+4         1.097  1.098  1.119    1.212     1.215     1.234 -0.379 -0.376 -0.362  0.213  0.209  0.203
+5         1.212  1.215  1.235    1.351     1.342     1.360 -0.368 -0.297 -0.343  0.214  0.228  0.215
+6         1.352  1.342  1.360    1.494     1.487     1.493 -0.298 -0.326 -0.318  0.229  0.221  0.216
+7         1.495  1.488  1.494    1.676     1.666     1.658 -0.349 -0.379 -0.330  0.221  0.226  0.213
+8         1.676  1.666  1.659    1.922     1.902     1.891 -0.309 -0.295 -0.233  0.225  0.220  0.235
+9         1.923  1.903  1.891    2.383     2.356     2.297 -0.304 -0.267 -0.234  0.226  0.229  0.237
+10        2.384  2.357  2.301  690.766  2249.529  3735.740 -0.321 -0.192 -0.191  0.216  0.249  0.250
+Spearman(ratio, r_net) per base: mean 0.0880, share>0 0.83, |rho|max 0.2012; share of DEV signals with ratio>=3: mean 0.061
+           rho  share_ge3
+symbol                   
+EURUSD  0.0754     0.0666
+GBPUSD  0.0877     0.0615
+XAUUSD  0.1007     0.0547
+
+=== 7. LARGE QUOTE/TICK EVENT percentiles (trailing 500-bar rank of quote count) ===
+              signals_med  n_trades_med    exp    win  delta_sig  share_improve  share_p05
+symbol pct                                                                                
+EURUSD 0.950       1091.5         826.0 -0.305  0.241      0.106          0.958      0.708
+       0.975        630.0         506.0 -0.328  0.241      0.070          0.750      0.375
+       0.990        346.0         289.0 -0.351  0.239      0.069          0.667      0.250
+       0.995        188.5         172.0 -0.360  0.225      0.053          0.625      0.125
+       0.999         68.0          66.0 -0.317  0.236      0.075          0.667      0.167
+GBPUSD 0.950       1028.5         779.0 -0.213  0.251      0.149          1.000      0.750
+       0.975        592.5         478.0 -0.203  0.264      0.169          1.000      0.667
+       0.990        329.0         282.5 -0.193  0.271      0.179          0.958      0.542
+       0.995        172.5         156.0 -0.251  0.249      0.101          0.750      0.208
+       0.999         53.5          52.0 -0.344  0.215      0.003          0.542      0.000
+XAUUSD 0.950        980.0         711.0 -0.278  0.241      0.052          0.750      0.375
+       0.975        581.5         449.0 -0.274  0.239      0.059          0.792      0.250
+       0.990        343.0         273.5 -0.236  0.247      0.092          0.792      0.250
+       0.995        198.0         182.5 -0.320  0.226      0.024          0.542      0.208
+       0.999         76.0          74.5 -0.389  0.209     -0.037          0.458      0.167
+
+=== 8. 20-DAY CAPITAL VELOCITY scenarios over DEV trade streams (1774 streams with >=30 trades; all variants, no selection) ===
+         B_empirical_200: streams 1774, traded-days med 136, skipped/trades 2341241/515300, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0156, final>start 0.060, maxDD med 0.333
+       B_empirical_10000: streams 1774, traded-days med 434, skipped/trades 1140808/1567148, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0870, final>start 0.064, maxDD med 0.798
+              C_cons_200: streams 1774, traded-days med 130, skipped/trades 2371304/487934, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0147, final>start 0.056, maxDD med 0.332
+            C_cons_10000: streams 1774, traded-days med 426, skipped/trades 1176056/1538012, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0851, final>start 0.059, maxDD med 0.814
+                C_x2_200: streams 1774, traded-days med 124, skipped/trades 2413879/449472, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0135, final>start 0.070, maxDD med 0.323
+              C_x2_10000: streams 1774, traded-days med 412, skipped/trades 1261226/1466018, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0812, final>start 0.047, maxDD med 0.841
+                C_x3_200: streams 1774, traded-days med 118, skipped/trades 2444809/421682, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0126, final>start 0.068, maxDD med 0.312
+              C_x3_10000: streams 1774, traded-days med 402, skipped/trades 1325136/1411440, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0780, final>start 0.041, maxDD med 0.856
+      C_x2_miss_fail_200: streams 1774, traded-days med 114, skipped/trades 2172942/402523, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0139, final>start 0.065, maxDD med 0.320
+    C_x2_miss_fail_10000: streams 1774, traded-days med 388, skipped/trades 1118832/1327808, target-hit-rate max 0.0000 mean 0.00000, longest hit run max 0, 20/20 windows max 0.0000, P20 boot max 0, halt-rate mean 0.0839, final>start 0.050, maxDD med 0.834
+
+streams with any target-hit day (B_empirical_10000):
+0
+Empty DataFrame
+Columns: [symbol, tf, dc_n, mode, k, variant, n, exp_net_r, B_empirical_10000_days, B_empirical_10000_hit_rate, B_empirical_10000_longest_hit_run, B_empirical_10000_final, C_x2_10000_hit_rate]
+Index: []
+
+$200 per symbol (B_empirical): trades executed vs skipped below min lot
+        B_empirical_200_trades  B_empirical_200_skipped
+symbol                                                 
+EURUSD                  222596                   761430
+GBPUSD                  198006                   785366
+XAUUSD                   94698                   794445

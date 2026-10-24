@@ -1,0 +1,18 @@
+{
+ "data_audit": {
+  "rows_raw": 1289540,
+  "rows_status_not_ok": 0,
+  "rows_duplicate_time_server": 0,
+  "rows_nat_clock": 0,
+  "rows_duplicate_utc": 0,
+  "data_path": "~/NEXA-Agent-Lab/research/intelligence/orderflow/databento/data/NQ_v0_ohlcv1m_2023-02-18_2026-10-10_canonical.csv.gz"
+ },
+ "data_first_ny_day": "2023-02-20",
+ "data_last_ny_day": "2026-10-09",
+ "day_audit": {
+  "weekdays": 0,
+  "holiday_or_early_close": 0,
+  "outside_calendar": 0
+ },
+ "sufficient": false
+}

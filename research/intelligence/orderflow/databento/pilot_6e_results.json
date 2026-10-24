@@ -1,0 +1,780 @@
+{
+ "file": "GLBX.MDP3_trades_6E.v.0_2026-09-01_2026-10-01.dbn.zst",
+ "records": 636982,
+ "Q1_aggregation": {
+  "single_prints": {
+   "count": 636982,
+   "quantiles": {
+    "p50": 2,
+    "p90": 12,
+    "p95": 18,
+    "p99": 48,
+    "p99.9": 116
+   },
+   "max": 1035,
+   ">=25": {
+    "count": 20665,
+    "pct_events": 3.244,
+    "pct_volume": 27.92
+   },
+   ">=50": {
+    "count": 5960,
+    "pct_events": 0.936,
+    "pct_volume": 13.39
+   },
+   ">=100": {
+    "count": 1107,
+    "pct_events": 0.174,
+    "pct_volume": 4.22
+   }
+  },
+  "A_ts_event_side": {
+   "count": 611821,
+   "quantiles": {
+    "p50": 2,
+    "p90": 12,
+    "p95": 19,
+    "p99": 50,
+    "p99.9": 129
+   },
+   "max": 1035,
+   ">=25": {
+    "count": 20960,
+    "pct_events": 3.426,
+    "pct_volume": 29.52
+   },
+   ">=50": {
+    "count": 6190,
+    "pct_events": 1.012,
+    "pct_volume": 14.98
+   },
+   ">=100": {
+    "count": 1302,
+    "pct_events": 0.213,
+    "pct_volume": 5.78
+   },
+   "multi_fill_orders_pct": 2.37,
+   "multi_level_orders_pct": 0.603
+  },
+  "B_flag_last_runs": {
+   "count": 27,
+   "quantiles": {
+    "p50": 5997,
+    "p90": 65567,
+    "p95": 70968,
+    "p99": 2150185,
+    "p99.9": 2807536
+   },
+   "max": 2880576,
+   ">=25": {
+    "count": 21,
+    "pct_events": 77.778,
+    "pct_volume": 100.0
+   },
+   ">=50": {
+    "count": 21,
+    "pct_events": 77.778,
+    "pct_volume": 100.0
+   },
+   ">=100": {
+    "count": 21,
+    "pct_events": 77.778,
+    "pct_volume": 100.0
+   },
+   "runs_with_mixed_side_pct": 77.778,
+   "runs_with_mixed_ts_pct": 81.481
+  },
+  "groups_A_vs_B": [
+   611821,
+   27
+  ],
+  "side_N_pct_records": 2.009
+ },
+ "Q2_roll": {
+  "sessions": {
+   "2026-09-01": {
+    "contract": "6EU6",
+    "minutes": 1223
+   },
+   "2026-09-02": {
+    "contract": "6EU6",
+    "minutes": 1311
+   },
+   "2026-09-03": {
+    "contract": "6EU6",
+    "minutes": 1351
+   },
+   "2026-09-04": {
+    "contract": "6EU6",
+    "minutes": 1330
+   },
+   "2026-09-07": {
+    "contract": "6EU6",
+    "minutes": 1203
+   },
+   "2026-09-08": {
+    "contract": "6EU6",
+    "minutes": 1345
+   },
+   "2026-09-09": {
+    "contract": "6EU6",
+    "minutes": 1322
+   },
+   "2026-09-10": {
+    "contract": "6EU6",
+    "minutes": 1277
+   },
+   "2026-09-11": {
+    "contract": "6EU6",
+    "minutes": 1057
+   },
+   "2026-09-14": {
+    "contract": "6EZ6",
+    "minutes": 1305
+   },
+   "2026-09-15": {
+    "contract": "6EZ6",
+    "minutes": 1348
+   },
+   "2026-09-16": {
+    "contract": "6EZ6",
+    "minutes": 1351
+   },
+   "2026-09-17": {
+    "contract": "6EZ6",
+    "minutes": 1366
+   },
+   "2026-09-18": {
+    "contract": "6EZ6",
+    "minutes": 1345
+   },
+   "2026-09-21": {
+    "contract": "6EZ6",
+    "minutes": 1333
+   },
+   "2026-09-22": {
+    "contract": "6EZ6",
+    "minutes": 1321
+   },
+   "2026-09-23": {
+    "contract": "6EZ6",
+    "minutes": 1315
+   },
+   "2026-09-24": {
+    "contract": "6EZ6",
+    "minutes": 1352
+   },
+   "2026-09-25": {
+    "contract": "6EZ6",
+    "minutes": 1365
+   },
+   "2026-09-28": {
+    "contract": "6EZ6",
+    "minutes": 1347
+   },
+   "2026-09-29": {
+    "contract": "6EZ6",
+    "minutes": 1319
+   },
+   "2026-09-30": {
+    "contract": "6EZ6",
+    "minutes": 1352
+   },
+   "2026-10-01": {
+    "contract": "6EZ6",
+    "minutes": 105
+   }
+  },
+  "median_minutes_per_session": 1330.0,
+  "basis_jump_at_roll": [
+   {
+    "from": "2026-09-10",
+    "to": "2026-09-14",
+    "contracts": "6EU6->6EZ6",
+    "basis_med_change_pips": 40.8
+   }
+  ]
+ },
+ "sessions_used": [
+  "2026-09-02",
+  "2026-09-03",
+  "2026-09-04",
+  "2026-09-07",
+  "2026-09-08",
+  "2026-09-09",
+  "2026-09-10",
+  "2026-09-14",
+  "2026-09-15",
+  "2026-09-16",
+  "2026-09-17",
+  "2026-09-18",
+  "2026-09-21",
+  "2026-09-22",
+  "2026-09-23",
+  "2026-09-24",
+  "2026-09-25"
+ ],
+ "sessions_excluded": {
+  "2026-09-01": "partial (file starts 00:00 UTC)",
+  "2026-09-11": "thin futures session",
+  "2026-09-28": "after Pepperstone data end",
+  "2026-09-29": "after Pepperstone data end",
+  "2026-09-30": "after Pepperstone data end",
+  "2026-10-01": "after Pepperstone data end"
+ },
+ "Q3a_basis_by_session": [
+  {
+   "day": "2026-09-02",
+   "contract": "6EU6",
+   "common_min": 1310,
+   "basis_med": 5.5,
+   "basis_close60": 5.3
+  },
+  {
+   "day": "2026-09-03",
+   "contract": "6EU6",
+   "common_min": 1350,
+   "basis_med": 3.7,
+   "basis_close60": 3.7
+  },
+  {
+   "day": "2026-09-04",
+   "contract": "6EU6",
+   "common_min": 1325,
+   "basis_med": 3.7,
+   "basis_close60": 3.7
+  },
+  {
+   "day": "2026-09-07",
+   "contract": "6EU6",
+   "common_min": 1202,
+   "basis_med": 3.2,
+   "basis_close60": 3.05
+  },
+  {
+   "day": "2026-09-08",
+   "contract": "6EU6",
+   "common_min": 1344,
+   "basis_med": 2.7,
+   "basis_close60": 2.7
+  },
+  {
+   "day": "2026-09-09",
+   "contract": "6EU6",
+   "common_min": 1321,
+   "basis_med": 2.3,
+   "basis_close60": 2.1
+  },
+  {
+   "day": "2026-09-10",
+   "contract": "6EU6",
+   "common_min": 1275,
+   "basis_med": 0.8,
+   "basis_close60": 0.8
+  },
+  {
+   "day": "2026-09-14",
+   "contract": "6EZ6",
+   "common_min": 1304,
+   "basis_med": 41.6,
+   "basis_close60": 41.6
+  },
+  {
+   "day": "2026-09-15",
+   "contract": "6EZ6",
+   "common_min": 1347,
+   "basis_med": 41.5,
+   "basis_close60": 41.7
+  },
+  {
+   "day": "2026-09-16",
+   "contract": "6EZ6",
+   "common_min": 1350,
+   "basis_med": 41.2,
+   "basis_close60": 41.5
+  },
+  {
+   "day": "2026-09-17",
+   "contract": "6EZ6",
+   "common_min": 1365,
+   "basis_med": 40.4,
+   "basis_close60": 40.4
+  },
+  {
+   "day": "2026-09-18",
+   "contract": "6EZ6",
+   "common_min": 1340,
+   "basis_med": 39.9,
+   "basis_close60": 39.9
+  },
+  {
+   "day": "2026-09-21",
+   "contract": "6EZ6",
+   "common_min": 1332,
+   "basis_med": 39.6,
+   "basis_close60": 39.8
+  },
+  {
+   "day": "2026-09-22",
+   "contract": "6EZ6",
+   "common_min": 1320,
+   "basis_med": 39.3,
+   "basis_close60": 39.4
+  },
+  {
+   "day": "2026-09-23",
+   "contract": "6EZ6",
+   "common_min": 1314,
+   "basis_med": 38.8,
+   "basis_close60": 38.6
+  },
+  {
+   "day": "2026-09-24",
+   "contract": "6EZ6",
+   "common_min": 1341,
+   "basis_med": 37.5,
+   "basis_close60": 37.5
+  },
+  {
+   "day": "2026-09-25",
+   "contract": "6EZ6",
+   "common_min": 1359,
+   "basis_med": 37.4,
+   "basis_close60": 37.7
+  }
+ ],
+ "Q3b_error_same_session_median_pips": {
+  "p50": 0.2,
+  "p75": 0.3,
+  "p90": 0.5,
+  "p95": 0.6,
+  "p99": 0.8,
+  "n": 22499
+ },
+ "Q3b_error_prior_close_basis_pips": {
+  "p50": 0.55,
+  "p75": 0.9,
+  "p90": 1.4,
+  "p95": 1.6,
+  "p99": 1.9,
+  "n": 19885,
+  "by_day": [
+   {
+    "day": "2026-09-03",
+    "median_err": 1.6,
+    "p95_err": 2.0,
+    "basis_med_change": -1.8
+   },
+   {
+    "day": "2026-09-04",
+    "median_err": 0.2,
+    "p95_err": 0.5,
+    "basis_med_change": 0.0
+   },
+   {
+    "day": "2026-09-07",
+    "median_err": 0.5,
+    "p95_err": 0.9,
+    "basis_med_change": -0.5
+   },
+   {
+    "day": "2026-09-08",
+    "median_err": 0.35,
+    "p95_err": 0.75,
+    "basis_med_change": -0.5
+   },
+   {
+    "day": "2026-09-09",
+    "median_err": 0.4,
+    "p95_err": 0.9,
+    "basis_med_change": -0.4
+   },
+   {
+    "day": "2026-09-10",
+    "median_err": 1.3,
+    "p95_err": 1.7,
+    "basis_med_change": -1.5
+   },
+   {
+    "day": "2026-09-15",
+    "median_err": 0.2,
+    "p95_err": 0.7,
+    "basis_med_change": -0.1
+   },
+   {
+    "day": "2026-09-16",
+    "median_err": 0.5,
+    "p95_err": 0.9,
+    "basis_med_change": -0.3
+   },
+   {
+    "day": "2026-09-17",
+    "median_err": 1.1,
+    "p95_err": 1.6,
+    "basis_med_change": -0.8
+   },
+   {
+    "day": "2026-09-18",
+    "median_err": 0.5,
+    "p95_err": 1.0,
+    "basis_med_change": -0.5
+   },
+   {
+    "day": "2026-09-21",
+    "median_err": 0.3,
+    "p95_err": 0.8,
+    "basis_med_change": -0.3
+   },
+   {
+    "day": "2026-09-22",
+    "median_err": 0.5,
+    "p95_err": 0.9,
+    "basis_med_change": -0.3
+   },
+   {
+    "day": "2026-09-23",
+    "median_err": 0.6,
+    "p95_err": 1.1,
+    "basis_med_change": -0.5
+   },
+   {
+    "day": "2026-09-24",
+    "median_err": 1.1,
+    "p95_err": 1.6,
+    "basis_med_change": -1.3
+   },
+   {
+    "day": "2026-09-25",
+    "median_err": 0.3,
+    "p95_err": 0.7,
+    "basis_med_change": -0.1
+   }
+  ]
+ },
+ "Q3a_day_to_day_basis_change_pips": {
+  "p5": -1.59,
+  "p25": -0.65,
+  "p50": -0.5,
+  "p75": -0.3,
+  "p95": -0.07,
+  "n": 15
+ },
+ "Q3c_value_area_vs_truth_pips": {
+  "va_width_P1_pips": {
+   "p5": 12.6,
+   "p25": 17.0,
+   "p50": 21.0,
+   "p75": 27.0,
+   "p95": 39.0,
+   "n": 17
+  },
+  "P2_VAL": {
+   "p5": -6.8,
+   "p25": -1.0,
+   "p50": -1.0,
+   "p75": 1.0,
+   "p95": 5.0,
+   "n": 17
+  },
+  "P2_VAH": {
+   "p5": -4.0,
+   "p25": -1.0,
+   "p50": 0.0,
+   "p75": 1.0,
+   "p95": 4.6,
+   "n": 17
+  },
+  "P2_POC": {
+   "p5": -10.0,
+   "p25": -1.0,
+   "p50": 0.0,
+   "p75": 1.0,
+   "p95": 17.0,
+   "n": 17
+  },
+  "P3_VAL": {
+   "p5": -7.36,
+   "p25": -4.4,
+   "p50": -1.5,
+   "p75": 4.7,
+   "p95": 15.68,
+   "n": 17
+  },
+  "P3_VAH": {
+   "p5": -6.88,
+   "p25": -2.3,
+   "p50": -0.1,
+   "p75": 2.5,
+   "p95": 8.9,
+   "n": 17
+  },
+  "P3_POC": {
+   "p5": -6.94,
+   "p25": -1.2,
+   "p50": -0.3,
+   "p75": 2.4,
+   "p95": 14.5,
+   "n": 17
+  },
+  "shape_spearman": {
+   "p5": 0.688,
+   "p25": 0.782,
+   "p50": 0.816,
+   "p75": 0.878,
+   "p95": 0.921,
+   "n": 17
+  },
+  "shape_pearson": {
+   "p5": 0.693,
+   "p25": 0.78,
+   "p50": 0.828,
+   "p75": 0.867,
+   "p95": 0.953,
+   "n": 17
+  }
+ },
+ "Q3c_abs_error_pips": {
+  "P2_VAL": {
+   "p50": 1.0,
+   "p75": 2.0,
+   "p90": 6.0,
+   "n": 17
+  },
+  "P2_VAH": {
+   "p50": 1.0,
+   "p75": 2.0,
+   "p90": 5.2,
+   "n": 17
+  },
+  "P2_POC": {
+   "p50": 1.0,
+   "p75": 4.0,
+   "p90": 18.0,
+   "n": 17
+  },
+  "P3_VAL": {
+   "p50": 4.7,
+   "p75": 6.8,
+   "p90": 11.88,
+   "n": 17
+  },
+  "P3_VAH": {
+   "p50": 2.5,
+   "p75": 4.6,
+   "p90": 7.12,
+   "n": 17
+  },
+  "P3_POC": {
+   "p50": 1.5,
+   "p75": 4.8,
+   "p90": 13.88,
+   "n": 17
+  }
+ },
+ "Q3c_by_session": [
+  {
+   "day": "2026-09-02",
+   "va_width_P1_pips": 21.0,
+   "P2_VAL": -1.0,
+   "P2_VAH": -1.0,
+   "P2_POC": 1.0,
+   "P3_VAL": -1.5,
+   "P3_VAH": -3.5,
+   "P3_POC": -15.5,
+   "shape_spearman": 0.87,
+   "shape_pearson": 0.85
+  },
+  {
+   "day": "2026-09-03",
+   "va_width_P1_pips": 27.0,
+   "P2_VAL": 1.0,
+   "P2_VAH": 1.0,
+   "P2_POC": -1.0,
+   "P3_VAL": -6.3,
+   "P3_VAH": -0.3,
+   "P3_POC": -0.3,
+   "shape_spearman": 0.69,
+   "shape_pearson": 0.75
+  },
+  {
+   "day": "2026-09-04",
+   "va_width_P1_pips": 21.0,
+   "P2_VAL": -22.0,
+   "P2_VAH": -8.0,
+   "P2_POC": -22.0,
+   "P3_VAL": 4.7,
+   "P3_VAH": 0.7,
+   "P3_POC": 6.7,
+   "shape_spearman": 0.87,
+   "shape_pearson": 0.83
+  },
+  {
+   "day": "2026-09-07",
+   "va_width_P1_pips": 13.0,
+   "P2_VAL": -1.0,
+   "P2_VAH": -1.0,
+   "P2_POC": -7.0,
+   "P3_VAL": -6.8,
+   "P3_VAH": -0.8,
+   "P3_POC": -4.8,
+   "shape_spearman": 0.79,
+   "shape_pearson": 0.8
+  },
+  {
+   "day": "2026-09-08",
+   "va_width_P1_pips": 17.0,
+   "P2_VAL": -2.0,
+   "P2_VAH": -2.0,
+   "P2_POC": 0.0,
+   "P3_VAL": -2.3,
+   "P3_VAH": -2.3,
+   "P3_POC": -0.3,
+   "shape_spearman": 0.95,
+   "shape_pearson": 0.95
+  },
+  {
+   "day": "2026-09-09",
+   "va_width_P1_pips": 21.0,
+   "P2_VAL": 4.0,
+   "P2_VAH": 4.0,
+   "P2_POC": 16.0,
+   "P3_VAL": -4.7,
+   "P3_VAH": -6.7,
+   "P3_POC": -0.7,
+   "shape_spearman": 0.88,
+   "shape_pearson": 0.86
+  },
+  {
+   "day": "2026-09-10",
+   "va_width_P1_pips": 29.0,
+   "P2_VAL": 2.0,
+   "P2_VAH": 2.0,
+   "P2_POC": 4.0,
+   "P3_VAL": 6.8,
+   "P3_VAH": 2.8,
+   "P3_POC": 12.8,
+   "shape_spearman": 0.76,
+   "shape_pearson": 0.71
+  },
+  {
+   "day": "2026-09-14",
+   "va_width_P1_pips": 25.0,
+   "P2_VAL": 0.0,
+   "P2_VAH": 0.0,
+   "P2_POC": 0.0,
+   "P3_VAL": -4.4,
+   "P3_VAH": 1.6,
+   "P3_POC": -0.4,
+   "shape_spearman": 0.79,
+   "shape_pearson": 0.82
+  },
+  {
+   "day": "2026-09-15",
+   "va_width_P1_pips": 11.0,
+   "P2_VAL": 0.0,
+   "P2_VAH": 0.0,
+   "P2_POC": 0.0,
+   "P3_VAL": -2.5,
+   "P3_VAH": -2.5,
+   "P3_POC": -0.5,
+   "shape_spearman": 0.91,
+   "shape_pearson": 0.87
+  },
+  {
+   "day": "2026-09-16",
+   "va_width_P1_pips": 55.0,
+   "P2_VAL": -1.0,
+   "P2_VAH": 0.0,
+   "P2_POC": 1.0,
+   "P3_VAL": 17.2,
+   "P3_VAH": -0.8,
+   "P3_POC": 1.2,
+   "shape_spearman": 0.82,
+   "shape_pearson": 0.96
+  },
+  {
+   "day": "2026-09-17",
+   "va_width_P1_pips": 21.0,
+   "P2_VAL": -1.0,
+   "P2_VAH": 1.0,
+   "P2_POC": -1.0,
+   "P3_VAL": -9.6,
+   "P3_VAH": -7.6,
+   "P3_POC": -1.6,
+   "shape_spearman": 0.68,
+   "shape_pearson": 0.87
+  },
+  {
+   "day": "2026-09-18",
+   "va_width_P1_pips": 27.0,
+   "P2_VAL": 0.0,
+   "P2_VAH": 0.0,
+   "P2_POC": 0.0,
+   "P3_VAL": 3.9,
+   "P3_VAH": -0.1,
+   "P3_POC": -0.1,
+   "shape_spearman": 0.89,
+   "shape_pearson": 0.82
+  },
+  {
+   "day": "2026-09-21",
+   "va_width_P1_pips": 17.0,
+   "P2_VAL": -1.0,
+   "P2_VAH": -1.0,
+   "P2_POC": -1.0,
+   "P3_VAL": 6.6,
+   "P3_VAH": 4.6,
+   "P3_POC": 2.6,
+   "shape_spearman": 0.7,
+   "shape_pearson": 0.62
+  },
+  {
+   "day": "2026-09-22",
+   "va_width_P1_pips": 29.0,
+   "P2_VAL": 9.0,
+   "P2_VAH": 7.0,
+   "P2_POC": 21.0,
+   "P3_VAL": 15.3,
+   "P3_VAH": 17.3,
+   "P3_POC": 21.3,
+   "shape_spearman": 0.81,
+   "shape_pearson": 0.78
+  },
+  {
+   "day": "2026-09-23",
+   "va_width_P1_pips": 35.0,
+   "P2_VAL": -3.0,
+   "P2_VAH": -3.0,
+   "P2_POC": -1.0,
+   "P3_VAL": -1.2,
+   "P3_VAH": 6.8,
+   "P3_POC": -1.2,
+   "shape_spearman": 0.78,
+   "shape_pearson": 0.76
+  },
+  {
+   "day": "2026-09-24",
+   "va_width_P1_pips": 17.0,
+   "P2_VAL": -1.0,
+   "P2_VAH": -1.0,
+   "P2_POC": -1.0,
+   "P3_VAL": 2.5,
+   "P3_VAH": 2.5,
+   "P3_POC": -1.5,
+   "shape_spearman": 0.9,
+   "shape_pearson": 0.88
+  },
+  {
+   "day": "2026-09-25",
+   "va_width_P1_pips": 17.0,
+   "P2_VAL": 1.0,
+   "P2_VAH": -1.0,
+   "P2_POC": 3.0,
+   "P3_VAL": -3.6,
+   "P3_VAH": 2.4,
+   "P3_POC": 2.4,
+   "shape_spearman": 0.82,
+   "shape_pearson": 0.85
+  }
+ ]
+}

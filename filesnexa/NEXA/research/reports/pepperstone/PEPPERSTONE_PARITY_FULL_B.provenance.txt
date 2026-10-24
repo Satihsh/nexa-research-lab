@@ -1,0 +1,11 @@
+Window-B full chronological parity — CONTRACT PASS (installed 2026-10-03, human-approved replacement)
+command: nexa_parity_full.py data/pepperstone/tester --tags GBPUSD_B EURUSD_B USDJPY_B XAUUSD_B --contracts data/pepperstone/contracts.json --schema nexa_schema_v1.json --accepted-ties research/parity_accepted_ties.json
+run: 2026-10-03 19:43-19:50 (all sources last modified before the run started)
+nexa_parity.py=a4bf9f9309a6003192e6df8f728a23877e7d5ca9a5741f5318083f9d6a66c304
+nexa_parity_full.py=18378365fd62d195a0cad55e404367fd746ab2b26d5fe5a26870cc01e2c24596
+nexa_parity_sampled.py=ca73b6552ff2743f64df71337e49b13efc54d7cc2f271129621696975afd8dfd
+nexa_ingest.py=7311ce95da3225464aed496ba95be56dc93eca25adaa3fb1b2dd3ff8cca44829
+parity_accepted_ties.json=e92a8866be5290f8d977f777580a818ed7fad63e71530759d60630c3c1da8be7
+contract: B-PARITY-TOL option A (README_PARITY.md §Tolerance); root cause and decisions: B_PARITY_LIQ_ROOT_CAUSE.md
+result: PASS GBPUSD/EURUSD/USDJPY/XAUUSD, 112,688 rows, 0 mismatches, 47 accepted ties (listed in parity_accepted_ties.json and each log), so no mismatch tables exist
+superseded (pre-fix oracle, FAIL): SUPERSEDED_*_pre_parity_fixes_2026-10-03.*

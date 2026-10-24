@@ -1,0 +1,1086 @@
+{
+ "years": [
+  2012,
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "days": 3608,
+ "chunk_info": {
+  "2012": {
+   "days": 256,
+   "spx_contracts_mean": 1343.6,
+   "spx_contracts_min": 0,
+   "opt_seconds": 98.7,
+   "errors": [
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ]
+   ]
+  },
+  "2013": {
+   "days": 258,
+   "spx_contracts_mean": 1772.5,
+   "spx_contracts_min": 0,
+   "opt_seconds": 112.4,
+   "errors": [
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ]
+   ]
+  },
+  "2014": {
+   "days": 258,
+   "spx_contracts_mean": 2737.1,
+   "spx_contracts_min": 0,
+   "opt_seconds": 197.5,
+   "errors": [
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ]
+   ]
+  },
+  "2015": {
+   "days": 258,
+   "spx_contracts_mean": 4463.8,
+   "spx_contracts_min": 0,
+   "opt_seconds": 296.7,
+   "errors": [
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ]
+   ]
+  },
+  "2016": {
+   "days": 258,
+   "spx_contracts_mean": 4705.8,
+   "spx_contracts_min": 3931,
+   "opt_seconds": 369.6,
+   "errors": []
+  },
+  "2017": {
+   "days": 257,
+   "spx_contracts_mean": 6136.1,
+   "spx_contracts_min": 4925,
+   "opt_seconds": 301.6,
+   "errors": []
+  },
+  "2018": {
+   "days": 257,
+   "spx_contracts_mean": 8208.5,
+   "spx_contracts_min": 0,
+   "opt_seconds": 482.5,
+   "errors": [
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ]
+   ]
+  },
+  "2019": {
+   "days": 258,
+   "spx_contracts_mean": 8747.0,
+   "spx_contracts_min": 7601,
+   "opt_seconds": 588.1,
+   "errors": []
+  },
+  "2020": {
+   "days": 259,
+   "spx_contracts_mean": 11726.1,
+   "spx_contracts_min": 9338,
+   "opt_seconds": 696.1,
+   "errors": []
+  },
+  "2021": {
+   "days": 258,
+   "spx_contracts_mean": 13180.6,
+   "spx_contracts_min": 10993,
+   "opt_seconds": 855.3,
+   "errors": []
+  },
+  "2022": {
+   "days": 258,
+   "spx_contracts_mean": 14765.0,
+   "spx_contracts_min": 0,
+   "opt_seconds": 895.4,
+   "errors": [
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ],
+    [
+     "columns",
+     [
+      "askprice",
+      "asksize",
+      "bidprice",
+      "bidsize",
+      "delta",
+      "expiry",
+      "gamma",
+      "impliedvolatility",
+      "lastprice",
+      "rho",
+      "right",
+      "scaledstrike",
+      "strike",
+      "style",
+      "theta",
+      "underlyinglastprice",
+      "underlyingsymbol",
+      "vega",
+      "volume"
+     ]
+    ]
+   ]
+  },
+  "2023": {
+   "days": 257,
+   "spx_contracts_mean": 14324.5,
+   "spx_contracts_min": 12625,
+   "opt_seconds": 853.3,
+   "errors": []
+  },
+  "2024": {
+   "days": 259,
+   "spx_contracts_mean": 16761.9,
+   "spx_contracts_min": 9446,
+   "opt_seconds": 996.4,
+   "errors": []
+  },
+  "2025": {
+   "days": 257,
+   "spx_contracts_mean": 18531.4,
+   "spx_contracts_min": 16354,
+   "opt_seconds": 938.2,
+   "errors": []
+  }
+ },
+ "NQ": {
+  "rows": 3200,
+  "primary_M1_vs_B1": {
+   "n": 2740,
+   "loss_B": 0.19058,
+   "loss_M": 0.1907,
+   "reduction": -0.0006,
+   "dm_z": -0.053,
+   "p": 0.52101,
+   "years_positive": 6,
+   "years": 11,
+   "per_year": {
+    "2015": 0.0825,
+    "2016": 0.0304,
+    "2017": -0.0033,
+    "2018": 0.0035,
+    "2019": -0.0352,
+    "2020": -0.108,
+    "2021": -0.0103,
+    "2022": 0.0067,
+    "2023": -0.0818,
+    "2024": 0.0412,
+    "2025": 0.0491
+   },
+   "coef_g_pooled": -0.2678
+  },
+  "verdict": "REJECTED",
+  "B0_vs_B1": {
+   "loss_B0": 0.18983,
+   "loss_B1": 0.19058,
+   "B1_vs_B0_reduction": -0.004
+  },
+  "quintiles": {
+   "Q1": {
+    "n": 627,
+    "actual_over_forecast": 1.2218,
+    "mean_range_pts": 216.9
+   },
+   "Q2": {
+    "n": 569,
+    "actual_over_forecast": 1.142,
+    "mean_range_pts": 176.59
+   },
+   "Q3": {
+    "n": 566,
+    "actual_over_forecast": 1.0914,
+    "mean_range_pts": 136.39
+   },
+   "Q4": {
+    "n": 570,
+    "actual_over_forecast": 1.1069,
+    "mean_range_pts": 127.81
+   },
+   "Q5": {
+    "n": 864,
+    "actual_over_forecast": 0.9848,
+    "mean_range_pts": 103.88
+   }
+  },
+  "secondary_vix_M2_vs_B2": {
+   "n": 2729,
+   "loss_B": 0.19372,
+   "loss_M": 0.19224,
+   "reduction": 0.0076,
+   "dm_z": 0.768,
+   "p": 0.22131,
+   "years_positive": 6,
+   "years": 11,
+   "per_year": {
+    "2015": 0.0511,
+    "2016": -0.0637,
+    "2017": 0.109,
+    "2018": 0.0021,
+    "2019": -0.0384,
+    "2020": -0.0929,
+    "2021": -0.0168,
+    "2022": 0.0116,
+    "2023": -0.0279,
+    "2024": 0.07,
+    "2025": 0.0238
+   },
+   "coef_g_pooled": -0.2302
+  },
+  "secondary_abs_gamma": {
+   "n": 2740,
+   "loss_B": 0.19058,
+   "loss_M": 0.19317,
+   "reduction": -0.0136,
+   "dm_z": -2.682,
+   "p": 0.99634,
+   "years_positive": 5,
+   "years": 11,
+   "per_year": {
+    "2015": -0.0242,
+    "2016": 0.0074,
+    "2017": 0.0066,
+    "2018": 0.0187,
+    "2019": 0.007,
+    "2020": -0.0152,
+    "2021": -0.1293,
+    "2022": 0.0055,
+    "2023": -0.0305,
+    "2024": -0.0061,
+    "2025": -0.001
+   },
+   "coef_g_pooled": -0.0331
+  },
+  "secondary_sign": {
+   "n": 2740,
+   "loss_B": 0.19058,
+   "loss_M": 0.19133,
+   "reduction": -0.004,
+   "dm_z": -0.394,
+   "p": 0.65312,
+   "years_positive": 4,
+   "years": 11,
+   "per_year": {
+    "2015": 0.1289,
+    "2016": 0.054,
+    "2017": -0.0154,
+    "2018": -0.0451,
+    "2019": -0.0382,
+    "2020": -0.1181,
+    "2021": -0.0101,
+    "2022": 0.04,
+    "2023": -0.0254,
+    "2024": -0.0039,
+    "2025": 0.0184
+   },
+   "coef_g_pooled": -0.1214
+  },
+  "secondary_ndx_gex": {
+   "n": 2740,
+   "loss_B": 0.19058,
+   "loss_M": 0.19561,
+   "reduction": -0.0264,
+   "dm_z": -1.869,
+   "p": 0.96921,
+   "years_positive": 4,
+   "years": 11,
+   "per_year": {
+    "2015": -0.0153,
+    "2016": 0.14,
+    "2017": 0.0568,
+    "2018": -0.188,
+    "2019": -0.0108,
+    "2020": -0.1216,
+    "2021": -0.0325,
+    "2022": -0.021,
+    "2023": -0.1265,
+    "2024": 0.0456,
+    "2025": 0.0258
+   },
+   "coef_g_pooled": -0.2634
+  }
+ },
+ "ES": {
+  "rows": 3239,
+  "primary_M1_vs_B1": {
+   "n": 2740,
+   "loss_B": 0.20929,
+   "loss_M": 0.20568,
+   "reduction": 0.0173,
+   "dm_z": 1.144,
+   "p": 0.12626,
+   "years_positive": 7,
+   "years": 11,
+   "per_year": {
+    "2015": 0.0793,
+    "2016": 0.0556,
+    "2017": 0.0101,
+    "2018": 0.0547,
+    "2019": -0.0033,
+    "2020": -0.1577,
+    "2021": 0.1132,
+    "2022": -0.0588,
+    "2023": -0.1154,
+    "2024": 0.0911,
+    "2025": 0.0689
+   },
+   "coef_g_pooled": -0.4006
+  },
+  "verdict": "INCONCLUSIVE",
+  "B0_vs_B1": {
+   "loss_B0": 0.21005,
+   "loss_B1": 0.20929,
+   "B1_vs_B0_reduction": 0.0036
+  },
+  "quintiles": {
+   "Q1": {
+    "n": 639,
+    "actual_over_forecast": 1.306,
+    "mean_range_pts": 56.96
+   },
+   "Q2": {
+    "n": 574,
+    "actual_over_forecast": 1.1732,
+    "mean_range_pts": 44.05
+   },
+   "Q3": {
+    "n": 572,
+    "actual_over_forecast": 1.1032,
+    "mean_range_pts": 32.83
+   },
+   "Q4": {
+    "n": 579,
+    "actual_over_forecast": 1.0684,
+    "mean_range_pts": 29.51
+   },
+   "Q5": {
+    "n": 871,
+    "actual_over_forecast": 0.9602,
+    "mean_range_pts": 23.49
+   }
+  },
+  "secondary_vix_M2_vs_B2": {
+   "n": 2729,
+   "loss_B": 0.21454,
+   "loss_M": 0.20806,
+   "reduction": 0.0302,
+   "dm_z": 2.702,
+   "p": 0.00345,
+   "years_positive": 7,
+   "years": 11,
+   "per_year": {
+    "2015": 0.0895,
+    "2016": -0.0674,
+    "2017": 0.1065,
+    "2018": 0.0483,
+    "2019": -0.0538,
+    "2020": 0.1116,
+    "2021": 0.0224,
+    "2022": -0.0199,
+    "2023": -0.0807,
+    "2024": 0.0958,
+    "2025": 0.0264
+   },
+   "coef_g_pooled": -0.3096
+  },
+  "secondary_abs_gamma": {
+   "n": 2740,
+   "loss_B": 0.20929,
+   "loss_M": 0.21167,
+   "reduction": -0.0114,
+   "dm_z": -1.816,
+   "p": 0.96532,
+   "years_positive": 5,
+   "years": 11,
+   "per_year": {
+    "2015": -0.0374,
+    "2016": 0.0126,
+    "2017": 0.0179,
+    "2018": 0.0302,
+    "2019": 0.0186,
+    "2020": -0.0092,
+    "2021": -0.084,
+    "2022": -0.01,
+    "2023": -0.0525,
+    "2024": -0.0138,
+    "2025": 0.0001
+   },
+   "coef_g_pooled": -0.0712
+  },
+  "secondary_sign": {
+   "n": 2740,
+   "loss_B": 0.20929,
+   "loss_M": 0.20698,
+   "reduction": 0.011,
+   "dm_z": 0.869,
+   "p": 0.19239,
+   "years_positive": 6,
+   "years": 11,
+   "per_year": {
+    "2015": 0.1735,
+    "2016": 0.069,
+    "2017": -0.0047,
+    "2018": 0.0012,
+    "2019": -0.0149,
+    "2020": -0.1886,
+    "2021": 0.0582,
+    "2022": 0.0499,
+    "2023": -0.0256,
+    "2024": -0.0008,
+    "2025": 0.0304
+   },
+   "coef_g_pooled": -0.203
+  }
+ },
+ "H_GEX_RANGE": "REJECTED"
+}

@@ -1,0 +1,202 @@
+{
+ "mode": "NQ",
+ "n_days": 541,
+ "skipped": {
+  "incomplete": 23,
+  "warmup": 14
+ },
+ "first_day": "2024-05-10",
+ "last_day": "2026-07-17",
+ "A": {
+  "S1": {
+   "theta": 2.718903,
+   "ci95": [
+    -1.345035,
+    8.374502
+   ],
+   "p_one_sided": 0.113443,
+   "B_finite": 2000,
+   "n": 541
+  },
+  "S0_mean": 3.09099,
+  "S2_mean": 2.346816,
+  "trades": 483,
+  "trades_per_day": 0.892791,
+  "hit": 0.380952,
+  "payoff": 1.870324,
+  "blocks_S1": [
+   2.930782,
+   10.535742,
+   -2.814858,
+   0.244087
+  ],
+  "blocks_pos": 3,
+  "long_pts": 830.55778,
+  "short_pts": 2022.655363,
+  "sharpe_ann": 0.735563,
+  "mdd_bp": 960.973455,
+  "green_share": 0.249538
+ },
+ "B": {
+  "S1": {
+   "theta": 0.132503,
+   "ci95": [
+    -1.89955,
+    2.542618
+   ],
+   "p_one_sided": 0.388806,
+   "B_finite": 2000,
+   "n": 541
+  },
+  "S0_mean": 0.282146,
+  "S2_mean": -0.017141,
+  "trades": 192,
+  "trades_per_day": 0.354898,
+  "hit": 0.40625,
+  "payoff": 1.495797,
+  "blocks_S1": [
+   0.210312,
+   1.067123,
+   -1.58583,
+   0.839387
+  ],
+  "blocks_pos": 3,
+  "long_pts": 597.824245,
+  "short_pts": -410.166128,
+  "sharpe_ann": 0.071373,
+  "mdd_bp": 614.607375,
+  "green_share": 0.121996
+ },
+ "BEVE": {
+  "S1": {
+   "theta": 0.571455,
+   "ci95": [
+    -1.273322,
+    2.4242
+   ],
+   "p_one_sided": 0.28036,
+   "B_finite": 2000,
+   "n": 541
+  },
+  "S0_mean": 0.662571,
+  "S2_mean": 0.480339,
+  "trades": 118,
+  "trades_per_day": 0.218115,
+  "hit": 0.457627,
+  "payoff": 1.445855,
+  "blocks_S1": [
+   0.308708,
+   0.199535,
+   -1.381957,
+   3.163768
+  ],
+  "blocks_pos": 3,
+  "long_pts": 17.44113,
+  "short_pts": 870.530013,
+  "sharpe_ann": 0.434895,
+  "mdd_bp": 445.233251,
+  "green_share": 0.099815
+ },
+ "B_minus_A": {
+  "theta": -2.586401,
+  "ci95": [
+   -7.898911,
+   1.333756
+  ],
+  "p_one_sided": 0.865067,
+  "B_finite": 2000,
+  "n": 541
+ },
+ "verdict": "INCONCLUSIVE",
+ "eve_pass": false,
+ "CFTP": {
+  "grid": {
+   "V0_k2": {
+    "month_usd": 29.137305,
+    "p_green_day": 0.121996,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1348,
+    "p_breach_60d": 0.4123
+   },
+   "V0_k4": {
+    "month_usd": 58.274609,
+    "p_green_day": 0.121996,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.158,
+    "p_breach_60d": 0.7884
+   },
+   "V0_k8": {
+    "month_usd": 116.549219,
+    "p_green_day": 0.121996,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1366,
+    "p_breach_60d": 0.8622
+   },
+   "V1_k2": {
+    "month_usd": 90.4888,
+    "p_green_day": 0.123845,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1531,
+    "p_breach_60d": 0.3809
+   },
+   "V1_k4": {
+    "month_usd": 180.9776,
+    "p_green_day": 0.123845,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1786,
+    "p_breach_60d": 0.7622
+   },
+   "V1_k8": {
+    "month_usd": 361.955201,
+    "p_green_day": 0.123845,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1392,
+    "p_breach_60d": 0.8593
+   },
+   "V2_k2": {
+    "month_usd": 67.98683,
+    "p_green_day": 0.118299,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1398,
+    "p_breach_60d": 0.3424
+   },
+   "V2_k4": {
+    "month_usd": 135.97366,
+    "p_green_day": 0.118299,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.173,
+    "p_breach_60d": 0.7518
+   },
+   "V2_k8": {
+    "month_usd": 271.947319,
+    "p_green_day": 0.118299,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1382,
+    "p_breach_60d": 0.8599
+   },
+   "V3_k2": {
+    "month_usd": 129.338325,
+    "p_green_day": 0.120148,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1606,
+    "p_breach_60d": 0.3147
+   },
+   "V3_k4": {
+    "month_usd": 258.676651,
+    "p_green_day": 0.120148,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1946,
+    "p_breach_60d": 0.7187
+   },
+   "V3_k8": {
+    "month_usd": 517.353301,
+    "p_green_day": 0.120148,
+    "p_20green_of_21": 0.0,
+    "p_pass_60d": 0.1478,
+    "p_breach_60d": 0.8487
+   }
+  },
+  "choice": "V3_k4"
+ },
+ "trades_sha256": "f84b70e2a449e8a5e926c24a0d15284cbc72af477692e64e9cbb77b49bb64c0e"
+}

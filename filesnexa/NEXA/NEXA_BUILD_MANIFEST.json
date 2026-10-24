@@ -1,0 +1,462 @@
+{
+ "generated_utc": "2026-09-20T10:45:56.988912+00:00",
+ "schema_version": "1.0",
+ "model_id": null,
+ "calibration_id": null,
+ "promotion_state": "RESEARCH_ONLY",
+ "promotion_state_reason": "No dataset exists. Stages 0-5 are engineering-verified; no model has been trained, calibrated, shadowed or promoted. Engineering validity is not trading validity.",
+ "mt5_compile": {
+  "tool": "MetaEditor 5.00 build 6204",
+  "date": "2026-09-18",
+  "environment": "Wine/macOS",
+  "NEXA_EA.mq5": "0 errors / 0 warnings",
+  "NEXA_TrainingExport.mq5": "0 errors / 0 warnings",
+  "note": "hashes below are POST-Stage-1; re-compile required if any MT5 file changes"
+ },
+ "tests": {
+  "stage_2": 37,
+  "stage_3": 45,
+  "stage_4": 57,
+  "stage_5_gate": 39,
+  "stage_5_data": 48,
+  "combined": 226,
+  "result": "all passed",
+  "deterministic_repeat": "3x identical"
+ },
+ "blocking_dependency": {
+  "stage": 5,
+  "requirement": "labelled Trade DNA (Stage2->Stage4 output), which requires NEXA DECISIONS not just market data",
+  "market_data": "NO LONGER BLOCKING - XAUUSD M1 ingested and validated",
+  "still_missing": [
+   "NEXA Trade DNA: requires an MT5 Strategy Tester run of NEXA_EA on this history",
+   "bid/ask or tick data: NEXA's hard spread veto (spreadATRRatio>0.15) cannot be evaluated without it"
+  ],
+  "unblocks_when_supplied": "Stage 3 real parity, Stage 4 real labels, Stage 5 gate, Stage 6+"
+ },
+ "unresolved_conflicts": [
+  {
+   "id": "C1",
+   "topic": "ambiguous bar policy",
+   "source_a": "NEXA_TrainingExport.mq5 -> resolve to LOSS",
+   "source_b": "Stage 4 directive -> AMBIGUOUS",
+   "chosen": "AMBIGUOUS (default), PESSIMISTIC_LOSS available",
+   "reason": "exporter rule is a labelling convention, not an execution contract",
+   "recorded_in": "exec_model column"
+  },
+  {
+   "id": "C2",
+   "topic": "fill bar inclusion",
+   "source_a": "NEXA_TrainingExport.mq5 -> include fill bar",
+   "source_b": "Stage 4 directive -> first bar after fill",
+   "chosen": "EXCLUDE_FILL_BAR (default), INCLUDE_FILL_BAR available",
+   "reason": "async fill can land mid-bar; that bar's extremes may predate entry",
+   "recorded_in": "exec_model column"
+  },
+  {
+   "id": "C3",
+   "topic": "partial close at 1.5R not modelled in labels",
+   "chosen": "documented, unresolved",
+   "reason": "needs volume-weighted outcome tracking or an EA change; outside Stage 4"
+  }
+ ],
+ "stages": {
+  "0": {
+   "files": [
+    "NEXA_EA.mq5",
+    "NEXA_Common.mqh",
+    "NEXA_Features.mqh",
+    "NEXA_Liquidity.mqh",
+    "NEXA_Risk.mqh",
+    "NEXA_Intelligence.mqh",
+    "NEXA_Microstructure.mqh",
+    "NEXA_Advanced_Ingest.mqh",
+    "NEXA_FOMC.mqh",
+    "NEXA_TrainingExport.mq5"
+   ],
+   "tests": "MetaEditor compile",
+   "status": "PASS",
+   "detail": "0 errors / 0 warnings, MetaEditor 5.00 build 6204, Wine/macOS"
+  },
+  "1": {
+   "files": [
+    "nexa_schema_v1.json"
+   ],
+   "tests": "9 static invariant checks",
+   "status": "PASS",
+   "detail": "schema v1.0 + L6 provenance; 96 MT5 columns"
+  },
+  "2": {
+   "files": [
+    "research/nexa_ingest.py",
+    "research/test_nexa_ingest.py"
+   ],
+   "tests": "37 passed",
+   "status": "PASS",
+   "detail": "canonical ingestion"
+  },
+  "3": {
+   "files": [
+    "research/nexa_parity.py",
+    "research/test_nexa_parity.py"
+   ],
+   "tests": "45 passed",
+   "status": "PASS",
+   "detail": "43/48 reconstructed, 5 parity-exempt; NOT yet run against real MQL5 output"
+  },
+  "4": {
+   "files": [
+    "research/nexa_labels.py",
+    "research/test_nexa_labels.py"
+   ],
+   "tests": "57 passed",
+   "status": "PASS",
+   "detail": "triple barrier, horizon 480 M1"
+  },
+  "5": {
+   "files": [
+    "research/nexa_validate.py",
+    "research/test_nexa_validate.py",
+    "research/nexa_marketdata.py",
+    "research/test_nexa_marketdata.py",
+    "research/README_MARKETDATA.md"
+   ],
+   "tests": "39 (gate) + 48 (market data) = 87 passed",
+   "status": "PASS",
+   "detail": "validation gate + external market-data pipeline; NO real data ingested"
+  },
+  "6": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "Stage 5 gate returns FAIL on the Stage 6 input: no labelled dataset exists"
+  },
+  "7": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on Stage 6"
+  },
+  "8": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on Stage 6"
+  },
+  "9": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on Stage 6"
+  },
+  "10": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on Stage 6"
+  },
+  "11": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on Stage 6"
+  },
+  "12": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on Stage 6"
+  },
+  "L1_calibration": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on a promoted model"
+  },
+  "SHADOW": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on a promoted model"
+  },
+  "L2_conditional": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on a promoted model"
+  },
+  "L4_registry": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on a promoted model"
+  },
+  "L5_model_health": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "depends on a promoted model"
+  },
+  "L7_wal": {
+   "files": [],
+   "tests": "not run",
+   "status": "BLOCKED",
+   "detail": "MT5 source change; MetaEditor not available in this environment"
+  }
+ },
+ "files": {
+  "NEXA_EA.mq5": {
+   "sha256": "9d1e6aaf8150fae782fb7058fbbe819f87d1e33423c319f9deab28ff34c29da2",
+   "bytes": 49501
+  },
+  "NEXA_Common.mqh": {
+   "sha256": "f4d0a7de036adf46ce9348b62ef967188c1fe52ed0c793f1c8cdcc6139c069e1",
+   "bytes": 10220
+  },
+  "NEXA_Features.mqh": {
+   "sha256": "fee0d7a53a55da26763862a6a7db26bfbaf6ef19633c2a10b70e45e9f93a5718",
+   "bytes": 25324
+  },
+  "NEXA_Liquidity.mqh": {
+   "sha256": "99b961a636296798e48e7a26d197cd493c3e55f3aa38d89d5cc9a40fb1575472",
+   "bytes": 19446
+  },
+  "NEXA_Risk.mqh": {
+   "sha256": "e706d453d346100f99d06ce3bf2b62697ce544d913bba6ba8053f506115ce5ed",
+   "bytes": 11846
+  },
+  "NEXA_Intelligence.mqh": {
+   "sha256": "efa6db4e4abae2a9468906238a4c1fb2dccd9fdbc336208c564200a3ed679885",
+   "bytes": 14870
+  },
+  "NEXA_Microstructure.mqh": {
+   "sha256": "3c549add661ab388ef3e80227dc551d771ffbc3ee65264a2f875d15ea3618663",
+   "bytes": 3979
+  },
+  "NEXA_Advanced_Ingest.mqh": {
+   "sha256": "f0a49c2fcdefdbd5c8a7d3f2a3bc8d893926a95ac1d82d1a78cd12046a8ad12a",
+   "bytes": 5481
+  },
+  "NEXA_FOMC.mqh": {
+   "sha256": "7d47467e5d9796004cf5a56d1b26a8fe8c7385c34c489946929f74441a30694c",
+   "bytes": 5513
+  },
+  "NEXA_TrainingExport.mq5": {
+   "sha256": "e618697172fcebf9c4b4bd5672cfff19ec703c920d971dc5f51528063b17ad0b",
+   "bytes": 13722
+  },
+  "nexa_schema_v1.json": {
+   "sha256": "c24198b09b0e7192b4c7946c8377add0b2516474da9b5d105d54bab8e0eff273",
+   "bytes": 5785
+  },
+  "research/README.md": {
+   "sha256": "04dad299f888bbdf01d12b71d3ab204615bd5962eecdda4776b77b324d923f4a",
+   "bytes": 5178
+  },
+  "research/README_LABELS.md": {
+   "sha256": "d3cc3c697811032dde8e56c3532114bbc9fbed06a5cc9095f3879158c3cb1c6f",
+   "bytes": 8611
+  },
+  "research/README_PARITY.md": {
+   "sha256": "b06313d8be592923b365fdedb16f254ccefa63eb98de6a64f1a0898137b8ef85",
+   "bytes": 7636
+  },
+  "research/nexa_ingest.py": {
+   "sha256": "7311ce95da3225464aed496ba95be56dc93eca25adaa3fb1b2dd3ff8cca44829",
+   "bytes": 28906
+  },
+  "research/nexa_labels.py": {
+   "sha256": "e4217ed54fbaf19fb3617503eb095d90936f1741ee36e7cbee4d0128639754a3",
+   "bytes": 27002
+  },
+  "research/nexa_parity.py": {
+   "sha256": "f43b6aaffa5dcd87bd32afd22bf89e17c02eb80cfd9fa0418bdc8dfb295d432d",
+   "bytes": 48101
+  },
+  "research/nexa_validate.py": {
+   "sha256": "18448790c1cc84e433a3c9b9e4275c4f639b4f48e414eb544560b20aab6faf71",
+   "bytes": 30326
+  },
+  "research/test_nexa_ingest.py": {
+   "sha256": "bb2c46c44649047346b7079b6a173fc7dc1f5c48d4534cb14013078b81c66d84",
+   "bytes": 16319
+  },
+  "research/test_nexa_labels.py": {
+   "sha256": "200f06db32ed1719f56f4ae296dfcfc269ce719af85b59da2198e33d65639168",
+   "bytes": 26817
+  },
+  "research/test_nexa_parity.py": {
+   "sha256": "021a8a54b5a2edbb38b1e75519e23ee9a8585d0668d07de8dc29a2f9c1d56513",
+   "bytes": 22916
+  },
+  "research/test_nexa_validate.py": {
+   "sha256": "7de49ae282529f0952c7b4c6196ee198bbb6066aab80f71a58a1aa52925d57cd",
+   "bytes": 14903
+  },
+  "research/nexa_marketdata.py": {
+   "sha256": "0a849dc9a8ba4fc085719d2956b12dbc8ea928af9a0145bdfe0616de0a72a82a",
+   "bytes": 25922
+  },
+  "research/test_nexa_marketdata.py": {
+   "sha256": "86c2c66c3792116a574dd9ed89b8e798179b837d2409cd72fd792c1306f2ab49",
+   "bytes": 16805
+  },
+  "research/README_MARKETDATA.md": {
+   "sha256": "7d02890849784f673ed31bbeb7fa3473531fcc94aadfcd516f3d20d839f22402",
+   "bytes": 4466
+  },
+  "data/NEXA_DATASET_MANIFEST.json": {
+   "sha256": "cf693389470bfb0186fc4fa71209b6d1c80c14c17b3ed97cc13895e71f738161",
+   "bytes": 3790
+  }
+ },
+ "immutable_baseline": "NEXA_BASELINE_BACKUP_20260919-124052/ (16 files, sha256 manifest)",
+ "market_data": {
+  "status": "INGESTED_AND_VALIDATED",
+  "symbol": "XAUUSD",
+  "source": "Axiory monthly M1 export (user upload)",
+  "range": "2018-01-02 01:00 .. 2026-07-31 23:59 (server time)",
+  "m1_rows": 3042272,
+  "span_years": 8.6,
+  "quality_gate": "SUSPECT (structural daily break only; 0 impossible OHLC, 0 duplicates, 0 parse errors)",
+  "timezone": "broker server time EET/EEST (DST-observing); stored unconverted",
+  "fields_present": [
+   "open",
+   "high",
+   "low",
+   "close",
+   "tick_volume"
+  ],
+  "fields_absent": [
+   "bid",
+   "ask",
+   "spread",
+   "real_volume"
+  ],
+  "second_upload": "setB = setA + 0.10 constant markup; NOT an independent source",
+  "features_computable": "42/48"
+ },
+ "sessions": [
+  {
+   "date": "2026-09-27",
+   "agent": "Claude Code",
+   "promotion_state": "RESEARCH_ONLY (unchanged)",
+   "mt5_compile": {
+    "evidence": "MetaEditor build log build/*.compile.log via tools/compile_mql5.sh (MetaTester/terminal build 6230)",
+    "NEXA_EA.mq5": "0 errors 0 warnings",
+    "NEXA_TrainingExport.mq5": "0/0",
+    "NEXA_SpecSnapshot.mq5": "0/0 (3 warnings fixed)",
+    "NEXA_TickLogger.mq5": "0/0",
+    "NEXA_DealAudit.mq5": "0/0",
+    "NEXA_BarExport.mq5 (new)": "0/0",
+    "TrendLock_Quantum_Synthesis.mq5 (not NEXA)": "0/0"
+   },
+   "mql5_changes": [
+    "NEXA_FOMC.mqh: 2024, 2025 (official) and 2027 (tentative) schedules added; table ends 2027-12-08",
+    "NEXA_SpecSnapshot.mq5: checked OrderCalcMargin/OrderCalcProfit returns",
+    "NEXA_BarExport.mq5: new tester-only bar tap, places no orders"
+   ],
+   "risk_engine": "NEXA_Risk.mqh unchanged (e706d453d346100f), guarded by test_nexa_mql5_invariants.py",
+   "tests": {
+    "research_suite": "321 passed",
+    "ruff": "clean"
+   },
+   "new_research_modules": [
+    "nexa_stats.py",
+    "nexa_robust.py",
+    "nexa_factory.py",
+    "nexa_factory_run.py",
+    "nexa_model.py"
+   ],
+   "strategy_tester": {
+    "status": "BLOCKED",
+    "evidence": "terminal log: authorization on MetaQuotes-Demo failed (Invalid account); history sync timeout 0:08:22 per request",
+    "result": "NEXA_EA GBPUSD M1 2024-01: 1 real DECISION row (NO_TRADE_SPREAD_TAX_476.2PCT) then blocked on history sync; NEXA_BarExport completed (30,224 M1 bars)",
+    "required_human_action": "log MT5 into a valid (non-expired) demo account so basket-symbol history synchronises"
+   },
+   "stage2_on_real_dna": "PASS (1 row, 0 findings)",
+   "stage3_parity_on_real_dna": "NOT ESTABLISHED (no reconstructable row; local history starts 2024-01-02)",
+   "factory": {
+    "XAUUSD_H1": "no candidate; protocol b1d8203b159fa2ef; see research/reports/FACTORY_XAUUSD_H1.md"
+   },
+   "model": "none trained (blocked on Trade DNA)",
+   "new_defects": [
+    "D-XAU-TZLABEL: derived Axiory ladder files tag server-time values as UTC (+0000)",
+    "D-DEMO-EXPIRED: MT5 demo login 5055943373 invalid; blocks tester history sync",
+    "D-QC-CONNECTOR: QuantConnect connector invalidated; needs reconnect",
+    "D-BRIDGE-COMPILE: meta-trader-mcp compile_ea cannot resolve quoted includes (staging under /tmp)"
+   ]
+  },
+  {
+   "date": "2026-09-27 (session 3, Pepperstone)",
+   "broker": "Pepperstone-Demo 61603218 (DEMO, $50k, 1:200), read-only",
+   "promotion_state": "RESEARCH_ONLY (unchanged)",
+   "risk_engine": "NEXA_Risk.mqh unchanged e706d453d346100f; schema v1.0 unchanged c24198b09b0e7192; NEXA_Intelligence.mqh unchanged efa6db4e4abae2a9",
+   "mql5_changes": [
+    "NEXA_EA.mq5: FOMC veto rows anchored to closed bar (shift 1); risk_dist=0 on rows without a stop (journal-only, tester-verified)",
+    "NEXA_BarExport.mq5: M5/M15/H1 export, H1/D1-only mode, no lower-TF calls in open-prices mode"
+   ],
+   "research_changes": [
+    "nexa_parity: MT5 iATR (SMA of TR); HTF windows exclude forming bars (look-ahead fix); volState mirrors VolRegime",
+    "new: nexa_pepperstone_audit, nexa_dna_audit, nexa_tester_verify, nexa_parity_sampled (stateless only), nexa_parity_full"
+   ],
+   "tests": "336 passed, ruff clean",
+   "tester": "48/48 NEXA chunks + 49/49 bar exports verified; 3,927,131 decisions; 1 trade (XAUUSD, -0.005R)",
+   "parity": "FAIL: only the liquidity state machine differs (0.2-0.85% of 112,688 real-tick rows); contract tolerance below journal precision",
+   "factory": "Pepperstone H1 x5, protocol b1d8203b159fa2ef: no candidate; 0/25 survive BH-FDR",
+   "top_blocker": "B-EXPOSURE-CAP: InpMaxSameCurrencyNet=2 min-lots (0.02 lots) blocks trading above ~$1.3k equity",
+   "report": "research/reports/pepperstone/PEPPERSTONE_FINAL_AUDIT.md"
+  },
+  {
+   "date": "2026-09-29",
+   "type": "HUMAN-APPROVED SAFETY FIX",
+   "change": "NEXA_Risk.mqh correlation cap: fail-closed, time-aligned, OK/BLOCK/INSUFFICIENT_DATA (INSUFFICIENT blocks); >=80% aligned pairs; thresholds 0.75/100 unchanged; no other policy change",
+   "NEXA_Risk.mqh": {
+    "before": "e706d453d346100f99d06ce3bf2b62697ce544d913bba6ba8053f506115ce5ed",
+    "after": "7fd5692a2bd3aec7443185f914be320158cfe55bcddcf370db059a6da0d908d1",
+    "approved_corr_block_sha256": "97f28759e6c4853ddb3b7cba9b2e47c29599d4efd08e9ac0dfc71844f319c62e",
+    "pre_change_backup": "NEXA_PRE_CORRFIX_BACKUP_20260929T085610Z/"
+   },
+   "compile": {
+    "NEXA_EA.mq5": "0 errors, 0 warnings (MetaEditor build 6230)",
+    "NEXA_CorrCapTest.mq5": "0 errors, 0 warnings"
+   },
+   "tests": "490 passed; MQL5 core == Python oracle on 18 fixtures (tester run corrcap_parity_20260929_t2)",
+   "v2": "unaffected (not pinned); anchor 6090be68... FROZEN, 0 results",
+   "deployed_to_terminal": false,
+   "report": "research/reports/NEXA_RISK_CORRELATION_CAP_SAFETY_FIX.md"
+  },
+  {
+   "date": "2026-09-29",
+   "type": "PRE-LIVE ENGINEERING SAFETY AUDIT",
+   "fixed": [
+    "S1 restart guard",
+    "S2 retry re-validation",
+    "S3 portfolio entry lock + atomic daily slot",
+    "S4 breached-stop recovery",
+    "S5 BE modify distance/freeze/throttle",
+    "S6 time-exit close de-dup",
+    "S7 news fail-closed on unresolvable event",
+    "S8 run-unique row_id",
+    "S9 close-by handling",
+    "S10 whole-position R"
+   ],
+   "not_fixed_needs_decision": [
+    "S11 NEXA_Risk NetCurrencyExposure skips unreadable position (approval needed)",
+    "S12 D-TZ (frozen features)",
+    "S13 UsdComposite shift-aligned (frozen feature)",
+    "S14 fixed deviation 20 pts",
+    "S15 stale deployed EA build"
+   ],
+   "hashes": {
+    "NEXA_EA.mq5": "d65090cca1654814",
+    "NEXA_Intelligence.mqh": "18e3b30c7de52234",
+    "NEXA_Safety.mqh": "843fc60674d4c3e7",
+    "NEXA_Risk.mqh": "7fd5692a2bd3aec7 (unchanged)"
+   },
+   "compile": "0 errors, 0 warnings (NEXA_EA, NEXA_SafetyTest, NEXA_CorrCapTest)",
+   "tests": "502 passed; 29/29 MQL5 safety primitives; pre/post DNA regression identical except intended S10; 12/12 mutations detected; V2 attacks 70/70",
+   "deployed_to_terminal": false,
+   "report": "research/reports/NEXA_PRELIVE_SAFETY_AUDIT_2026-09-29.md"
+  }
+ ]
+}

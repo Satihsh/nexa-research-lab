@@ -1,0 +1,88 @@
+{
+ "GBPUSD_B": {
+  "decisions": 29246,
+  "pre_feature_veto_excluded": 719,
+  "compared_rows": 28527,
+  "contract_status": "PASS",
+  "mismatch_rate_by_feature": {},
+  "continuous_within_journal_precision": 0,
+  "continuous_beyond_precision": {},
+  "accepted_ties": 40,
+  "accepted_ties_by_feature": {
+   "liqWickBodyRatio": 18,
+   "liqBarsBeyond": 18,
+   "displacementDown": 3,
+   "displacementUp": 1
+  },
+  "ties_unused_in_range": 0,
+  "features_compared": 44,
+  "features_exempt": [
+   "obiProxy",
+   "cvdProxy",
+   "liqOrigin",
+   "newsRiskActive"
+  ]
+ },
+ "EURUSD_B": {
+  "decisions": 29282,
+  "pre_feature_veto_excluded": 719,
+  "compared_rows": 28563,
+  "contract_status": "PASS",
+  "mismatch_rate_by_feature": {},
+  "continuous_within_journal_precision": 0,
+  "continuous_beyond_precision": {},
+  "accepted_ties": 7,
+  "accepted_ties_by_feature": {
+   "displacementDown": 3,
+   "isMSS_down": 2,
+   "isMSS_up": 1,
+   "displacementUp": 1
+  },
+  "ties_unused_in_range": 0,
+  "features_compared": 44,
+  "features_exempt": [
+   "obiProxy",
+   "cvdProxy",
+   "liqOrigin",
+   "newsRiskActive"
+  ]
+ },
+ "USDJPY_B": {
+  "decisions": 29082,
+  "pre_feature_veto_excluded": 719,
+  "compared_rows": 28363,
+  "contract_status": "PASS",
+  "mismatch_rate_by_feature": {},
+  "continuous_within_journal_precision": 0,
+  "continuous_beyond_precision": {},
+  "accepted_ties": 0,
+  "accepted_ties_by_feature": {},
+  "ties_unused_in_range": 0,
+  "features_compared": 44,
+  "features_exempt": [
+   "obiProxy",
+   "cvdProxy",
+   "liqOrigin",
+   "newsRiskActive"
+  ]
+ },
+ "XAUUSD_B": {
+  "decisions": 27894,
+  "pre_feature_veto_excluded": 659,
+  "compared_rows": 27235,
+  "contract_status": "PASS",
+  "mismatch_rate_by_feature": {},
+  "continuous_within_journal_precision": 0,
+  "continuous_beyond_precision": {},
+  "accepted_ties": 0,
+  "accepted_ties_by_feature": {},
+  "ties_unused_in_range": 0,
+  "features_compared": 44,
+  "features_exempt": [
+   "obiProxy",
+   "cvdProxy",
+   "liqOrigin",
+   "newsRiskActive"
+  ]
+ }
+}

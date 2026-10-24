@@ -1,0 +1,50 @@
+# NEXA-Agent-Lab — ALLOW-LIST. Code, docs, evidence records only.
+# Market data, logs, PDFs, archives, venvs and secrets never enter git
+# (bulk data is backed up to the GCS bucket instead).
+*
+!*/
+!.gitignore
+!*.py
+!*.md
+!*.mq5
+!*.mqh
+!*.ex5
+!*.set
+!*.chr
+!*.sh
+!*.ps1
+!*.json
+!*.jsonl
+!*.html
+!*.sha256
+!*.txt
+!*.toml
+!*.yaml
+!*.yml
+!*.bibtex
+!*.cs
+!*.csproj
+
+# Re-excluded, whatever the extension
+**/bin/
+**/obj/
+vendor/
+.venv*/
+**/__pycache__/
+**/node_modules/
+**/*BACKUP*/
+**/*BACKUP*
+**/.env
+**/.env.*
+logs/
+*.pyc
+
+# ops/backup holds the backup SCRIPTS; macOS is case-insensitive, so *BACKUP* above matches it.
+!ops/backup/
+!ops/backup/*.sh
+!ops/backup/*.md
+
+# H-ORB30L forward log: log.csv is an evidence record; raw Dukascopy candles are market data (GCS backup only)
+!research/intelligence/validation/forward_horb30l/log.csv
+research/intelligence/validation/forward_horb30l/raw/
+!atas/news_calendar.csv

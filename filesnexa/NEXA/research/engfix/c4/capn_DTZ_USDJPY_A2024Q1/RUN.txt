@@ -1,0 +1,4 @@
+run=capn_DTZ_USDJPY_A2024Q1
+start=2026-10-03 23:19:24
+end=2026-10-03 23:20:10
+expert=NEXA_EngFix\NEXA_EA_DTZ symbol=USDJPY period=M1 model=0 from=2024.01.01 to=2024.04.01 deposit=50000 leverage=200 delay=250

@@ -1,0 +1,86 @@
+{
+ "note": "discovery one-sided p for the 15 primary tests; OF-19-T uses its holdout p. OF-20 p-values with n_TD < 100 are degenerate (bootstrap of 0-2 events) and are gated by the n>=100 rule.",
+ "tests": [
+  {
+   "test": "OF-16 XAUUSD",
+   "disc_p_or_holdout_p": 0.7321339330334833,
+   "joint_BH": 0.952023988005997
+  },
+  {
+   "test": "OF-16 EURUSD",
+   "disc_p_or_holdout_p": 0.952023988005997,
+   "joint_BH": 0.952023988005997
+  },
+  {
+   "test": "OF-16 USDJPY",
+   "disc_p_or_holdout_p": 0.1634182908545727,
+   "joint_BH": 0.6128185907046477
+  },
+  {
+   "test": "OF-19 theta19a XAUUSD",
+   "disc_p_or_holdout_p": 0.8840579710144928,
+   "joint_BH": 0.952023988005997
+  },
+  {
+   "test": "OF-19 theta19b XAUUSD",
+   "disc_p_or_holdout_p": 0.6921539230384808,
+   "joint_BH": 0.952023988005997
+  },
+  {
+   "test": "OF-19 theta19a EURUSD",
+   "disc_p_or_holdout_p": 0.0069965017491254375,
+   "joint_BH": 0.03498250874562719
+  },
+  {
+   "test": "OF-19 theta19b EURUSD",
+   "disc_p_or_holdout_p": 0.006496751624187906,
+   "joint_BH": 0.03498250874562719
+  },
+  {
+   "test": "OF-19 theta19a GBPUSD",
+   "disc_p_or_holdout_p": 0.9425287356321839,
+   "joint_BH": 0.952023988005997
+  },
+  {
+   "test": "OF-19 theta19b GBPUSD",
+   "disc_p_or_holdout_p": 0.8375812093953023,
+   "joint_BH": 0.952023988005997
+  },
+  {
+   "test": "OF-19 theta19a USDJPY",
+   "disc_p_or_holdout_p": 0.41629185407296354,
+   "joint_BH": 0.9327479117584064
+  },
+  {
+   "test": "OF-19 theta19b USDJPY",
+   "disc_p_or_holdout_p": 0.4352823588205897,
+   "joint_BH": 0.9327479117584064
+  },
+  {
+   "test": "OF-20 XAUUSD (n_TD=33)",
+   "disc_p_or_holdout_p": 0.7861069465267366,
+   "joint_BH": 0.952023988005997
+  },
+  {
+   "test": "OF-20 EURUSD (n_TD=2)",
+   "disc_p_or_holdout_p": 0.0008045052292839903,
+   "joint_BH": 0.012067578439259855
+  },
+  {
+   "test": "OF-20 GBPUSD (n_TD=2)",
+   "disc_p_or_holdout_p": 0.39160045402951194,
+   "joint_BH": 0.9327479117584064
+  },
+  {
+   "test": "OF-20 USDJPY (n_TD=0)",
+   "disc_p_or_holdout_p": null,
+   "joint_BH": null
+  },
+  {
+   "test": "OF-19-T pooled (holdout, stress 0.05)",
+   "disc_p_or_holdout_p": 0.7481259370314842,
+   "joint_BH": 0.952023988005997
+  }
+ ],
+ "n_joint_BH_below_0.10": 3
+}

@@ -1,0 +1,4 @@
+run=REG_C4_GBPUSD_A2026Q3
+start=2026-10-03 22:59:34
+end=2026-10-03 23:00:09
+expert=NEXA_EngFix\NEXA_EA_C4 symbol=GBPUSD period=M1 model=0 from=2026.07.01 to=2026.08.28 deposit=200 leverage=200 delay=250

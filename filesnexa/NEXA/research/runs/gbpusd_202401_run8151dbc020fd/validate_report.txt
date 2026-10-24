@@ -1,0 +1,17 @@
+NEXA dataset validation gate
+======================================================================
+rows                 : 1
+episodes             : 0
+resolved episodes    : None
+trainable episodes   : None
+class balance        : None
+symbols              : None
+timeframes           : None
+regime buckets       : None
+date range           : None
+max label span (bars): None
+embargo (bars)       : 480
+walk-forward folds   : 0
+STATUS               : FAIL
+----------------------------------------------------------------------
+[ERROR] NO_EPISODES: no linked episodes; Stage 2 ingestion must run first n=0

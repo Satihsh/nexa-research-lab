@@ -1,0 +1,31 @@
+{
+ "verdict": "INSUFFICIENT_SAMPLE",
+ "reasons": [
+  "n=0 < min_trades=30"
+ ],
+ "metrics": {
+  "n": 0
+ },
+ "expectancy_ci": {},
+ "shocked_expectancy_ci": {},
+ "monte_carlo": {},
+ "breakeven_cost_r": NaN,
+ "config": {
+  "min_trades": 30,
+  "n_boot": 5000,
+  "n_mc": 5000,
+  "ci": 0.95,
+  "block": 1,
+  "cost_shock_r": 0.05,
+  "risk_per_trade": 0.003,
+  "ruin_drawdown": 0.1,
+  "seed": 20260927
+ },
+ "source": "broker result_r on CLOSE rows (net of costs as the tester realised them)",
+ "events": {
+  "DECISION": 1
+ },
+ "reasons_top": {
+  "NO_TRADE_SPREAD_TAX_476.2PCT": 1
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "m1_canonical": {
+  "EURUSD": {
+   "canonical_file": "PEPPERSTONE_EURUSD_M1_canonical.csv.gz",
+   "canonical_sha256": "0ed4163dc1ab96cf9c0a901e817c7d051af6764b3f3ea9935f13998f989b3c95",
+   "rows": 3431479,
+   "first_utc": "2017-06-30 19:59:00+00:00",
+   "last_utc": "2026-09-25 20:53:00+00:00"
+  },
+  "GBPUSD": {
+   "canonical_file": "PEPPERSTONE_GBPUSD_M1_canonical.csv.gz",
+   "canonical_sha256": "1d5bc487446d140b3a64620c469fbce181e80b1d763b8c39de1261e04fb4d115",
+   "rows": 3430239,
+   "first_utc": "2017-06-30 19:59:00+00:00",
+   "last_utc": "2026-09-25 20:53:00+00:00"
+  },
+  "USDJPY": {
+   "canonical_file": "PEPPERSTONE_USDJPY_M1_canonical.csv.gz",
+   "canonical_sha256": "3e19452142ab2a27f70dd85788215449606fdb87757d2722bbcd66b900289b0f",
+   "rows": 3431603,
+   "first_utc": "2017-06-30 19:59:00+00:00",
+   "last_utc": "2026-09-25 20:53:00+00:00"
+  },
+  "XAUUSD": {
+   "canonical_file": "PEPPERSTONE_XAUUSD_M1_canonical.csv.gz",
+   "canonical_sha256": "67da3f063ee296e3c0d650f5e1031fffd8680bb6b65f65172659934faf21a790",
+   "rows": 3090547,
+   "first_utc": "2017-12-29 20:54:00+00:00",
+   "last_utc": "2026-09-25 20:53:00+00:00"
+  },
+  "XAGUSD": {
+   "canonical_file": "PEPPERSTONE_XAGUSD_M1_canonical.csv.gz",
+   "canonical_sha256": "12d46b037616f5d6b02f6b4bc150e9c35a28a33822b5c6ff28debc138327a15a",
+   "rows": 2109571,
+   "first_utc": "2017-12-29 20:54:00+00:00",
+   "last_utc": "2023-12-29 21:24:00+00:00"
+  }
+ },
+ "calendar": {
+  "canonical_sha256": "9f7019a5dd3706c0b4d051737c3923f3f2ddbe38f1d1358f00d3ea263d389939",
+  "raw_export_sha256": {
+   "NEXA_Cal_countries.csv": "23574f80061ef6052db884cb049fb38d7e106b88a5916c50f9e1035952bcf1fe",
+   "NEXA_Cal_events.csv": "b8214ed5ea50c61344cbacc52930807f9d0a83bf8b2287eead3c99df2645ac51",
+   "NEXA_Cal_values.csv": "a881498d3990efd76c9b09df72068e864b8363e505d95f45b907ba68290e6864",
+   "NEXA_Cal_provenance.txt": "246eda3e45c193f947af56626828720ce521c334f5e406a569ca5bd3534db626"
+  },
+  "time_basis": "FIXED_EXPORT_OFFSET 0 days 03:00:00",
+  "rows": {
+   "countries": 23,
+   "events": 1508,
+   "values": 139409
+  },
+  "export_provenance": {
+   "server": "Pepperstone-Demo",
+   "account_login": "61603218",
+   "terminal_build": "6230",
+   "export_time_trade_server": "2026.09.27 18:36:14",
+   "export_time_gmt": "2026.09.27 15:36:14"
+  }
+ },
+ "ticks": {
+  "PEPPERSTONE_EURUSD_ticks_recent.csv.gz": "d79d3f248e8219eae8f6f417e579e6e309cc64d8252151f38880253a9b03181b",
+  "PEPPERSTONE_GBPUSD_ticks_recent.csv.gz": "c3a140a6c9209bb01e4beec5255d4639462d5b21d1390b81b755d5183d5fe5a3",
+  "PEPPERSTONE_USDJPY_ticks_recent.csv.gz": "d42b01043dc2595ba2cf5182e2175602a6c9eb88a03ac872c7407a50b36811b6",
+  "PEPPERSTONE_XAGUSD_ticks_recent.csv.gz": "ade00c6dbf585abe8362d1292fc6b9c5a54616a0f600fbea9ce600698c27ae6a",
+  "PEPPERSTONE_XAUUSD_ticks_recent.csv.gz": "80c8e2a48f84b1b6319d6031435731c7f6c11989f4a0f6e4bd3f50cc75294a2e"
+ },
+ "dna_audit": {
+  "report_sha256": "95bee3ca2aab4c6979d23578adc2bd4dbadeab21cc93680b7628e545b95a29f5",
+  "tester_sha256sums_sha256": "baa15293d6bd4240810a498812f81a87f036d8538cb95add90aa0275a950a6f0"
+ },
+ "time_convention": {
+  "clock": "PEPPERSTONE_NY_CLOSE",
+  "evidence_sha256": "6da7930744d9451f94a75593b1644cf4e7d5960e550754cdc33492b44764d739",
+  "module_sha256": "3a39f33b2c4e115c59f435d099f69c1931e73bb5af7ffeff72e8a7cb35745760"
+ },
+ "execution_module_sha256": "302188bad2e46381daffc15dc09530e3bf2bf88dfa73950417be6853717921ae"
+}

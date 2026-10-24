@@ -1,0 +1,4 @@
+run=CAPN_NEXA_GBPUSD_B
+start=2026-10-03 11:59:02
+end=2026-10-03 11:59:37
+expert=NEXA_Research\NEXA_EA_CAPN symbol=GBPUSD period=M1 model=4 from=2026.08.28 to=2026.09.26 deposit=50000 leverage=200 delay=250

@@ -1,0 +1,1 @@
+expect 3e41e5617e778b00 (source: QC backtest c82aadcfd23f2857974c906747cfdeb2 'H-ORB5 NQ run1', project 38194041, hash bb219a99)

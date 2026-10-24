@@ -1,0 +1,79 @@
+C0    verify frozen mirror against the published checkpoint                              LEGITIMATE_CONTROL_ACCEPTANCE  NEXA-CHECKPOINT campaign=PHASE3_SIX_FAMILIES_V2 anchor=6090be68184af7643f82b680d144a1b9e1622b3bbceebfb872729b97b9d9324c seq=6 head=bbd9a28ed6bc7e0b20f3fca9f9ba1fe437f4bd39dc9c1e99ed73fb7505be5b2b state=FROZEN
+C1    legit lifecycle: open -> 1 VAL -> seal -> OOS once after it ends                   LEGITIMATE_CONTROL_ACCEPTANCE  final head seq 10
+C2    local-only verify passes (documents that R1 needs the external checkpoint)         LEGITIMATE_CONTROL_ACCEPTANCE  FROZEN
+C3    registered builders: 5 bar + 1 event certificate present before opening            LEGITIMATE_CONTROL_ACCEPTANCE  6
+A01   protocol modification (add grid value)                                             EXPECTED_REJECTION             protocol F2_XAU_SESSION_BREAKOUT does not match the campaign pin
+A02   protocol hash substitution (re-pin in campaign)                                    EXPECTED_REJECTION             campaign.json does not match the external anchor
+A03   campaign modification                                                              EXPECTED_REJECTION             campaign.json does not match the external anchor
+A04   trial-count manipulation (DSR 1740 -> 17)                                          EXPECTED_REJECTION             campaign.json does not match the external anchor
+A05   universe shrink + re-pin, verified with forged anchor                              EXPECTED_REJECTION             ledger does not record exactly one CAMPAIGN_FROZEN for this anchor
+A06   date manipulation (OOS moved into seen past)                                       EXPECTED_REJECTION             protocol F2_XAU_SESSION_BREAKOUT does not match the campaign pin
+A06b  date manipulation to the never-adopted 2026-10-05..2027-10-04 window               EXPECTED_REJECTION             protocol F2_XAU_SESSION_BREAKOUT does not match the campaign pin
+A07   OOS relabelled as VAL                                                              EXPECTED_REJECTION             window ['2027-01-04T00:00:00Z', '2027-06-01T00:00:00Z'] lies outside the VAL bounds
+A08   VAL window relabelled as OOS                                                       EXPECTED_REJECTION             window ['2023-01-01T00:00:00Z', '2025-01-01T00:00:00Z'] lies outside the OOS bounds
+A09   DEV window relabelled as VAL                                                       EXPECTED_REJECTION             window ['2019-01-01T00:00:00Z', '2020-01-01T00:00:00Z'] lies outside the VAL bounds
+A10   OOS year relabelled as walk-forward 2027                                           EXPECTED_REJECTION             wf_year 2027 is not one of the pinned WF_YEARS [2020, 2021, 2022, 2023, 2024]
+A10b  OOS relabelled as DEV                                                              EXPECTED_REJECTION             window ['2027-01-04T00:00:00Z', '2028-01-03T00:00:00Z'] lies outside the DEV bounds
+A10c  EXCLUDED window relabelled as DEV                                                  EXPECTED_REJECTION             window ['2025-02-01T00:00:00Z', '2025-06-01T00:00:00Z'] lies outside the DEV bounds
+A11   repeated OOS query                                                                 EXPECTED_REJECTION             OOS already observed for this experiment/claim/symbol
+A12   repeated VAL query                                                                 EXPECTED_REJECTION             this trial's validation has already been queried (budget = 1)
+A13   VAL budget reset (results wiped)                                                   EXPECTED_REJECTION             results.jsonl does not match the ledger
+A13b  VAL query after OOS observed (OOS feeding selection)                               EXPECTED_REJECTION             in-sample results are closed once the OOS period has started
+A13c  early OOS access (before the OOS period ends)                                      EXPECTED_REJECTION             OOS must cover the full pinned window and can only be recorded after it ends
+A13d  partial (cherry-picked) OOS window                                                 EXPECTED_REJECTION             OOS must cover the full pinned window and can only be recorded after it ends
+A13e  selection after the OOS start                                                      EXPECTED_REJECTION             OOS selection must be sealed BEFORE the OOS start
+A13f  selection without a VAL result                                                     EXPECTED_REJECTION             a selected trial must have its (single) VAL result recorded first
+A13g  in-sample query after the group is sealed                                          EXPECTED_REJECTION             selection for this group is sealed; no further in-sample results
+A13h  OOS for a trial that was not sealed                                                EXPECTED_REJECTION             OOS is only for the trial sealed by OOS_SELECTED
+A14   ledger truncation (ledger only)                                                    EXPECTED_REJECTION             ledger (8 entries) disagrees with the external witness (9 entries): truncation, rollback or out-of-API append
+A15   ledger rewrite (payload edited)                                                    EXPECTED_REJECTION             ledger broken at entry 1
+A16   witness rewrite                                                                    EXPECTED_REJECTION             ledger (7 entries) disagrees with the external witness (7 entries): truncation, rollback or out-of-API append
+A17   R1: consistent ledger+witness rollback (VAL budget reset) vs published checkpoint  EXPECTED_REJECTION             external checkpoint not found in the local ledger: rollback or rewrite
+A18   R1: consistent forged OPEN appended to ledger+witness vs published checkpoint      EXPECTED_REJECTION             local ledger has entries beyond the external checkpoint: unpublished or forged events
+A19   data hash modification (contracts spec)                                            EXPECTED_REJECTION             pinned data 'contracts_spec' changed or missing: data/pepperstone/contracts.json
+A19b  result bound to an unpinned data set                                               EXPECTED_REJECTION             result is not bound to the pinned data/code set
+A20   code hash modification (builder module)                                            EXPECTED_REJECTION             pinned code 'nexa_v2_features' changed or missing: research/nexa_v2_features.py
+A20b  result bound to an unpinned code set                                               EXPECTED_REJECTION             result is not bound to the pinned data/code set
+A21   design hash modification (OOS report edited)                                       EXPECTED_REJECTION             pinned design_artifacts 'oos_determination_v2' changed or missing: research/reports/OOS_DETERMINATION_V2.md
+A22   sensitivity value outside the declared grid                                        EXPECTED_REJECTION             trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A22b  hidden extra configuration axis                                                    EXPECTED_REJECTION             trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A23   trial outside the registered universe (undeclared symbol)                          EXPECTED_REJECTION             trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A23b  trial in BLOCKED family F6                                                         EXPECTED_REJECTION             trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A23c  trial in BLOCKED family F4                                                         EXPECTED_REJECTION             trial not in the pinned universe (unregistered config/sensitivity/symbol)
+A24   forged certificate dict passed to register_builder                                 EXPECTED_REJECTION             register_builder takes the builder function, not a certificate
+A25   forged causality certificate injected into ledger+witness                          EXPECTED_REJECTION             local ledger has entries beyond the external checkpoint: unpublished or forged events
+A26   future-data feature builder registration                                           EXPECTED_REJECTION             builder __main__.leaky_future_highs FAILED causality certification
+A27   future calendar information (release value 3 bars early)                           EXPECTED_REJECTION             builder __main__.leaky_future_release FAILED causality certification
+A27b  future calendar information (full-sample surprise sd)                              EXPECTED_REJECTION             builder __main__.leaky_calendar_full_sample FAILED causality certification
+A27c  result produced by an uncertified leaky builder                                    EXPECTED_REJECTION             every builder must hold a causality certificate registered before opening
+A28   timezone manipulation (server-offset timestamp)                                    EXPECTED_REJECTION             timestamps must be explicit UTC ISO-8601 ending in 'Z': '2023-01-01T00:00:00+07:00'
+A28b  timezone manipulation (naive timestamps)                                           EXPECTED_REJECTION             timestamps must be explicit UTC ISO-8601 ending in 'Z': '2023-01-01T00:00:00'
+A28c  embargo violation (entry 6 h after VAL start)                                      EXPECTED_REJECTION             first entry 2023-01-01T06:00:00Z violates the VAL embargo
+A28d  purge violation (label crosses VAL end)                                            EXPECTED_REJECTION             a label ends after the window/period end (purge violation)
+A29   malformed ledger row (invalid JSON)                                                EXPECTED_REJECTION             ledger unreadable: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+A29b  malformed ledger row (missing fields)                                              EXPECTED_REJECTION             ledger/witness malformed: KeyError('prev_sha256')
+A30   malformed registry state (campaign.json corrupt)                                   EXPECTED_REJECTION             campaign.json does not match the external anchor
+A30b  malformed registry state (protocol file missing)                                   EXPECTED_REJECTION             registry state unreadable or incomplete: FileNotFoundError(2, 'No such file or directory')
+A31   builder source modified after certification                                        EXPECTED_REJECTION             every builder must hold a causality certificate registered before opening
+A31b  builder registration after opening                                                 EXPECTED_REJECTION             builders can only be registered while FROZEN (before opening)
+A32   registry rollback (whole registry + witness restored to seq 3)                     EXPECTED_REJECTION             external checkpoint not found in the local ledger: rollback or rewrite
+A33   inconsistent anchor                                                                EXPECTED_REJECTION             campaign.json does not match the external anchor
+A33b  inconsistent anchor (ANCHOR.txt rewritten to match edited campaign)                EXPECTED_REJECTION             campaign.json does not match the external anchor
+A34   inconsistent witness (deleted)                                                     EXPECTED_REJECTION             external witness missing for this anchor
+A34b  inconsistent witness (substituted from superseded freeze)                          EXPECTED_REJECTION             ledger (7 entries) disagrees with the external witness (1 entries): truncation, rollback or out-of-API append
+A35   inconsistent ledger head (wrong sha)                                               EXPECTED_REJECTION             external checkpoint not found in the local ledger: rollback or rewrite
+A35b  inconsistent ledger head (stale published seq)                                     EXPECTED_REJECTION             local ledger has entries beyond the external checkpoint: unpublished or forged events
+A36   open without checkpoint                                                            EXPECTED_REJECTION             an external checkpoint {seq, entry_sha256} of the published ledger head is required
+A36b  open without a real human approval note                                            EXPECTED_REJECTION             opening requires an explicit human approval note
+A37   record while FROZEN (not opened)                                                   EXPECTED_REJECTION             evaluation not permitted in state FROZEN
+A38   re-freeze over the existing campaign                                               EXPECTED_REJECTION             campaign already exists in this registry root
+A39   open after REJECTED                                                                EXPECTED_REJECTION             cannot open from state REJECTED
+A30c  malformed registry state (pinned file replaced by a directory)                     EXPECTED_REJECTION             pinned data 'contracts_spec' changed or missing: data/pepperstone/contracts.json
+A28e  timezone manipulation (unparseable timestamp)                                      EXPECTED_REJECTION             unparseable UTC timestamp 'garbageZ'
+A28f  timezone manipulation (offset disguised with trailing Z)                           EXPECTED_REJECTION             timestamp carries an offset as well as 'Z': '2023-01-01T00:00:00+07:00Z'
+A28g  malformed window argument                                                          EXPECTED_REJECTION             window_utc must be [start, end] and all timestamps explicit UTC strings
+
+attacks=70 expected_rejections=70 controls_ok=4/4 DEFECTS=0
+real registry byte-identical: True de0c101accf58655
+real witness byte-identical: True 05d4544b4c86340d
+real state: NEXA-CHECKPOINT campaign=PHASE3_SIX_FAMILIES_V2 anchor=6090be68184af7643f82b680d144a1b9e1622b3bbceebfb872729b97b9d9324c seq=6 head=bbd9a28ed6bc7e0b20f3fca9f9ba1fe437f4bd39dc9c1e99ed73fb7505be5b2b state=FROZEN

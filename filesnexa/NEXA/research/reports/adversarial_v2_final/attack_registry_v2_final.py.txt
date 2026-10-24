@@ -1,0 +1,641 @@
+"""FINAL adversarial audit of PHASE3_SIX_FAMILIES_V2 against a SCRATCH COPY ONLY.
+Usage: python attack_v2_final.py <scratch_dir> <anchor> <published_seq> <published_head>
+Every attack is classified EXPECTED_REJECTION / DEFECT; controls LEGITIMATE_CONTROL_ACCEPTANCE / DEFECT.
+Non-RegistryError exceptions are reported verbatim (never masked) and count as DEFECT."""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import shutil
+import sys
+from datetime import UTC, datetime
+
+NEXA = "~/NEXA-Agent-Lab/filesnexa/NEXA"
+SP, ANCHOR = sys.argv[1], sys.argv[2]
+PUB = {"seq": int(sys.argv[3]), "entry_sha256": sys.argv[4]}
+sys.path.insert(0, os.path.join(NEXA, "research"))
+import nexa_calendar  # noqa: E402
+import nexa_registry2 as r2  # noqa: E402
+import nexa_v2_features as nf  # noqa: E402
+
+REAL = os.environ.get("NEXA_V2_REGISTRY", os.path.join(NEXA, "research", "registry_v2"))
+WIT_DIR = os.environ.get("NEXA_V2_WITNESS_DIR", os.path.expanduser("~/.nexa_registry_witness"))
+WIT = os.path.join(WIT_DIR, f"{ANCHOR}.jsonl")
+
+
+def tree_sha(d):
+    h = hashlib.sha256()
+    for root, _, files in sorted(os.walk(d)):
+        for f in sorted(files):
+            p = os.path.join(root, f)
+            h.update(os.path.relpath(p, d).encode())
+            with open(p, "rb") as fh:
+                h.update(fh.read())
+    return h.hexdigest()
+
+
+def fsha(p):
+    with open(p, "rb") as fh:
+        return hashlib.sha256(fh.read()).hexdigest()
+
+
+REAL_BEFORE = (tree_sha(REAL), fsha(WIT))
+
+# ---------------------------------------------------------------- scratch mirror
+BASE = os.path.join(SP, "final_mirror_base")
+shutil.rmtree(BASE, ignore_errors=True)
+with open(os.path.join(REAL, "campaign.json")) as fh:
+    camp = json.load(fh)
+os.makedirs(BASE)
+with open(os.path.join(BASE, "NEXA_EA.mq5"), "w") as fh:
+    fh.write("scratch marker")
+for g in ("data", "code", "design_artifacts"):
+    for pin in camp["pins"][g].values():
+        dst = os.path.join(BASE, pin["path"])
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        src = os.path.join(NEXA, pin["path"])
+        if os.path.getsize(src) > 50_000_000:
+            os.symlink(src, dst)                                   # read-only reference; never written
+        else:
+            shutil.copy2(src, dst)
+shutil.copytree(REAL, os.path.join(BASE, "research", "registry_v2"))
+os.makedirs(os.path.join(BASE, "witness"))
+shutil.copy2(WIT, os.path.join(BASE, "witness"))
+
+clock = {"now": datetime(2026, 9, 29, 12, tzinfo=UTC)}
+r2._utcnow = lambda: clock["now"]
+results = []
+
+
+def fresh():
+    d = os.path.join(SP, "final_mirror_run")
+    shutil.rmtree(d, ignore_errors=True)
+    shutil.copytree(BASE, d, symlinks=True)
+    clock["now"] = datetime(2026, 9, 29, 12, tzinfo=UTC)
+    return d, r2.RegistryV2(os.path.join(d, "research", "registry_v2"), nexa_root=d, witness_dir=os.path.join(d, "witness"))
+
+
+def attack(aid, name, fn):
+    d, reg = fresh()
+    try:
+        fn(d, reg)
+        results.append((aid, name, "DEFECT", "ACCEPTED (fail-open)"))
+    except r2.RegistryError as e:
+        results.append((aid, name, "EXPECTED_REJECTION", str(e)[:120]))
+    except Exception as e:  # noqa: BLE001 - reported verbatim, never masked
+        results.append((aid, name, "DEFECT", f"non-RegistryError {type(e).__name__}: {e!s:.100}"))
+
+
+def control(aid, name, fn):
+    d, reg = fresh()
+    try:
+        msg = fn(d, reg)
+        results.append((aid, name, "LEGITIMATE_CONTROL_ACCEPTANCE", msg or "accepted"))
+    except Exception as e:  # noqa: BLE001
+        results.append((aid, name, "DEFECT", f"legit control refused: {type(e).__name__}: {e!s:.100}"))
+
+
+def jl(p):
+    with open(p) as fh:
+        return json.load(fh)
+
+
+def jw(p, o):
+    with open(p, "w") as fh:
+        fh.write(r2.canonical_json(o))
+
+
+def lines(p):
+    with open(p) as fh:
+        return fh.read().splitlines()
+
+
+def wlines(p, rows):
+    with open(p, "w") as fh:
+        fh.write("\n".join(rows) + ("\n" if rows else ""))
+
+
+REGP = lambda d: os.path.join(d, "research", "registry_v2")  # noqa: E731
+CAMP = lambda d: os.path.join(REGP(d), "campaign.json")  # noqa: E731
+F2 = "F2_XAU_SESSION_BREAKOUT"
+PROTO = lambda d: os.path.join(REGP(d), "protocols", f"{F2}@v2.json")  # noqa: E731
+CFG = {"buffer_b": 0.1, "target_r": 2.0, "stop": "range_mid", "asian_end_utc_hour": 6}
+TID = r2.trial_id(F2, "continuation", "XAUUSD", CFG)
+TID2 = r2.trial_id(F2, "continuation", "XAUUSD", {**CFG, "buffer_b": 0.0})
+OOS = ["2027-01-04T00:00:00Z", "2028-01-03T00:00:00Z"]
+VALW = ["2023-01-01T00:00:00Z", "2025-01-01T00:00:00Z"]
+DEVW = ["2019-01-01T00:00:00Z", "2020-01-01T00:00:00Z"]
+BUILDER = nf.f2_features
+state = {}
+
+
+def cp_of(e):
+    return {"seq": e["seq"], "entry_sha256": e["entry_sha256"]}
+
+
+def opened(reg):
+    e = reg.open_evaluation(ANCHOR, "SCRATCH COPY ONLY - adversarial audit, dummy metrics, not an opening", checkpoint=PUB)
+    state["cp"] = cp_of(e)
+
+
+def rec(reg, tid, period, window, first, label, data=None, code=None, builders=None, cp=None, **kw):
+    c = reg.verify(ANCHOR)["campaign"]
+    e = reg.record(ANCHOR, tid, period, window, first, label, data or reg.digest(c["pins"]["data"]),
+                   code or reg.digest(c["pins"]["code"]), builders or [BUILDER], {"dummy": 0}, **kw,
+                   checkpoint=cp or state["cp"])
+    state["cp"] = cp_of(e)
+    return e
+
+
+def val(reg, tid=TID, cp=None):
+    return rec(reg, tid, "VAL", VALW, "2023-01-02T00:00:00Z", "2024-12-31T00:00:00Z", cp=cp)
+
+
+def sel(reg, tid=TID):
+    state["cp"] = cp_of(reg.select_for_oos(ANCHOR, tid, "dummy selection", checkpoint=state["cp"]))
+
+
+def oos(reg, tid=TID, window=OOS, first="2027-01-05T00:00:00Z", label="2028-01-02T00:00:00Z"):
+    return rec(reg, tid, "OOS", window, first, label)
+
+
+def full_life(reg):
+    opened(reg)
+    val(reg)
+    sel(reg)
+    clock["now"] = datetime(2028, 1, 10, tzinfo=UTC)
+    oos(reg)
+
+
+# ---------------------------------------------------------------- controls
+control("C0", "verify frozen mirror against the published checkpoint",
+        lambda d, reg: reg.checkpoint_line(ANCHOR, PUB))
+control("C1", "legit lifecycle: open -> 1 VAL -> seal -> OOS once after it ends",
+        lambda d, reg: (full_life(reg), f"final head seq {state['cp']['seq']}")[1])
+control("C2", "local-only verify passes (documents that R1 needs the external checkpoint)",
+        lambda d, reg: reg.state(reg.verify(ANCHOR)["ledger"]))
+control("C3", "registered builders: 5 bar + 1 event certificate present before opening",
+        lambda d, reg: str(sum(e["event"] == "BUILDER_CERTIFIED" for e in reg.verify(ANCHOR, PUB)["ledger"])))
+
+
+# ---------------------------------------------------------------- protocol / campaign / universe
+def a01(d, reg):
+    p = jl(PROTO(d)); p["grid"]["target_r"].append(5.0); jw(PROTO(d), p); reg.verify(ANCHOR, PUB)
+attack("A01", "protocol modification (add grid value)", a01)
+
+
+def a02(d, reg):
+    p = jl(PROTO(d)); p["tests"]["alpha"] = 0.2; jw(PROTO(d), p)
+    c = jl(CAMP(d)); c["pins"]["protocols"][F2] = r2.protocol_sha(p); jw(CAMP(d), c); reg.verify(ANCHOR, PUB)
+attack("A02", "protocol hash substitution (re-pin in campaign)", a02)
+
+
+def a03(d, reg):
+    c = jl(CAMP(d)); c["correction"]["family_wise"] = "none"; jw(CAMP(d), c); reg.verify(ANCHOR, PUB)
+attack("A03", "campaign modification", a03)
+
+
+def a04(d, reg):
+    c = jl(CAMP(d)); c["trial_counts"]["dsr_trial_count"] = 17; jw(CAMP(d), c); reg.verify(ANCHOR, PUB)
+attack("A04", "trial-count manipulation (DSR 1740 -> 17)", a04)
+
+
+def a05(d, reg):
+    up = os.path.join(REGP(d), "trial_universe.json"); u = jl(up); jw(up, u[:-100])
+    c = jl(CAMP(d)); c["pins"]["trial_universe_sha256"] = r2.sha256_file(up); jw(CAMP(d), c)
+    reg.verify(r2.sha256_text(r2.canonical_json(c)))
+attack("A05", "universe shrink + re-pin, verified with forged anchor", a05)
+
+
+def a06(d, reg):
+    p = jl(PROTO(d)); p["periods_utc"]["OOS"] = ["2025-01-06T00:00:00Z", "2026-01-05T00:00:00Z"]; jw(PROTO(d), p)
+    reg.verify(ANCHOR, PUB)
+attack("A06", "date manipulation (OOS moved into seen past)", a06)
+
+
+def a06b(d, reg):
+    p = jl(PROTO(d)); p["periods_utc"]["OOS"] = ["2026-10-05T00:00:00Z", "2027-10-04T00:00:00Z"]; jw(PROTO(d), p)
+    reg.verify(ANCHOR, PUB)
+attack("A06b", "date manipulation to the never-adopted 2026-10-05..2027-10-04 window", a06b)
+
+
+# ---------------------------------------------------------------- relabelling
+def a07(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2027-01-04T00:00:00Z", "2027-06-01T00:00:00Z"], "2027-01-05T00:00:00Z", "2027-05-01T00:00:00Z")
+attack("A07", "OOS relabelled as VAL", a07)
+
+
+def a08(d, reg):
+    opened(reg); val(reg); sel(reg); clock["now"] = datetime(2028, 1, 10, tzinfo=UTC)
+    rec(reg, TID, "OOS", VALW, "2023-01-02T00:00:00Z", "2024-12-31T00:00:00Z")
+attack("A08", "VAL window relabelled as OOS", a08)
+
+
+def a09(d, reg):
+    opened(reg); rec(reg, TID, "VAL", DEVW, DEVW[0], "2019-12-31T00:00:00Z")
+attack("A09", "DEV window relabelled as VAL", a09)
+
+
+def a10(d, reg):
+    opened(reg); rec(reg, TID, "WF", ["2027-01-04T00:00:00Z", "2028-01-01T00:00:00Z"], "2027-01-05T00:00:00Z",
+                     "2027-12-01T00:00:00Z", wf_year=2027)
+attack("A10", "OOS year relabelled as walk-forward 2027", a10)
+
+
+def a10b(d, reg):
+    opened(reg); clock["now"] = datetime(2028, 1, 10, tzinfo=UTC); rec(reg, TID, "DEV", OOS, "2027-01-05T00:00:00Z", "2028-01-02T00:00:00Z")
+attack("A10b", "OOS relabelled as DEV", a10b)
+
+
+def a10c(d, reg):
+    opened(reg); rec(reg, TID, "DEV", ["2025-02-01T00:00:00Z", "2025-06-01T00:00:00Z"], "2025-02-01T00:00:00Z", "2025-05-01T00:00:00Z")
+attack("A10c", "EXCLUDED window relabelled as DEV", a10c)
+
+
+# ---------------------------------------------------------------- repeats / budgets / early access
+def a11(d, reg):
+    full_life(reg); oos(reg)
+attack("A11", "repeated OOS query", a11)
+
+
+def a12(d, reg):
+    opened(reg); val(reg); val(reg)
+attack("A12", "repeated VAL query", a12)
+
+
+def a13(d, reg):
+    opened(reg); val(reg); wlines(reg.results_path, []); val(reg)
+attack("A13", "VAL budget reset (results wiped)", a13)
+
+
+def a13b(d, reg):
+    full_life(reg); val(reg, TID2)
+attack("A13b", "VAL query after OOS observed (OOS feeding selection)", a13b)
+
+
+def a13c(d, reg):
+    opened(reg); val(reg); sel(reg); clock["now"] = datetime(2027, 6, 1, tzinfo=UTC); oos(reg)
+attack("A13c", "early OOS access (before the OOS period ends)", a13c)
+
+
+def a13d(d, reg):
+    opened(reg); val(reg); sel(reg); clock["now"] = datetime(2028, 1, 10, tzinfo=UTC)
+    oos(reg, window=["2027-01-04T00:00:00Z", "2027-07-01T00:00:00Z"], label="2027-06-30T00:00:00Z")
+attack("A13d", "partial (cherry-picked) OOS window", a13d)
+
+
+def a13e(d, reg):
+    opened(reg); val(reg); clock["now"] = datetime(2027, 1, 10, tzinfo=UTC); sel(reg)
+attack("A13e", "selection after the OOS start", a13e)
+
+
+def a13f(d, reg):
+    opened(reg); state["cp"] = cp_of(reg.select_for_oos(ANCHOR, TID, "no VAL", checkpoint=state["cp"]))
+attack("A13f", "selection without a VAL result", a13f)
+
+
+def a13g(d, reg):
+    opened(reg); val(reg); sel(reg); rec(reg, TID2, "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z")
+attack("A13g", "in-sample query after the group is sealed", a13g)
+
+
+def a13h(d, reg):
+    opened(reg); val(reg); sel(reg); clock["now"] = datetime(2028, 1, 10, tzinfo=UTC); oos(reg, tid=TID2)
+attack("A13h", "OOS for a trial that was not sealed", a13h)
+
+
+# ---------------------------------------------------------------- ledger / witness / R1
+def a14(d, reg):
+    opened(reg); val(reg); wlines(reg.ledger_path, lines(reg.ledger_path)[:-1]); wlines(reg.results_path, []); reg.verify(ANCHOR)
+attack("A14", "ledger truncation (ledger only)", a14)
+
+
+def a15(d, reg):
+    rows = lines(reg.ledger_path); e = json.loads(rows[1]); e["payload"]["builder"] = "forged"; rows[1] = r2.canonical_json(e)
+    wlines(reg.ledger_path, rows); reg.verify(ANCHOR)
+attack("A15", "ledger rewrite (payload edited)", a15)
+
+
+def a16(d, reg):
+    rows = lines(reg.witness_path(ANCHOR)); w = json.loads(rows[2]); w["entry_sha256"] = "0" * 64; rows[2] = r2.canonical_json(w)
+    wlines(reg.witness_path(ANCHOR), rows); reg.verify(ANCHOR)
+attack("A16", "witness rewrite", a16)
+
+
+def a17(d, reg):
+    opened(reg); val(reg)
+    published = dict(state["cp"])
+    for p in (reg.ledger_path, reg.witness_path(ANCHOR)):
+        wlines(p, lines(p)[:-1])
+    wlines(reg.results_path, [])
+    val(reg, cp=published)
+attack("A17", "R1: consistent ledger+witness rollback (VAL budget reset) vs published checkpoint", a17)
+
+
+def a18(d, reg):
+    led = lines(reg.ledger_path); last = json.loads(led[-1])
+    body = {"seq": last["seq"] + 1, "utc": last["utc"], "event": "EVALUATION_OPENED",
+            "payload": {"approval_note": "forged opening by a local actor with write access", "sealed_ledger_head": "x"},
+            "prev_sha256": last["entry_sha256"]}
+    body["entry_sha256"] = r2.sha256_text(r2.canonical_json(body))
+    with open(reg.ledger_path, "a") as fh:
+        fh.write(r2.canonical_json(body) + "\n")
+    with open(reg.witness_path(ANCHOR), "a") as fh:
+        fh.write(r2.canonical_json({"seq": body["seq"], "entry_sha256": body["entry_sha256"]}) + "\n")
+    reg.verify(ANCHOR, PUB)
+attack("A18", "R1: consistent forged OPEN appended to ledger+witness vs published checkpoint", a18)
+
+
+def a19(d, reg):
+    p = os.path.join(d, "data/pepperstone/contracts.json"); c = jl(p); c["XAUUSD"]["swap_long"] = 0.0
+    with open(p, "w") as fh:
+        json.dump(c, fh)
+    reg.verify(ANCHOR, PUB)
+attack("A19", "data hash modification (contracts spec)", a19)
+
+
+def a19b(d, reg):
+    opened(reg); rec(reg, TID, "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z", data="f" * 64)
+attack("A19b", "result bound to an unpinned data set", a19b)
+
+
+def a20(d, reg):
+    p = os.path.join(d, "research/nexa_v2_features.py")
+    with open(p, "a") as fh:
+        fh.write("\n# tweak\n")
+    reg.verify(ANCHOR, PUB)
+attack("A20", "code hash modification (builder module)", a20)
+
+
+def a20b(d, reg):
+    opened(reg); rec(reg, TID, "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z", code="e" * 64)
+attack("A20b", "result bound to an unpinned code set", a20b)
+
+
+def a21(d, reg):
+    p = os.path.join(d, "research/reports/OOS_DETERMINATION_V2.md")
+    with open(p, "a") as fh:
+        fh.write("\nOOS = 2026-10-05 -> 2027-10-04\n")
+    reg.verify(ANCHOR, PUB)
+attack("A21", "design hash modification (OOS report edited)", a21)
+
+
+# ---------------------------------------------------------------- universe membership
+def a22(d, reg):
+    opened(reg); rec(reg, r2.trial_id(F2, "continuation", "XAUUSD", {**CFG, "asian_end_utc_hour": 8}), "DEV", DEVW, DEVW[0],
+                     "2019-12-31T00:00:00Z")
+attack("A22", "sensitivity value outside the declared grid", a22)
+
+
+def a22b(d, reg):
+    opened(reg); rec(reg, r2.trial_id(F2, "continuation", "XAUUSD", {**CFG, "atr_filter": 1.2}), "DEV", DEVW, DEVW[0],
+                     "2019-12-31T00:00:00Z")
+attack("A22b", "hidden extra configuration axis", a22b)
+
+
+def a23(d, reg):
+    opened(reg); rec(reg, r2.trial_id(F2, "continuation", "EURUSD", CFG), "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z")
+attack("A23", "trial outside the registered universe (undeclared symbol)", a23)
+
+
+def a23b(d, reg):
+    opened(reg)
+    rec(reg, r2.trial_id("F6_TICK_QUOTE_IMBALANCE", "executable_edge", "EURUSD", {"window_updates": 50, "quantile_q": 0.9, "hold_s": 1}),
+        "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z")
+attack("A23b", "trial in BLOCKED family F6", a23b)
+
+
+def a23c(d, reg):
+    opened(reg)
+    rec(reg, r2.trial_id("F4_CROSS_FEED_LATENCY", "L3_post_cost", "EURUSD", {"sample_ms": 50, "threshold_q": 0.95, "hold_s": 1}),
+        "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z")
+attack("A23c", "trial in BLOCKED family F4", a23c)
+
+
+# ---------------------------------------------------------------- leaky builders (defined before use)
+def leaky_future_highs(b):
+    return nf.f2_features(b.assign(high=b["high"].shift(-30).fillna(b["high"])))
+
+
+def leaky_future_release(b):
+    return nf.f1_features(b.assign(f1_score=b["f1_score"].shift(-3)))
+
+
+def leaky_calendar_full_sample(tab):
+    x = nexa_calendar.prior_only_baselines(tab)[list(nf.CAL_CHECK_COLS)].copy()
+    x["prior_surprise_sd"] = (tab["actual"] - tab["forecast"]).groupby(tab["event_id"]).transform("std")
+    return x
+
+
+# ---------------------------------------------------------------- certificates / causality
+def a24(d, reg):
+    reg.register_builder(ANCHOR, {"builder": "x", "source_sha256": "0" * 64, "passed": True, "kind": "bars"},
+                         nf.synthetic_bars(days=5), checkpoint=PUB)
+attack("A24", "forged certificate dict passed to register_builder", a24)
+
+
+def a25(d, reg):
+    import nexa_causality as nc
+    led = lines(reg.ledger_path); last = json.loads(led[-1])
+    body = {"seq": last["seq"] + 1, "utc": last["utc"], "event": "BUILDER_CERTIFIED",
+            "payload": {"builder": "leaky", "kind": "bars", "source_sha256": nc.source_sha256(leaky_future_highs),
+                        "perturbed": [], "certification_input_sha256": "x", "certificate_sha256": "y"},
+            "prev_sha256": last["entry_sha256"]}
+    body["entry_sha256"] = r2.sha256_text(r2.canonical_json(body))
+    with open(reg.ledger_path, "a") as fh:
+        fh.write(r2.canonical_json(body) + "\n")
+    with open(reg.witness_path(ANCHOR), "a") as fh:
+        fh.write(r2.canonical_json({"seq": body["seq"], "entry_sha256": body["entry_sha256"]}) + "\n")
+    reg.open_evaluation(ANCHOR, "SCRATCH COPY ONLY - trying to use a forged certificate", checkpoint=PUB)
+attack("A25", "forged causality certificate injected into ledger+witness", a25)
+
+
+def a26(d, reg):
+    reg.register_builder(ANCHOR, leaky_future_highs, nf.synthetic_bars(), checkpoint=PUB, extra_cols=("spread",))
+attack("A26", "future-data feature builder registration", a26)
+
+
+def a27(d, reg):
+    reg.register_builder(ANCHOR, leaky_future_release, nf.synthetic_bars(), checkpoint=PUB, extra_cols=("f1_score", "spread"))
+attack("A27", "future calendar information (release value 3 bars early)", a27)
+
+
+def a27b(d, reg):
+    reg.register_event_builder(ANCHOR, leaky_calendar_full_sample, nf.synthetic_calendar(), "time_utc",
+                               nf.CAL_PERTURB_COLS, nf.CAL_CHECK_COLS, checkpoint=PUB)
+attack("A27b", "future calendar information (full-sample surprise sd)", a27b)
+
+
+def a27c(d, reg):
+    opened(reg); rec(reg, TID, "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z", builders=[leaky_future_highs])
+attack("A27c", "result produced by an uncertified leaky builder", a27c)
+
+
+def a28(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2023-01-01T00:00:00+07:00", "2025-01-01T00:00:00Z"], "2023-01-02T00:00:00Z",
+                     "2024-12-31T00:00:00Z")
+attack("A28", "timezone manipulation (server-offset timestamp)", a28)
+
+
+def a28b(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2023-01-01T00:00:00", "2025-01-01T00:00:00"], "2023-01-02T00:00:00", "2024-12-31T00:00:00")
+attack("A28b", "timezone manipulation (naive timestamps)", a28b)
+
+
+def a28c(d, reg):
+    opened(reg); rec(reg, TID, "VAL", VALW, "2023-01-01T06:00:00Z", "2024-12-31T00:00:00Z")
+attack("A28c", "embargo violation (entry 6 h after VAL start)", a28c)
+
+
+def a28d(d, reg):
+    opened(reg); rec(reg, TID, "VAL", VALW, "2023-01-02T00:00:00Z", "2025-01-01T09:00:00Z")
+attack("A28d", "purge violation (label crosses VAL end)", a28d)
+
+
+def a29(d, reg):
+    with open(reg.ledger_path, "a") as fh:
+        fh.write("{not json\n")
+    reg.verify(ANCHOR)
+attack("A29", "malformed ledger row (invalid JSON)", a29)
+
+
+def a29b(d, reg):
+    with open(reg.ledger_path, "a") as fh:
+        fh.write('{"seq": 7, "event": "EVALUATION_OPENED"}\n')
+    reg.verify(ANCHOR)
+attack("A29b", "malformed ledger row (missing fields)", a29b)
+
+
+def a30(d, reg):
+    with open(CAMP(d), "w") as fh:
+        fh.write("{broken")
+    reg.verify(ANCHOR, PUB)
+attack("A30", "malformed registry state (campaign.json corrupt)", a30)
+
+
+def a30b(d, reg):
+    os.remove(os.path.join(REGP(d), "protocols", f"{F2}@v2.json")); reg.verify(ANCHOR, PUB)
+attack("A30b", "malformed registry state (protocol file missing)", a30b)
+
+
+def a31(d, reg):
+    def f2_features(b):                         # same name, edited source after certification
+        return nf.f2_features(b).fillna(0.0)
+    opened(reg); rec(reg, TID, "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z", builders=[f2_features])
+attack("A31", "builder source modified after certification", a31)
+
+
+def a31b(d, reg):
+    opened(reg); reg.register_builder(ANCHOR, nf.f3_features, nf.synthetic_bars(), checkpoint=state["cp"])
+attack("A31b", "builder registration after opening", a31b)
+
+
+def a32(d, reg):
+    snap = os.path.join(d, "snap")
+    # an OLDER state of the whole registry: ledger + witness truncated to seq 3 (before the last 3 certificates)
+    shutil.copytree(REGP(d), snap)
+    for p in (os.path.join(snap, "ledger.jsonl"),):
+        wlines(p, lines(p)[:4])
+    shutil.rmtree(REGP(d)); shutil.copytree(snap, REGP(d))
+    wlines(reg.witness_path(ANCHOR), lines(reg.witness_path(ANCHOR))[:4])
+    reg.verify(ANCHOR, PUB)
+attack("A32", "registry rollback (whole registry + witness restored to seq 3)", a32)
+
+
+def a33(d, reg):
+    reg.verify("0" * 64, PUB)
+attack("A33", "inconsistent anchor", a33)
+
+
+def a33b(d, reg):
+    c = jl(CAMP(d)); c["notes"]["x"] = 1; jw(CAMP(d), c)
+    with open(os.path.join(REGP(d), "ANCHOR.txt"), "w") as fh:
+        fh.write(r2.sha256_text(r2.canonical_json(c)) + "\n")
+    reg.verify(ANCHOR, PUB)
+attack("A33b", "inconsistent anchor (ANCHOR.txt rewritten to match edited campaign)", a33b)
+
+
+def a34(d, reg):
+    os.remove(reg.witness_path(ANCHOR)); reg.verify(ANCHOR)
+attack("A34", "inconsistent witness (deleted)", a34)
+
+
+def a34b(d, reg):
+    old = os.path.expanduser("~/.nexa_registry_witness/f2dc4ffb4aafe02254547811f5430f2e3b202e2ede59589282dfbe7b142b105e.jsonl")
+    shutil.copy(old, reg.witness_path(ANCHOR)); reg.verify(ANCHOR)
+attack("A34b", "inconsistent witness (substituted from superseded freeze)", a34b)
+
+
+def a35(d, reg):
+    reg.verify(ANCHOR, {"seq": PUB["seq"], "entry_sha256": "0" * 64})
+attack("A35", "inconsistent ledger head (wrong sha)", a35)
+
+
+def a35b(d, reg):
+    reg.open_evaluation(ANCHOR, "SCRATCH COPY ONLY - stale checkpoint attempt", checkpoint={"seq": 3, "entry_sha256": lines(reg.witness_path(ANCHOR))[3] and json.loads(lines(reg.witness_path(ANCHOR))[3])["entry_sha256"]})
+attack("A35b", "inconsistent ledger head (stale published seq)", a35b)
+
+
+def a36(d, reg):
+    reg.open_evaluation(ANCHOR, "SCRATCH COPY ONLY - no checkpoint supplied", checkpoint=None)
+attack("A36", "open without checkpoint", a36)
+
+
+def a36b(d, reg):
+    reg.open_evaluation(ANCHOR, "short", checkpoint=PUB)
+attack("A36b", "open without a real human approval note", a36b)
+
+
+def a37(d, reg):
+    state["cp"] = PUB; rec(reg, TID, "DEV", DEVW, DEVW[0], "2019-12-31T00:00:00Z")
+attack("A37", "record while FROZEN (not opened)", a37)
+
+
+def a38(d, reg):
+    r2.RegistryV2(REGP(d), nexa_root=d, witness_dir=os.path.join(d, "witness")).create_and_freeze("PHASE3_SIX_FAMILIES_V2", [], {}, 0, {}, {})
+attack("A38", "re-freeze over the existing campaign", a38)
+
+
+def a39(d, reg):
+    e = reg.reject(ANCHOR, "scratch rejection", checkpoint=PUB)
+    reg.open_evaluation(ANCHOR, "SCRATCH COPY ONLY - reopen a rejected campaign", checkpoint=cp_of(e))
+attack("A39", "open after REJECTED", a39)
+
+
+def a30c(d, reg):
+    p = os.path.join(d, "data/pepperstone/contracts.json"); os.remove(p); os.makedirs(p); reg.verify(ANCHOR, PUB)
+attack("A30c", "malformed registry state (pinned file replaced by a directory)", a30c)
+
+
+def a28e(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["garbageZ", "2025-01-01T00:00:00Z"], "2023-01-02T00:00:00Z", "2024-12-31T00:00:00Z")
+attack("A28e", "timezone manipulation (unparseable timestamp)", a28e)
+
+
+def a28f(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2023-01-01T00:00:00+07:00Z", "2025-01-01T00:00:00Z"], "2023-01-02T00:00:00Z",
+                     "2024-12-31T00:00:00Z")
+attack("A28f", "timezone manipulation (offset disguised with trailing Z)", a28f)
+
+
+def a28g(d, reg):
+    opened(reg); rec(reg, TID, "VAL", ["2023-01-01T00:00:00Z"], "2023-01-02T00:00:00Z", "2024-12-31T00:00:00Z")
+attack("A28g", "malformed window argument", a28g)
+
+
+
+shutil.rmtree(os.path.join(SP, "final_mirror_run"), ignore_errors=True)
+REAL_AFTER = (tree_sha(REAL), fsha(WIT))
+w = max(len(n) for _, n, _, _ in results)
+for aid, n, cls, msg in results:
+    print(f"{aid:<5} {n:<{w}}  {cls:<30} {msg}")
+n_att = sum(1 for a, *_ in results if a.startswith("A"))
+n_rej = sum(1 for a, _, c, _ in results if a.startswith("A") and c == "EXPECTED_REJECTION")
+n_ctl = sum(1 for a, _, c, _ in results if a.startswith("C") and c == "LEGITIMATE_CONTROL_ACCEPTANCE")
+n_def = sum(1 for *_, c, _ in results if c == "DEFECT")
+print(f"\nattacks={n_att} expected_rejections={n_rej} controls_ok={n_ctl}/{sum(1 for a, *_ in results if a.startswith('C'))} DEFECTS={n_def}")
+print("real registry byte-identical:", REAL_BEFORE[0] == REAL_AFTER[0], REAL_BEFORE[0][:16])
+print("real witness byte-identical:", REAL_BEFORE[1] == REAL_AFTER[1], REAL_BEFORE[1][:16])
+real = r2.RegistryV2(REAL, nexa_root=NEXA, witness_dir=WIT_DIR)
+print("real state:", real.checkpoint_line(ANCHOR, PUB))

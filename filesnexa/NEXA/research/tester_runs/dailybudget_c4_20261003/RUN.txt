@@ -1,0 +1,4 @@
+run=dailybudget_c4_20261003
+start=2026-10-03 23:23:41
+end=2026-10-03 23:23:56
+expert=NEXA_EngFix\NEXA_DailyBudgetTest_C4 symbol=EURUSD period=M1 model=2 from=2024.01.08 to=2024.01.12 deposit=50000 leverage=200 delay=0

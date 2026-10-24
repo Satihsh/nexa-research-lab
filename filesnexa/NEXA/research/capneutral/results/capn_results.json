@@ -1,0 +1,1316 @@
+{
+ "label": "CAP-NEUTRAL RESEARCH \u2014 NOT PRODUCTION CONFIGURATION",
+ "ea_behaviour": "implemented EA (D-PARTIAL-AFTER-BE present)",
+ "integrity": {
+  "runs": 48,
+  "verified_markers": 48,
+  "gate_failures": [],
+  "sha256sums": {
+   "files": 48,
+   "ok": 48
+  },
+  "pinned": {
+   "NEXA_Risk.mqh": true,
+   "NEXA_EA.mq5": true,
+   "build/NEXA_EA.ex5": true
+  },
+  "research_ea_sha256_ok": true,
+  "deployed_ea_sha256": "f0ae96181d376be989369a1d66b5ecf8723b769556d5985dddcbbaa0e2b5db48",
+  "registries": {
+   "registry_v2": {
+    "entries": 7,
+    "head_seq": 6,
+    "head_matches_offmachine_record": true
+   },
+   "registry_8e": {
+    "entries": 2171,
+    "head_seq": 2170,
+    "head_matches_offmachine_record": true
+   }
+  },
+  "smoke_reused": {
+   "run": "CAPN_NEXA_USDJPY_A2026Q1",
+   "run_started": "2026-10-03 02:32:46",
+   "smoke_marker": "smoke passed 2026-10-03 02:33:54 closes=127"
+  },
+  "failed_attempts": [
+   "FAILEDRUN_CAPN_NEXA_USDJPY_A2024Q4_try1"
+  ],
+  "reconciliation": {
+   "runs_reconciled": 48,
+   "max_abs_diff_deals": 0.012248929204361048,
+   "max_abs_diff_dna": 0.012248929204361048,
+   "partial_close_rows": 0,
+   "overlapping_opens": 2,
+   "deals_equal_2x_trades_every_run": true
+  }
+ },
+ "arithmetic": {
+  "implemented_ceiling": 0.12669177789704,
+  "specification_ceiling": 0.08563117689832289,
+  "formal_bound_1pct_path": 0.48024428491834437,
+  "wins_needed_for_target": 18.370644094056015
+ },
+ "edge": {
+  "pooled_gate8_block10": {
+   "verdict": "NEGATIVE_EXPECTANCY",
+   "reasons": [
+    "whole bootstrap CI of expectancy is below zero"
+   ],
+   "metrics": {
+    "n": 1902,
+    "win_rate": 0.19558359621451105,
+    "loss_rate": 0.804416403785489,
+    "expectancy_r": -0.3179753667026553,
+    "median_r": -1.0130725564571237,
+    "total_r": -604.7891474684504,
+    "avg_win_r": 2.1465942560304643,
+    "avg_loss_r": -0.9172040592887472,
+    "profit_factor": 0.5690304458576954,
+    "payoff_ratio": 2.3403671563501987,
+    "std_r": 1.4031865696777652,
+    "sharpe_per_trade": -0.22660947130906245,
+    "sortino_per_trade": -0.3355647395405407,
+    "max_drawdown_r": 610.07434317445,
+    "worst_r": -2.222290014238384,
+    "cvar5_r": -1.7615040030470133,
+    "max_consecutive_losses": 29
+   },
+   "expectancy_ci": {
+    "n": 1902,
+    "point": -0.3179753667026553,
+    "lo": -0.3844047965188566,
+    "hi": -0.2498522508191805,
+    "p_le_zero": 1.0
+   },
+   "shocked_expectancy_ci": {
+    "n": 1902,
+    "point": -0.36797536670265535,
+    "lo": -0.4344047965188567,
+    "hi": -0.29985225081918054,
+    "p_le_zero": 1.0
+   },
+   "monte_carlo": {
+    "n": 1902,
+    "sims": 5000,
+    "max_dd_r": {
+     "p5": 499.4289945395384,
+     "p25": 567.4526826753304,
+     "p50": 610.6670129601002,
+     "p75": 654.9505022451403,
+     "p95": 715.4674352285577
+    },
+    "final_r": {
+     "p5": -710.1995543602045,
+     "p25": -649.3239701648491,
+     "p50": -604.21305460747,
+     "p75": -560.3710019844518,
+     "p95": -491.12048170649194
+    },
+    "p_hit_max_drawdown": 1.0
+   },
+   "breakeven_cost_r": -0.3179753667026553,
+   "config": {
+    "min_trades": 200,
+    "n_boot": 5000,
+    "n_mc": 5000,
+    "ci": 0.95,
+    "block": 10,
+    "cost_shock_r": 0.05,
+    "risk_per_trade": 0.003,
+    "ruin_drawdown": 0.1,
+    "seed": 20260927
+   }
+  },
+  "pooled_gate8_iid": {
+   "verdict": "NEGATIVE_EXPECTANCY",
+   "reasons": [
+    "whole bootstrap CI of expectancy is below zero"
+   ],
+   "metrics": {
+    "n": 1902,
+    "win_rate": 0.19558359621451105,
+    "loss_rate": 0.804416403785489,
+    "expectancy_r": -0.3179753667026553,
+    "median_r": -1.0130725564571237,
+    "total_r": -604.7891474684504,
+    "avg_win_r": 2.1465942560304643,
+    "avg_loss_r": -0.9172040592887472,
+    "profit_factor": 0.5690304458576954,
+    "payoff_ratio": 2.3403671563501987,
+    "std_r": 1.4031865696777652,
+    "sharpe_per_trade": -0.22660947130906245,
+    "sortino_per_trade": -0.3355647395405407,
+    "max_drawdown_r": 610.07434317445,
+    "worst_r": -2.222290014238384,
+    "cvar5_r": -1.7615040030470133,
+    "max_consecutive_losses": 29
+   },
+   "expectancy_ci": {
+    "n": 1902,
+    "point": -0.3179753667026553,
+    "lo": -0.38260810479065965,
+    "hi": -0.25427006972407007,
+    "p_le_zero": 1.0
+   },
+   "shocked_expectancy_ci": {
+    "n": 1902,
+    "point": -0.36797536670265535,
+    "lo": -0.43260810479065964,
+    "hi": -0.30427006972407006,
+    "p_le_zero": 1.0
+   },
+   "monte_carlo": {
+    "n": 1902,
+    "sims": 5000,
+    "max_dd_r": {
+     "p5": 511.2394806137122,
+     "p25": 569.0972041885406,
+     "p50": 610.9840171050237,
+     "p75": 651.6207455232972,
+     "p95": 708.020786102527
+    },
+    "final_r": {
+     "p5": -703.1426313511943,
+     "p25": -647.5404925268399,
+     "p50": -606.112860227273,
+     "p75": -563.7076256279581,
+     "p95": -505.0746080740348
+    },
+    "p_hit_max_drawdown": 1.0
+   },
+   "breakeven_cost_r": -0.3179753667026553,
+   "config": {
+    "min_trades": 200,
+    "n_boot": 5000,
+    "n_mc": 5000,
+    "ci": 0.95,
+    "block": 1,
+    "cost_shock_r": 0.05,
+    "risk_per_trade": 0.003,
+    "ruin_drawdown": 0.1,
+    "seed": 20260927
+   }
+  },
+  "stress_0_15r_ci": {
+   "n": 1902,
+   "point": -0.46797536670265527,
+   "lo": -0.5344047965188566,
+   "hi": -0.39985225081918047,
+   "p_le_zero": 1.0
+  },
+  "per_symbol": {
+   "GBPUSD": {
+    "gate8": "NEGATIVE_EXPECTANCY",
+    "metrics": {
+     "n": 460,
+     "win_rate": 0.19782608695652174,
+     "loss_rate": 0.8021739130434783,
+     "expectancy_r": -0.3193499620082034,
+     "median_r": -1.0381938576580196,
+     "total_r": -146.90098252377356,
+     "avg_win_r": 2.11844517248374,
+     "avg_loss_r": -0.9205406320319619,
+     "profit_factor": 0.5675306120740135,
+     "payoff_ratio": 2.301305448959461,
+     "std_r": 1.395880498696121,
+     "sharpe_per_trade": -0.22878030197176996,
+     "sortino_per_trade": -0.3362530953128509,
+     "max_drawdown_r": 151.60946204972407,
+     "worst_r": -1.999999999999327,
+     "cvar5_r": -1.6787914776023956,
+     "max_consecutive_losses": 14
+    },
+    "ci": {
+     "n": 460,
+     "point": -0.3193499620082034,
+     "lo": -0.45597093306810293,
+     "hi": -0.17736527265660176,
+     "p_le_zero": 1.0
+    },
+    "p_one_sided": 0.9999993559612376,
+    "bh_reject_q10": false
+   },
+   "EURUSD": {
+    "gate8": "NEGATIVE_EXPECTANCY",
+    "metrics": {
+     "n": 522,
+     "win_rate": 0.1896551724137931,
+     "loss_rate": 0.8103448275862069,
+     "expectancy_r": -0.4362448028463613,
+     "median_r": -1.0926436781609339,
+     "total_r": -227.7197870858006,
+     "avg_win_r": 2.106007565581462,
+     "avg_loss_r": -1.03124003801032,
+     "profit_factor": 0.4779637810031826,
+     "payoff_ratio": 2.0422088824681444,
+     "std_r": 1.4057010846656293,
+     "sharpe_per_trade": -0.31033966438898336,
+     "sortino_per_trade": -0.4203138566758739,
+     "max_drawdown_r": 229.15524100091946,
+     "worst_r": -2.222290014238384,
+     "cvar5_r": -1.8347372050744861,
+     "max_consecutive_losses": 20
+    },
+    "ci": {
+     "n": 522,
+     "point": -0.4362448028463613,
+     "lo": -0.5456105735737268,
+     "hi": -0.315276000506647,
+     "p_le_zero": 1.0
+    },
+    "p_one_sided": 0.9999999999978121,
+    "bh_reject_q10": false
+   },
+   "USDJPY": {
+    "gate8": "NEGATIVE_EXPECTANCY",
+    "metrics": {
+     "n": 457,
+     "win_rate": 0.1925601750547046,
+     "loss_rate": 0.8074398249452954,
+     "expectancy_r": -0.40389030324257036,
+     "median_r": -0.8840936636977619,
+     "total_r": -184.57786858185466,
+     "avg_win_r": 2.003263548857059,
+     "avg_loss_r": -0.9779540945292028,
+     "profit_factor": 0.48851277502151824,
+     "payoff_ratio": 2.0484228861697753,
+     "std_r": 1.3873095595417648,
+     "sharpe_per_trade": -0.29113206959806237,
+     "sortino_per_trade": -0.40332989824106497,
+     "max_drawdown_r": 184.57786858185474,
+     "worst_r": -2.1452404806804704,
+     "cvar5_r": -1.8573686285844646,
+     "max_consecutive_losses": 17
+    },
+    "ci": {
+     "n": 457,
+     "point": -0.40389030324257036,
+     "lo": -0.5224528122872725,
+     "hi": -0.2618396674688514,
+     "p_le_zero": 1.0
+    },
+    "p_one_sided": 0.9999999994492501,
+    "bh_reject_q10": false
+   },
+   "XAUUSD": {
+    "gate8": "EDGE_NOT_DEMONSTRATED",
+    "metrics": {
+     "n": 463,
+     "win_rate": 0.20302375809935205,
+     "loss_rate": 0.796976241900648,
+     "expectancy_r": -0.09846762262855639,
+     "median_r": -1.0079496238887706,
+     "total_r": -45.59050927702161,
+     "avg_win_r": 2.3507724601630478,
+     "avg_loss_r": -0.722393280575469,
+     "profit_factor": 0.8289691792849151,
+     "payoff_ratio": 3.254144969746103,
+     "std_r": 1.4022852904229477,
+     "sharpe_per_trade": -0.07021939351503663,
+     "sortino_per_trade": -0.12839267471255314,
+     "max_drawdown_r": 61.89141068278229,
+     "worst_r": -1.3344423219297399,
+     "cvar5_r": -1.1322995262624753,
+     "max_consecutive_losses": 23
+    },
+    "ci": {
+     "n": 463,
+     "point": -0.09846762262855639,
+     "lo": -0.21917627009515575,
+     "hi": 0.0428273342616715,
+     "p_le_zero": 0.9092
+    },
+    "p_one_sided": 0.9342564624791512,
+    "bh_reject_q10": false
+   }
+  },
+  "psr_dsr_1_trial": 4.050692813073529e-17,
+  "exploratory_dsr_sensitivity": {
+   "25": 1.0510973478926166e-83,
+   "1000": 1.2848737954346224e-152,
+   "4008": 2.9310043862837667e-177
+  }
+ },
+ "costs": {
+  "mean_r": {
+   "gross_r": -0.07238727655099897,
+   "entry_slip_r": 0.00014893554927984567,
+   "price_r_from_fill": -0.07261133931609581,
+   "commission_r": -0.24528953935024972,
+   "swap_r": -7.448803630978533e-05,
+   "net_r": -0.3179753667026553,
+   "spread_r_est": 0.045048501864208466,
+   "residual_price_r_minus_gross_plus_slip": 0.22460000000008673
+  },
+  "commission_usd": -60060.28,
+  "swap_usd": -20.75999999999999,
+  "price_pnl_usd": -19265.572506327604,
+  "realised_pnl_usd": -79346.6125063276,
+  "commission_per_lot_rt": 7.0010444399889975,
+  "fills_differing_from_intended": 422,
+  "entry_slip_r_dist": {
+   "n": 1902,
+   "mean": 0.00014893554927984567,
+   "std": 0.018253252310876586,
+   "min": -0.30769230769261546,
+   "max": 0.3221042523837206,
+   "skew": 0.7079341430212314,
+   "excess_kurtosis": 124.49837049200701,
+   "q01": -0.04761904761935958,
+   "q05": -0.010636718150396334,
+   "q25": 0.0,
+   "q50": 0.0,
+   "q75": 0.0,
+   "q95": 0.011422223520793202,
+   "q99": 0.04999477191047326
+  },
+  "gross_r_dist": {
+   "n": 1902,
+   "mean": -0.07238727655099897,
+   "std": 1.3866438863264912,
+   "min": -1.5243,
+   "max": 4.4285,
+   "skew": 1.7003106671830743,
+   "excess_kurtosis": 2.0221243884560973,
+   "q01": -1.188698,
+   "q05": -1.0649549999999999,
+   "q25": -1.005975,
+   "q50": -0.96615,
+   "q75": 0.0,
+   "q95": 3.6939399999999867,
+   "q99": 4.045298
+  },
+  "net_r_dist": {
+   "n": 1902,
+   "mean": -0.3179753667026553,
+   "std": 1.4031865696777652,
+   "min": -2.222290014238384,
+   "max": 4.100593816381001,
+   "skew": 1.5849170182797432,
+   "excess_kurtosis": 1.7216922780872803,
+   "q01": -1.8706551960968771,
+   "q05": -1.6155215354693317,
+   "q25": -1.2258064516128289,
+   "q50": -1.0130725564571237,
+   "q75": -0.0643528035382546,
+   "q95": 3.2486111111103635,
+   "q99": 3.92575190011543
+  }
+ },
+ "frequency": {
+  "trades": 1902,
+  "per_symbol": {
+   "EURUSD": 522,
+   "XAUUSD": 463,
+   "GBPUSD": 460,
+   "USDJPY": 457
+  },
+  "per_year": {
+   "2024": 584,
+   "2025": 649,
+   "2026": 669
+  },
+  "trading_days": 3125,
+  "days_with_entry": 732,
+  "max_entries_one_day": 10,
+  "lots": {
+   "n": 1902,
+   "mean": 4.510389064143006,
+   "std": 4.084562404060328,
+   "min": 0.04,
+   "max": 18.95,
+   "skew": 1.177673718323127,
+   "excess_kurtosis": 0.7967719900332715,
+   "q01": 0.16,
+   "q05": 0.34,
+   "q25": 1.26,
+   "q50": 3.21,
+   "q75": 6.715,
+   "q95": 13.197999999999992,
+   "q99": 16.55
+  },
+  "risk_pct_of_balance_at_entry": {
+   "n": 1902,
+   "mean": 0.002694924929337921,
+   "std": 0.0006164351349462871,
+   "min": 0.0007182212824639237,
+   "max": 0.003247895295637378,
+   "skew": -1.6845400914006607,
+   "excess_kurtosis": 1.1141776922826914,
+   "q01": 0.0007488288256753235,
+   "q05": 0.0014904082952248987,
+   "q25": 0.0029480256916169377,
+   "q50": 0.0029912002935774396,
+   "q75": 0.002998305047022772,
+   "q95": 0.003021849930561914,
+   "q99": 0.003092302711381086
+  },
+  "max_risk_pct_at_placed_stop": 0.003332445627691018,
+  "trades_below_0_25pct_risk": 359
+ },
+ "exits": {
+  "by_type": {
+   "SL": 964,
+   "BREAKEVEN": 425,
+   "TP": 317,
+   "OTHER": 196
+  },
+  "net_r_by_type": {
+   "BREAKEVEN": -0.23139246182079454,
+   "OTHER": -0.3131598539618188,
+   "SL": -1.2746098962842776,
+   "TP": 2.4721006946370574
+  },
+  "net_r_buckets": {
+   "(-inf, -1.5]": 176,
+   "(-1.5, -1.0]": 789,
+   "(-1.0, -0.5]": 119,
+   "(-0.5, 0.0]": 446,
+   "(0.0, 0.5]": 51,
+   "(0.5, 1.0]": 2,
+   "(1.0, 2.0]": 142,
+   "(2.0, 3.0]": 67,
+   "(3.0, inf]": 110
+  }
+ },
+ "by_quarter": {
+  "EURUSD|A2024Q1": {
+   "n": 103,
+   "net_exp": -0.4645049069515571,
+   "gross_exp": -0.10325922330097086,
+   "sum_net_r": -47.84400541601038
+  },
+  "EURUSD|A2024Q2": {
+   "n": 131,
+   "net_exp": -0.17204491968898794,
+   "gross_exp": 0.18938473282442742,
+   "sum_net_r": -22.53788447925742
+  },
+  "EURUSD|A2024Q3": {
+   "n": 20,
+   "net_exp": -0.7087409227842745,
+   "gross_exp": -0.32258,
+   "sum_net_r": -14.17481845568549
+  },
+  "EURUSD|A2024Q4": {
+   "n": 20,
+   "net_exp": -0.7471929833686702,
+   "gross_exp": -0.335955,
+   "sum_net_r": -14.943859667373404
+  },
+  "EURUSD|A2025Q1": {
+   "n": 20,
+   "net_exp": -1.1872622633959435,
+   "gross_exp": -0.770465,
+   "sum_net_r": -23.74524526791887
+  },
+  "EURUSD|A2025Q2": {
+   "n": 49,
+   "net_exp": -0.28129029947856377,
+   "gross_exp": -0.11048571428571428,
+   "sum_net_r": -13.783224674449626
+  },
+  "EURUSD|A2025Q3": {
+   "n": 20,
+   "net_exp": -0.489617212369005,
+   "gross_exp": -0.26465500000000003,
+   "sum_net_r": -9.7923442473801
+  },
+  "EURUSD|A2025Q4": {
+   "n": 23,
+   "net_exp": -0.45518531285456537,
+   "gross_exp": -0.1340304347826087,
+   "sum_net_r": -10.469262195655004
+  },
+  "EURUSD|A2026Q1": {
+   "n": 20,
+   "net_exp": -0.6279369964808886,
+   "gross_exp": -0.33336,
+   "sum_net_r": -12.558739929617772
+  },
+  "EURUSD|A2026Q2": {
+   "n": 70,
+   "net_exp": -0.4498374624017976,
+   "gross_exp": -0.10031142857142855,
+   "sum_net_r": -31.488622368125835
+  },
+  "EURUSD|A2026Q3": {
+   "n": 24,
+   "net_exp": -0.587991445090001,
+   "gross_exp": -0.11650833333333337,
+   "sum_net_r": -14.111794682160024
+  },
+  "EURUSD|B": {
+   "n": 22,
+   "net_exp": -0.5577266228257565,
+   "gross_exp": -0.10777272727272726,
+   "sum_net_r": -12.269985702166641
+  },
+  "GBPUSD|A2024Q1": {
+   "n": 22,
+   "net_exp": -0.4130048279068085,
+   "gross_exp": -0.13422727272727275,
+   "sum_net_r": -9.086106213949787
+  },
+  "GBPUSD|A2024Q2": {
+   "n": 20,
+   "net_exp": -0.8505668601722792,
+   "gross_exp": -0.40497999999999995,
+   "sum_net_r": -17.011337203445585
+  },
+  "GBPUSD|A2024Q3": {
+   "n": 20,
+   "net_exp": -0.820423392466872,
+   "gross_exp": -0.49930499999999994,
+   "sum_net_r": -16.40846784933744
+  },
+  "GBPUSD|A2024Q4": {
+   "n": 23,
+   "net_exp": -0.3254295072458147,
+   "gross_exp": -0.10935652173913046,
+   "sum_net_r": -7.484878666653738
+  },
+  "GBPUSD|A2025Q1": {
+   "n": 20,
+   "net_exp": -0.5617962118095836,
+   "gross_exp": -0.344245,
+   "sum_net_r": -11.235924236191671
+  },
+  "GBPUSD|A2025Q2": {
+   "n": 126,
+   "net_exp": -0.10551520752780338,
+   "gross_exp": 0.10096666666666668,
+   "sum_net_r": -13.294916148503226
+  },
+  "GBPUSD|A2025Q3": {
+   "n": 21,
+   "net_exp": -0.3891001639153445,
+   "gross_exp": -0.10117142857142855,
+   "sum_net_r": -8.171103442222234
+  },
+  "GBPUSD|A2025Q4": {
+   "n": 20,
+   "net_exp": -0.5819338865648116,
+   "gross_exp": -0.35191000000000006,
+   "sum_net_r": -11.638677731296232
+  },
+  "GBPUSD|A2026Q1": {
+   "n": 32,
+   "net_exp": -0.4399872207155616,
+   "gross_exp": -0.12305312499999997,
+   "sum_net_r": -14.079591062897972
+  },
+  "GBPUSD|A2026Q2": {
+   "n": 115,
+   "net_exp": -0.18301885237886312,
+   "gross_exp": 0.061542608695652215,
+   "sum_net_r": -21.04716802356926
+  },
+  "GBPUSD|A2026Q3": {
+   "n": 21,
+   "net_exp": -0.46575283725153926,
+   "gross_exp": -0.13044761904761903,
+   "sum_net_r": -9.780809582282325
+  },
+  "GBPUSD|B": {
+   "n": 20,
+   "net_exp": -0.38310011817120404,
+   "gross_exp": -0.12992,
+   "sum_net_r": -7.662002363424081
+  },
+  "USDJPY|A2024Q1": {
+   "n": 21,
+   "net_exp": -0.4659516911176373,
+   "gross_exp": -0.11833809523809524,
+   "sum_net_r": -9.784985513470383
+  },
+  "USDJPY|A2024Q2": {
+   "n": 20,
+   "net_exp": -0.55108680356283,
+   "gross_exp": -0.14781499999999995,
+   "sum_net_r": -11.0217360712566
+  },
+  "USDJPY|A2024Q3": {
+   "n": 20,
+   "net_exp": -0.7253506046520947,
+   "gross_exp": -0.4560199999999999,
+   "sum_net_r": -14.507012093041894
+  },
+  "USDJPY|A2024Q4": {
+   "n": 65,
+   "net_exp": -0.3872163372400754,
+   "gross_exp": -0.10584461538461543,
+   "sum_net_r": -25.169061920604904
+  },
+  "USDJPY|A2025Q1": {
+   "n": 20,
+   "net_exp": -0.5069519978327236,
+   "gross_exp": -0.21424000000000007,
+   "sum_net_r": -10.139039956654472
+  },
+  "USDJPY|A2025Q2": {
+   "n": 26,
+   "net_exp": -0.2793002851890142,
+   "gross_exp": -0.1228153846153846,
+   "sum_net_r": -7.261807414914369
+  },
+  "USDJPY|A2025Q3": {
+   "n": 20,
+   "net_exp": -0.5905653251533052,
+   "gross_exp": -0.30146,
+   "sum_net_r": -11.811306503066104
+  },
+  "USDJPY|A2025Q4": {
+   "n": 28,
+   "net_exp": -0.45078314507964795,
+   "gross_exp": -0.12564285714285714,
+   "sum_net_r": -12.621928062230143
+  },
+  "USDJPY|A2026Q1": {
+   "n": 127,
+   "net_exp": -0.2265505715121498,
+   "gross_exp": 0.08839133858267718,
+   "sum_net_r": -28.771922582043025
+  },
+  "USDJPY|A2026Q2": {
+   "n": 20,
+   "net_exp": -0.48546077168623836,
+   "gross_exp": -0.12845,
+   "sum_net_r": -9.709215433724767
+  },
+  "USDJPY|A2026Q3": {
+   "n": 70,
+   "net_exp": -0.43401034407740635,
+   "gross_exp": 0.0451585714285714,
+   "sum_net_r": -30.380724085418443
+  },
+  "USDJPY|B": {
+   "n": 20,
+   "net_exp": -0.6699564472714782,
+   "gross_exp": -0.350795,
+   "sum_net_r": -13.399128945429563
+  },
+  "XAUUSD|A2024Q1": {
+   "n": 20,
+   "net_exp": -0.346814453938611,
+   "gross_exp": -0.2638900000000001,
+   "sum_net_r": -6.936289078772219
+  },
+  "XAUUSD|A2024Q2": {
+   "n": 39,
+   "net_exp": -0.1482724295735941,
+   "gross_exp": -0.10294358974358979,
+   "sum_net_r": -5.78262475337017
+  },
+  "XAUUSD|A2024Q3": {
+   "n": 20,
+   "net_exp": -0.2567679374195257,
+   "gross_exp": -0.21393000000000004,
+   "sum_net_r": -5.135358748390514
+  },
+  "XAUUSD|A2024Q4": {
+   "n": 20,
+   "net_exp": -0.18174712514947627,
+   "gross_exp": -0.14109000000000005,
+   "sum_net_r": -3.6349425029895257
+  },
+  "XAUUSD|A2025Q1": {
+   "n": 20,
+   "net_exp": -0.25950088190783444,
+   "gross_exp": -0.21260500000000002,
+   "sum_net_r": -5.1900176381566885
+  },
+  "XAUUSD|A2025Q2": {
+   "n": 107,
+   "net_exp": 0.11697833657418441,
+   "gross_exp": 0.14790841121495327,
+   "sum_net_r": 12.516682013437732
+  },
+  "XAUUSD|A2025Q3": {
+   "n": 109,
+   "net_exp": 0.012354680569219387,
+   "gross_exp": 0.05736422018348623,
+   "sum_net_r": 1.3466601820449131
+  },
+  "XAUUSD|A2025Q4": {
+   "n": 20,
+   "net_exp": -0.28293719366668363,
+   "gross_exp": -0.25439999999999985,
+   "sum_net_r": -5.658743873333672
+  },
+  "XAUUSD|A2026Q1": {
+   "n": 20,
+   "net_exp": -0.41346868476060133,
+   "gross_exp": -0.37945,
+   "sum_net_r": -8.269373695212026
+  },
+  "XAUUSD|A2026Q2": {
+   "n": 20,
+   "net_exp": -0.521570744046977,
+   "gross_exp": -0.504615,
+   "sum_net_r": -10.43141488093954
+  },
+  "XAUUSD|A2026Q3": {
+   "n": 20,
+   "net_exp": -0.4949368142168148,
+   "gross_exp": -0.4671299999999999,
+   "sum_net_r": -9.898736284336296
+  },
+  "XAUUSD|B": {
+   "n": 48,
+   "net_exp": 0.030909374645758502,
+   "gross_exp": 0.05817708333333336,
+   "sum_net_r": 1.483649982996408
+  }
+ },
+ "stability": {
+  "quarters": 48,
+  "quarters_net_positive": 3,
+  "quarters_gross_positive": 8,
+  "by_year_net_exp": {
+   "2024": -0.3963413846465915,
+   "2025": -0.2171805842781044,
+   "2026": -0.34734765267317064
+  }
+ },
+ "capital": {
+  "daily_returns_all_symbol_days": {
+   "n": 3125,
+   "mean": -0.0005132371888770804,
+   "std": 0.0035475847684083616,
+   "min": -0.02290756087138596,
+   "max": 0.031460882895239545,
+   "skew": -1.185929186101928,
+   "excess_kurtosis": 14.849042698300146,
+   "q01": -0.015384026420376954,
+   "q05": -0.006699127764571751,
+   "q25": 0.0,
+   "q50": 0.0,
+   "q75": 0.0,
+   "q95": 0.0025671973419081912,
+   "q99": 0.010512621227711448
+  },
+  "daily_by_symbol": {
+   "GBPUSD": {
+    "n": 782,
+    "mean": -0.0005216229164373882,
+    "std": 0.003413883371804711,
+    "min": -0.022589566027856407,
+    "max": 0.031460882895239545,
+    "skew": -1.1591169565550885,
+    "excess_kurtosis": 22.395900207850737,
+    "q01": -0.013627280134473757,
+    "q05": -0.0066078334618279175,
+    "q25": 0.0,
+    "q50": 0.0,
+    "q75": 0.0,
+    "q95": 0.001683696872279236,
+    "q99": 0.008687708529298363
+   },
+   "EURUSD": {
+    "n": 782,
+    "mean": -0.0007491443306977562,
+    "std": 0.003687435761466149,
+    "min": -0.02290756087138596,
+    "max": 0.021215324661201213,
+    "skew": -1.6117228366670322,
+    "excess_kurtosis": 10.903195203784342,
+    "q01": -0.015320855126476707,
+    "q05": -0.008371654443941124,
+    "q25": 0.0,
+    "q50": 0.0,
+    "q75": 0.0,
+    "q95": 0.002002653034388762,
+    "q99": 0.008359922391945539
+   },
+   "USDJPY": {
+    "n": 782,
+    "mean": -0.0006140300217798456,
+    "std": 0.003911527775225933,
+    "min": -0.022693118175738002,
+    "max": 0.023428464658324877,
+    "skew": -1.3757953062246855,
+    "excess_kurtosis": 13.666875580567233,
+    "q01": -0.018007194708304728,
+    "q05": -0.007542661455050171,
+    "q25": 0.0,
+    "q50": 0.0,
+    "q75": 0.0,
+    "q95": 0.001008316544442641,
+    "q99": 0.011213907210227555
+   },
+   "XAUUSD": {
+    "n": 779,
+    "mean": -0.00016682253010186655,
+    "std": 0.003104991202110911,
+    "min": -0.019110861018591063,
+    "max": 0.020716117644472114,
+    "skew": 0.05392214754666142,
+    "excess_kurtosis": 11.26040456385426,
+    "q01": -0.010397430753090424,
+    "q05": -0.004842194995269396,
+    "q25": 0.0,
+    "q50": 0.0,
+    "q75": 0.0,
+    "q95": 0.0048373217931205,
+    "q99": 0.011306750000850544
+   }
+  },
+  "best_10_days": [
+   {
+    "symbol": "GBPUSD",
+    "day": "2025-04-14",
+    "ret": "0.031460882895239545"
+   },
+   {
+    "symbol": "USDJPY",
+    "day": "2026-02-05",
+    "ret": "0.023428464658324877"
+   },
+   {
+    "symbol": "USDJPY",
+    "day": "2025-04-04",
+    "ret": "0.02160728195481749"
+   },
+   {
+    "symbol": "EURUSD",
+    "day": "2024-04-15",
+    "ret": "0.021215324661201213"
+   },
+   {
+    "symbol": "XAUUSD",
+    "day": "2025-07-09",
+    "ret": "0.020716117644472114"
+   },
+   {
+    "symbol": "USDJPY",
+    "day": "2025-01-03",
+    "ret": "0.019640674499612393"
+   },
+   {
+    "symbol": "EURUSD",
+    "day": "2024-04-09",
+    "ret": "0.018665323128333307"
+   },
+   {
+    "symbol": "USDJPY",
+    "day": "2026-02-27",
+    "ret": "0.015288001164709391"
+   },
+   {
+    "symbol": "XAUUSD",
+    "day": "2025-07-29",
+    "ret": "0.014282098480468483"
+   },
+   {
+    "symbol": "GBPUSD",
+    "day": "2024-01-04",
+    "ret": "0.014266835243627917"
+   }
+  ],
+  "losing_days": 513,
+  "flat_days": 2392,
+  "winning_days": 220,
+  "days_at_or_below_minus_2pct": 12,
+  "worst_day": -0.02290756087138596,
+  "max_drawdown_within_chunk": 0.08674327756128541,
+  "chunk_returns": {
+   "EURUSD|A2024Q1": -0.08283600000000546,
+   "EURUSD|A2024Q2": -0.05620920000001095,
+   "EURUSD|A2024Q3": -0.047249999999992465,
+   "EURUSD|A2024Q4": -0.04530560000000339,
+   "EURUSD|A2025Q1": -0.06019440000000165,
+   "EURUSD|A2025Q2": -0.039222000000004975,
+   "EURUSD|A2025Q3": -0.029107599999997236,
+   "EURUSD|A2025Q4": -0.031442800000010096,
+   "EURUSD|A2026Q1": -0.037096800000001595,
+   "EURUSD|A2026Q2": -0.06888859999999597,
+   "EURUSD|A2026Q3": -0.041635600000004214,
+   "EURUSD|B": -0.036339000000011,
+   "GBPUSD|A2024Q1": -0.02705860000001492,
+   "GBPUSD|A2024Q2": -0.04675579999998869,
+   "GBPUSD|A2024Q3": -0.04621180000000613,
+   "GBPUSD|A2024Q4": -0.022261799999998333,
+   "GBPUSD|A2025Q1": -0.03321659999999793,
+   "GBPUSD|A2025Q2": -0.02649359999999712,
+   "GBPUSD|A2025Q3": -0.024353199999991748,
+   "GBPUSD|A2025Q4": -0.03442440000000235,
+   "GBPUSD|A2026Q1": -0.03735800000000078,
+   "GBPUSD|A2026Q2": -0.05477079999999379,
+   "GBPUSD|A2026Q3": -0.02918239999998873,
+   "GBPUSD|B": -0.02284119999998835,
+   "USDJPY|A2024Q1": -0.029429812688047674,
+   "USDJPY|A2024Q2": -0.03175893015138653,
+   "USDJPY|A2024Q3": -0.042532796415406304,
+   "USDJPY|A2024Q4": -0.05946485918641775,
+   "USDJPY|A2025Q1": -0.030051063452086524,
+   "USDJPY|A2025Q2": -0.021881555021415866,
+   "USDJPY|A2025Q3": -0.03519603222112144,
+   "USDJPY|A2025Q4": -0.037286232115604556,
+   "USDJPY|A2026Q1": -0.04984140591637287,
+   "USDJPY|A2026Q2": -0.028280517544171824,
+   "USDJPY|A2026Q3": -0.06964123582402992,
+   "USDJPY|B": -0.04011520959048753,
+   "XAUUSD|A2024Q1": -0.02070560000000088,
+   "XAUUSD|A2024Q2": -0.01736199999999799,
+   "XAUUSD|A2024Q3": -0.015458400000001649,
+   "XAUUSD|A2024Q4": -0.011219199999999874,
+   "XAUUSD|A2025Q1": -0.015391399999999056,
+   "XAUUSD|A2025Q2": 0.035709399999999114,
+   "XAUUSD|A2025Q3": 0.010302200000003703,
+   "XAUUSD|A2025Q4": -0.017021200000000403,
+   "XAUUSD|A2026Q1": -0.024186199999997382,
+   "XAUUSD|A2026Q2": -0.030613799999999247,
+   "XAUUSD|A2026Q3": -0.0293586000000009,
+   "XAUUSD|B": 0.004308000000000645
+  },
+  "days_at_target": 0,
+  "days_at_target_cp95_upper": 0.0009581749844427216,
+  "cycles": {
+   "n": 132,
+   "dist": {
+    "n": 132,
+    "mean": -0.01151552746920328,
+    "std": 0.019105332069593476,
+    "min": -0.06019440000000165,
+    "max": 0.0378303267725244,
+    "skew": -0.5274523848193341,
+    "excess_kurtosis": -0.05254895737488319,
+    "q01": -0.053919807023569355,
+    "q05": -0.04645659999999828,
+    "q25": -0.027364079386054146,
+    "q50": 0.0,
+    "q75": 0.0,
+    "q95": 0.004733477980413813,
+    "q99": 0.03283789999999843
+   },
+   "reaching_80x": 0,
+   "ending_below_start": 61
+  },
+  "max_consecutive_losses_by_symbol": {
+   "GBPUSD": 14,
+   "EURUSD": 20,
+   "USDJPY": 17,
+   "XAUUSD": 23
+  }
+ },
+ "replay_200": {
+  "GBPUSD": {
+   "nexa_rule": {
+    "cycles": 35,
+    "mean_end": 197.73314697473091,
+    "median_end": 200.0,
+    "cycles_profitable": 2,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 438,
+    "extracted_profit_sum": 7.218286607058559,
+    "losses_realised_sum": -86.5581424914763,
+    "skipped_min_lot_exceeds_ceiling": 2,
+    "skipped_below_min_after_throttle": 12,
+    "skipped_daily_halt_or_cap": 0
+   },
+   "theoretical_fractional": {
+    "cycles": 35,
+    "mean_end": 197.62152067412998,
+    "median_end": 200.0,
+    "cycles_profitable": 2,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 452,
+    "extracted_profit_sum": 7.360515561015347,
+    "losses_realised_sum": -90.60729196646756,
+    "skipped_min_lot_exceeds_ceiling": 0,
+    "skipped_below_min_after_throttle": 0,
+    "skipped_daily_halt_or_cap": 0
+   },
+   "preregistered_8e_sim": {
+    "cycles": 35,
+    "mean_end": 198.83102232279208,
+    "median_end": 200.0,
+    "cycles_profitable": 3,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 326,
+    "extracted_profit_sum": 1.6689498001807692,
+    "losses_realised_sum": -42.583168502457625,
+    "skipped_below_min_lot": 126
+   }
+  },
+  "EURUSD": {
+   "nexa_rule": {
+    "cycles": 35,
+    "mean_end": 196.86481015556996,
+    "median_end": 198.0699638336343,
+    "cycles_profitable": 3,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 510,
+    "extracted_profit_sum": 3.6090055965466092,
+    "losses_realised_sum": -113.34065015159689,
+    "skipped_min_lot_exceeds_ceiling": 1,
+    "skipped_below_min_after_throttle": 11,
+    "skipped_daily_halt_or_cap": 0
+   },
+   "theoretical_fractional": {
+    "cycles": 35,
+    "mean_end": 196.35463526994005,
+    "median_end": 197.74862430332496,
+    "cycles_profitable": 4,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 521,
+    "extracted_profit_sum": 4.977606225395135,
+    "losses_realised_sum": -132.56537177749374,
+    "skipped_min_lot_exceeds_ceiling": 0,
+    "skipped_below_min_after_throttle": 0,
+    "skipped_daily_halt_or_cap": 1
+   },
+   "preregistered_8e_sim": {
+    "cycles": 35,
+    "mean_end": 197.9592369135679,
+    "median_end": 198.84991653483306,
+    "cycles_profitable": 3,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 439,
+    "extracted_profit_sum": 3.4695963113266544,
+    "losses_realised_sum": -74.89630433645007,
+    "skipped_below_min_lot": 83
+   }
+  },
+  "USDJPY": {
+   "nexa_rule": {
+    "cycles": 35,
+    "mean_end": 197.68943903921095,
+    "median_end": 200.0,
+    "cycles_profitable": 2,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 430,
+    "extracted_profit_sum": 3.7719221248855774,
+    "losses_realised_sum": -84.6415557525024,
+    "skipped_min_lot_exceeds_ceiling": 6,
+    "skipped_below_min_after_throttle": 8,
+    "skipped_daily_halt_or_cap": 4
+   },
+   "theoretical_fractional": {
+    "cycles": 35,
+    "mean_end": 197.24710200952765,
+    "median_end": 199.7605403587948,
+    "cycles_profitable": 1,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 442,
+    "extracted_profit_sum": 4.226933422854614,
+    "losses_realised_sum": -100.57836308938707,
+    "skipped_min_lot_exceeds_ceiling": 0,
+    "skipped_below_min_after_throttle": 0,
+    "skipped_daily_halt_or_cap": 6
+   },
+   "preregistered_8e_sim": {
+    "cycles": 35,
+    "mean_end": 198.3436276585633,
+    "median_end": 200.0,
+    "cycles_profitable": 3,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 356,
+    "extracted_profit_sum": 4.868139277791528,
+    "losses_realised_sum": -62.841171228076774,
+    "skipped_below_min_lot": 92
+   }
+  },
+  "XAUUSD": {
+   "nexa_rule": {
+    "cycles": 35,
+    "mean_end": 199.152636865496,
+    "median_end": 200.0,
+    "cycles_profitable": 6,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 188,
+    "extracted_profit_sum": 42.665326641477435,
+    "losses_realised_sum": -72.32303634911835,
+    "skipped_min_lot_exceeds_ceiling": 224,
+    "skipped_below_min_after_throttle": 12,
+    "skipped_daily_halt_or_cap": 4
+   },
+   "theoretical_fractional": {
+    "cycles": 35,
+    "mean_end": 199.1682734611498,
+    "median_end": 200.0,
+    "cycles_profitable": 6,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 428,
+    "extracted_profit_sum": 26.6129120299114,
+    "losses_realised_sum": -55.72334088966775,
+    "skipped_min_lot_exceeds_ceiling": 0,
+    "skipped_below_min_after_throttle": 0,
+    "skipped_daily_halt_or_cap": 0
+   },
+   "preregistered_8e_sim": {
+    "cycles": 35,
+    "mean_end": 199.98314128478702,
+    "median_end": 200.0,
+    "cycles_profitable": 0,
+    "cycles_reaching_80x": 0,
+    "trades_taken": 2,
+    "extracted_profit_sum": 0.0,
+    "losses_realised_sum": -0.590055032454103,
+    "skipped_below_min_lot": 426
+   }
+  }
+ },
+ "replay_200_spec_source": {
+  "GBPUSD": {
+   "source": "spec_probe_20261001.csv",
+   "vmin": 0.01,
+   "vstep": 0.01,
+   "vmax": 100.0
+  },
+  "EURUSD": {
+   "source": "spec_probe_20261001.csv",
+   "vmin": 0.01,
+   "vstep": 0.01,
+   "vmax": 100.0
+  },
+  "USDJPY": {
+   "source": "contracts.json (broker export)",
+   "vmin": 0.01,
+   "vstep": 0.01,
+   "vmax": 100.0
+  },
+  "XAUUSD": {
+   "source": "spec_probe_20261001.csv",
+   "vmin": 0.01,
+   "vstep": 0.01,
+   "vmax": 50.0
+  }
+ },
+ "defect_impact": {
+  "trades": 1902,
+  "bars_missing": 0,
+  "reached_breakeven_1R": 850,
+  "reached_1_5R": 552,
+  "reached_1_5R_by_exit": {
+   "TP": 317,
+   "BREAKEVEN": 183,
+   "OTHER": 50,
+   "SL": 2
+  },
+  "breakeven_exits": 425,
+  "held_over_48_bars": 219,
+  "time_exit_blocked_after_breakeven": 8,
+  "partial_close_rows": 0,
+  "inference_partial_half_bound_r": {
+   "sum_r": -14.285660555717591,
+   "per_trade_r": -0.007510862542438271,
+   "gain_r_on_be_or_other_exits": 178.56591670491474,
+   "loss_r_on_tp_exits": -192.85157726063233,
+   "note": "INFERENCE: price-path arithmetic for the half that the specification would have closed at +1.5R; ignores lot rounding, the time exit and any change in later decisions. Not campaign evidence; no alternative EA was simulated or run."
+  }
+ },
+ "survival_pause": {
+  "runs_paused": 40,
+  "runs_never_paused": 8,
+  "opens_after_first_pause": 0,
+  "trades_in_paused_runs": 1069,
+  "trades_in_never_paused_runs": 833,
+  "exploratory_net_exp_paused_runs": -0.4715655045164996,
+  "exploratory_net_exp_never_paused_runs": -0.12087109620685754,
+  "never_paused": [
+   "EURUSD_A2024Q2",
+   "GBPUSD_A2025Q2",
+   "GBPUSD_A2026Q2",
+   "USDJPY_A2026Q1",
+   "USDJPY_A2026Q3",
+   "XAUUSD_A2025Q2",
+   "XAUUSD_A2025Q3",
+   "XAUUSD_B"
+  ]
+ },
+ "defect_impact_by_symbol": {
+  "GBPUSD": {
+   "trades": 460,
+   "bars_missing": 0,
+   "reached_breakeven_1R": 213,
+   "reached_1_5R": 144,
+   "reached_1_5R_by_exit": {
+    "TP": 80,
+    "BREAKEVEN": 47,
+    "OTHER": 16,
+    "SL": 1
+   },
+   "breakeven_exits": 104,
+   "held_over_48_bars": 51,
+   "time_exit_blocked_after_breakeven": 1,
+   "partial_close_rows": 0,
+   "inference_partial_half_bound_r": {
+    "sum_r": 4.251184498360889,
+    "per_trade_r": 0.009241705431219324,
+    "gain_r_on_be_or_other_exits": 49.64451710032016,
+    "loss_r_on_tp_exits": -45.39333260195926,
+    "note": "INFERENCE: price-path arithmetic for the half that the specification would have closed at +1.5R; ignores lot rounding, the time exit and any change in later decisions. Not campaign evidence; no alternative EA was simulated or run."
+   }
+  },
+  "EURUSD": {
+   "trades": 522,
+   "bars_missing": 0,
+   "reached_breakeven_1R": 231,
+   "reached_1_5R": 145,
+   "reached_1_5R_by_exit": {
+    "TP": 84,
+    "BREAKEVEN": 44,
+    "OTHER": 17
+   },
+   "breakeven_exits": 105,
+   "held_over_48_bars": 53,
+   "time_exit_blocked_after_breakeven": 0,
+   "partial_close_rows": 0,
+   "inference_partial_half_bound_r": {
+    "sum_r": -8.833179387918111,
+    "per_trade_r": -0.016921799593712858,
+    "gain_r_on_be_or_other_exits": 45.78695497484961,
+    "loss_r_on_tp_exits": -54.62013436276773,
+    "note": "INFERENCE: price-path arithmetic for the half that the specification would have closed at +1.5R; ignores lot rounding, the time exit and any change in later decisions. Not campaign evidence; no alternative EA was simulated or run."
+   }
+  },
+  "USDJPY": {
+   "trades": 457,
+   "bars_missing": 0,
+   "reached_breakeven_1R": 208,
+   "reached_1_5R": 145,
+   "reached_1_5R_by_exit": {
+    "TP": 69,
+    "BREAKEVEN": 59,
+    "OTHER": 16,
+    "SL": 1
+   },
+   "breakeven_exits": 106,
+   "held_over_48_bars": 63,
+   "time_exit_blocked_after_breakeven": 4,
+   "partial_close_rows": 0,
+   "inference_partial_half_bound_r": {
+    "sum_r": 12.161225343496204,
+    "per_trade_r": 0.026610996375265216,
+    "gain_r_on_be_or_other_exits": 57.37816951429995,
+    "loss_r_on_tp_exits": -45.216944170803735,
+    "note": "INFERENCE: price-path arithmetic for the half that the specification would have closed at +1.5R; ignores lot rounding, the time exit and any change in later decisions. Not campaign evidence; no alternative EA was simulated or run."
+   }
+  },
+  "XAUUSD": {
+   "trades": 463,
+   "bars_missing": 0,
+   "reached_breakeven_1R": 198,
+   "reached_1_5R": 118,
+   "reached_1_5R_by_exit": {
+    "TP": 84,
+    "BREAKEVEN": 33,
+    "OTHER": 1
+   },
+   "breakeven_exits": 110,
+   "held_over_48_bars": 52,
+   "time_exit_blocked_after_breakeven": 3,
+   "partial_close_rows": 0,
+   "inference_partial_half_bound_r": {
+    "sum_r": -21.864891009656574,
+    "per_trade_r": -0.047224386629927805,
+    "gain_r_on_be_or_other_exits": 25.756275115445032,
+    "loss_r_on_tp_exits": -47.6211661251016,
+    "note": "INFERENCE: price-path arithmetic for the half that the specification would have closed at +1.5R; ignores lot rounding, the time exit and any change in later decisions. Not campaign evidence; no alternative EA was simulated or run."
+   }
+  }
+ }
+}

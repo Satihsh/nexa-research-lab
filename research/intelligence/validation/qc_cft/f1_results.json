@@ -1,0 +1,5 @@
+{"stage": "F1", "window": "ES 2024-01-02..05 (in-sample, before OOS)",
+ "run_1_D1": {"backtest": "Calculating Tan Gorilla", "id": "1ea437beca6ac271084059efbbbb8bb5", "code_sha": "216dc4be", "minutes": 1560, "corr": 0.717, "sign_agree": 0.767, "note": "reference lacked quotes (D-2)"},
+ "run_2_D1_diag": {"backtest": "Sleepy Blue Butterfly", "id": "d0177a14d4b50f06bf5d733e9c1908b5", "code_sha": "4fe18619", "quote": {"minutes": 1560, "corr": 0.71672, "sign_agree": 0.766667, "PASS": false}, "tickrule": {"minutes": 1560, "corr": 0.71672, "sign_agree": 0.766667, "PASS": false}, "note": "identical -> no quotes stored (D-2)"},
+ "run_3_D2": {"backtest": "Hipster Sky Blue Caribou", "id": "29901d30c4da81d9e203f2442eb9f6e0", "code_sha": "f504897d", "quote_ticks": [13227683, 6701645, 6526038], "quote": {"minutes": 1560, "corr": 0.359121, "sign_agree": 0.662821, "PASS": false}, "tickrule": {"minutes": 1560, "corr": 0.683283, "sign_agree": 0.750641, "PASS": false}},
+ "decision": "F1 FAIL -> PREREG_CFT s.3 fallback (tick rule on 1-s trade close), FALLBACK=True"}

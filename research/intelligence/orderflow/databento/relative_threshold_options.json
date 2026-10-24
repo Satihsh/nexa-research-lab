@@ -1,0 +1,181 @@
+{
+ "sessions": 267,
+ "orders": 9173816,
+ "settings": {
+  "q99.0_L20": {
+   "sessions_scored": 247,
+   "threshold_lots": {
+    "p0": 26.0,
+    "p5": 27.3,
+    "p50": 33.0,
+    "p95": 44.7,
+    "p100": 50.0
+   },
+   "pct_orders_flagged_per_session": {
+    "p5": 0.732,
+    "p50": 1.084,
+    "p95": 1.524
+   },
+   "pct_volume_flagged_per_session": {
+    "p5": 10.84,
+    "p50": 14.806,
+    "p95": 19.262
+   },
+   "flagged_by_block": {
+    "Asia 18-03 NY": 0.1098,
+    "London 03-08 NY": 0.2191,
+    "NY am 08-12": 0.4181,
+    "NY pm 12-17": 0.253
+   }
+  },
+  "q99.5_L20": {
+   "sessions_scored": 247,
+   "threshold_lots": {
+    "p0": 38.0,
+    "p5": 40.0,
+    "p50": 48.0,
+    "p95": 61.7,
+    "p100": 68.0
+   },
+   "pct_orders_flagged_per_session": {
+    "p5": 0.349,
+    "p50": 0.541,
+    "p95": 0.81
+   },
+   "pct_volume_flagged_per_session": {
+    "p5": 6.744,
+    "p50": 10.108,
+    "p95": 13.563
+   },
+   "flagged_by_block": {
+    "Asia 18-03 NY": 0.1034,
+    "London 03-08 NY": 0.2185,
+    "NY am 08-12": 0.4187,
+    "NY pm 12-17": 0.2594
+   }
+  },
+  "q99.9_L20": {
+   "sessions_scored": 247,
+   "threshold_lots": {
+    "p0": 80.0,
+    "p5": 86.0,
+    "p50": 100.0,
+    "p95": 114.8,
+    "p100": 129.0
+   },
+   "pct_orders_flagged_per_session": {
+    "p5": 0.054,
+    "p50": 0.108,
+    "p95": 0.191
+   },
+   "pct_volume_flagged_per_session": {
+    "p5": 1.857,
+    "p50": 3.832,
+    "p95": 6.625
+   },
+   "flagged_by_block": {
+    "Asia 18-03 NY": 0.0843,
+    "London 03-08 NY": 0.2183,
+    "NY am 08-12": 0.4328,
+    "NY pm 12-17": 0.2646
+   }
+  },
+  "q99.0_L60": {
+   "sessions_scored": 207,
+   "threshold_lots": {
+    "p0": 30.0,
+    "p5": 30.0,
+    "p50": 32.0,
+    "p95": 39.7,
+    "p100": 42.0
+   },
+   "pct_orders_flagged_per_session": {
+    "p5": 0.734,
+    "p50": 1.155,
+    "p95": 1.656
+   },
+   "pct_volume_flagged_per_session": {
+    "p5": 10.915,
+    "p50": 15.502,
+    "p95": 20.084
+   },
+   "flagged_by_block": {
+    "Asia 18-03 NY": 0.107,
+    "London 03-08 NY": 0.219,
+    "NY am 08-12": 0.4213,
+    "NY pm 12-17": 0.2527
+   }
+  },
+  "q99.5_L60": {
+   "sessions_scored": 207,
+   "threshold_lots": {
+    "p0": 42.0,
+    "p5": 43.3,
+    "p50": 47.0,
+    "p95": 54.0,
+    "p100": 58.0
+   },
+   "pct_orders_flagged_per_session": {
+    "p5": 0.348,
+    "p50": 0.577,
+    "p95": 0.841
+   },
+   "pct_volume_flagged_per_session": {
+    "p5": 6.798,
+    "p50": 10.482,
+    "p95": 14.347
+   },
+   "flagged_by_block": {
+    "Asia 18-03 NY": 0.0981,
+    "London 03-08 NY": 0.2179,
+    "NY am 08-12": 0.4216,
+    "NY pm 12-17": 0.2624
+   }
+  },
+  "q99.9_L60": {
+   "sessions_scored": 207,
+   "threshold_lots": {
+    "p0": 93.0,
+    "p5": 96.0,
+    "p50": 100.0,
+    "p95": 105.0,
+    "p100": 112.0
+   },
+   "pct_orders_flagged_per_session": {
+    "p5": 0.054,
+    "p50": 0.113,
+    "p95": 0.199
+   },
+   "pct_volume_flagged_per_session": {
+    "p5": 1.907,
+    "p50": 3.961,
+    "p95": 6.73
+   },
+   "flagged_by_block": {
+    "Asia 18-03 NY": 0.0807,
+    "London 03-08 NY": 0.2201,
+    "NY am 08-12": 0.4289,
+    "NY pm 12-17": 0.2703
+   }
+  },
+  "fixed_25": {
+   "sessions_scored": 247,
+   "pct_orders_flagged_per_session": {
+    "p5": 1.075,
+    "p50": 1.771,
+    "p95": 3.344
+   },
+   "pct_volume_flagged_per_session": {
+    "p5": 13.282,
+    "p50": 19.078,
+    "p95": 28.902
+   }
+  }
+ },
+ "all_orders_by_block": {
+  "Asia 18-03 NY": 0.1663,
+  "London 03-08 NY": 0.2328,
+  "NY am 08-12": 0.3915,
+  "NY pm 12-17": 0.2093
+ }
+}

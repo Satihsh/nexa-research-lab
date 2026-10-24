@@ -1,0 +1,385 @@
+{
+ "register": "NEXA parity accepted floating-point ties",
+ "decision": "B-PARITY-TOL option A, human-approved 2026-10-03",
+ "rule": "A listed mismatch is accepted only on the same symbol, decision bar and feature with the same MQL5 and Python values; anything else on that row still fails.",
+ "evidence": "research/reports/pepperstone/B_PARITY_LIQ_ROOT_CAUSE.md (RC3, EDGE-2)",
+ "window": "Pepperstone tester window B (2026-08-28..2026-09-26), oracle nexa_parity.py after RC1/RC2/EDGE-1",
+ "ties": [
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-11 07:22:00",
+   "feature_name": "displacementDown",
+   "mql5_value": 0.0,
+   "python_value": 1.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-16 02:26:00",
+   "feature_name": "displacementDown",
+   "mql5_value": 0.0,
+   "python_value": 1.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:34:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:34:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:35:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:35:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:36:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:36:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:37:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:37:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:38:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:38:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:39:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:39:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:40:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:40:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:41:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:41:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:42:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:42:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:43:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:43:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:44:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:44:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:45:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:45:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:46:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:46:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:47:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:47:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:48:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:48:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:49:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:49:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:50:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:50:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:51:00",
+   "feature_name": "liqWickBodyRatio",
+   "mql5_value": 99.0,
+   "python_value": 0.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-22 00:51:00",
+   "feature_name": "liqBarsBeyond",
+   "mql5_value": 4.0,
+   "python_value": 3.0,
+   "cause": "RC3: exact 2.5-ATR acceptance tie at 2026-09-22 00:15 (one-bar shift of the liquidity episode)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-23 09:53:00",
+   "feature_name": "displacementDown",
+   "mql5_value": 1.0,
+   "python_value": 0.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  },
+  {
+   "symbol": "GBPUSD",
+   "decision_ts": "2026-09-24 07:35:00",
+   "feature_name": "displacementUp",
+   "mql5_value": 1.0,
+   "python_value": 0.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  },
+  {
+   "symbol": "EURUSD",
+   "decision_ts": "2026-08-31 02:09:00",
+   "feature_name": "isMSS_down",
+   "mql5_value": 0.0,
+   "python_value": 1.0,
+   "cause": "EDGE-2: isMSS follows the exact 1.20 displacement-threshold tie on the same bar"
+  },
+  {
+   "symbol": "EURUSD",
+   "decision_ts": "2026-08-31 02:09:00",
+   "feature_name": "displacementDown",
+   "mql5_value": 0.0,
+   "python_value": 1.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  },
+  {
+   "symbol": "EURUSD",
+   "decision_ts": "2026-09-02 01:53:00",
+   "feature_name": "isMSS_down",
+   "mql5_value": 1.0,
+   "python_value": 0.0,
+   "cause": "EDGE-2: isMSS follows the exact 1.20 displacement-threshold tie on the same bar"
+  },
+  {
+   "symbol": "EURUSD",
+   "decision_ts": "2026-09-02 01:53:00",
+   "feature_name": "displacementDown",
+   "mql5_value": 1.0,
+   "python_value": 0.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  },
+  {
+   "symbol": "EURUSD",
+   "decision_ts": "2026-09-08 11:26:00",
+   "feature_name": "displacementDown",
+   "mql5_value": 0.0,
+   "python_value": 1.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  },
+  {
+   "symbol": "EURUSD",
+   "decision_ts": "2026-09-09 07:28:00",
+   "feature_name": "isMSS_up",
+   "mql5_value": 0.0,
+   "python_value": 1.0,
+   "cause": "EDGE-2: isMSS follows the exact 1.20 displacement-threshold tie on the same bar"
+  },
+  {
+   "symbol": "EURUSD",
+   "decision_ts": "2026-09-09 07:28:00",
+   "feature_name": "displacementUp",
+   "mql5_value": 0.0,
+   "python_value": 1.0,
+   "cause": "EDGE-2: exact 1.20 displacement-threshold tie (body/ATR = 1.2)"
+  }
+ ]
+}

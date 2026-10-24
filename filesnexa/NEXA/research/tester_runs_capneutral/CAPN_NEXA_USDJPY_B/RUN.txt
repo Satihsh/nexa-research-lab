@@ -1,0 +1,4 @@
+run=CAPN_NEXA_USDJPY_B
+start=2026-10-03 12:19:00
+end=2026-10-03 12:19:35
+expert=NEXA_Research\NEXA_EA_CAPN symbol=USDJPY period=M1 model=4 from=2026.08.28 to=2026.09.26 deposit=50000 leverage=200 delay=250

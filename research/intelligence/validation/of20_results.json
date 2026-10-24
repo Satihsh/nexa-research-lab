@@ -1,0 +1,5823 @@
+{
+ "hypothesis": "OF-20",
+ "prereg": [
+  "PREREG_OF_COMMON.md",
+  "PREREG_OF20_TREND_BALANCE.md"
+ ],
+ "stage": "full",
+ "splits_opened": [
+  "discovery",
+  "validation",
+  "holdout"
+ ],
+ "symbols": {
+  "XAUUSD": {
+   "cells": {
+    "primary:A2|TD|BAL1": {
+     "n_pairs": 2254,
+     "n_cond": 33,
+     "P_cond": 0.014640638864241348,
+     "P_out_given_cond": 0.5151515151515151,
+     "P_out_given_not": 0.4606033318325079,
+     "P_out": 0.4614019520851819,
+     "per_split": {
+      "discovery": {
+       "theta": -0.13812874641647122,
+       "ci95": [
+        -0.3902490265791626,
+        0.18852704108164314
+       ],
+       "p_one_sided": 0.7861069465267366,
+       "B_finite": 2000,
+       "n_cond": 12,
+       "P_cond": 0.009295120061967466,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.47146207974980453
+      },
+      "validation": {
+       "theta": 0.09396939693969392,
+       "ci95": [
+        -0.22433260781699474,
+        0.3859523268726023
+       ],
+       "p_one_sided": 0.32533733133433285,
+       "B_finite": 2000,
+       "n_cond": 11,
+       "P_cond": 0.02131782945736434,
+       "P_out_given_cond": 0.5454545454545454,
+       "P_out_given_not": 0.4514851485148515
+      },
+      "holdout": {
+       "theta": 0.2606407322654462,
+       "ci95": [
+        -0.0829157175398633,
+        0.5465109120571304
+       ],
+       "p_one_sided": 0.06096951524237881,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.02237136465324385,
+       "P_out_given_cond": 0.7,
+       "P_out_given_not": 0.43935926773455375
+      }
+     },
+     "pooled": {
+      "theta": 0.05454818331900724,
+      "ci95": [
+       -0.12756789398944474,
+       0.25074755440413454
+      ],
+      "p_one_sided": 0.2683658170914543,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5151515151515151,
+      "ci95": [
+       0.3333333333333333,
+       0.7142857142857143
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.32609536406824335,
+     "p_perm": 0.2977022977022977
+    },
+    "primary:A2|TD|BAL1third": {
+     "n_pairs": 2254,
+     "n_cond": 33,
+     "P_cond": 0.014640638864241348,
+     "P_out_given_cond": 0.36363636363636365,
+     "P_out_given_not": 0.29176046825754165,
+     "P_out": 0.29281277728482696,
+     "per_split": {
+      "discovery": {
+       "theta": 0.037789940057336435,
+       "ci95": [
+        -0.21675069932184207,
+        0.363269866974803
+       ],
+       "p_one_sided": 0.4097951024487756,
+       "B_finite": 2000,
+       "n_cond": 12,
+       "P_cond": 0.009295120061967466,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.2955433932759969
+      },
+      "validation": {
+       "theta": -0.01638163816381638,
+       "ci95": [
+        -0.27060570762958647,
+        0.3139784981138163
+       ],
+       "p_one_sided": 0.5312343828085957,
+       "B_finite": 2000,
+       "n_cond": 11,
+       "P_cond": 0.02131782945736434,
+       "P_out_given_cond": 0.2727272727272727,
+       "P_out_given_not": 0.2891089108910891
+      },
+      "holdout": {
+       "theta": 0.2162471395881007,
+       "ci95": [
+        -0.07917955495936241,
+        0.5612360853432282
+       ],
+       "p_one_sided": 0.0704647676161919,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.02237136465324385,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.2837528604118993
+      }
+     },
+     "pooled": {
+      "theta": 0.071875895378822,
+      "ci95": [
+       -0.09589757424576374,
+       0.24277547335876654
+      ],
+      "p_one_sided": 0.20039980009995004,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.36363636363636365,
+      "ci95": [
+       0.2,
+       0.5384615384615384
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.2356343415251498,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "primary:A2|TD|BAL2": {
+     "n_pairs": 2254,
+     "n_cond": 33,
+     "P_cond": 0.014640638864241348,
+     "P_out_given_cond": 0.7575757575757576,
+     "P_out_given_not": 0.619990995047276,
+     "P_out": 0.6220053238686779,
+     "per_split": {
+      "discovery": {
+       "theta": 0.21097211363044044,
+       "ci95": [
+        0.01559737530541607,
+        0.3879781420765027
+       ],
+       "p_one_sided": 0.018490754622688656,
+       "B_finite": 2000,
+       "n_cond": 12,
+       "P_cond": 0.009295120061967466,
+       "P_out_given_cond": 0.8333333333333334,
+       "P_out_given_not": 0.6223612197028929
+      },
+      "validation": {
+       "theta": -0.1513951395139514,
+       "ci95": [
+        -0.4266943037002917,
+        0.19920948616600798
+       ],
+       "p_one_sided": 0.7931034482758621,
+       "B_finite": 2000,
+       "n_cond": 11,
+       "P_cond": 0.02131782945736434,
+       "P_out_given_cond": 0.45454545454545453,
+       "P_out_given_not": 0.6059405940594059
+      },
+      "holdout": {
+       "theta": 0.3707093821510298,
+       "ci95": [
+        0.3325688073394495,
+        0.4269148152856794
+       ],
+       "p_one_sided": 0.0004997501249375312,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.02237136465324385,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.6292906178489702
+      }
+     },
+     "pooled": {
+      "theta": 0.13758476252848162,
+      "ci95": [
+       -0.01300288636647531,
+       0.2837292693859256
+      ],
+      "p_one_sided": 0.034482758620689655,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.7575757575757576,
+      "ci95": [
+       0.6071428571428571,
+       0.9000806451612899
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.07242426971269456,
+     "disc_p_BH_secondary_family": 0.12327169748459103
+    },
+    "primary:A2|TDlite|BAL1": {
+     "n_pairs": 2254,
+     "n_cond": 70,
+     "P_cond": 0.031055900621118012,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.46016483516483514,
+     "P_out": 0.4614019520851819,
+     "per_split": {
+      "discovery": {
+       "theta": -0.01604278074866311,
+       "ci95": [
+        -0.20439960250116684,
+        0.17282295123936334
+       ],
+       "p_one_sided": 0.5872063968015993,
+       "B_finite": 2000,
+       "n_cond": 33,
+       "P_cond": 0.025561580170410533,
+       "P_out_given_cond": 0.45454545454545453,
+       "P_out_given_not": 0.47058823529411764
+      },
+      "validation": {
+       "theta": 0.02366522366522361,
+       "ci95": [
+        -0.18364475412287426,
+        0.23553319184110505
+       ],
+       "p_one_sided": 0.44127936031984005,
+       "B_finite": 2000,
+       "n_cond": 21,
+       "P_cond": 0.040697674418604654,
+       "P_out_given_cond": 0.47619047619047616,
+       "P_out_given_not": 0.45252525252525255
+      },
+      "holdout": {
+       "theta": 0.18648491879350348,
+       "ci95": [
+        -0.10028830868900152,
+        0.4449057251812793
+       ],
+       "p_one_sided": 0.09095452273863068,
+       "B_finite": 2000,
+       "n_cond": 16,
+       "P_cond": 0.035794183445190156,
+       "P_out_given_cond": 0.625,
+       "P_out_given_not": 0.4385150812064965
+      }
+     },
+     "pooled": {
+      "theta": 0.03983516483516486,
+      "ci95": [
+       -0.08892857762375833,
+       0.17134775752628456
+      ],
+      "p_one_sided": 0.2888555722138931,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.373134328358209,
+       0.6271186440677966
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.2952927894710737,
+     "disc_p_BH_secondary_family": 0.6624703332989371
+    },
+    "primary:A2|TDlite|BAL1third": {
+     "n_pairs": 2254,
+     "n_cond": 70,
+     "P_cond": 0.031055900621118012,
+     "P_out_given_cond": 0.35714285714285715,
+     "P_out_given_not": 0.2907509157509158,
+     "P_out": 0.29281277728482696,
+     "per_split": {
+      "discovery": {
+       "theta": 0.03842077371489133,
+       "ci95": [
+        -0.12872076486956216,
+        0.21010027795057923
+       ],
+       "p_one_sided": 0.37031484257871067,
+       "B_finite": 2000,
+       "n_cond": 33,
+       "P_cond": 0.025561580170410533,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.294912559618442
+      },
+      "validation": {
+       "theta": 0.04646464646464643,
+       "ci95": [
+        -0.1417825696834773,
+        0.2728195542098088
+       ],
+       "p_one_sided": 0.29535232383808097,
+       "B_finite": 2000,
+       "n_cond": 21,
+       "P_cond": 0.040697674418604654,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.2868686868686869
+      },
+      "holdout": {
+       "theta": 0.15443735498839906,
+       "ci95": [
+        -0.10719183893939738,
+        0.42302992951557317
+       ],
+       "p_one_sided": 0.12743628185907047,
+       "B_finite": 2000,
+       "n_cond": 16,
+       "P_cond": 0.035794183445190156,
+       "P_out_given_cond": 0.4375,
+       "P_out_given_not": 0.28306264501160094
+      }
+     },
+     "pooled": {
+      "theta": 0.06639194139194138,
+      "ci95": [
+       -0.05455893905606082,
+       0.1816803541354976
+      ],
+      "p_one_sided": 0.16041979010494753,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.35714285714285715,
+      "ci95": [
+       0.2361111111111111,
+       0.4697192513368983
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.14310611917293695,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "primary:A2|TDlite|BAL2": {
+     "n_pairs": 2254,
+     "n_cond": 70,
+     "P_cond": 0.031055900621118012,
+     "P_out_given_cond": 0.7285714285714285,
+     "P_out_given_not": 0.6185897435897436,
+     "P_out": 0.6220053238686779,
+     "per_split": {
+      "discovery": {
+       "theta": 0.23004287710170068,
+       "ci95": [
+        0.08397198767809354,
+        0.3536876828208058
+       ],
+       "p_one_sided": 0.0014992503748125937,
+       "B_finite": 2000,
+       "n_cond": 33,
+       "P_cond": 0.025561580170410533,
+       "P_out_given_cond": 0.8484848484848485,
+       "P_out_given_not": 0.6184419713831478
+      },
+      "validation": {
+       "theta": -0.13189033189033195,
+       "ci95": [
+        -0.3357340213529984,
+        0.09920120967741924
+       ],
+       "p_one_sided": 0.8665667166416792,
+       "B_finite": 2000,
+       "n_cond": 21,
+       "P_cond": 0.040697674418604654,
+       "P_out_given_cond": 0.47619047619047616,
+       "P_out_given_not": 0.6080808080808081
+      },
+      "holdout": {
+       "theta": 0.1814095127610209,
+       "ci95": [
+        0.004986823797117063,
+        0.363239487322056
+       ],
+       "p_one_sided": 0.02348825587206397,
+       "B_finite": 2000,
+       "n_cond": 16,
+       "P_cond": 0.035794183445190156,
+       "P_out_given_cond": 0.8125,
+       "P_out_given_not": 0.6310904872389791
+      }
+     },
+     "pooled": {
+      "theta": 0.10998168498168492,
+      "ci95": [
+       -0.001316218945387781,
+       0.2204562722171217
+      ],
+      "p_one_sided": 0.026986506746626688,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.7285714285714285,
+      "ci95": [
+       0.6190476190476191,
+       0.8333955223880594
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.038537480723497365,
+     "disc_p_BH_secondary_family": 0.014992503748125935
+    },
+    "primary:A2|XD|BAL1": {
+     "n_pairs": 2233,
+     "n_cond": 423,
+     "P_cond": 0.18943125839677563,
+     "P_out_given_cond": 0.5153664302600472,
+     "P_out_given_not": 0.44917127071823204,
+     "P_out": 0.46171070309001344,
+     "per_split": {
+      "discovery": {
+       "theta": 0.06102362204724404,
+       "ci95": [
+        -0.007467142182866957,
+        0.1340115057146408
+       ],
+       "p_one_sided": 0.03948025987006497,
+       "B_finite": 2000,
+       "n_cond": 254,
+       "P_cond": 0.2,
+       "P_out_given_cond": 0.5196850393700787,
+       "P_out_given_not": 0.45866141732283466
+      },
+      "validation": {
+       "theta": 0.08815666202042816,
+       "ci95": [
+        -0.0220822229955651,
+        0.199602510767715
+       ],
+       "p_one_sided": 0.05847076461769116,
+       "B_finite": 2000,
+       "n_cond": 107,
+       "P_cond": 0.20736434108527133,
+       "P_out_given_cond": 0.5233644859813084,
+       "P_out_given_not": 0.4352078239608802
+      },
+      "holdout": {
+       "theta": 0.04490992878089656,
+       "ci95": [
+        -0.045320317891649406,
+        0.159370918331738
+       ],
+       "p_one_sided": 0.12593703148425786,
+       "B_finite": 2000,
+       "n_cond": 62,
+       "P_cond": 0.13870246085011187,
+       "P_out_given_cond": 0.4838709677419355,
+       "P_out_given_not": 0.43896103896103894
+      }
+     },
+     "pooled": {
+      "theta": 0.06619515954181521,
+      "ci95": [
+       0.018150886753626815,
+       0.12182563255560344
+      ],
+      "p_one_sided": 0.005497251374312844,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5153664302600472,
+      "ci95": [
+       0.4697646806160643,
+       0.5684758946585962
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.008154880661530488,
+     "disc_p_BH_secondary_family": 0.19061897622617266
+    },
+    "primary:A2|XD|BAL1third": {
+     "n_pairs": 2233,
+     "n_cond": 423,
+     "P_cond": 0.18943125839677563,
+     "P_out_given_cond": 0.3262411347517731,
+     "P_out_given_not": 0.2867403314917127,
+     "P_out": 0.2942230183609494,
+     "per_split": {
+      "discovery": {
+       "theta": 0.05019685039370081,
+       "ci95": [
+        -0.01618026306755308,
+        0.11274564177941965
+       ],
+       "p_one_sided": 0.07446276861569215,
+       "B_finite": 2000,
+       "n_cond": 254,
+       "P_cond": 0.2,
+       "P_out_given_cond": 0.33858267716535434,
+       "P_out_given_not": 0.28838582677165353
+      },
+      "validation": {
+       "theta": 0.048374197381349515,
+       "ci95": [
+        -0.037495839555905276,
+        0.13045996186915507
+       ],
+       "p_one_sided": 0.1539230384807596,
+       "B_finite": 2000,
+       "n_cond": 107,
+       "P_cond": 0.20736434108527133,
+       "P_out_given_cond": 0.32710280373831774,
+       "P_out_given_not": 0.2787286063569682
+      },
+      "holdout": {
+       "theta": -0.016715542521994142,
+       "ci95": [
+        -0.102467097331115,
+        0.09344951724505683
+       ],
+       "p_one_sided": 0.5547226386806596,
+       "B_finite": 2000,
+       "n_cond": 62,
+       "P_cond": 0.13870246085011187,
+       "P_out_given_cond": 0.27419354838709675,
+       "P_out_given_not": 0.2909090909090909
+      }
+     },
+     "pooled": {
+      "theta": 0.03950080326006039,
+      "ci95": [
+       -0.0042559491208346775,
+       0.08994709180904555
+      ],
+      "p_one_sided": 0.037481259370314844,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.3262411347517731,
+      "ci95": [
+       0.2863946282596203,
+       0.3715051843082826
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.061861303279911496,
+     "disc_p_BH_secondary_family": 0.20308027804279674
+    },
+    "primary:A2|XD|BAL2": {
+     "n_pairs": 2233,
+     "n_cond": 423,
+     "P_cond": 0.18943125839677563,
+     "P_out_given_cond": 0.640661938534279,
+     "P_out_given_not": 0.6187845303867403,
+     "P_out": 0.6229287953425885,
+     "per_split": {
+      "discovery": {
+       "theta": 0.049212598425196874,
+       "ci95": [
+        -0.01368273243296357,
+        0.10704234163849206
+       ],
+       "p_one_sided": 0.05697151424287856,
+       "B_finite": 2000,
+       "n_cond": 254,
+       "P_cond": 0.2,
+       "P_out_given_cond": 0.6653543307086615,
+       "P_out_given_not": 0.6161417322834646
+      },
+      "validation": {
+       "theta": -0.02936270365377147,
+       "ci95": [
+        -0.15153671564920523,
+        0.0973320427255468
+       ],
+       "p_one_sided": 0.7056471764117941,
+       "B_finite": 2000,
+       "n_cond": 107,
+       "P_cond": 0.20736434108527133,
+       "P_out_given_cond": 0.5794392523364486,
+       "P_out_given_not": 0.60880195599022
+      },
+      "holdout": {
+       "theta": 0.008797653958944274,
+       "ci95": [
+        -0.12847702278083264,
+        0.15946408897731573
+       ],
+       "p_one_sided": 0.4197901049475262,
+       "B_finite": 2000,
+       "n_cond": 62,
+       "P_cond": 0.13870246085011187,
+       "P_out_given_cond": 0.6451612903225806,
+       "P_out_given_not": 0.6363636363636364
+      }
+     },
+     "pooled": {
+      "theta": 0.02187740814753869,
+      "ci95": [
+       -0.027448131954398197,
+       0.07624122714104328
+      ],
+      "p_one_sided": 0.1854072963518241,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.640661938534279,
+      "ci95": [
+       0.5955861698612029,
+       0.6862339493213553
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.21799456297372047,
+     "disc_p_BH_secondary_family": 0.19823421622522072
+    },
+    "secondary:A1|TD|BAL1": {
+     "n_pairs": 2248,
+     "n_cond": 0,
+     "P_cond": 0.0,
+     "P_out_given_cond": null,
+     "P_out_given_not": 0.47731316725978645,
+     "P_out": 0.47731316725978645,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4747866563227308
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4669260700389105
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4966292134831461
+      }
+     },
+     "pooled": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "pooled_P_out_given_cond": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "fisher_p_greater": null,
+     "disc_p_BH_secondary_family": null
+    },
+    "secondary:A1|TD|BAL1third": {
+     "n_pairs": 2248,
+     "n_cond": 0,
+     "P_cond": 0.0,
+     "P_out_given_cond": null,
+     "P_out_given_not": 0.30738434163701067,
+     "P_out": 0.30738434163701067,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.29635376260667184
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.301556420233463
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.34606741573033706
+      }
+     },
+     "pooled": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "pooled_P_out_given_cond": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "fisher_p_greater": null,
+     "disc_p_BH_secondary_family": null
+    },
+    "secondary:A1|TD|BAL2": {
+     "n_pairs": 2248,
+     "n_cond": 0,
+     "P_cond": 0.0,
+     "P_out_given_cond": null,
+     "P_out_given_not": 0.623220640569395,
+     "P_out": 0.623220640569395,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.6330488750969744
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5894941634241245
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.6337078651685393
+      }
+     },
+     "pooled": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "pooled_P_out_given_cond": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "fisher_p_greater": null,
+     "disc_p_BH_secondary_family": null
+    },
+    "secondary:A1|TDlite|BAL1": {
+     "n_pairs": 2248,
+     "n_cond": 1,
+     "P_cond": 0.00044483985765124553,
+     "P_out_given_cond": 0.0,
+     "P_out_given_not": 0.4775255896751224,
+     "P_out": 0.47731316725978645,
+     "per_split": {
+      "discovery": {
+       "theta": -0.4751552795031056,
+       "ci95": [
+        -0.5046391410521845,
+        -0.44642857142857145
+       ],
+       "p_one_sided": 1.0,
+       "B_finite": 1283,
+       "n_cond": 1,
+       "P_cond": 0.0007757951900698216,
+       "P_out_given_cond": 0.0,
+       "P_out_given_not": 0.4751552795031056
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4669260700389105
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4966292134831461
+      }
+     },
+     "pooled": {
+      "theta": -0.4775255896751224,
+      "ci95": [
+       -0.4971046770601336,
+       -0.45675118420700506
+      ],
+      "p_one_sided": 1.0,
+      "B_finite": 1295
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "p_one_sided": 1.0,
+      "B_finite": 1295
+     },
+     "fisher_p_greater": 1.0,
+     "disc_p_BH_secondary_family": 1.0
+    },
+    "secondary:A1|TDlite|BAL1third": {
+     "n_pairs": 2248,
+     "n_cond": 1,
+     "P_cond": 0.00044483985765124553,
+     "P_out_given_cond": 0.0,
+     "P_out_given_not": 0.3075211392968402,
+     "P_out": 0.30738434163701067,
+     "per_split": {
+      "discovery": {
+       "theta": -0.296583850931677,
+       "ci95": [
+        -0.3201243201243201,
+        -0.26961926961926963
+       ],
+       "p_one_sided": 1.0,
+       "B_finite": 1283,
+       "n_cond": 1,
+       "P_cond": 0.0007757951900698216,
+       "P_out_given_cond": 0.0,
+       "P_out_given_not": 0.296583850931677
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.301556420233463
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.34606741573033706
+      }
+     },
+     "pooled": {
+      "theta": -0.3075211392968402,
+      "ci95": [
+       -0.32566262288572356,
+       -0.2870493991989319
+      ],
+      "p_one_sided": 1.0,
+      "B_finite": 1295
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "p_one_sided": 1.0,
+      "B_finite": 1295
+     },
+     "fisher_p_greater": 1.0,
+     "disc_p_BH_secondary_family": 1.0
+    },
+    "secondary:A1|TDlite|BAL2": {
+     "n_pairs": 2248,
+     "n_cond": 1,
+     "P_cond": 0.00044483985765124553,
+     "P_out_given_cond": 0.0,
+     "P_out_given_not": 0.6234979973297731,
+     "P_out": 0.623220640569395,
+     "per_split": {
+      "discovery": {
+       "theta": -0.6335403726708074,
+       "ci95": [
+        -0.656055900621118,
+        -0.60717481934408
+       ],
+       "p_one_sided": 1.0,
+       "B_finite": 1283,
+       "n_cond": 1,
+       "P_cond": 0.0007757951900698216,
+       "P_out_given_cond": 0.0,
+       "P_out_given_not": 0.6335403726708074
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5894941634241245
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.6337078651685393
+      }
+     },
+     "pooled": {
+      "theta": -0.6234979973297731,
+      "ci95": [
+       -0.6421895861148198,
+       -0.6016911437472185
+      ],
+      "p_one_sided": 1.0,
+      "B_finite": 1295
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "p_one_sided": 1.0,
+      "B_finite": 1295
+     },
+     "fisher_p_greater": 1.0,
+     "disc_p_BH_secondary_family": 1.0
+    },
+    "secondary:A1|XD|BAL1": {
+     "n_pairs": 2227,
+     "n_cond": 402,
+     "P_cond": 0.18051189941625506,
+     "P_out_given_cond": 0.5149253731343284,
+     "P_out_given_not": 0.4706849315068493,
+     "P_out": 0.4786708576560395,
+     "per_split": {
+      "discovery": {
+       "theta": 0.035978114838684516,
+       "ci95": [
+        -0.038181032225857586,
+        0.10088801467950752
+       ],
+       "p_one_sided": 0.18940529735132433,
+       "B_finite": 2000,
+       "n_cond": 253,
+       "P_cond": 0.1995268138801262,
+       "P_out_given_cond": 0.5059288537549407,
+       "P_out_given_not": 0.46995073891625616
+      },
+      "validation": {
+       "theta": 0.053523593653410306,
+       "ci95": [
+        -0.02411755808275191,
+        0.15691289866313823
+       ],
+       "p_one_sided": 0.0769615192403798,
+       "B_finite": 2000,
+       "n_cond": 92,
+       "P_cond": 0.17898832684824903,
+       "P_out_given_cond": 0.5108695652173914,
+       "P_out_given_not": 0.45734597156398105
+      },
+      "holdout": {
+       "theta": 0.07429010671007413,
+       "ci95": [
+        -0.05477649056791634,
+        0.22012262363845445
+       ],
+       "p_one_sided": 0.11344327836081959,
+       "B_finite": 2000,
+       "n_cond": 57,
+       "P_cond": 0.12808988764044943,
+       "P_out_given_cond": 0.5614035087719298,
+       "P_out_given_not": 0.48711340206185566
+      }
+     },
+     "pooled": {
+      "theta": 0.04424044162747909,
+      "ci95": [
+       -0.010818383534856656,
+       0.09316772757623065
+      ],
+      "p_one_sided": 0.05147426286856572,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5149253731343284,
+      "ci95": [
+       0.466164394726654,
+       0.5616820843198795
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.06034593192117567,
+     "disc_p_BH_secondary_family": 0.3551349325337331
+    },
+    "secondary:A1|XD|BAL1third": {
+     "n_pairs": 2227,
+     "n_cond": 402,
+     "P_cond": 0.18051189941625506,
+     "P_out_given_cond": 0.32338308457711445,
+     "P_out_given_not": 0.30575342465753425,
+     "P_out": 0.3089357880556803,
+     "per_split": {
+      "discovery": {
+       "theta": 0.04137541618800994,
+       "ci95": [
+        -0.01989191746006154,
+        0.09784486838190597
+       ],
+       "p_one_sided": 0.10494752623688156,
+       "B_finite": 2000,
+       "n_cond": 253,
+       "P_cond": 0.1995268138801262,
+       "P_out_given_cond": 0.33201581027667987,
+       "P_out_given_not": 0.29064039408866993
+      },
+      "validation": {
+       "theta": -0.036317741603132114,
+       "ci95": [
+        -0.11342624119564458,
+        0.056660960977645225
+       ],
+       "p_one_sided": 0.7541229385307346,
+       "B_finite": 2000,
+       "n_cond": 92,
+       "P_cond": 0.17898832684824903,
+       "P_out_given_cond": 0.2717391304347826,
+       "P_out_given_not": 0.3080568720379147
+      },
+      "holdout": {
+       "theta": 0.025637547476939748,
+       "ci95": [
+        -0.09655907968755721,
+        0.17596430330811966
+       ],
+       "p_one_sided": 0.30134932533733133,
+       "B_finite": 2000,
+       "n_cond": 57,
+       "P_cond": 0.12808988764044943,
+       "P_out_given_cond": 0.3684210526315789,
+       "P_out_given_not": 0.3427835051546392
+      }
+     },
+     "pooled": {
+      "theta": 0.01762965991958021,
+      "ci95": [
+       -0.0284385266662711,
+       0.06384430306617805
+      ],
+      "p_one_sided": 0.23338330834582707,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.32338308457711445,
+      "ci95": [
+       0.28107584582160855,
+       0.3670212765957447
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.2624673878331281,
+     "disc_p_BH_secondary_family": 0.2421865990081882
+    },
+    "secondary:A1|XD|BAL2": {
+     "n_pairs": 2227,
+     "n_cond": 402,
+     "P_cond": 0.18051189941625506,
+     "P_out_given_cond": 0.5970149253731343,
+     "P_out_given_not": 0.6301369863013698,
+     "P_out": 0.6241580601706331,
+     "per_split": {
+      "discovery": {
+       "theta": 0.0018808777429466517,
+       "ci95": [
+        -0.0573272090988626,
+        0.0659663284632386
+       ],
+       "p_one_sided": 0.431784107946027,
+       "B_finite": 2000,
+       "n_cond": 253,
+       "P_cond": 0.1995268138801262,
+       "P_out_given_cond": 0.6363636363636364,
+       "P_out_given_not": 0.6344827586206897
+      },
+      "validation": {
+       "theta": -0.06928703894498245,
+       "ci95": [
+        -0.20549934440559442,
+        0.06553236818681131
+       ],
+       "p_one_sided": 0.841079460269865,
+       "B_finite": 2000,
+       "n_cond": 92,
+       "P_cond": 0.17898832684824903,
+       "P_out_given_cond": 0.532608695652174,
+       "P_out_given_not": 0.6018957345971564
+      },
+      "holdout": {
+       "theta": -0.12316874660879007,
+       "ci95": [
+        -0.2744858374384237,
+        0.007126377906730524
+       ],
+       "p_one_sided": 0.9685157421289355,
+       "B_finite": 2000,
+       "n_cond": 57,
+       "P_cond": 0.12808988764044943,
+       "P_out_given_cond": 0.5263157894736842,
+       "P_out_given_not": 0.6494845360824743
+      }
+     },
+     "pooled": {
+      "theta": -0.03312206092823555,
+      "ci95": [
+       -0.08813884572929426,
+       0.02592224672501027
+      ],
+      "p_one_sided": 0.8575712143928036,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5970149253731343,
+      "ci95": [
+       0.5448108924573987,
+       0.6510990698490698
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.9025489168240507,
+     "disc_p_BH_secondary_family": 0.528715234219625
+    }
+   },
+   "n_sessions_primary": 2255,
+   "n_pairs_primary": 2254,
+   "XD_cut_Rsig_primary": 1.6355852509173454,
+   "P_TD_by_split_primary": {
+    "discovery": 0.009295120061967466,
+    "validation": 0.02131782945736434,
+    "holdout": 0.022321428571428572
+   },
+   "P_TD_pooled_primary": 0.014634146341463415,
+   "P_TDlite_pooled_primary": 0.031042128603104215,
+   "P_BAL1_pooled_primary": 0.4611973392461197,
+   "primary_cell": "primary:A2|TD|BAL1",
+   "persistence": {
+    "P_TDnext_given_TD": 0.030303030303030304,
+    "P_TD": 0.014640638864241348,
+    "rd": {
+     "theta": 0.015895105944633184,
+     "ci95": [
+      -0.01764118212487995,
+      0.0747240649380586
+     ],
+     "p_one_sided": 0.3633183408295852,
+     "B_finite": 2000
+    }
+   },
+   "transition_matrix_row_normalised": {
+    "B": {
+     "B": 0.47307692307692306,
+     "O": 0.5221153846153846,
+     "T": 0.004807692307692308
+    },
+    "O": {
+     "B": 0.44961896697713805,
+     "O": 0.5275190516511431,
+     "T": 0.02286198137171888
+    },
+    "T": {
+     "B": 0.5151515151515151,
+     "O": 0.45454545454545453,
+     "T": 0.030303030303030304
+    }
+   },
+   "transition_counts": {
+    "B": {
+     "B": 492,
+     "O": 543,
+     "T": 5
+    },
+    "O": {
+     "B": 531,
+     "O": 623,
+     "T": 27
+    },
+    "T": {
+     "B": 17,
+     "O": 15,
+     "T": 1
+    }
+   },
+   "robustness": {
+    "excl_friday_to_monday": {
+     "theta": 0.046166759932848356,
+     "ci95": [
+      -0.16894188986841005,
+      0.256182078244005
+     ],
+     "p_one_sided": 0.34332833583208394,
+     "B_finite": 2000
+    },
+    "up_trend_days": {
+     "theta": 0.015587144357968263,
+     "ci95": [
+      -0.2133161910282608,
+      0.24965313889301488
+     ],
+     "p_one_sided": 0.43928035982008995,
+     "B_finite": 2000,
+     "n": 21
+    },
+    "down_trend_days": {
+     "theta": 0.12273000150082547,
+     "ci95": [
+      -0.22382590888117962,
+      0.46850101330299304
+     ],
+     "p_one_sided": 0.235,
+     "B_finite": 1999,
+     "n": 12
+    },
+    "per_year_rd": {
+     "2018": 0.19999999999999996,
+     "2019": -0.4609375,
+     "2020": -0.5387596899224806,
+     "2021": 0.5252918287937743,
+     "2022": -0.21501976284584978,
+     "2023": -0.2365079365079365,
+     "2024": 0.3669301712779974,
+     "2025": 0.25301204819277107,
+     "2026": 0.5265957446808511
+    },
+    "year_share": {
+     "shares": {
+      "2018": 0.24872488615028854,
+      "2019": -0.3821554240329955,
+      "2020": -0.22333823756388962,
+      "2021": 0.2177552505206807,
+      "2022": -0.44567305028246706,
+      "2023": -0.4902117465131349,
+      "2024": 0.912646650762258,
+      "2025": 0.9439558932209747,
+      "2026": 0.21829577773828523
+     },
+     "max_abs_share": 0.9439558932209747,
+     "flag_year_gt_50pct": true
+    },
+    "by_prior_sigma_tercile": {
+     "T1": {
+      "theta": 0.062283737024221464,
+      "ci95": [
+       -0.30357270074085163,
+       0.39081693059931205
+      ],
+      "p_one_sided": 0.4312843578210895,
+      "B_finite": 2000,
+      "n_TD": 10
+     },
+     "T2": {
+      "theta": -0.11203007518796992,
+      "ci95": [
+       -0.3962666106353497,
+       0.11769008502465511
+      ],
+      "p_one_sided": 0.8760619690154923,
+      "B_finite": 2000,
+      "n_TD": 14
+     },
+     "T3": {
+      "theta": 0.30947511929107024,
+      "ci95": [
+       0.016818716342968065,
+       0.5465827268483923
+      ],
+      "p_one_sided": 0.02048975512243878,
+      "B_finite": 2000,
+      "n_TD": 9
+     }
+    },
+    "A0_full_day_session": {
+     "P_TD": 0.0,
+     "rd_TD_BAL1": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     }
+    }
+   },
+   "n_sessions_secondary": 2252,
+   "n_pairs_secondary": 2248,
+   "XD_cut_Rsig_secondary": 1.8995847854772379,
+   "P_TD_by_split_secondary": {
+    "discovery": 0.0,
+    "validation": 0.0,
+    "holdout": 0.0
+   },
+   "P_TD_pooled_secondary": 0.0,
+   "P_TDlite_pooled_secondary": 0.0004440497335701599,
+   "P_BAL1_pooled_secondary": 0.47735346358792186,
+   "primary_disc_p_BH": 0.7861069465267366,
+   "verdict_CL009": "INSUFFICIENT-N",
+   "CL031_q": {
+    "BAL1": {
+     "q": 0.5153664302600472,
+     "ci95": [
+      0.4697646806160643,
+      0.5684758946585962
+     ],
+     "P_out_given_not_XD": 0.44917127071823204,
+     "result": "REFUTED for the analogue"
+    },
+    "BAL2": {
+     "q": 0.640661938534279,
+     "ci95": [
+      0.5955861698612029,
+      0.6862339493213553
+     ],
+     "P_out_given_not_XD": 0.6187845303867403,
+     "result": "REFUTED for the analogue"
+    }
+   },
+   "HYP010": {
+    "P_BAL2_given_TD": 0.7575757575757576,
+    "ci95": [
+     0.6071428571428571,
+     0.9000806451612899
+    ],
+    "P_BAL2_given_not_TD": 0.619990995047276,
+    "result": "CONSISTENT",
+    "counted_in_verdicts": true
+   }
+  },
+  "EURUSD": {
+   "cells": {
+    "primary:A1|TD|BAL1": {
+     "n_pairs": 2388,
+     "n_cond": 2,
+     "P_cond": 0.0008375209380234506,
+     "P_out_given_cond": 1.0,
+     "P_out_given_not": 0.45305951383067894,
+     "P_out": 0.4535175879396985,
+     "per_split": {
+      "discovery": {
+       "theta": 0.5537596626844694,
+       "ci95": [
+        0.5312719606465215,
+        0.5819816372522789
+       ],
+       "p_one_sided": 0.0008045052292839903,
+       "B_finite": 1242,
+       "n_cond": 1,
+       "P_cond": 0.0007022471910112359,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.4462403373155306
+      },
+      "validation": {
+       "theta": 0.5290697674418605,
+       "ci95": [
+        0.49224806201550386,
+        0.588165958737864
+       ],
+       "p_one_sided": 0.0007473841554559044,
+       "B_finite": 1337,
+       "n_cond": 1,
+       "P_cond": 0.0019342359767891683,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.47093023255813954
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4541387024608501
+      }
+     },
+     "pooled": {
+      "theta": 0.546940486169321,
+      "ci95": [
+       0.529046209457334,
+       0.5680770842061165
+      ],
+      "p_one_sided": 0.0005730659025787965,
+      "B_finite": 1744
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "p_one_sided": 0.0005730659025787965,
+      "B_finite": 1744
+     },
+     "fisher_p_greater": 0.20557437375398147,
+     "p_perm": 0.23976023976023977
+    },
+    "primary:A1|TD|BAL1third": {
+     "n_pairs": 2388,
+     "n_cond": 2,
+     "P_cond": 0.0008375209380234506,
+     "P_out_given_cond": 1.0,
+     "P_out_given_not": 0.2854149203688181,
+     "P_out": 0.2860134003350084,
+     "per_split": {
+      "discovery": {
+       "theta": 0.7160927617709065,
+       "ci95": [
+        0.6950105411103302,
+        0.741391426563598
+       ],
+       "p_one_sided": 0.0008045052292839903,
+       "B_finite": 1242,
+       "n_cond": 1,
+       "P_cond": 0.0007022471910112359,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.2839072382290935
+      },
+      "validation": {
+       "theta": 0.7131782945736433,
+       "ci95": [
+        0.6802325581395349,
+        0.7629224434286578
+       ],
+       "p_one_sided": 0.0007473841554559044,
+       "B_finite": 1337,
+       "n_cond": 1,
+       "P_cond": 0.0019342359767891683,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.2868217054263566
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.28859060402684567
+      }
+     },
+     "pooled": {
+      "theta": 0.7145850796311819,
+      "ci95": [
+       0.6988998323554065,
+       0.7342665679488564
+      ],
+      "p_one_sided": 0.0005730659025787965,
+      "B_finite": 1744
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "p_one_sided": 0.0005730659025787965,
+      "B_finite": 1744
+     },
+     "fisher_p_greater": 0.08171811438143096,
+     "disc_p_BH_secondary_family": 0.009654062751407884
+    },
+    "primary:A1|TD|BAL2": {
+     "n_pairs": 2388,
+     "n_cond": 2,
+     "P_cond": 0.0008375209380234506,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.5817267393126572,
+     "P_out": 0.5816582914572864,
+     "per_split": {
+      "discovery": {
+       "theta": 0.4209416725228391,
+       "ci95": [
+        0.39564996347922865,
+        0.4444366362145701
+       ],
+       "p_one_sided": 0.0008045052292839903,
+       "B_finite": 1242,
+       "n_cond": 1,
+       "P_cond": 0.0007022471910112359,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.5790583274771609
+      },
+      "validation": {
+       "theta": -0.5930232558139535,
+       "ci95": [
+        -0.6353759313614812,
+        -0.5573708813565738
+       ],
+       "p_one_sided": 1.0,
+       "B_finite": 1337,
+       "n_cond": 1,
+       "P_cond": 0.0019342359767891683,
+       "P_out_given_cond": 0.0,
+       "P_out_given_not": 0.5930232558139535
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5771812080536913
+      }
+     },
+     "pooled": {
+      "theta": -0.08172673931265717,
+      "ci95": [
+       -0.5945037146528321,
+       0.4317860154068682
+      ],
+      "p_one_sided": 0.5919770773638968,
+      "B_finite": 1744
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.2722063037249284,
+      "B_finite": 1744
+     },
+     "fisher_p_greater": 0.8250921553725898,
+     "disc_p_BH_secondary_family": 0.009654062751407884
+    },
+    "primary:A1|TDlite|BAL1": {
+     "n_pairs": 2388,
+     "n_cond": 3,
+     "P_cond": 0.001256281407035176,
+     "P_out_given_cond": 0.6666666666666666,
+     "P_out_given_not": 0.4532494758909853,
+     "P_out": 0.4535175879396985,
+     "per_split": {
+      "discovery": {
+       "theta": 0.5537596626844694,
+       "ci95": [
+        0.5312719606465215,
+        0.5819816372522789
+       ],
+       "p_one_sided": 0.0008045052292839903,
+       "B_finite": 1242,
+       "n_cond": 1,
+       "P_cond": 0.0007022471910112359,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.4462403373155306
+      },
+      "validation": {
+       "theta": 0.02815533980582524,
+       "ci95": [
+        -0.5009708737864078,
+        0.5658914728682171
+       ],
+       "p_one_sided": 0.4240223463687151,
+       "B_finite": 1789,
+       "n_cond": 2,
+       "P_cond": 0.0038684719535783366,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.47184466019417476
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4541387024608501
+      }
+     },
+     "pooled": {
+      "theta": 0.21341719077568133,
+      "ci95": [
+       -0.45892707460184406,
+       0.5628799076829605
+      ],
+      "p_one_sided": 0.18828451882845187,
+      "B_finite": 1911
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.08786610878661087,
+      "B_finite": 1911
+     },
+     "fisher_p_greater": 0.43044826960389426,
+     "disc_p_BH_secondary_family": 0.009654062751407884
+    },
+    "primary:A1|TDlite|BAL1third": {
+     "n_pairs": 2388,
+     "n_cond": 3,
+     "P_cond": 0.001256281407035176,
+     "P_out_given_cond": 0.6666666666666666,
+     "P_out_given_not": 0.28553459119496855,
+     "P_out": 0.2860134003350084,
+     "per_split": {
+      "discovery": {
+       "theta": 0.7160927617709065,
+       "ci95": [
+        0.6950105411103302,
+        0.741391426563598
+       ],
+       "p_one_sided": 0.0008045052292839903,
+       "B_finite": 1242,
+       "n_cond": 1,
+       "P_cond": 0.0007022471910112359,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.2839072382290935
+      },
+      "validation": {
+       "theta": 0.212621359223301,
+       "ci95": [
+        -0.31589147286821706,
+        0.7443220454236366
+       ],
+       "p_one_sided": 0.29329608938547486,
+       "B_finite": 1789,
+       "n_cond": 2,
+       "P_cond": 0.0038684719535783366,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.287378640776699
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.28859060402684567
+      }
+     },
+     "pooled": {
+      "theta": 0.3811320754716981,
+      "ci95": [
+       -0.28926137000116936,
+       0.7295880845814421
+      ],
+      "p_one_sided": 0.10826359832635983,
+      "B_finite": 1911
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.08786610878661087,
+      "B_finite": 1911
+     },
+     "fisher_p_greater": 0.1985072049265607,
+     "disc_p_BH_secondary_family": 0.009654062751407884
+    },
+    "primary:A1|TDlite|BAL2": {
+     "n_pairs": 2388,
+     "n_cond": 3,
+     "P_cond": 0.001256281407035176,
+     "P_out_given_cond": 0.6666666666666666,
+     "P_out_given_not": 0.5815513626834381,
+     "P_out": 0.5816582914572864,
+     "per_split": {
+      "discovery": {
+       "theta": 0.4209416725228391,
+       "ci95": [
+        0.39564996347922865,
+        0.4444366362145701
+       ],
+       "p_one_sided": 0.0008045052292839903,
+       "B_finite": 1242,
+       "n_cond": 1,
+       "P_cond": 0.0007022471910112359,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.5790583274771609
+      },
+      "validation": {
+       "theta": -0.09223300970873782,
+       "ci95": [
+        -0.6182170542635659,
+        0.4263565891472868
+       ],
+       "p_one_sided": 0.5966480446927375,
+       "B_finite": 1789,
+       "n_cond": 2,
+       "P_cond": 0.0038684719535783366,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.5922330097087378
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5771812080536913
+      }
+     },
+     "pooled": {
+      "theta": 0.08511530398322853,
+      "ci95": [
+       -0.5869291998324256,
+       0.4336302026075245
+      ],
+      "p_one_sided": 0.3723849372384937,
+      "B_finite": 1911
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.09518828451882845,
+      "B_finite": 1911
+     },
+     "fisher_p_greater": 0.6214484033294441,
+     "disc_p_BH_secondary_family": 0.009654062751407884
+    },
+    "primary:A1|XD|BAL1": {
+     "n_pairs": 2367,
+     "n_cond": 457,
+     "P_cond": 0.1930713983945923,
+     "P_out_given_cond": 0.45076586433260396,
+     "P_out_given_not": 0.4539267015706806,
+     "P_out": 0.45331643430502744,
+     "per_split": {
+      "discovery": {
+       "theta": 0.049383030148835994,
+       "ci95": [
+        -0.010805544932598773,
+        0.11411771605304367
+       ],
+       "p_one_sided": 0.05347326336831584,
+       "B_finite": 2000,
+       "n_cond": 280,
+       "P_cond": 0.19957234497505347,
+       "P_out_given_cond": 0.4857142857142857,
+       "P_out_given_not": 0.4363312555654497
+      },
+      "validation": {
+       "theta": -0.0715045188729399,
+       "ci95": [
+        -0.165138022309595,
+        0.017990791132713877
+       ],
+       "p_one_sided": 0.9405297351324338,
+       "B_finite": 2000,
+       "n_cond": 99,
+       "P_cond": 0.19148936170212766,
+       "P_out_given_cond": 0.41414141414141414,
+       "P_out_given_not": 0.48564593301435405
+      },
+      "holdout": {
+       "theta": -0.09974984365228268,
+       "ci95": [
+        -0.20879659304946444,
+        0.032143804471390626
+       ],
+       "p_one_sided": 0.9375312343828086,
+       "B_finite": 2000,
+       "n_cond": 78,
+       "P_cond": 0.174496644295302,
+       "P_out_given_cond": 0.3717948717948718,
+       "P_out_given_not": 0.4715447154471545
+      }
+     },
+     "pooled": {
+      "theta": -0.0031608372380766414,
+      "ci95": [
+       -0.057366409353399955,
+       0.04958190232958498
+      ],
+      "p_one_sided": 0.5667166416791605,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.45076586433260396,
+      "ci95": [
+       0.40217111160914387,
+       0.4925381056500935
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.5687692271328859,
+     "disc_p_BH_secondary_family": 0.19823421622522072
+    },
+    "primary:A1|XD|BAL1third": {
+     "n_pairs": 2367,
+     "n_cond": 457,
+     "P_cond": 0.1930713983945923,
+     "P_out_given_cond": 0.26258205689277897,
+     "P_out_given_not": 0.2916230366492147,
+     "P_out": 0.28601605407689057,
+     "per_split": {
+      "discovery": {
+       "theta": 0.015039435186363082,
+       "ci95": [
+        -0.04526512406326579,
+        0.07839725857088574
+       ],
+       "p_one_sided": 0.32533733133433285,
+       "B_finite": 2000,
+       "n_cond": 280,
+       "P_cond": 0.19957234497505347,
+       "P_out_given_cond": 0.29642857142857143,
+       "P_out_given_not": 0.28138913624220835
+      },
+      "validation": {
+       "theta": -0.10659223817118554,
+       "ci95": [
+        -0.18543373927090692,
+        -0.030604656916366255
+       ],
+       "p_one_sided": 0.9955022488755623,
+       "B_finite": 2000,
+       "n_cond": 99,
+       "P_cond": 0.19148936170212766,
+       "P_out_given_cond": 0.20202020202020202,
+       "P_out_given_not": 0.30861244019138756
+      },
+      "holdout": {
+       "theta": -0.08557431728163434,
+       "ci95": [
+        -0.1908002427944862,
+        0.03165842402325558
+       ],
+       "p_one_sided": 0.9130434782608695,
+       "B_finite": 2000,
+       "n_cond": 78,
+       "P_cond": 0.174496644295302,
+       "P_out_given_cond": 0.21794871794871795,
+       "P_out_given_not": 0.3035230352303523
+      }
+     },
+     "pooled": {
+      "theta": -0.029040979756435714,
+      "ci95": [
+       -0.07791135580930035,
+       0.017943547190764183
+      ],
+      "p_one_sided": 0.895552223888056,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.26258205689277897,
+      "ci95": [
+       0.21917671778638867,
+       0.3002517351018819
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.9023955889388815,
+     "disc_p_BH_secondary_family": 0.48800599700149927
+    },
+    "primary:A1|XD|BAL2": {
+     "n_pairs": 2367,
+     "n_cond": 457,
+     "P_cond": 0.1930713983945923,
+     "P_out_given_cond": 0.5842450765864332,
+     "P_out_given_not": 0.5801047120418849,
+     "P_out": 0.5809040980143642,
+     "per_split": {
+      "discovery": {
+       "theta": -0.0038067675868210804,
+       "ci95": [
+        -0.07551578874332729,
+        0.06486996893647212
+       ],
+       "p_one_sided": 0.5357321339330335,
+       "B_finite": 2000,
+       "n_cond": 280,
+       "P_cond": 0.19957234497505347,
+       "P_out_given_cond": 0.575,
+       "P_out_given_not": 0.578806767586821
+      },
+      "validation": {
+       "theta": 0.04253056884635831,
+       "ci95": [
+        -0.03783155173486191,
+        0.11862061463145716
+       ],
+       "p_one_sided": 0.1924037981009495,
+       "B_finite": 2000,
+       "n_cond": 99,
+       "P_cond": 0.19148936170212766,
+       "P_out_given_cond": 0.6262626262626263,
+       "P_out_given_not": 0.583732057416268
+      },
+      "holdout": {
+       "theta": -0.01584323535543053,
+       "ci95": [
+        -0.14110584971353893,
+        0.08213348165604947
+       ],
+       "p_one_sided": 0.5967016491754122,
+       "B_finite": 2000,
+       "n_cond": 78,
+       "P_cond": 0.174496644295302,
+       "P_out_given_cond": 0.5641025641025641,
+       "P_out_given_not": 0.5799457994579946
+      }
+     },
+     "pooled": {
+      "theta": 0.004140364544548358,
+      "ci95": [
+       -0.04412726884545401,
+       0.05430671103224819
+      ],
+      "p_one_sided": 0.431784107946027,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5842450765864332,
+      "ci95": [
+       0.5414648421266497,
+       0.6306729789245222
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.4575418459823446,
+     "disc_p_BH_secondary_family": 0.6302730987447454
+    },
+    "secondary:A2|TD|BAL1": {
+     "n_pairs": 2392,
+     "n_cond": 42,
+     "P_cond": 0.017558528428093644,
+     "P_out_given_cond": 0.42857142857142855,
+     "P_out_given_not": 0.4246808510638298,
+     "P_out": 0.42474916387959866,
+     "per_split": {
+      "discovery": {
+       "theta": 0.023732330437037985,
+       "ci95": [
+        -0.1806028203514039,
+        0.24633844042113903
+       ],
+       "p_one_sided": 0.40729635182408797,
+       "B_finite": 2000,
+       "n_cond": 22,
+       "P_cond": 0.01544943820224719,
+       "P_out_given_cond": 0.45454545454545453,
+       "P_out_given_not": 0.43081312410841655
+      },
+      "validation": {
+       "theta": 0.11100196463654222,
+       "ci95": [
+        -0.20863382786841725,
+        0.35947348767737114
+       ],
+       "p_one_sided": 0.2798600699650175,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.019267822736030827,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.3889980353634578
+      },
+      "holdout": {
+       "theta": -0.14646924829157176,
+       "ci95": [
+        -0.45104156535537865,
+        0.18061155913978466
+       ],
+       "p_one_sided": 0.8130934532733634,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.022271714922048998,
+       "P_out_given_cond": 0.3,
+       "P_out_given_not": 0.44646924829157175
+      }
+     },
+     "pooled": {
+      "theta": 0.003890577507598747,
+      "ci95": [
+       -0.14624715086136605,
+       0.15992652255786702
+      ],
+      "p_one_sided": 0.4877561219390305,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.42857142857142855,
+      "ci95": [
+       0.2777777777777778,
+       0.5789898132427842
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.5394607042018583,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "secondary:A2|TD|BAL1third": {
+     "n_pairs": 2392,
+     "n_cond": 42,
+     "P_cond": 0.017558528428093644,
+     "P_out_given_cond": 0.30952380952380953,
+     "P_out_given_not": 0.27914893617021275,
+     "P_out": 0.27968227424749165,
+     "per_split": {
+      "discovery": {
+       "theta": 0.034301646997795365,
+       "ci95": [
+        -0.14715068564739328,
+        0.24991883609560503
+       ],
+       "p_one_sided": 0.3588205897051474,
+       "B_finite": 2000,
+       "n_cond": 22,
+       "P_cond": 0.01544943820224719,
+       "P_out_given_cond": 0.3181818181818182,
+       "P_out_given_not": 0.2838801711840228
+      },
+      "validation": {
+       "theta": 0.13673870333988214,
+       "ci95": [
+        -0.19059145298724603,
+        0.43478002175982544
+       ],
+       "p_one_sided": 0.25687156421789104,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.019267822736030827,
+       "P_out_given_cond": 0.4,
+       "P_out_given_not": 0.2632612966601179
+      },
+      "holdout": {
+       "theta": -0.08246013667425967,
+       "ci95": [
+        -0.29186475960247116,
+        0.18516634151278064
+       ],
+       "p_one_sided": 0.7461269365317341,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.022271714922048998,
+       "P_out_given_cond": 0.2,
+       "P_out_given_not": 0.2824601366742597
+      }
+     },
+     "pooled": {
+      "theta": 0.030374873353596787,
+      "ci95": [
+       -0.10555946291560103,
+       0.18152254436892604
+      ],
+      "p_one_sided": 0.3548225887056472,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.30952380952380953,
+      "ci95": [
+       0.17643382352941178,
+       0.46003846153846134
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.38824902812180556,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "secondary:A2|TD|BAL2": {
+     "n_pairs": 2392,
+     "n_cond": 42,
+     "P_cond": 0.017558528428093644,
+     "P_out_given_cond": 0.5952380952380952,
+     "P_out_given_not": 0.5774468085106383,
+     "P_out": 0.5777591973244147,
+     "per_split": {
+      "discovery": {
+       "theta": 0.2042536635974581,
+       "ci95": [
+        0.029206765820939052,
+        0.3627318574671008
+       ],
+       "p_one_sided": 0.01249375312343828,
+       "B_finite": 2000,
+       "n_cond": 22,
+       "P_cond": 0.01544943820224719,
+       "P_out_given_cond": 0.7727272727272727,
+       "P_out_given_not": 0.5684736091298146
+      },
+      "validation": {
+       "theta": -0.17956777996070727,
+       "ci95": [
+        -0.44893973214285715,
+        0.12479822674670572
+       ],
+       "p_one_sided": 0.8740629685157422,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.019267822736030827,
+       "P_out_given_cond": 0.4,
+       "P_out_given_not": 0.5795677799607073
+      },
+      "holdout": {
+       "theta": -0.2036446469248291,
+       "ci95": [
+        -0.5530301300678013,
+        0.16498444643446283
+       ],
+       "p_one_sided": 0.8730634682658671,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.022271714922048998,
+       "P_out_given_cond": 0.4,
+       "P_out_given_not": 0.6036446469248291
+      }
+     },
+     "pooled": {
+      "theta": 0.01779128672745689,
+      "ci95": [
+       -0.13035966983404962,
+       0.15644186436604873
+      ],
+      "p_one_sided": 0.39930034982508744,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5952380952380952,
+      "ci95": [
+       0.4472953216374269,
+       0.7347475832438236
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.47380332499878763,
+     "disc_p_BH_secondary_family": 0.09745127436281859
+    },
+    "secondary:A2|TDlite|BAL1": {
+     "n_pairs": 2392,
+     "n_cond": 78,
+     "P_cond": 0.03260869565217391,
+     "P_out_given_cond": 0.3974358974358974,
+     "P_out_given_not": 0.42566983578219536,
+     "P_out": 0.42474916387959866,
+     "per_split": {
+      "discovery": {
+       "theta": 0.013697526387881687,
+       "ci95": [
+        -0.1446231349415217,
+        0.16563360049315312
+       ],
+       "p_one_sided": 0.4662668665667166,
+       "B_finite": 2000,
+       "n_cond": 45,
+       "P_cond": 0.03160112359550562,
+       "P_out_given_cond": 0.4444444444444444,
+       "P_out_given_not": 0.43074691805656273
+      },
+      "validation": {
+       "theta": -0.016650099403578533,
+       "ci95": [
+        -0.2552839770449991,
+        0.15041113438417106
+       ],
+       "p_one_sided": 0.6621689155422289,
+       "B_finite": 2000,
+       "n_cond": 16,
+       "P_cond": 0.030828516377649325,
+       "P_out_given_cond": 0.375,
+       "P_out_given_not": 0.39165009940357853
+      },
+      "holdout": {
+       "theta": -0.15495642701525053,
+       "ci95": [
+        -0.3947774604773908,
+        0.10014291196276483
+       ],
+       "p_one_sided": 0.8865567216391804,
+       "B_finite": 2000,
+       "n_cond": 17,
+       "P_cond": 0.0378619153674833,
+       "P_out_given_cond": 0.29411764705882354,
+       "P_out_given_not": 0.44907407407407407
+      }
+     },
+     "pooled": {
+      "theta": -0.02823393834629795,
+      "ci95": [
+       -0.14166435552725112,
+       0.08776059688581309
+      ],
+      "p_one_sided": 0.7031484257871065,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.3974358974358974,
+      "ci95": [
+       0.2856766917293233,
+       0.5074684270952927
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.7286599756631706,
+     "disc_p_BH_secondary_family": 0.5595202398800599
+    },
+    "secondary:A2|TDlite|BAL1third": {
+     "n_pairs": 2392,
+     "n_cond": 78,
+     "P_cond": 0.03260869565217391,
+     "P_out_given_cond": 0.28205128205128205,
+     "P_out_given_not": 0.27960242005185826,
+     "P_out": 0.27968227424749165,
+     "per_split": {
+      "discovery": {
+       "theta": 0.027572314881959548,
+       "ci95": [
+        -0.10902752468372703,
+        0.1587337087988744
+       ],
+       "p_one_sided": 0.4002998500749625,
+       "B_finite": 2000,
+       "n_cond": 45,
+       "P_cond": 0.03160112359550562,
+       "P_out_given_cond": 0.3111111111111111,
+       "P_out_given_not": 0.28353879622915157
+      },
+      "validation": {
+       "theta": 0.04808648111332009,
+       "ci95": [
+        -0.18988229770308243,
+        0.22894757821634795
+       ],
+       "p_one_sided": 0.4367816091954023,
+       "B_finite": 2000,
+       "n_cond": 16,
+       "P_cond": 0.030828516377649325,
+       "P_out_given_cond": 0.3125,
+       "P_out_given_not": 0.2644135188866799
+      },
+      "holdout": {
+       "theta": -0.10825163398692808,
+       "ci95": [
+        -0.28009483358643383,
+        0.07961486035384435
+       ],
+       "p_one_sided": 0.8905547226386806,
+       "B_finite": 2000,
+       "n_cond": 17,
+       "P_cond": 0.0378619153674833,
+       "P_out_given_cond": 0.17647058823529413,
+       "P_out_given_not": 0.2847222222222222
+      }
+     },
+     "pooled": {
+      "theta": 0.0024488619994237903,
+      "ci95": [
+       -0.09600751444382284,
+       0.10759878598989564
+      ],
+      "p_one_sided": 0.5392303848075962,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.28205128205128205,
+      "ci95": [
+       0.18421052631578946,
+       0.38466666666666643
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.5251623955586849,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "secondary:A2|TDlite|BAL2": {
+     "n_pairs": 2392,
+     "n_cond": 78,
+     "P_cond": 0.03260869565217391,
+     "P_out_given_cond": 0.5641025641025641,
+     "P_out_given_not": 0.5782195332757131,
+     "P_out": 0.5777591973244147,
+     "per_split": {
+      "discovery": {
+       "theta": 0.07519136250100722,
+       "ci95": [
+        -0.08986463685875754,
+        0.224203801455369
+       ],
+       "p_one_sided": 0.175912043978011,
+       "B_finite": 2000,
+       "n_cond": 45,
+       "P_cond": 0.03160112359550562,
+       "P_out_given_cond": 0.6444444444444445,
+       "P_out_given_not": 0.5692530819434373
+      },
+      "validation": {
+       "theta": -0.14301689860834987,
+       "ci95": [
+        -0.3594903386087596,
+        0.12689658674934498
+       ],
+       "p_one_sided": 0.8420789605197402,
+       "B_finite": 2000,
+       "n_cond": 16,
+       "P_cond": 0.030828516377649325,
+       "P_out_given_cond": 0.4375,
+       "P_out_given_not": 0.5805168986083499
+      },
+      "holdout": {
+       "theta": -0.133578431372549,
+       "ci95": [
+        -0.4038000800678695,
+        0.1476813547259685
+       ],
+       "p_one_sided": 0.8350824587706147,
+       "B_finite": 2000,
+       "n_cond": 17,
+       "P_cond": 0.0378619153674833,
+       "P_out_given_cond": 0.47058823529411764,
+       "P_out_given_not": 0.6041666666666666
+      }
+     },
+     "pooled": {
+      "theta": -0.014116969173148974,
+      "ci95": [
+       -0.1346106042395105,
+       0.09853745684367045
+      ],
+      "p_one_sided": 0.6126936531734133,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5641025641025641,
+      "ci95": [
+       0.44574966532797855,
+       0.6744256094144018
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.6440903774474231,
+     "disc_p_BH_secondary_family": 0.3404749238284084
+    },
+    "secondary:A2|XD|BAL1": {
+     "n_pairs": 2371,
+     "n_cond": 471,
+     "P_cond": 0.19865035849852383,
+     "P_out_given_cond": 0.4033970276008493,
+     "P_out_given_not": 0.4284210526315789,
+     "P_out": 0.42345002108814844,
+     "per_split": {
+      "discovery": {
+       "theta": 0.019706167811673392,
+       "ci95": [
+        -0.035012094977712474,
+        0.0736299262422843
+       ],
+       "p_one_sided": 0.25687156421789104,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20028510334996436,
+       "P_out_given_cond": 0.44483985765124556,
+       "P_out_given_not": 0.42513368983957217
+      },
+      "validation": {
+       "theta": -0.08811455847255367,
+       "ci95": [
+        -0.19039451142156405,
+        0.01875850451244551
+       ],
+       "p_one_sided": 0.9475262368815592,
+       "B_finite": 2000,
+       "n_cond": 100,
+       "P_cond": 0.1926782273603083,
+       "P_out_given_cond": 0.32,
+       "P_out_given_not": 0.4081145584725537
+      },
+      "holdout": {
+       "theta": -0.09572887650882084,
+       "ci95": [
+        -0.21772742915883914,
+        0.051321003272827535
+       ],
+       "p_one_sided": 0.888055972013993,
+       "B_finite": 2000,
+       "n_cond": 90,
+       "P_cond": 0.20044543429844097,
+       "P_out_given_cond": 0.36666666666666664,
+       "P_out_given_not": 0.4623955431754875
+      }
+     },
+     "pooled": {
+      "theta": -0.025024025030729646,
+      "ci95": [
+       -0.07635468790391112,
+       0.019954557080179517
+      ],
+      "p_one_sided": 0.8595702148925537,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.4033970276008493,
+      "ci95": [
+       0.3565527298799703,
+       0.4417706094085887
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.8499303436092613,
+     "disc_p_BH_secondary_family": 0.4403512529449561
+    },
+    "secondary:A2|XD|BAL1third": {
+     "n_pairs": 2371,
+     "n_cond": 471,
+     "P_cond": 0.19865035849852383,
+     "P_out_given_cond": 0.26963906581740976,
+     "P_out_given_not": 0.28210526315789475,
+     "P_out": 0.279628848587094,
+     "per_split": {
+      "discovery": {
+       "theta": 0.022633705698390683,
+       "ci95": [
+        -0.03653045953954878,
+        0.07544709374413502
+       ],
+       "p_one_sided": 0.24887556221889057,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20028510334996436,
+       "P_out_given_cond": 0.302491103202847,
+       "P_out_given_not": 0.2798573975044563
+      },
+      "validation": {
+       "theta": -0.09400954653937948,
+       "ci95": [
+        -0.1748874485945913,
+        -0.007538378121032647
+       ],
+       "p_one_sided": 0.9820089955022488,
+       "B_finite": 2000,
+       "n_cond": 100,
+       "P_cond": 0.1926782273603083,
+       "P_out_given_cond": 0.19,
+       "P_out_given_not": 0.2840095465393795
+      },
+      "holdout": {
+       "theta": -0.03135252243887343,
+       "ci95": [
+        -0.1369900447311509,
+        0.08612287196754423
+       ],
+       "p_one_sided": 0.6756621689155422,
+       "B_finite": 2000,
+       "n_cond": 90,
+       "P_cond": 0.20044543429844097,
+       "P_out_given_cond": 0.25555555555555554,
+       "P_out_given_not": 0.28690807799442897
+      }
+     },
+     "pooled": {
+      "theta": -0.012466197340484986,
+      "ci95": [
+       -0.05898970158149724,
+       0.027991630557005587
+      ],
+      "p_one_sided": 0.7646176911544228,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.26963906581740976,
+      "ci95": [
+       0.22767522989734815,
+       0.3068438592502061
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.7236186150997602,
+     "disc_p_BH_secondary_family": 0.4391921686215716
+    },
+    "secondary:A2|XD|BAL2": {
+     "n_pairs": 2371,
+     "n_cond": 471,
+     "P_cond": 0.19865035849852383,
+     "P_out_given_cond": 0.6178343949044586,
+     "P_out_given_not": 0.5673684210526316,
+     "P_out": 0.5773935048502742,
+     "per_split": {
+      "discovery": {
+       "theta": 0.051493583522053354,
+       "ci95": [
+        -0.016193996276102275,
+        0.12773449800698372
+       ],
+       "p_one_sided": 0.063968015992004,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20028510334996436,
+       "P_out_given_cond": 0.6120996441281139,
+       "P_out_given_not": 0.5606060606060606
+      },
+      "validation": {
+       "theta": 0.10391408114558476,
+       "ci95": [
+        -0.0005305160548485121,
+        0.21257923070675647
+       ],
+       "p_one_sided": 0.025987006496751622,
+       "B_finite": 2000,
+       "n_cond": 100,
+       "P_cond": 0.1926782273603083,
+       "P_out_given_cond": 0.66,
+       "P_out_given_not": 0.5560859188544153
+      },
+      "holdout": {
+       "theta": -0.01278242030331167,
+       "ci95": [
+        -0.10521397362269894,
+        0.09725913185859114
+       ],
+       "p_one_sided": 0.5902048975512244,
+       "B_finite": 2000,
+       "n_cond": 90,
+       "P_cond": 0.20044543429844097,
+       "P_out_given_cond": 0.5888888888888889,
+       "P_out_given_not": 0.6016713091922006
+      }
+     },
+     "pooled": {
+      "theta": 0.05046597385182694,
+      "ci95": [
+       -0.0033858786674258513,
+       0.10399125641117217
+      ],
+      "p_one_sided": 0.031484257871064465,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6178343949044586,
+      "ci95": [
+       0.5731416696053051,
+       0.66323347107438
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.02632281585520895,
+     "disc_p_BH_secondary_family": 0.20200426102738103
+    }
+   },
+   "n_sessions_primary": 2392,
+   "n_pairs_primary": 2388,
+   "XD_cut_Rsig_primary": 1.9380468007864278,
+   "P_TD_by_split_primary": {
+    "discovery": 0.0007017543859649122,
+    "validation": 0.0019305019305019305,
+    "holdout": 0.0
+   },
+   "P_TD_pooled_primary": 0.0008361204013377926,
+   "P_TDlite_pooled_primary": 0.001254180602006689,
+   "P_BAL1_pooled_primary": 0.4531772575250836,
+   "primary_cell": "primary:A1|TD|BAL1",
+   "persistence": {
+    "P_TDnext_given_TD": 0.0,
+    "P_TD": 0.0008375209380234506,
+    "rd": {
+     "theta": -0.0008382229673093043,
+     "ci95": [
+      -0.0020990764063811922,
+      -0.00041893590280687055
+     ],
+     "p_one_sided": 1.0,
+     "B_finite": 1744
+    }
+   },
+   "transition_matrix_row_normalised": {
+    "B": {
+     "B": 0.44783010156971376,
+     "O": 0.5521698984302862,
+     "T": 0.0
+    },
+    "O": {
+     "B": 0.45740598618572526,
+     "O": 0.5410590943975442,
+     "T": 0.0015349194167306216
+    },
+    "T": {
+     "B": 1.0,
+     "O": 0.0,
+     "T": 0.0
+    }
+   },
+   "transition_counts": {
+    "B": {
+     "B": 485,
+     "O": 598,
+     "T": 0
+    },
+    "O": {
+     "B": 596,
+     "O": 705,
+     "T": 2
+    },
+    "T": {
+     "B": 2,
+     "O": 0,
+     "T": 0
+    }
+   },
+   "robustness": {
+    "excl_friday_to_monday": {
+     "theta": 0.5513626834381551,
+     "ci95": [
+      0.5332634887375589,
+      0.5742451074711624
+     ],
+     "p_one_sided": 0.0005750431282346176,
+     "B_finite": 1738
+    },
+    "up_trend_days": {
+     "theta": null,
+     "ci95": [
+      null,
+      null
+     ],
+     "p_one_sided": null,
+     "B_finite": 0,
+     "n": 0
+    },
+    "down_trend_days": {
+     "theta": 0.546940486169321,
+     "ci95": [
+      0.529046209457334,
+      0.5680770842061165
+     ],
+     "p_one_sided": 0.0005730659025787965,
+     "B_finite": 1744,
+     "n": 2
+    },
+    "per_year_rd": {
+     "2017": null,
+     "2018": 0.5775193798449613,
+     "2019": null,
+     "2020": null,
+     "2021": null,
+     "2022": null,
+     "2023": 0.5697674418604651,
+     "2024": null,
+     "2025": null,
+     "2026": null
+    },
+    "year_share": {
+     "shares": {
+      "2017": 0.0,
+      "2018": 0.5033783783783784,
+      "2019": 0.0,
+      "2020": 0.0,
+      "2021": 0.0,
+      "2022": 0.0,
+      "2023": 0.4966216216216216,
+      "2024": 0.0,
+      "2025": 0.0,
+      "2026": 0.0
+     },
+     "max_abs_share": 0.5033783783783784,
+     "flag_year_gt_50pct": true
+    },
+    "by_prior_sigma_tercile": {
+     "T1": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0,
+      "n_TD": 0
+     },
+     "T2": {
+      "theta": 0.5573065902578797,
+      "ci95": [
+       0.5200573065902578,
+       0.5933908045977012
+      ],
+      "p_one_sided": 0.000564334085778781,
+      "B_finite": 1771,
+      "n_TD": 2
+     },
+     "T3": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0,
+      "n_TD": 0
+     }
+    },
+    "A0_full_day_session": {
+     "P_TD": 0.0,
+     "rd_TD_BAL1": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     }
+    }
+   },
+   "n_sessions_secondary": 2394,
+   "n_pairs_secondary": 2392,
+   "XD_cut_Rsig_secondary": 1.5042539046499117,
+   "P_TD_by_split_secondary": {
+    "discovery": 0.015438596491228071,
+    "validation": 0.019267822736030827,
+    "holdout": 0.022222222222222223
+   },
+   "P_TD_pooled_secondary": 0.017543859649122806,
+   "P_TDlite_pooled_secondary": 0.03258145363408521,
+   "P_BAL1_pooled_secondary": 0.4252297410192147,
+   "primary_disc_p_BH": 0.002413515687851971,
+   "verdict_CL009": "INSUFFICIENT-N",
+   "CL031_q": {
+    "BAL1": {
+     "q": 0.45076586433260396,
+     "ci95": [
+      0.40217111160914387,
+      0.4925381056500935
+     ],
+     "P_out_given_not_XD": 0.4539267015706806,
+     "result": "REFUTED for the analogue"
+    },
+    "BAL2": {
+     "q": 0.5842450765864332,
+     "ci95": [
+      0.5414648421266497,
+      0.6306729789245222
+     ],
+     "P_out_given_not_XD": 0.5801047120418849,
+     "result": "REFUTED for the analogue"
+    }
+   },
+   "HYP010": {
+    "P_BAL2_given_TD": 0.5,
+    "ci95": [
+     0.0,
+     1.0
+    ],
+    "P_BAL2_given_not_TD": 0.5817267393126572,
+    "result": "CONSISTENT",
+    "counted_in_verdicts": true
+   }
+  },
+  "GBPUSD": {
+   "cells": {
+    "primary:A1|TD|BAL1": {
+     "n_pairs": 2385,
+     "n_cond": 2,
+     "P_cond": 0.0008385744234800838,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.4569869911875787,
+     "P_out": 0.4570230607966457,
+     "per_split": {
+      "discovery": {
+       "theta": 0.044045102184637086,
+       "ci95": [
+        -0.47075405214940097,
+        0.5605633802816901
+       ],
+       "p_one_sided": 0.39160045402951194,
+       "B_finite": 1761,
+       "n_cond": 2,
+       "P_cond": 0.0014074595355383533,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.4559548978153629
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.44680851063829785
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4720357941834452
+      }
+     },
+     "pooled": {
+      "theta": 0.043013008812421316,
+      "ci95": [
+       -0.4691589765100671,
+       0.5562080536912752
+      ],
+      "p_one_sided": 0.37005163511187605,
+      "B_finite": 1742
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.23924268502581755,
+      "B_finite": 1742
+     },
+     "fisher_p_greater": 0.7052801345095888,
+     "p_perm": 0.7002997002997003
+    },
+    "primary:A1|TD|BAL1third": {
+     "n_pairs": 2385,
+     "n_cond": 2,
+     "P_cond": 0.0008385744234800838,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.3033990767939572,
+     "P_out": 0.30356394129979036,
+     "per_split": {
+      "discovery": {
+       "theta": 0.1927413671599718,
+       "ci95": [
+        -0.3251057827926657,
+        0.7089499647639183
+       ],
+       "p_one_sided": 0.2866061293984109,
+       "B_finite": 1761,
+       "n_cond": 2,
+       "P_cond": 0.0014074595355383533,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.3072586328400282
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.30174081237911027
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.2930648769574944
+      }
+     },
+     "pooled": {
+      "theta": 0.19660092320604278,
+      "ci95": [
+       -0.31528542500429496,
+       0.7093120805369127
+      ],
+      "p_one_sided": 0.27538726333907054,
+      "B_finite": 1742
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.23924268502581755,
+      "B_finite": 1742
+     },
+     "fisher_p_greater": 0.5150654960392835,
+     "disc_p_BH_secondary_family": 0.4525359937869646
+    },
+    "primary:A1|TD|BAL2": {
+     "n_pairs": 2385,
+     "n_cond": 2,
+     "P_cond": 0.0008385744234800838,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.5963071758287872,
+     "P_out": 0.5962264150943396,
+     "per_split": {
+      "discovery": {
+       "theta": -0.09337561663143057,
+       "ci95": [
+        -0.6098591549295774,
+        0.423943661971831
+       ],
+       "p_one_sided": 0.6072644721906924,
+       "B_finite": 1761,
+       "n_cond": 2,
+       "P_cond": 0.0014074595355383533,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.5933756166314306
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.6131528046421664
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5861297539149888
+      }
+     },
+     "pooled": {
+      "theta": -0.09630717582878723,
+      "ci95": [
+       -0.6082214765100671,
+       0.41670163659253046
+      ],
+      "p_one_sided": 0.5840504876649455,
+      "B_finite": 1742
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.23924268502581755,
+      "B_finite": 1742
+     },
+     "fisher_p_greater": 0.8370678738761554,
+     "disc_p_BH_secondary_family": 0.6624703332989371
+    },
+    "primary:A1|TDlite|BAL1": {
+     "n_pairs": 2385,
+     "n_cond": 2,
+     "P_cond": 0.0008385744234800838,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.4569869911875787,
+     "P_out": 0.4570230607966457,
+     "per_split": {
+      "discovery": {
+       "theta": 0.044045102184637086,
+       "ci95": [
+        -0.47075405214940097,
+        0.5605633802816901
+       ],
+       "p_one_sided": 0.39160045402951194,
+       "B_finite": 1761,
+       "n_cond": 2,
+       "P_cond": 0.0014074595355383533,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.4559548978153629
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.44680851063829785
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4720357941834452
+      }
+     },
+     "pooled": {
+      "theta": 0.043013008812421316,
+      "ci95": [
+       -0.4691589765100671,
+       0.5562080536912752
+      ],
+      "p_one_sided": 0.37005163511187605,
+      "B_finite": 1742
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.23924268502581755,
+      "B_finite": 1742
+     },
+     "fisher_p_greater": 0.7052801345095888,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "primary:A1|TDlite|BAL1third": {
+     "n_pairs": 2385,
+     "n_cond": 2,
+     "P_cond": 0.0008385744234800838,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.3033990767939572,
+     "P_out": 0.30356394129979036,
+     "per_split": {
+      "discovery": {
+       "theta": 0.1927413671599718,
+       "ci95": [
+        -0.3251057827926657,
+        0.7089499647639183
+       ],
+       "p_one_sided": 0.2866061293984109,
+       "B_finite": 1761,
+       "n_cond": 2,
+       "P_cond": 0.0014074595355383533,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.3072586328400282
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.30174081237911027
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.2930648769574944
+      }
+     },
+     "pooled": {
+      "theta": 0.19660092320604278,
+      "ci95": [
+       -0.31528542500429496,
+       0.7093120805369127
+      ],
+      "p_one_sided": 0.27538726333907054,
+      "B_finite": 1742
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.23924268502581755,
+      "B_finite": 1742
+     },
+     "fisher_p_greater": 0.5150654960392835,
+     "disc_p_BH_secondary_family": 0.4525359937869646
+    },
+    "primary:A1|TDlite|BAL2": {
+     "n_pairs": 2385,
+     "n_cond": 2,
+     "P_cond": 0.0008385744234800838,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.5963071758287872,
+     "P_out": 0.5962264150943396,
+     "per_split": {
+      "discovery": {
+       "theta": -0.09337561663143057,
+       "ci95": [
+        -0.6098591549295774,
+        0.423943661971831
+       ],
+       "p_one_sided": 0.6072644721906924,
+       "B_finite": 1761,
+       "n_cond": 2,
+       "P_cond": 0.0014074595355383533,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.5933756166314306
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.6131528046421664
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5861297539149888
+      }
+     },
+     "pooled": {
+      "theta": -0.09630717582878723,
+      "ci95": [
+       -0.6082214765100671,
+       0.41670163659253046
+      ],
+      "p_one_sided": 0.5840504876649455,
+      "B_finite": 1742
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.23924268502581755,
+      "B_finite": 1742
+     },
+     "fisher_p_greater": 0.8370678738761554,
+     "disc_p_BH_secondary_family": 0.6624703332989371
+    },
+    "primary:A1|XD|BAL1": {
+     "n_pairs": 2363,
+     "n_cond": 459,
+     "P_cond": 0.19424460431654678,
+     "P_out_given_cond": 0.46405228758169936,
+     "P_out_given_not": 0.4564075630252101,
+     "P_out": 0.45789250952179433,
+     "per_split": {
+      "discovery": {
+       "theta": 0.05099344915615711,
+       "ci95": [
+        -0.018549031976333306,
+        0.12362234348226166
+       ],
+       "p_one_sided": 0.07146426786606697,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.2008577555396712,
+       "P_out_given_cond": 0.498220640569395,
+       "P_out_given_not": 0.4472271914132379
+      },
+      "validation": {
+       "theta": -0.044882607704581745,
+       "ci95": [
+        -0.1692789967183171,
+        0.04294378577173049
+       ],
+       "p_one_sided": 0.848575712143928,
+       "B_finite": 2000,
+       "n_cond": 107,
+       "P_cond": 0.20696324951644102,
+       "P_out_given_cond": 0.411214953271028,
+       "P_out_given_not": 0.4560975609756098
+      },
+      "holdout": {
+       "theta": -0.07559184896613724,
+       "ci95": [
+        -0.18141523724208083,
+        0.02895900855185849
+       ],
+       "p_one_sided": 0.9205397301349325,
+       "B_finite": 2000,
+       "n_cond": 71,
+       "P_cond": 0.15883668903803133,
+       "P_out_given_cond": 0.4084507042253521,
+       "P_out_given_not": 0.48404255319148937
+      }
+     },
+     "pooled": {
+      "theta": 0.007644724556489291,
+      "ci95": [
+       -0.0450546666003101,
+       0.059302744665737976
+      ],
+      "p_one_sided": 0.3818090954522739,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.46405228758169936,
+      "ci95": [
+       0.41725984357742024,
+       0.5070198367749992
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.40372542269355277,
+     "disc_p_BH_secondary_family": 0.20308027804279674
+    },
+    "primary:A1|XD|BAL1third": {
+     "n_pairs": 2363,
+     "n_cond": 459,
+     "P_cond": 0.19424460431654678,
+     "P_out_given_cond": 0.3202614379084967,
+     "P_out_given_not": 0.3004201680672269,
+     "P_out": 0.30427422767668216,
+     "per_split": {
+      "discovery": {
+       "theta": 0.05891303102260648,
+       "ci95": [
+        -0.014921037223268359,
+        0.13495751007450654
+       ],
+       "p_one_sided": 0.057971014492753624,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.2008577555396712,
+       "P_out_given_cond": 0.35587188612099646,
+       "P_out_given_not": 0.29695885509839
+      },
+      "validation": {
+       "theta": -0.03872806017779806,
+       "ci95": [
+        -0.14842471667566107,
+        0.037968343375240604
+       ],
+       "p_one_sided": 0.8420789605197402,
+       "B_finite": 2000,
+       "n_cond": 107,
+       "P_cond": 0.20696324951644102,
+       "P_out_given_cond": 0.27102803738317754,
+       "P_out_given_not": 0.3097560975609756
+      },
+      "holdout": {
+       "theta": -0.04701078813305365,
+       "ci95": [
+        -0.11547649177424595,
+        0.0653624348237356
+       ],
+       "p_one_sided": 0.7051474262868566,
+       "B_finite": 2000,
+       "n_cond": 71,
+       "P_cond": 0.15883668903803133,
+       "P_out_given_cond": 0.2535211267605634,
+       "P_out_given_not": 0.300531914893617
+      }
+     },
+     "pooled": {
+      "theta": 0.019841269841269826,
+      "ci95": [
+       -0.030495209020074916,
+       0.07483627907835472
+      ],
+      "p_one_sided": 0.19640179910044978,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.3202614379084967,
+      "ci95": [
+       0.2733474334967762,
+       0.36853448275862066
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.21928716395449782,
+     "disc_p_BH_secondary_family": 0.19823421622522072
+    },
+    "primary:A1|XD|BAL2": {
+     "n_pairs": 2363,
+     "n_cond": 459,
+     "P_cond": 0.19424460431654678,
+     "P_out_given_cond": 0.6122004357298475,
+     "P_out_given_not": 0.592436974789916,
+     "P_out": 0.5962759204401185,
+     "per_split": {
+      "discovery": {
+       "theta": 0.050267699692511325,
+       "ci95": [
+        -0.012349708422459443,
+        0.11761322563199783
+       ],
+       "p_one_sided": 0.059470264867566215,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.2008577555396712,
+       "P_out_given_cond": 0.6334519572953736,
+       "P_out_given_not": 0.5831842576028623
+      },
+      "validation": {
+       "theta": -0.05429678595851384,
+       "ci95": [
+        -0.16434994972066283,
+        0.04937211731138942
+       ],
+       "p_one_sided": 0.855072463768116,
+       "B_finite": 2000,
+       "n_cond": 107,
+       "P_cond": 0.20696324951644102,
+       "P_out_given_cond": 0.5700934579439252,
+       "P_out_given_not": 0.624390243902439
+      },
+      "holdout": {
+       "theta": 0.00644291279592446,
+       "ci95": [
+        -0.1421375244778068,
+        0.11576572663280753
+       ],
+       "p_one_sided": 0.5407296351824088,
+       "B_finite": 2000,
+       "n_cond": 71,
+       "P_cond": 0.15883668903803133,
+       "P_out_given_cond": 0.5915492957746479,
+       "P_out_given_not": 0.5851063829787234
+      }
+     },
+     "pooled": {
+      "theta": 0.019763460939931532,
+      "ci95": [
+       -0.033312917253057434,
+       0.07112114148298392
+      ],
+      "p_one_sided": 0.22988505747126436,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6122004357298475,
+      "ci95": [
+       0.5633439350044086,
+       0.6605101874404877
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.23557266051008297,
+     "disc_p_BH_secondary_family": 0.19823421622522072
+    },
+    "secondary:A2|TD|BAL1": {
+     "n_pairs": 2391,
+     "n_cond": 42,
+     "P_cond": 0.01756587202007528,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.43039591315453385,
+     "P_out": 0.4316185696361355,
+     "per_split": {
+      "discovery": {
+       "theta": 0.08437768240343352,
+       "ci95": [
+        -0.1490396885147389,
+        0.29084180047527486
+       ],
+       "p_one_sided": 0.2753623188405797,
+       "B_finite": 2000,
+       "n_cond": 25,
+       "P_cond": 0.017568517217146872,
+       "P_out_given_cond": 0.52,
+       "P_out_given_not": 0.4356223175965665
+      },
+      "validation": {
+       "theta": 0.1690848214285714,
+       "ci95": [
+        -0.38910505836575876,
+        0.5800829417009188
+       ],
+       "p_one_sided": 0.2143928035982009,
+       "B_finite": 2000,
+       "n_cond": 7,
+       "P_cond": 0.01348747591522158,
+       "P_out_given_cond": 0.5714285714285714,
+       "P_out_given_not": 0.40234375
+      },
+      "holdout": {
+       "theta": -0.04646924829157173,
+       "ci95": [
+        -0.41404093528071817,
+        0.2462242441499274
+       ],
+       "p_one_sided": 0.7251374312843578,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.022271714922048998,
+       "P_out_given_cond": 0.4,
+       "P_out_given_not": 0.44646924829157175
+      }
+     },
+     "pooled": {
+      "theta": 0.06960408684546615,
+      "ci95": [
+       -0.0969511444354596,
+       0.22378653240002042
+      ],
+      "p_one_sided": 0.20789605197401298,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.3333333333333333,
+       0.6571428571428571
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.22722608453128287,
+     "disc_p_BH_secondary_family": 0.4525359937869646
+    },
+    "secondary:A2|TD|BAL1third": {
+     "n_pairs": 2391,
+     "n_cond": 42,
+     "P_cond": 0.01756587202007528,
+     "P_out_given_cond": 0.2619047619047619,
+     "P_out_given_not": 0.27415921668795235,
+     "P_out": 0.273943956503555,
+     "per_split": {
+      "discovery": {
+       "theta": -0.02895565092989988,
+       "ci95": [
+        -0.18957838102745928,
+        0.19402887717155715
+       ],
+       "p_one_sided": 0.5687156421789106,
+       "B_finite": 2000,
+       "n_cond": 25,
+       "P_cond": 0.017568517217146872,
+       "P_out_given_cond": 0.24,
+       "P_out_given_not": 0.26895565092989987
+      },
+      "validation": {
+       "theta": 0.0025111607142856984,
+       "ci95": [
+        -0.2941233803462906,
+        0.35872790566599116
+       ],
+       "p_one_sided": 0.5012493753123438,
+       "B_finite": 2000,
+       "n_cond": 7,
+       "P_cond": 0.01348747591522158,
+       "P_out_given_cond": 0.2857142857142857,
+       "P_out_given_not": 0.283203125
+      },
+      "holdout": {
+       "theta": 0.019817767653758533,
+       "ci95": [
+        -0.2609089120598072,
+        0.3755267118133932
+       ],
+       "p_one_sided": 0.3988005997001499,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.022271714922048998,
+       "P_out_given_cond": 0.3,
+       "P_out_given_not": 0.28018223234624146
+      }
+     },
+     "pooled": {
+      "theta": -0.012254454783190427,
+      "ci95": [
+       -0.14134747209694506,
+       0.1412494191189172
+      ],
+      "p_one_sided": 0.5382308845577212,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.2619047619047619,
+      "ci95": [
+       0.13157894736842105,
+       0.41304347826086957
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.6283957268158404,
+     "disc_p_BH_secondary_family": 0.6562103563602815
+    },
+    "secondary:A2|TD|BAL2": {
+     "n_pairs": 2391,
+     "n_cond": 42,
+     "P_cond": 0.01756587202007528,
+     "P_out_given_cond": 0.6428571428571429,
+     "P_out_given_not": 0.5862068965517241,
+     "P_out": 0.5872020075282308,
+     "per_split": {
+      "discovery": {
+       "theta": 0.05845493562231763,
+       "ci95": [
+        -0.13440587838134943,
+        0.2218958736381224
+       ],
+       "p_one_sided": 0.3098450774612694,
+       "B_finite": 2000,
+       "n_cond": 25,
+       "P_cond": 0.017568517217146872,
+       "P_out_given_cond": 0.64,
+       "P_out_given_not": 0.5815450643776824
+      },
+      "validation": {
+       "theta": -0.028180803571428603,
+       "ci95": [
+        -0.4070085323364105,
+        0.398462113058727
+       ],
+       "p_one_sided": 0.567216391804098,
+       "B_finite": 2000,
+       "n_cond": 7,
+       "P_cond": 0.01348747591522158,
+       "P_out_given_cond": 0.5714285714285714,
+       "P_out_given_not": 0.599609375
+      },
+      "holdout": {
+       "theta": 0.11457858769931661,
+       "ci95": [
+        -0.24454477050413842,
+        0.37190997680536736
+       ],
+       "p_one_sided": 0.27786106946526734,
+       "B_finite": 2000,
+       "n_cond": 10,
+       "P_cond": 0.022271714922048998,
+       "P_out_given_cond": 0.7,
+       "P_out_given_not": 0.5854214123006833
+      }
+     },
+     "pooled": {
+      "theta": 0.05665024630541882,
+      "ci95": [
+       -0.07870942664556371,
+       0.18519798741878507
+      ],
+      "p_one_sided": 0.23138430784607697,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6428571428571429,
+      "ci95": [
+       0.5116279069767442,
+       0.7714285714285715
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.28289971665156904,
+     "disc_p_BH_secondary_family": 0.476684734555799
+    },
+    "secondary:A2|TDlite|BAL1": {
+     "n_pairs": 2391,
+     "n_cond": 84,
+     "P_cond": 0.03513174404015056,
+     "P_out_given_cond": 0.5119047619047619,
+     "P_out_given_not": 0.42869527524924145,
+     "P_out": 0.4316185696361355,
+     "per_split": {
+      "discovery": {
+       "theta": 0.0757062650387666,
+       "ci95": [
+        -0.06575404661370575,
+        0.21427496836749185
+       ],
+       "p_one_sided": 0.16491754122938532,
+       "B_finite": 2000,
+       "n_cond": 49,
+       "P_cond": 0.03443429374560787,
+       "P_out_given_cond": 0.5102040816326531,
+       "P_out_given_not": 0.4344978165938865
+      },
+      "validation": {
+       "theta": 0.15635395874916835,
+       "ci95": [
+        -0.16549613292017157,
+        0.37239628901558275
+       ],
+       "p_one_sided": 0.14342828585707146,
+       "B_finite": 2000,
+       "n_cond": 18,
+       "P_cond": 0.03468208092485549,
+       "P_out_given_cond": 0.5555555555555556,
+       "P_out_given_not": 0.3992015968063872
+      },
+      "holdout": {
+       "theta": 0.02614379084967322,
+       "ci95": [
+        -0.22602057122108546,
+        0.2165746789697091
+       ],
+       "p_one_sided": 0.4817591204397801,
+       "B_finite": 2000,
+       "n_cond": 17,
+       "P_cond": 0.0378619153674833,
+       "P_out_given_cond": 0.47058823529411764,
+       "P_out_given_not": 0.4444444444444444
+      }
+     },
+     "pooled": {
+      "theta": 0.08320948665552041,
+      "ci95": [
+       -0.02570073049378931,
+       0.18648124217184378
+      ],
+      "p_one_sided": 0.07096451774112944,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5119047619047619,
+      "ci95": [
+       0.4,
+       0.611954291044776
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.08120039315515137,
+     "disc_p_BH_secondary_family": 0.3378310844577711
+    },
+    "secondary:A2|TDlite|BAL1third": {
+     "n_pairs": 2391,
+     "n_cond": 84,
+     "P_cond": 0.03513174404015056,
+     "P_out_given_cond": 0.30952380952380953,
+     "P_out_given_not": 0.27264846120502817,
+     "P_out": 0.273943956503555,
+     "per_split": {
+      "discovery": {
+       "theta": 0.03901910109021778,
+       "ci95": [
+        -0.07505632525967458,
+        0.17742513533655496
+       ],
+       "p_one_sided": 0.21889055472263869,
+       "B_finite": 2000,
+       "n_cond": 49,
+       "P_cond": 0.03443429374560787,
+       "P_out_given_cond": 0.30612244897959184,
+       "P_out_given_not": 0.26710334788937407
+      },
+      "validation": {
+       "theta": 0.10944777112441784,
+       "ci95": [
+        -0.11478581298940581,
+        0.26351655004631325
+       ],
+       "p_one_sided": 0.1934032983508246,
+       "B_finite": 2000,
+       "n_cond": 18,
+       "P_cond": 0.03468208092485549,
+       "P_out_given_cond": 0.3888888888888889,
+       "P_out_given_not": 0.27944111776447106
+      },
+      "holdout": {
+       "theta": -0.047113289760348565,
+       "ci95": [
+        -0.22505827505827508,
+        0.23611386639137505
+       ],
+       "p_one_sided": 0.623688155922039,
+       "B_finite": 2000,
+       "n_cond": 17,
+       "P_cond": 0.0378619153674833,
+       "P_out_given_cond": 0.23529411764705882,
+       "P_out_given_not": 0.2824074074074074
+      }
+     },
+     "pooled": {
+      "theta": 0.036875348318781365,
+      "ci95": [
+       -0.05460977405625774,
+       0.13734315111073717
+      ],
+      "p_one_sided": 0.20689655172413793,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.30952380952380953,
+      "ci95": [
+       0.21949314024390243,
+       0.40741959064327476
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.26424197731396,
+     "disc_p_BH_secondary_family": 0.397982826768434
+    },
+    "secondary:A2|TDlite|BAL2": {
+     "n_pairs": 2391,
+     "n_cond": 84,
+     "P_cond": 0.03513174404015056,
+     "P_out_given_cond": 0.6547619047619048,
+     "P_out_given_not": 0.5847420892934547,
+     "P_out": 0.5872020075282308,
+     "per_split": {
+      "discovery": {
+       "theta": 0.09413896562992008,
+       "ci95": [
+        -0.04873737924706224,
+        0.21677360341035767
+       ],
+       "p_one_sided": 0.09295352323838081,
+       "B_finite": 2000,
+       "n_cond": 49,
+       "P_cond": 0.03443429374560787,
+       "P_out_given_cond": 0.673469387755102,
+       "P_out_given_not": 0.5793304221251819
+      },
+      "validation": {
+       "theta": 0.012308715901530376,
+       "ci95": [
+        -0.17085971520575943,
+        0.28678521209280494
+       ],
+       "p_one_sided": 0.2988505747126437,
+       "B_finite": 2000,
+       "n_cond": 18,
+       "P_cond": 0.03468208092485549,
+       "P_out_given_cond": 0.6111111111111112,
+       "P_out_given_not": 0.5988023952095808
+      },
+      "holdout": {
+       "theta": 0.06141067538126366,
+       "ci95": [
+        -0.22081166974162203,
+        0.2874085519401643
+       ],
+       "p_one_sided": 0.3778110944527736,
+       "B_finite": 2000,
+       "n_cond": 17,
+       "P_cond": 0.0378619153674833,
+       "P_out_given_cond": 0.6470588235294118,
+       "P_out_given_not": 0.5856481481481481
+      }
+     },
+     "pooled": {
+      "theta": 0.07001981546845004,
+      "ci95": [
+       -0.03252185377882193,
+       0.16791067451324154
+      ],
+      "p_one_sided": 0.09745127436281859,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6547619047619048,
+      "ci95": [
+       0.5555253623188406,
+       0.7530864197530864
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.1209485281542936,
+     "disc_p_BH_secondary_family": 0.23238380809595202
+    },
+    "secondary:A2|XD|BAL1": {
+     "n_pairs": 2369,
+     "n_cond": 486,
+     "P_cond": 0.20514985225833685,
+     "P_out_given_cond": 0.44650205761316875,
+     "P_out_given_not": 0.4275092936802974,
+     "P_out": 0.4314056563951034,
+     "per_split": {
+      "discovery": {
+       "theta": 0.054534189120488075,
+       "ci95": [
+        -0.007100203618894613,
+        0.11872097417226539
+       ],
+       "p_one_sided": 0.04397801099450275,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20057102069950036,
+       "P_out_given_cond": 0.4804270462633452,
+       "P_out_given_not": 0.42589285714285713
+      },
+      "validation": {
+       "theta": -0.04790151805077175,
+       "ci95": [
+        -0.1428994332209251,
+        0.04864921494218901
+       ],
+       "p_one_sided": 0.8310844577711144,
+       "B_finite": 2000,
+       "n_cond": 117,
+       "P_cond": 0.2254335260115607,
+       "P_out_given_cond": 0.36752136752136755,
+       "P_out_given_not": 0.4154228855721393
+      },
+      "holdout": {
+       "theta": -0.002801561319566881,
+       "ci95": [
+        -0.15489217876739697,
+        0.11797323774877316
+       ],
+       "p_one_sided": 0.6061969015492253,
+       "B_finite": 2000,
+       "n_cond": 88,
+       "P_cond": 0.19599109131403117,
+       "P_out_given_cond": 0.4431818181818182,
+       "P_out_given_not": 0.44598337950138506
+      }
+     },
+     "pooled": {
+      "theta": 0.01899276393287136,
+      "ci95": [
+       -0.03667018649091938,
+       0.06343081558794018
+      ],
+      "p_one_sided": 0.27936031984008,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.44650205761316875,
+      "ci95": [
+       0.39544513457556935,
+       0.48775510204081635
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.24102494721667717,
+     "disc_p_BH_secondary_family": 0.19061897622617266
+    },
+    "secondary:A2|XD|BAL1third": {
+     "n_pairs": 2369,
+     "n_cond": 486,
+     "P_cond": 0.20514985225833685,
+     "P_out_given_cond": 0.3004115226337449,
+     "P_out_given_not": 0.26818906001062137,
+     "P_out": 0.27479949345715493,
+     "per_split": {
+      "discovery": {
+       "theta": 0.07204499237417389,
+       "ci95": [
+        0.010833446675762613,
+        0.14138664664347028
+       ],
+       "p_one_sided": 0.012993503248375811,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20057102069950036,
+       "P_out_given_cond": 0.3274021352313167,
+       "P_out_given_not": 0.25535714285714284
+      },
+      "validation": {
+       "theta": -0.012565378237019975,
+       "ci95": [
+        -0.09483244639399216,
+        0.06687042545886701
+       ],
+       "p_one_sided": 0.6256871564217891,
+       "B_finite": 2000,
+       "n_cond": 117,
+       "P_cond": 0.2254335260115607,
+       "P_out_given_cond": 0.27350427350427353,
+       "P_out_given_not": 0.2860696517412935
+      },
+      "holdout": {
+       "theta": -0.0380886426592798,
+       "ci95": [
+        -0.15990325719635187,
+        0.07639359944506227
+       ],
+       "p_one_sided": 0.7346326836581709,
+       "B_finite": 2000,
+       "n_cond": 88,
+       "P_cond": 0.19599109131403117,
+       "P_out_given_cond": 0.25,
+       "P_out_given_not": 0.2880886426592798
+      }
+     },
+     "pooled": {
+      "theta": 0.032222462623123505,
+      "ci95": [
+       -0.01497027744846074,
+       0.0778157360594187
+      ],
+      "p_one_sided": 0.09995002498750624,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.3004115226337449,
+      "ci95": [
+       0.2577891195916947,
+       0.3402094342891796
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.08728522419495092,
+     "disc_p_BH_secondary_family": 0.09745127436281859
+    },
+    "secondary:A2|XD|BAL2": {
+     "n_pairs": 2369,
+     "n_cond": 486,
+     "P_cond": 0.20514985225833685,
+     "P_out_given_cond": 0.5967078189300411,
+     "P_out_given_not": 0.5841741901221456,
+     "P_out": 0.5867454622203462,
+     "per_split": {
+      "discovery": {
+       "theta": 0.033540925266904,
+       "ci95": [
+        -0.04068912017482118,
+        0.1106107526260309
+       ],
+       "p_one_sided": 0.16891554222888555,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20057102069950036,
+       "P_out_given_cond": 0.608540925266904,
+       "P_out_given_not": 0.575
+      },
+      "validation": {
+       "theta": -0.03431560147978063,
+       "ci95": [
+        -0.12089609916175778,
+        0.06940219417306137
+       ],
+       "p_one_sided": 0.7001499250374813,
+       "B_finite": 2000,
+       "n_cond": 117,
+       "P_cond": 0.2254335260115607,
+       "P_out_given_cond": 0.5726495726495726,
+       "P_out_given_not": 0.6069651741293532
+      },
+      "holdout": {
+       "theta": 0.0036514731805590284,
+       "ci95": [
+        -0.11499390519803067,
+        0.12255677684600486
+       ],
+       "p_one_sided": 0.47226386806596704,
+       "B_finite": 2000,
+       "n_cond": 88,
+       "P_cond": 0.19599109131403117,
+       "P_out_given_cond": 0.5909090909090909,
+       "P_out_given_not": 0.5872576177285319
+      }
+     },
+     "pooled": {
+      "theta": 0.012533628807895547,
+      "ci95": [
+       -0.04103183644323667,
+       0.0692684183825699
+      ],
+      "p_one_sided": 0.3373313343328336,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5967078189300411,
+      "ci95": [
+       0.5510146496521858,
+       0.6450251361541685
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.3273814101146564,
+     "disc_p_BH_secondary_family": 0.3378310844577711
+    }
+   },
+   "n_sessions_primary": 2390,
+   "n_pairs_primary": 2385,
+   "XD_cut_Rsig_primary": 1.9280800906855748,
+   "P_TD_by_split_primary": {
+    "discovery": 0.0014054813773717498,
+    "validation": 0.0,
+    "holdout": 0.0
+   },
+   "P_TD_pooled_primary": 0.0008368200836820083,
+   "P_TDlite_pooled_primary": 0.0008368200836820083,
+   "P_BAL1_pooled_primary": 0.45732217573221756,
+   "primary_cell": "primary:A1|TD|BAL1",
+   "persistence": {
+    "P_TDnext_given_TD": 0.0,
+    "P_TD": 0.0008385744234800838,
+    "rd": {
+     "theta": -0.000839278220730172,
+     "ci95": [
+      -0.0021008403361344537,
+      -0.00041946308724832214
+     ],
+     "p_one_sided": 1.0,
+     "B_finite": 1742
+    }
+   },
+   "transition_matrix_row_normalised": {
+    "B": {
+     "B": 0.45879120879120877,
+     "O": 0.5393772893772893,
+     "T": 0.0018315018315018315
+    },
+    "O": {
+     "B": 0.45546088303640586,
+     "O": 0.5445391169635941,
+     "T": 0.0
+    },
+    "T": {
+     "B": 0.5,
+     "O": 0.5,
+     "T": 0.0
+    }
+   },
+   "transition_counts": {
+    "B": {
+     "B": 501,
+     "O": 589,
+     "T": 2
+    },
+    "O": {
+     "B": 588,
+     "O": 703,
+     "T": 0
+    },
+    "T": {
+     "B": 1,
+     "O": 1,
+     "T": 0
+    }
+   },
+   "robustness": {
+    "excl_friday_to_monday": {
+     "theta": null,
+     "ci95": [
+      null,
+      null
+     ],
+     "p_one_sided": null,
+     "B_finite": 0
+    },
+    "up_trend_days": {
+     "theta": -0.4569869911875787,
+     "ci95": [
+      -0.4742618995710728,
+      -0.438061949972394
+     ],
+     "p_one_sided": 1.0,
+     "B_finite": 1234,
+     "n": 1
+    },
+    "down_trend_days": {
+     "theta": 0.5430130088124213,
+     "ci95": [
+      0.5247740872320836,
+      0.5612871425536256
+     ],
+     "p_one_sided": 0.0007558578987150416,
+     "B_finite": 1322,
+     "n": 1
+    },
+    "per_year_rd": {
+     "2017": null,
+     "2018": null,
+     "2019": 0.5581395348837209,
+     "2020": null,
+     "2021": -0.4594594594594595,
+     "2022": null,
+     "2023": null,
+     "2024": null,
+     "2025": null,
+     "2026": null
+    },
+    "year_share": {
+     "shares": {
+      "2017": 0.0,
+      "2018": 0.0,
+      "2019": 5.656050955414014,
+      "2020": 0.0,
+      "2021": -4.656050955414014,
+      "2022": 0.0,
+      "2023": 0.0,
+      "2024": 0.0,
+      "2025": 0.0,
+      "2026": 0.0
+     },
+     "max_abs_share": 5.656050955414014,
+     "flag_year_gt_50pct": true
+    },
+    "by_prior_sigma_tercile": {
+     "T1": {
+      "theta": -0.4450050454086781,
+      "ci95": [
+       -0.47207700109062367,
+       -0.4117053481331988
+      ],
+      "p_one_sided": 1.0,
+      "B_finite": 1294,
+      "n_TD": 1
+     },
+     "T2": {
+      "theta": 0.5224071702944942,
+      "ci95": [
+       0.48901827046193247,
+       0.5620998719590269
+      ],
+      "p_one_sided": 0.0007598784194528875,
+      "B_finite": 1315,
+      "n_TD": 1
+     },
+     "T3": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0,
+      "n_TD": 0
+     }
+    },
+    "A0_full_day_session": {
+     "P_TD": 0.0,
+     "rd_TD_BAL1": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     }
+    }
+   },
+   "n_sessions_secondary": 2393,
+   "n_pairs_secondary": 2391,
+   "XD_cut_Rsig_secondary": 1.438349264886488,
+   "P_TD_by_split_secondary": {
+    "discovery": 0.0175561797752809,
+    "validation": 0.01348747591522158,
+    "holdout": 0.022222222222222223
+   },
+   "P_TD_pooled_secondary": 0.017551190973673213,
+   "P_TDlite_pooled_secondary": 0.035102381947346425,
+   "P_BAL1_pooled_secondary": 0.4320936063518596,
+   "primary_disc_p_BH": 0.5874006810442679,
+   "verdict_CL009": "INSUFFICIENT-N",
+   "CL031_q": {
+    "BAL1": {
+     "q": 0.46405228758169936,
+     "ci95": [
+      0.41725984357742024,
+      0.5070198367749992
+     ],
+     "P_out_given_not_XD": 0.4564075630252101,
+     "result": "REFUTED for the analogue"
+    },
+    "BAL2": {
+     "q": 0.6122004357298475,
+     "ci95": [
+      0.5633439350044086,
+      0.6605101874404877
+     ],
+     "P_out_given_not_XD": 0.592436974789916,
+     "result": "REFUTED for the analogue"
+    }
+   },
+   "HYP010": {
+    "P_BAL2_given_TD": 0.5,
+    "ci95": [
+     0.0,
+     1.0
+    ],
+    "P_BAL2_given_not_TD": 0.5963071758287872,
+    "result": "CONSISTENT",
+    "counted_in_verdicts": false
+   }
+  },
+  "USDJPY": {
+   "cells": {
+    "primary:A1|TD|BAL1": {
+     "n_pairs": 2388,
+     "n_cond": 0,
+     "P_cond": 0.0,
+     "P_out_given_cond": null,
+     "P_out_given_not": 0.49246231155778897,
+     "P_out": 0.49246231155778897,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5154494382022472
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.43133462282398455
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.4899328859060403
+      }
+     },
+     "pooled": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "pooled_P_out_given_cond": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "fisher_p_greater": null,
+     "p_perm": 0.000999000999000999
+    },
+    "primary:A1|TD|BAL1third": {
+     "n_pairs": 2388,
+     "n_cond": 0,
+     "P_cond": 0.0,
+     "P_out_given_cond": null,
+     "P_out_given_not": 0.32160804020100503,
+     "P_out": 0.32160804020100503,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.33707865168539325
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.28820116054158607
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.31096196868008946
+      }
+     },
+     "pooled": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "pooled_P_out_given_cond": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "fisher_p_greater": null,
+     "disc_p_BH_secondary_family": null
+    },
+    "primary:A1|TD|BAL2": {
+     "n_pairs": 2388,
+     "n_cond": 0,
+     "P_cond": 0.0,
+     "P_out_given_cond": null,
+     "P_out_given_not": 0.5896147403685092,
+     "P_out": 0.5896147403685092,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.589185393258427
+      },
+      "validation": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.586073500967118
+      },
+      "holdout": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5950782997762863
+      }
+     },
+     "pooled": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "pooled_P_out_given_cond": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     },
+     "fisher_p_greater": null,
+     "disc_p_BH_secondary_family": null
+    },
+    "primary:A1|TDlite|BAL1": {
+     "n_pairs": 2388,
+     "n_cond": 2,
+     "P_cond": 0.0008375209380234506,
+     "P_out_given_cond": 1.0,
+     "P_out_given_not": 0.4920368818105616,
+     "P_out": 0.49246231155778897,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.5154494382022472
+      },
+      "validation": {
+       "theta": 0.5697674418604651,
+       "ci95": [
+        0.5281553398058252,
+        0.6124031007751938
+       ],
+       "p_one_sided": 0.00076103500761035,
+       "B_finite": 1313,
+       "n_cond": 1,
+       "P_cond": 0.0019342359767891683,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.43023255813953487
+      },
+      "holdout": {
+       "theta": 0.5112107623318385,
+       "ci95": [
+        0.46171171171171166,
+        0.553811659192825
+       ],
+       "p_one_sided": 0.0007633587786259542,
+       "B_finite": 1309,
+       "n_cond": 1,
+       "P_cond": 0.0022371364653243847,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.48878923766816146
+      }
+     },
+     "pooled": {
+      "theta": 0.5079631181894384,
+      "ci95": [
+       0.48790201753414836,
+       0.5294264881665978
+      ],
+      "p_one_sided": 0.0005770340450086555,
+      "B_finite": 1732
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "p_one_sided": 0.0005770340450086555,
+      "B_finite": 1732
+     },
+     "fisher_p_greater": 0.2424144181317143,
+     "disc_p_BH_secondary_family": null
+    },
+    "primary:A1|TDlite|BAL1third": {
+     "n_pairs": 2388,
+     "n_cond": 2,
+     "P_cond": 0.0008375209380234506,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.3214585079631182,
+     "P_out": 0.32160804020100503,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.33707865168539325
+      },
+      "validation": {
+       "theta": -0.28875968992248063,
+       "ci95": [
+        -0.3284157447128772,
+        -0.2524271844660194
+       ],
+       "p_one_sided": 1.0,
+       "B_finite": 1313,
+       "n_cond": 1,
+       "P_cond": 0.0019342359767891683,
+       "P_out_given_cond": 0.0,
+       "P_out_given_not": 0.28875968992248063
+      },
+      "holdout": {
+       "theta": 0.6905829596412556,
+       "ci95": [
+        0.6426966292134831,
+        0.7305184662669421
+       ],
+       "p_one_sided": 0.0007633587786259542,
+       "B_finite": 1309,
+       "n_cond": 1,
+       "P_cond": 0.0022371364653243847,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.3094170403587444
+      }
+     },
+     "pooled": {
+      "theta": 0.1785414920368818,
+      "ci95": [
+       -0.33095936321742775,
+       0.6891495601173021
+      ],
+      "p_one_sided": 0.30813618003462206,
+      "B_finite": 1732
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.2642815926139642,
+      "B_finite": 1732
+     },
+     "fisher_p_greater": 0.5398757507689264,
+     "disc_p_BH_secondary_family": null
+    },
+    "primary:A1|TDlite|BAL2": {
+     "n_pairs": 2388,
+     "n_cond": 2,
+     "P_cond": 0.0008375209380234506,
+     "P_out_given_cond": 0.5,
+     "P_out_given_not": 0.5896898575020956,
+     "P_out": 0.5896147403685092,
+     "per_split": {
+      "discovery": {
+       "theta": null,
+       "ci95": [
+        null,
+        null
+       ],
+       "p_one_sided": null,
+       "B_finite": 0,
+       "n_cond": 0,
+       "P_cond": 0.0,
+       "P_out_given_cond": null,
+       "P_out_given_not": 0.589185393258427
+      },
+      "validation": {
+       "theta": 0.4147286821705426,
+       "ci95": [
+        0.381690948028836,
+        0.4496124031007752
+       ],
+       "p_one_sided": 0.00076103500761035,
+       "B_finite": 1313,
+       "n_cond": 1,
+       "P_cond": 0.0019342359767891683,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.5852713178294574
+      },
+      "holdout": {
+       "theta": -0.5964125560538116,
+       "ci95": [
+        -0.6308796436886325,
+        -0.5627802690582959
+       ],
+       "p_one_sided": 1.0,
+       "B_finite": 1309,
+       "n_cond": 1,
+       "P_cond": 0.0022371364653243847,
+       "P_out_given_cond": 0.0,
+       "P_out_given_not": 0.5964125560538116
+      }
+     },
+     "pooled": {
+      "theta": -0.08968985750209557,
+      "ci95": [
+       -0.6033595168180564,
+       0.42372170997485326
+      ],
+      "p_one_sided": 0.6076168493941142,
+      "B_finite": 1732
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "p_one_sided": 0.27466820542412,
+      "B_finite": 1732
+     },
+     "fisher_p_greater": 0.8316853082617388,
+     "disc_p_BH_secondary_family": null
+    },
+    "primary:A1|XD|BAL1": {
+     "n_pairs": 2367,
+     "n_cond": 428,
+     "P_cond": 0.1808196028728348,
+     "P_out_given_cond": 0.5186915887850467,
+     "P_out_given_not": 0.4853017019082001,
+     "P_out": 0.4913392479932404,
+     "per_split": {
+      "discovery": {
+       "theta": 0.01599520429329926,
+       "ci95": [
+        -0.059204498985396495,
+        0.08396157875157163
+       ],
+       "p_one_sided": 0.37881059470264866,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20028510334996436,
+       "P_out_given_cond": 0.5266903914590747,
+       "P_out_given_not": 0.5106951871657754
+      },
+      "validation": {
+       "theta": 0.03418871959369152,
+       "ci95": [
+        -0.10742752894071095,
+        0.1482325815649057
+       ],
+       "p_one_sided": 0.367816091954023,
+       "B_finite": 2000,
+       "n_cond": 87,
+       "P_cond": 0.16827852998065765,
+       "P_out_given_cond": 0.45977011494252873,
+       "P_out_given_not": 0.4255813953488372
+      },
+      "holdout": {
+       "theta": 0.08863049095607234,
+       "ci95": [
+        -0.06691534891899838,
+        0.19046444878375712
+       ],
+       "p_one_sided": 0.13243378310844578,
+       "B_finite": 2000,
+       "n_cond": 60,
+       "P_cond": 0.1342281879194631,
+       "P_out_given_cond": 0.5666666666666667,
+       "P_out_given_not": 0.4780361757105943
+      }
+     },
+     "pooled": {
+      "theta": 0.03338988687684663,
+      "ci95": [
+       -0.026731476272761567,
+       0.08634770683969309
+      ],
+      "p_one_sided": 0.14592703648175911,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5186915887850467,
+      "ci95": [
+       0.4641209792169714,
+       0.5647103726986977
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.1156184799757859,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "primary:A1|XD|BAL1third": {
+     "n_pairs": 2367,
+     "n_cond": 428,
+     "P_cond": 0.1808196028728348,
+     "P_out_given_cond": 0.352803738317757,
+     "P_out_given_not": 0.31304796286745745,
+     "P_out": 0.3202365863962822,
+     "per_split": {
+      "discovery": {
+       "theta": 0.012753661801181149,
+       "ci95": [
+        -0.05139789051580529,
+        0.07375519733633167
+       ],
+       "p_one_sided": 0.38580709645177413,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20028510334996436,
+       "P_out_given_cond": 0.34519572953736655,
+       "P_out_given_not": 0.3324420677361854
+      },
+      "validation": {
+       "theta": 0.054263565891472854,
+       "ci95": [
+        -0.06378995806071161,
+        0.14945223737404004
+       ],
+       "p_one_sided": 0.20939530234882558,
+       "B_finite": 2000,
+       "n_cond": 87,
+       "P_cond": 0.16827852998065765,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.27906976744186046
+      },
+      "holdout": {
+       "theta": 0.12209302325581395,
+       "ci95": [
+        -0.018912669411318278,
+        0.2096174330273444
+       ],
+       "p_one_sided": 0.04847576211894053,
+       "B_finite": 2000,
+       "n_cond": 60,
+       "P_cond": 0.1342281879194631,
+       "P_out_given_cond": 0.4166666666666667,
+       "P_out_given_not": 0.29457364341085274
+      }
+     },
+     "pooled": {
+      "theta": 0.03975577545029957,
+      "ci95": [
+       -0.014373591746073848,
+       0.08552833667963099
+      ],
+      "p_one_sided": 0.07946026986506746,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.352803738317757,
+      "ci95": [
+       0.30511407942643326,
+       0.39474021592442643
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.06267051661164567,
+     "disc_p_BH_secondary_family": 0.5122438780609695
+    },
+    "primary:A1|XD|BAL2": {
+     "n_pairs": 2367,
+     "n_cond": 428,
+     "P_cond": 0.1808196028728348,
+     "P_out_given_cond": 0.6261682242990654,
+     "P_out_given_not": 0.5807117070654977,
+     "P_out": 0.5889311364596536,
+     "per_split": {
+      "discovery": {
+       "theta": 0.03455319364886045,
+       "ci95": [
+        -0.023941819972464765,
+        0.0874649927295837
+       ],
+       "p_one_sided": 0.13093453273363317,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.20028510334996436,
+       "P_out_given_cond": 0.6156583629893239,
+       "P_out_given_not": 0.5811051693404634
+      },
+      "validation": {
+       "theta": 0.0001603849238170918,
+       "ci95": [
+        -0.10375101673408743,
+        0.11217772624879438
+       ],
+       "p_one_sided": 0.4752623688155922,
+       "B_finite": 2000,
+       "n_cond": 87,
+       "P_cond": 0.16827852998065765,
+       "P_out_given_cond": 0.5862068965517241,
+       "P_out_given_not": 0.586046511627907
+      },
+      "holdout": {
+       "theta": 0.15968992248062008,
+       "ci95": [
+        0.04665785082743949,
+        0.2689049847917484
+       ],
+       "p_one_sided": 0.0024987506246876563,
+       "B_finite": 2000,
+       "n_cond": 60,
+       "P_cond": 0.1342281879194631,
+       "P_out_given_cond": 0.7333333333333333,
+       "P_out_given_not": 0.5736434108527132
+      }
+     },
+     "pooled": {
+      "theta": 0.045456517233567695,
+      "ci95": [
+       0.00011090392387369264,
+       0.09116659777271391
+      ],
+      "p_one_sided": 0.02498750624687656,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6261682242990654,
+      "ci95": [
+       0.5838985801217039,
+       0.6674260987231196
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.046498175652196556,
+     "disc_p_BH_secondary_family": 0.2805739987149282
+    },
+    "secondary:A2|TD|BAL1": {
+     "n_pairs": 2394,
+     "n_cond": 35,
+     "P_cond": 0.014619883040935672,
+     "P_out_given_cond": 0.6285714285714286,
+     "P_out_given_not": 0.46841882153454856,
+     "P_out": 0.47076023391812866,
+     "per_split": {
+      "discovery": {
+       "theta": 0.18592486923442697,
+       "ci95": [
+        -0.004945403691522715,
+        0.36008671836021483
+       ],
+       "p_one_sided": 0.02848575712143928,
+       "B_finite": 2000,
+       "n_cond": 24,
+       "P_cond": 0.016830294530154277,
+       "P_out_given_cond": 0.6666666666666666,
+       "P_out_given_not": 0.48074179743223966
+      },
+      "validation": {
+       "theta": 0.08674463937621835,
+       "ci95": [
+        -0.41953987382418495,
+        0.5985128400826075
+       ],
+       "p_one_sided": 0.23597194388777556,
+       "B_finite": 1995,
+       "n_cond": 6,
+       "P_cond": 0.011560693641618497,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.41325536062378165
+      },
+      "holdout": {
+       "theta": 0.10675675675675672,
+       "ci95": [
+        -0.4960912475976938,
+        0.53125
+       ],
+       "p_one_sided": 0.32429718875502006,
+       "B_finite": 1991,
+       "n_cond": 5,
+       "P_cond": 0.011135857461024499,
+       "P_out_given_cond": 0.6,
+       "P_out_given_not": 0.49324324324324326
+      }
+     },
+     "pooled": {
+      "theta": 0.16015260703688,
+      "ci95": [
+       -0.009168628408751035,
+       0.31142228581188125
+      ],
+      "p_one_sided": 0.031484257871064465,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6285714285714286,
+      "ci95": [
+       0.46153846153846156,
+       0.7804878048780488
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.04316844767899775,
+     "disc_p_BH_secondary_family": 0.17091454272863565
+    },
+    "secondary:A2|TD|BAL1third": {
+     "n_pairs": 2394,
+     "n_cond": 35,
+     "P_cond": 0.014619883040935672,
+     "P_out_given_cond": 0.42857142857142855,
+     "P_out_given_not": 0.3022467147096227,
+     "P_out": 0.30409356725146197,
+     "per_split": {
+      "discovery": {
+       "theta": 0.17902995720399428,
+       "ci95": [
+        -0.02182351826604585,
+        0.37153806797669103
+       ],
+       "p_one_sided": 0.038980509745127435,
+       "B_finite": 2000,
+       "n_cond": 24,
+       "P_cond": 0.016830294530154277,
+       "P_out_given_cond": 0.5,
+       "P_out_given_not": 0.3209700427960057
+      },
+      "validation": {
+       "theta": 0.08576998050682261,
+       "ci95": [
+        -0.27325581395348836,
+        0.7216710065547267
+       ],
+       "p_one_sided": 0.26703406813627256,
+       "B_finite": 1995,
+       "n_cond": 6,
+       "P_cond": 0.011560693641618497,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.2475633528265107
+      },
+      "holdout": {
+       "theta": -0.10630630630630628,
+       "ci95": [
+        -0.3355855855855856,
+        0.5011046158518069
+       ],
+       "p_one_sided": 0.7043172690763052,
+       "B_finite": 1991,
+       "n_cond": 5,
+       "P_cond": 0.011135857461024499,
+       "P_out_given_cond": 0.2,
+       "P_out_given_not": 0.3063063063063063
+      }
+     },
+     "pooled": {
+      "theta": 0.12632471386180583,
+      "ci95": [
+       -0.04123821169852002,
+       0.29326573436205255
+      ],
+      "p_one_sided": 0.06146926536731634,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.42857142857142855,
+      "ci95": [
+       0.2647058823529412,
+       0.5897435897435898
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.07942913635668665,
+     "disc_p_BH_secondary_family": 0.19061897622617266
+    },
+    "secondary:A2|TD|BAL2": {
+     "n_pairs": 2394,
+     "n_cond": 35,
+     "P_cond": 0.014619883040935672,
+     "P_out_given_cond": 0.5428571428571428,
+     "P_out_given_not": 0.5773632895294616,
+     "P_out": 0.576858813700919,
+     "per_split": {
+      "discovery": {
+       "theta": -0.16892534474560156,
+       "ci95": [
+        -0.3615001480038753,
+        0.03990627490111657
+       ],
+       "p_one_sided": 0.9495252373813093,
+       "B_finite": 2000,
+       "n_cond": 24,
+       "P_cond": 0.016830294530154277,
+       "P_out_given_cond": 0.4166666666666667,
+       "P_out_given_not": 0.5855920114122682
+      },
+      "validation": {
+       "theta": 0.09746588693957114,
+       "ci95": [
+        -0.5620656370656371,
+        0.4534883720930233
+       ],
+       "p_one_sided": 0.4183366733466934,
+       "B_finite": 1995,
+       "n_cond": 6,
+       "P_cond": 0.011560693641618497,
+       "P_out_given_cond": 0.6666666666666666,
+       "P_out_given_not": 0.5692007797270955
+      },
+      "holdout": {
+       "theta": 0.43918918918918914,
+       "ci95": [
+        0.38504821936029987,
+        0.48645577582533533
+       ],
+       "p_one_sided": 0.000502008032128514,
+       "B_finite": 1991,
+       "n_cond": 5,
+       "P_cond": 0.011135857461024499,
+       "P_out_given_cond": 1.0,
+       "P_out_given_not": 0.5608108108108109
+      }
+     },
+     "pooled": {
+      "theta": -0.03450614667231877,
+      "ci95": [
+       -0.2131817048853439,
+       0.13669595374147225
+      ],
+      "p_one_sided": 0.6441779110444777,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5428571428571428,
+      "ci95": [
+       0.36363636363636365,
+       0.7142857142857143
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.7215042206620921,
+     "disc_p_BH_secondary_family": 0.9995002498750625
+    },
+    "secondary:A2|TDlite|BAL1": {
+     "n_pairs": 2394,
+     "n_cond": 67,
+     "P_cond": 0.027986633249791143,
+     "P_out_given_cond": 0.5223880597014925,
+     "P_out_given_not": 0.4692737430167598,
+     "P_out": 0.47076023391812866,
+     "per_split": {
+      "discovery": {
+       "theta": 0.09375901875901871,
+       "ci95": [
+        -0.07114256346668404,
+        0.24523520632803839
+       ],
+       "p_one_sided": 0.12343828085957022,
+       "B_finite": 2000,
+       "n_cond": 40,
+       "P_cond": 0.028050490883590462,
+       "P_out_given_cond": 0.575,
+       "P_out_given_not": 0.48124098124098125
+      },
+      "validation": {
+       "theta": -0.08383233532934131,
+       "ci95": [
+        -0.3296324655160742,
+        0.1575403701084394
+       ],
+       "p_one_sided": 0.7931034482758621,
+       "B_finite": 2000,
+       "n_cond": 18,
+       "P_cond": 0.03468208092485549,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.4171656686626746
+      },
+      "holdout": {
+       "theta": 0.17575757575757572,
+       "ci95": [
+        -0.18140321237046556,
+        0.49776564384295846
+       ],
+       "p_one_sided": 0.14992503748125938,
+       "B_finite": 2000,
+       "n_cond": 9,
+       "P_cond": 0.0200445434298441,
+       "P_out_given_cond": 0.6666666666666666,
+       "P_out_given_not": 0.4909090909090909
+      }
+     },
+     "pooled": {
+      "theta": 0.05311431668473271,
+      "ci95": [
+       -0.07213002001621009,
+       0.18323268352020672
+      ],
+      "p_one_sided": 0.18990504747626186,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5223880597014925,
+      "ci95": [
+       0.39436619718309857,
+       0.6500198412698411
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.23109119867620442,
+     "disc_p_BH_secondary_family": 0.2743072907990449
+    },
+    "secondary:A2|TDlite|BAL1third": {
+     "n_pairs": 2394,
+     "n_cond": 67,
+     "P_cond": 0.027986633249791143,
+     "P_out_given_cond": 0.373134328358209,
+     "P_out_given_not": 0.30210571551353677,
+     "P_out": 0.30409356725146197,
+     "per_split": {
+      "discovery": {
+       "theta": 0.10393217893217893,
+       "ci95": [
+        -0.06205822545407777,
+        0.26365018307401955
+       ],
+       "p_one_sided": 0.10394802598700649,
+       "B_finite": 2000,
+       "n_cond": 40,
+       "P_cond": 0.028050490883590462,
+       "P_out_given_cond": 0.425,
+       "P_out_given_not": 0.32106782106782106
+      },
+      "validation": {
+       "theta": 0.03027278775781772,
+       "ci95": [
+        -0.18599746552509555,
+        0.25637896825396805
+       ],
+       "p_one_sided": 0.47226386806596704,
+       "B_finite": 2000,
+       "n_cond": 18,
+       "P_cond": 0.03468208092485549,
+       "P_out_given_cond": 0.2777777777777778,
+       "P_out_given_not": 0.24750499001996007
+      },
+      "holdout": {
+       "theta": 0.02878787878787875,
+       "ci95": [
+        -0.28410747044435386,
+        0.3954206536012125
+       ],
+       "p_one_sided": 0.44577711144427784,
+       "B_finite": 2000,
+       "n_cond": 9,
+       "P_cond": 0.0200445434298441,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.30454545454545456
+      }
+     },
+     "pooled": {
+      "theta": 0.07102861284467221,
+      "ci95": [
+       -0.04309125030266358,
+       0.19603165413195836
+      ],
+      "p_one_sided": 0.11494252873563218,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.373134328358209,
+      "ci95": [
+       0.26153846153846155,
+       0.5
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.1338561805803613,
+     "disc_p_BH_secondary_family": 0.2421865990081882
+    },
+    "secondary:A2|TDlite|BAL2": {
+     "n_pairs": 2394,
+     "n_cond": 67,
+     "P_cond": 0.027986633249791143,
+     "P_out_given_cond": 0.47761194029850745,
+     "P_out_given_not": 0.5797163730124624,
+     "P_out": 0.576858813700919,
+     "per_split": {
+      "discovery": {
+       "theta": -0.11085858585858588,
+       "ci95": [
+        -0.2880387052868027,
+        0.06015998721685118
+       ],
+       "p_one_sided": 0.9025487256371814,
+       "B_finite": 2000,
+       "n_cond": 40,
+       "P_cond": 0.028050490883590462,
+       "P_out_given_cond": 0.475,
+       "P_out_given_not": 0.5858585858585859
+      },
+      "validation": {
+       "theta": -0.24550898203592814,
+       "ci95": [
+        -0.48363621558278586,
+        -0.029928564425159065
+       ],
+       "p_one_sided": 0.9850074962518741,
+       "B_finite": 2000,
+       "n_cond": 18,
+       "P_cond": 0.03468208092485549,
+       "P_out_given_cond": 0.3333333333333333,
+       "P_out_given_not": 0.5788423153692615
+      },
+      "holdout": {
+       "theta": 0.2164141414141414,
+       "ci95": [
+        -0.10944040266607447,
+        0.451056248705736
+       ],
+       "p_one_sided": 0.08295852073963018,
+       "B_finite": 2000,
+       "n_cond": 9,
+       "P_cond": 0.0200445434298441,
+       "P_out_given_cond": 0.7777777777777778,
+       "P_out_given_not": 0.5613636363636364
+      }
+     },
+     "pooled": {
+      "theta": -0.10210443271395492,
+      "ci95": [
+       -0.23487233054807216,
+       0.027866371719997035
+      ],
+      "p_one_sided": 0.9380309845077461,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.47761194029850745,
+      "ci95": [
+       0.34776679841897234,
+       0.6060730253353204
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.96283593145574,
+     "disc_p_BH_secondary_family": 0.9670164917541229
+    },
+    "secondary:A2|XD|BAL1": {
+     "n_pairs": 2373,
+     "n_cond": 431,
+     "P_cond": 0.18162663295406659,
+     "P_out_given_cond": 0.5104408352668214,
+     "P_out_given_not": 0.45983522142121525,
+     "P_out": 0.4690265486725664,
+     "per_split": {
+      "discovery": {
+       "theta": 0.056939501779359414,
+       "ci95": [
+        -0.009795684865062783,
+        0.12806765237013182
+       ],
+       "p_one_sided": 0.04447776111944028,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.2,
+       "P_out_given_cond": 0.5266903914590747,
+       "P_out_given_not": 0.4697508896797153
+      },
+      "validation": {
+       "theta": -0.019906137945581104,
+       "ci95": [
+        -0.1369079335944705,
+        0.0815705979924593
+       ],
+       "p_one_sided": 0.6951524237881059,
+       "B_finite": 2000,
+       "n_cond": 88,
+       "P_cond": 0.16955684007707128,
+       "P_out_given_cond": 0.3977272727272727,
+       "P_out_given_not": 0.4176334106728538
+      },
+      "holdout": {
+       "theta": 0.11873801783779281,
+       "ci95": [
+        -0.011336533180461295,
+        0.24355516242711847
+       ],
+       "p_one_sided": 0.034482758620689655,
+       "B_finite": 2000,
+       "n_cond": 62,
+       "P_cond": 0.13808463251670378,
+       "P_out_given_cond": 0.5967741935483871,
+       "P_out_given_not": 0.4780361757105943
+      }
+     },
+     "pooled": {
+      "theta": 0.050605613845606134,
+      "ci95": [
+       0.002463519588693219,
+       0.10530427861985972
+      ],
+      "p_one_sided": 0.01899050474762619,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.5104408352668214,
+      "ci95": [
+       0.46410989986681794,
+       0.5607085928384796
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.03215476761357332,
+     "disc_p_BH_secondary_family": 0.19061897622617266
+    },
+    "secondary:A2|XD|BAL1third": {
+     "n_pairs": 2373,
+     "n_cond": 431,
+     "P_cond": 0.18162663295406659,
+     "P_out_given_cond": 0.34106728538283065,
+     "P_out_given_not": 0.2940267765190525,
+     "P_out": 0.3025705857564265,
+     "per_split": {
+      "discovery": {
+       "theta": 0.047153024911032015,
+       "ci95": [
+        -0.018114157451968142,
+        0.11162910570361685
+       ],
+       "p_one_sided": 0.07196401799100449,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.2,
+       "P_out_given_cond": 0.3594306049822064,
+       "P_out_given_not": 0.3122775800711744
+      },
+      "validation": {
+       "theta": 0.0017401392111368874,
+       "ci95": [
+        -0.09945732486620336,
+        0.0828231204699167
+       ],
+       "p_one_sided": 0.567216391804098,
+       "B_finite": 2000,
+       "n_cond": 88,
+       "P_cond": 0.16955684007707128,
+       "P_out_given_cond": 0.25,
+       "P_out_given_not": 0.2482598607888631
+      },
+      "holdout": {
+       "theta": 0.09510711011086104,
+       "ci95": [
+        -0.012265785094812652,
+        0.2144009877870418
+       ],
+       "p_one_sided": 0.04597701149425287,
+       "B_finite": 2000,
+       "n_cond": 62,
+       "P_cond": 0.13808463251670378,
+       "P_out_given_cond": 0.3870967741935484,
+       "P_out_given_not": 0.29198966408268734
+      }
+     },
+     "pooled": {
+      "theta": 0.04704050886377814,
+      "ci95": [
+       -0.0007179359853011404,
+       0.09680887686943211
+      ],
+      "p_one_sided": 0.029985007496251874,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.34106728538283065,
+      "ci95": [
+       0.29675294522314904,
+       0.3864646516895534
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.031855157834701546,
+     "disc_p_BH_secondary_family": 0.20308027804279674
+    },
+    "secondary:A2|XD|BAL2": {
+     "n_pairs": 2373,
+     "n_cond": 431,
+     "P_cond": 0.18162663295406659,
+     "P_out_given_cond": 0.6218097447795824,
+     "P_out_given_not": 0.566941297631308,
+     "P_out": 0.5769068689422672,
+     "per_split": {
+      "discovery": {
+       "theta": 0.045373665480427094,
+       "ci95": [
+        -0.0181081267785863,
+        0.11383263439941387
+       ],
+       "p_one_sided": 0.09245377311344327,
+       "B_finite": 2000,
+       "n_cond": 281,
+       "P_cond": 0.2,
+       "P_out_given_cond": 0.6192170818505338,
+       "P_out_given_not": 0.5738434163701067
+      },
+      "validation": {
+       "theta": 0.03846762286437466,
+       "ci95": [
+        -0.07716714601614365,
+        0.14318608052131815
+       ],
+       "p_one_sided": 0.22988505747126436,
+       "B_finite": 2000,
+       "n_cond": 88,
+       "P_cond": 0.16955684007707128,
+       "P_out_given_cond": 0.6022727272727273,
+       "P_out_given_not": 0.5638051044083526
+      },
+      "holdout": {
+       "theta": 0.11090272568142034,
+       "ci95": [
+        -0.012263933126618706,
+        0.23955654161400694
+       ],
+       "p_one_sided": 0.03548225887056472,
+       "B_finite": 2000,
+       "n_cond": 62,
+       "P_cond": 0.13808463251670378,
+       "P_out_given_cond": 0.6612903225806451,
+       "P_out_given_not": 0.5503875968992248
+      }
+     },
+     "pooled": {
+      "theta": 0.054868447148274435,
+      "ci95": [
+       0.005253890403733521,
+       0.11186838855851201
+      ],
+      "p_one_sided": 0.014992503748125937,
+      "B_finite": 2000
+     },
+     "pooled_P_out_given_cond": {
+      "theta": 0.6218097447795824,
+      "ci95": [
+       0.5754669281322875,
+       0.6742218732153055
+      ],
+      "p_one_sided": 0.0004997501249375312,
+      "B_finite": 2000
+     },
+     "fisher_p_greater": 0.02075864932462759,
+     "disc_p_BH_secondary_family": 0.23238380809595202
+    }
+   },
+   "n_sessions_primary": 2392,
+   "n_pairs_primary": 2388,
+   "XD_cut_Rsig_primary": 1.7514206984511518,
+   "P_TD_by_split_primary": {
+    "discovery": 0.0,
+    "validation": 0.0019305019305019305,
+    "holdout": 0.0
+   },
+   "P_TD_pooled_primary": 0.0004180602006688963,
+   "P_TDlite_pooled_primary": 0.001254180602006689,
+   "P_BAL1_pooled_primary": 0.49205685618729095,
+   "primary_cell": "primary:A1|TD|BAL1",
+   "persistence": {
+    "P_TDnext_given_TD": null,
+    "P_TD": 0.0,
+    "rd": {
+     "theta": null,
+     "ci95": [
+      null,
+      null
+     ],
+     "p_one_sided": null,
+     "B_finite": 0
+    }
+   },
+   "transition_matrix_row_normalised": {
+    "B": {
+     "B": 0.4906462585034014,
+     "O": 0.5093537414965986,
+     "T": 0.0
+    },
+    "O": {
+     "B": 0.49422442244224424,
+     "O": 0.504950495049505,
+     "T": 0.0008250825082508251
+    }
+   },
+   "transition_counts": {
+    "B": {
+     "B": 577,
+     "O": 599,
+     "T": 0
+    },
+    "O": {
+     "B": 599,
+     "O": 612,
+     "T": 1
+    }
+   },
+   "robustness": {
+    "excl_friday_to_monday": {
+     "theta": null,
+     "ci95": [
+      null,
+      null
+     ],
+     "p_one_sided": null,
+     "B_finite": 0
+    },
+    "up_trend_days": {
+     "theta": null,
+     "ci95": [
+      null,
+      null
+     ],
+     "p_one_sided": null,
+     "B_finite": 0,
+     "n": 0
+    },
+    "down_trend_days": {
+     "theta": null,
+     "ci95": [
+      null,
+      null
+     ],
+     "p_one_sided": null,
+     "B_finite": 0,
+     "n": 0
+    },
+    "per_year_rd": {
+     "2017": null,
+     "2018": null,
+     "2019": null,
+     "2020": null,
+     "2021": null,
+     "2022": null,
+     "2023": null,
+     "2024": null,
+     "2025": null,
+     "2026": null
+    },
+    "year_share": {
+     "shares": {
+      "2017": null,
+      "2018": null,
+      "2019": null,
+      "2020": null,
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null,
+      "2026": null
+     },
+     "max_abs_share": null,
+     "flag_year_gt_50pct": false
+    },
+    "by_prior_sigma_tercile": {
+     "T1": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0,
+      "n_TD": 0
+     },
+     "T2": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0,
+      "n_TD": 0
+     },
+     "T3": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0,
+      "n_TD": 0
+     }
+    },
+    "A0_full_day_session": {
+     "P_TD": 0.0,
+     "rd_TD_BAL1": {
+      "theta": null,
+      "ci95": [
+       null,
+       null
+      ],
+      "p_one_sided": null,
+      "B_finite": 0
+     }
+    }
+   },
+   "n_sessions_secondary": 2395,
+   "n_pairs_secondary": 2394,
+   "XD_cut_Rsig_secondary": 1.438511802699658,
+   "P_TD_by_split_secondary": {
+    "discovery": 0.016830294530154277,
+    "validation": 0.011560693641618497,
+    "holdout": 0.011111111111111112
+   },
+   "P_TD_pooled_secondary": 0.014613778705636743,
+   "P_TDlite_pooled_secondary": 0.027974947807933193,
+   "P_BAL1_pooled_secondary": 0.47056367432150314,
+   "primary_disc_p_BH": null,
+   "verdict_CL009": "INSUFFICIENT-N",
+   "CL031_q": {
+    "BAL1": {
+     "q": 0.5186915887850467,
+     "ci95": [
+      0.4641209792169714,
+      0.5647103726986977
+     ],
+     "P_out_given_not_XD": 0.4853017019082001,
+     "result": "REFUTED for the analogue"
+    },
+    "BAL2": {
+     "q": 0.6261682242990654,
+     "ci95": [
+      0.5838985801217039,
+      0.6674260987231196
+     ],
+     "P_out_given_not_XD": 0.5807117070654977,
+     "result": "REFUTED for the analogue"
+    }
+   },
+   "HYP010": {
+    "P_BAL2_given_TD": null,
+    "ci95": [
+     null,
+     null
+    ],
+    "P_BAL2_given_not_TD": 0.5896147403685092,
+    "result": "ABOVE RANGE",
+    "counted_in_verdicts": true
+   }
+  }
+ },
+ "implementation_notes": [
+  "BAL2 for a non-trend day d uses direction sign(C_d - O_d) of session d (the prereg names \"trend direction of d\", undefined on non-trend days).",
+  "XD cells exclude pairs whose sigma-hat is undefined.",
+  "OF-D1 (robustness-only path): A0 full-day IB = first 60 min after the server day's first bar (XAUUSD opens 18:00 NY, so \"17:00 NY\" has no bars); fixed after a crash in the disc run, before any OF-20 output was written."
+ ],
+ "overall_CL009": {
+  "supported": 0,
+  "rejected": 0,
+  "verdict": "INCONCLUSIVE"
+ },
+ "resolution": {
+  "CL031_q_above_0.15_symbols": 4,
+  "CL031_consistent_symbols": 0,
+  "persistence_ci_above_0_symbols": 0,
+  "reading": "Unresolved; stays CONTRADICTED-BY-SOURCE in the KB"
+ }
+}

@@ -1,0 +1,39 @@
+== TRUE tick spread (points; $0.01 each), 21 days, by UTC session:
+                median   mean   p75   p90   p95   p99          n
+Asia              12.0  12.33  13.0  13.0  14.0  17.0  3045662.0
+LDN-NY overlap    12.0  11.55  13.0  13.0  15.0  18.0  2702661.0
+London            12.0  11.93  13.0  13.0  15.0  18.0  2844407.0
+NY late            9.0  10.30  11.0  17.0  17.0  17.0  1761538.0
+Rollover 21-24    14.0  14.74  17.0  17.0  17.0  20.0   483314.0
+by weekday:
+           median   mean   p90   p99
+utc                                 
+Friday       12.0  11.70  14.0  18.0
+Monday       12.0  11.91  14.0  18.0
+Sunday       14.0  15.12  17.0  20.0
+Thursday     12.0  11.77  14.0  17.0
+Tuesday      12.0  11.79  14.0  17.0
+Wednesday    12.0  11.74  14.0  18.0
+
+== RECORDED M1 spread (minute MIN), 2018-01..2026-09, by session:
+                median  mean   p75   p90   p95   p99         n
+Asia              11.0  12.9  15.0  19.0  22.0  42.0  946766.0
+LDN-NY overlap     8.0   9.5  11.0  13.0  15.0  25.0  541156.0
+London             9.0  10.6  12.0  14.0  17.0  29.0  811727.0
+NY late           10.0  11.6  13.0  17.0  20.0  38.0  527464.0
+Rollover 21-24    14.0  18.3  20.0  27.0  35.0  94.0  263373.0
+by volatility regime (M15 ATR tercile, trailing):
+          median  mean   p90   p99
+low vol     11.0  12.8  19.0  48.0
+mid vol     10.0  12.3  17.0  40.0
+high vol     9.0  10.5  15.0  28.0
+by news regime:
+                                   median  mean   p90   p95   p99
+no release nearby                    10.0  12.1  18.0  22.0  42.0
+within 30 min of HIGH USD release     8.0   9.5  13.0  15.0  27.0
+
+stop M15 ATR median = $9.10: spread=$0.118 -> spread/stop 1.3%; spread/TP(2R) 0.6%, /TP(3R) 0.4%, /TP(5R) 0.3%; all-in cost/stop 3.5%
+
+stop M5 ATR median = $5.00: spread=$0.118 -> spread/stop 2.4%; spread/TP(2R) 1.2%, /TP(3R) 0.8%, /TP(5R) 0.5%; all-in cost/stop 6.3%
+
+stop $1.75 ($200 account limit) = $1.75: spread=$0.118 -> spread/stop 6.7%; spread/TP(2R) 3.4%, /TP(3R) 2.2%, /TP(5R) 1.3%; all-in cost/stop 18.1%

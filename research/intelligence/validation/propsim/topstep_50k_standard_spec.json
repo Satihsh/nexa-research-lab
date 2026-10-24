@@ -1,0 +1,25 @@
+{
+  "challengeId": "nexa-topstep-50k-standard-2026-10-18",
+  "name": "Topstep 50K Combine + XFA, Standard path, no DLL (NEXA hand-written from TOPSTEP_COMBINE_RULES_2026-10-18.md)",
+  "productType": "futures",
+  "accountSize": 50000,
+  "currency": "usd",
+  "steps": [
+    {
+      "profitTargetAmount": 3000,
+      "minTradingDays": 2,
+      "maxDays": 250,
+      "consistency": { "maxBestDayProfitPct": 55 }
+    }
+  ],
+  "dailyLoss": null,
+  "maxLoss": { "amount": 2000, "mode": "trailing-realized-eod", "locksAtInitial": true, "lockOffsetAmount": 0 },
+  "fees": { "price": 49, "billing": "monthly", "resetFee": 49, "activationFee": 149, "refundableOnPass": false },
+  "funded": {
+    "profitSplitPct": 90,
+    "payoutFrequency": "on-demand",
+    "firstPayoutMinDays": 5,
+    "maxLoss": { "amount": 2000, "mode": "trailing-realized-eod", "locksAtInitial": true, "lockOffsetAmount": 0 },
+    "payoutRules": { "minWinningDays": 5, "winningDayMinProfit": 150, "maxPayoutPctOfProfit": 50, "maxPayoutAmount": 2000 }
+  }
+}

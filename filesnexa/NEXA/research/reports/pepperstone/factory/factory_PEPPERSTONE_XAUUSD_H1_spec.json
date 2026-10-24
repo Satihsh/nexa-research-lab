@@ -1,0 +1,268 @@
+[
+ {
+  "name": "TL_STDB_d20_s2.0",
+  "family": "trend_breakout",
+  "hypothesis": "Trend regime + HTF agreement + Donchian breakout continues for >=2R more often than cost-adjusted chance",
+  "invalidation": "close back through the Supertrend band / stop hit",
+  "regime_assumption": "trending, ADX > 18",
+  "failure_conditions": "chop, spread > 0.1 ATR, news spikes",
+  "source": "NEXA-Agent-Lab TrendLock_Quantum_Synthesis.mq5",
+  "params": {
+   "don": 20,
+   "sl_atr": 2.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "TL_STDB_d20_s3.0",
+  "family": "trend_breakout",
+  "hypothesis": "Trend regime + HTF agreement + Donchian breakout continues for >=2R more often than cost-adjusted chance",
+  "invalidation": "close back through the Supertrend band / stop hit",
+  "regime_assumption": "trending, ADX > 18",
+  "failure_conditions": "chop, spread > 0.1 ATR, news spikes",
+  "source": "NEXA-Agent-Lab TrendLock_Quantum_Synthesis.mq5",
+  "params": {
+   "don": 20,
+   "sl_atr": 3.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "TL_STDB_d55_s2.0",
+  "family": "trend_breakout",
+  "hypothesis": "Trend regime + HTF agreement + Donchian breakout continues for >=2R more often than cost-adjusted chance",
+  "invalidation": "close back through the Supertrend band / stop hit",
+  "regime_assumption": "trending, ADX > 18",
+  "failure_conditions": "chop, spread > 0.1 ATR, news spikes",
+  "source": "NEXA-Agent-Lab TrendLock_Quantum_Synthesis.mq5",
+  "params": {
+   "don": 55,
+   "sl_atr": 2.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "TL_STDB_d55_s3.0",
+  "family": "trend_breakout",
+  "hypothesis": "Trend regime + HTF agreement + Donchian breakout continues for >=2R more often than cost-adjusted chance",
+  "invalidation": "close back through the Supertrend band / stop hit",
+  "regime_assumption": "trending, ADX > 18",
+  "failure_conditions": "chop, spread > 0.1 ATR, news spikes",
+  "source": "NEXA-Agent-Lab TrendLock_Quantum_Synthesis.mq5",
+  "params": {
+   "don": 55,
+   "sl_atr": 3.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "DONCHIAN_d20_s2.0",
+  "family": "breakout",
+  "hypothesis": "Plain channel breakout (control for TL_STDB's filters)",
+  "invalidation": "stop hit",
+  "regime_assumption": "any",
+  "failure_conditions": "range regimes",
+  "source": "Research master section 20 (breakout)",
+  "params": {
+   "don": 20,
+   "sl_atr": 2.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "DONCHIAN_d20_s3.0",
+  "family": "breakout",
+  "hypothesis": "Plain channel breakout (control for TL_STDB's filters)",
+  "invalidation": "stop hit",
+  "regime_assumption": "any",
+  "failure_conditions": "range regimes",
+  "source": "Research master section 20 (breakout)",
+  "params": {
+   "don": 20,
+   "sl_atr": 3.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "DONCHIAN_d55_s2.0",
+  "family": "breakout",
+  "hypothesis": "Plain channel breakout (control for TL_STDB's filters)",
+  "invalidation": "stop hit",
+  "regime_assumption": "any",
+  "failure_conditions": "range regimes",
+  "source": "Research master section 20 (breakout)",
+  "params": {
+   "don": 55,
+   "sl_atr": 2.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "DONCHIAN_d55_s3.0",
+  "family": "breakout",
+  "hypothesis": "Plain channel breakout (control for TL_STDB's filters)",
+  "invalidation": "stop hit",
+  "regime_assumption": "any",
+  "failure_conditions": "range regimes",
+  "source": "Research master section 20 (breakout)",
+  "params": {
+   "don": 55,
+   "sl_atr": 3.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ },
+ {
+  "name": "TSMOM_l48",
+  "family": "momentum",
+  "hypothesis": "Sign of trailing return persists",
+  "invalidation": "stop hit",
+  "regime_assumption": "persistent trends",
+  "failure_conditions": "V-reversals",
+  "source": "Research master section 12 (momentum)",
+  "params": {
+   "look": 48
+  },
+  "target_r": 2.0,
+  "max_hold": 120
+ },
+ {
+  "name": "TSMOM_l120",
+  "family": "momentum",
+  "hypothesis": "Sign of trailing return persists",
+  "invalidation": "stop hit",
+  "regime_assumption": "persistent trends",
+  "failure_conditions": "V-reversals",
+  "source": "Research master section 12 (momentum)",
+  "params": {
+   "look": 120
+  },
+  "target_r": 2.0,
+  "max_hold": 120
+ },
+ {
+  "name": "TSMOM_l240",
+  "family": "momentum",
+  "hypothesis": "Sign of trailing return persists",
+  "invalidation": "stop hit",
+  "regime_assumption": "persistent trends",
+  "failure_conditions": "V-reversals",
+  "source": "Research master section 12 (momentum)",
+  "params": {
+   "look": 240
+  },
+  "target_r": 2.0,
+  "max_hold": 120
+ },
+ {
+  "name": "MR_Z_l24_z2.0",
+  "family": "mean_reversion",
+  "hypothesis": "Stretched closes revert in non-trending regimes",
+  "invalidation": "stop hit",
+  "regime_assumption": "ADX < 20",
+  "failure_conditions": "trend onset",
+  "source": "Research master section 12 (mean reversion)",
+  "params": {
+   "look": 24,
+   "z_in": 2.0
+  },
+  "target_r": 1.0,
+  "max_hold": 24
+ },
+ {
+  "name": "MR_Z_l24_z2.5",
+  "family": "mean_reversion",
+  "hypothesis": "Stretched closes revert in non-trending regimes",
+  "invalidation": "stop hit",
+  "regime_assumption": "ADX < 20",
+  "failure_conditions": "trend onset",
+  "source": "Research master section 12 (mean reversion)",
+  "params": {
+   "look": 24,
+   "z_in": 2.5
+  },
+  "target_r": 1.0,
+  "max_hold": 24
+ },
+ {
+  "name": "MR_Z_l48_z2.0",
+  "family": "mean_reversion",
+  "hypothesis": "Stretched closes revert in non-trending regimes",
+  "invalidation": "stop hit",
+  "regime_assumption": "ADX < 20",
+  "failure_conditions": "trend onset",
+  "source": "Research master section 12 (mean reversion)",
+  "params": {
+   "look": 48,
+   "z_in": 2.0
+  },
+  "target_r": 1.0,
+  "max_hold": 24
+ },
+ {
+  "name": "MR_Z_l48_z2.5",
+  "family": "mean_reversion",
+  "hypothesis": "Stretched closes revert in non-trending regimes",
+  "invalidation": "stop hit",
+  "regime_assumption": "ADX < 20",
+  "failure_conditions": "trend onset",
+  "source": "Research master section 12 (mean reversion)",
+  "params": {
+   "look": 48,
+   "z_in": 2.5
+  },
+  "target_r": 1.0,
+  "max_hold": 24
+ },
+ {
+  "name": "CAM_REV_L3",
+  "family": "camarilla",
+  "hypothesis": "Failed excursion beyond H/L level reverts",
+  "invalidation": "stop hit",
+  "regime_assumption": "range days",
+  "failure_conditions": "trend days",
+  "source": "Research master section 11 (Camarilla)",
+  "params": {
+   "level": 3
+  },
+  "target_r": 1.5,
+  "max_hold": 24
+ },
+ {
+  "name": "CAM_REV_L4",
+  "family": "camarilla",
+  "hypothesis": "Failed excursion beyond H/L level reverts",
+  "invalidation": "stop hit",
+  "regime_assumption": "range days",
+  "failure_conditions": "trend days",
+  "source": "Research master section 11 (Camarilla)",
+  "params": {
+   "level": 4
+  },
+  "target_r": 1.5,
+  "max_hold": 24
+ },
+ {
+  "name": "NULL_RANDOM",
+  "family": "null",
+  "hypothesis": "No edge by construction",
+  "invalidation": "-",
+  "regime_assumption": "-",
+  "failure_conditions": "-",
+  "source": "baseline",
+  "params": {
+   "rate": 0.02,
+   "seed": 7,
+   "sl_atr": 2.0
+  },
+  "target_r": 2.0,
+  "max_hold": 72
+ }
+]

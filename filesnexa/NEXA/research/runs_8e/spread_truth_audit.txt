@@ -1,0 +1,24 @@
+== XAUUSD: ticks 10,837,582  minutes matched 27,846
+   tick spread (points): median 12.0 mean 11.81 p75 13.0 p90 14.0 p95 17.0 p99 18.0 | share of ticks with 0 spread 0.0
+   M1.spread == tick-minute min   : 0.968   mean abs diff 0.06
+   M1.spread == tick-minute first : 0.251   mean abs diff 1.62
+   M1.spread == tick-minute median: 0.198   mean abs diff 1.55
+   M1.spread == tick-minute mean  : 0.145   mean abs diff 1.66
+   M1.spread == tick-minute max   : 0.041   mean abs diff 5.59
+   minute-mean tick spread: median 12.05  | recorded M1 spread median 10.0
+== EURUSD: ticks 2,457,556  minutes matched 29,178
+   tick spread (points): median 0.0 mean 0.65 p75 0.0 p90 1.0 p95 2.0 p99 7.0 | share of ticks with 0 spread 0.844
+   M1.spread == tick-minute min   : 0.999   mean abs diff 0.00
+   M1.spread == tick-minute first : 0.941   mean abs diff 0.22
+   M1.spread == tick-minute median: 0.963   mean abs diff 0.14
+   M1.spread == tick-minute mean  : 0.917   mean abs diff 0.28
+   M1.spread == tick-minute max   : 0.141   mean abs diff 2.04
+   minute-mean tick spread: median 0.12  | recorded M1 spread median 0.0
+== GBPUSD: ticks 5,412,393  minutes matched 29,159
+   tick spread (points): median 1.0 mean 2.08 p75 2.0 p90 3.0 p95 3.0 p99 9.0 | share of ticks with 0 spread 0.208
+   M1.spread == tick-minute min   : 0.984   mean abs diff 0.02
+   M1.spread == tick-minute first : 0.287   mean abs diff 1.48
+   M1.spread == tick-minute median: 0.073   mean abs diff 1.53
+   M1.spread == tick-minute mean  : 0.060   mean abs diff 1.49
+   M1.spread == tick-minute max   : 0.004   mean abs diff 4.42
+   minute-mean tick spread: median 1.2  | recorded M1 spread median 0.0

@@ -1,0 +1,4 @@
+run=REG_S13_EURUSD_B
+start=2026-10-04 00:39:12
+end=2026-10-04 00:39:47
+expert=NEXA_EngFix\NEXA_EA_S13 symbol=EURUSD period=M1 model=4 from=2026.08.28 to=2026.09.26 deposit=200 leverage=200 delay=250

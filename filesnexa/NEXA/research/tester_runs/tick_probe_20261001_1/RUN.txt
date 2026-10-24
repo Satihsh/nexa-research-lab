@@ -1,0 +1,4 @@
+run=tick_probe_20261001_1
+start=2026-10-01 13:35:21
+end=2026-10-01 13:35:56
+expert=Advisors\NEXA_TickProbe symbol=XAUUSD period=M1 model=4 from=2026.09.24 to=2026.09.25 deposit=200 leverage=100 delay=0

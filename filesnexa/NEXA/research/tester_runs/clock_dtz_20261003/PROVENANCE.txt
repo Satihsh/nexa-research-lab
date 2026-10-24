@@ -1,0 +1,4 @@
+common_sha256=bbf22ee900f7e6627f1890445cbef7a2d15b24745ceed46d56368d31662f9409
+harness_ex5_sha256=34e47a071d7047adfe36e80c753d305188a85cf6dfd1a64dda4bcff8ad9492a5
+results_sha256=16fe72f263f750aa8540f639bc329f51e46f410b41bd77bb3856571936d5ece1
+note=D-TZ clock harness (2026-10-03): every server hour 2000-01-01..2031-01-01 through the compiled NexaServerGMTOffsetHours/NexaGMTHourOf

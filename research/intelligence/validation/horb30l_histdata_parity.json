@@ -1,0 +1,85 @@
+{
+ "stage": "parity (in-sample only)",
+ "window": [
+  "2023-02-21",
+  "2023-12-29"
+ ],
+ "manifest_files": [
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2010.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2011.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2012.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2013.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2014.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2015.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2016.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2017.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2018.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2019.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2020.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2021.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2022.zip",
+  "HISTDATA_COM_ASCII_NSXUSD_M1_2023.zip"
+ ],
+ "load_audit": {
+  "rows": 254215,
+  "duplicates_dropped": 60,
+  "first_utc": "2023-02-20T00:00:00+00:00",
+  "last_utc": "2023-12-29T21:12:00+00:00"
+ },
+ "n_days": 103,
+ "n_both_trade": 45,
+ "metrics": {
+  "P1_status_agree": 0.7572815533980582,
+  "P2a_entry_min_agree": 0.4666666666666667,
+  "P2b_exit_kind_agree": 0.7333333333333333,
+  "P3_R_corr": 0.7434912580192654
+ },
+ "thresholds": {
+  "P1_status_agree": 0.8,
+  "P2a_entry_min_agree": 0.75,
+  "P2b_exit_kind_agree": 0.75,
+  "P3_R_corr": 0.75
+ },
+ "checks": {
+  "P1_status_agree": false,
+  "P2a_entry_min_agree": false,
+  "P2b_exit_kind_agree": false,
+  "P3_R_corr": false
+ },
+ "PASS": false,
+ "descriptive": {
+  "mean_R_S1_histdata": -0.1129007173214149,
+  "n_trades_histdata": 63,
+  "mean_R_S1_nq": 0.16336206153300886,
+  "n_trades_nq": 52,
+  "median_offset_bid_minus_nq_1000": -82.6309999999994,
+  "entry_min_diff_counts": {
+   "0.0": 21,
+   "45.0": 4,
+   "30.0": 3,
+   "-35.0": 2,
+   "-30.0": 2,
+   "40.0": 2,
+   "15.0": 2,
+   "-55.0": 1,
+   "35.0": 1,
+   "20.0": 1,
+   "25.0": 1,
+   "60.0": 1,
+   "-40.0": 1,
+   "65.0": 1,
+   "5.0": 1,
+   "-25.0": 1
+  },
+  "status_crosstab": {
+   "no_breakout": {
+    "no_breakout": 33,
+    "trade": 18
+   },
+   "trade": {
+    "no_breakout": 7,
+    "trade": 45
+   }
+  }
+ }
+}

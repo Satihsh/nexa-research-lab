@@ -1,0 +1,4 @@
+run=fillguard_s14_20261004
+start=2026-10-04 01:23:26
+end=2026-10-04 01:23:51
+expert=NEXA_EngFix\NEXA_FillGuardTest_S14 symbol=EURUSD period=M1 model=2 from=2024.01.08 to=2024.01.12 deposit=10000 leverage=200 delay=0
